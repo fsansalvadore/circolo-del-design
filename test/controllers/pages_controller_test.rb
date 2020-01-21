@@ -6,4 +6,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get privacy_cookie_policy" do
+    get events_privacy_cookie_policy_url
+    assert_response :success
+  end
 end

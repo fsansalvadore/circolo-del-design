@@ -14,8 +14,8 @@
       </div>
       <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-carousel">
         <div class="carousel-slider-a w-clearfix">
-          <a href="events/club-futuro-vol-1-the-exhibition.html" class="carousel-a-slide w-inline-block">
-            <div class="carousel-slide-img slide-club-exhibition"></div>
+          <%= link_to events_club_futuro_vol_1_the_exhibition_path, class: "carousel-a-slide w-inline-block" do %>
+<!--           <a href="events/club-futuro-vol-1-the-exhibition.html" class="carousel-a-slide w-inline-block"> -->            <div class="carousel-slide-img slide-club-exhibition"></div>
             <div class="carousel-a-text-block">
               <div class="slider-date">
                 <div class="div-block-40"></div>
@@ -24,8 +24,9 @@
               <div class="slider-a-title">&gt; Club Futuro vol. 1 -<br>The Exhibition<br></div>
             </div>
             <div class="carousel-category-label mostre">Mostra</div>
-          </a>
-          <a href="events/missing-out.html" class="carousel-a-slide w-inline-block last-slide">
+          <!-- </a> -->
+          <% end %>
+          <%= link_to events_missing_out_path, class: "carousel-a-slide w-inline-block last-slide" do %>
             <div class="carousel-slide-img slide-missing-out"
             style= "
               /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, transparent), to(#000)), url('CDD_evento_Missing-Out_Vanessa-Vozzo_.jpg');*/
@@ -41,7 +42,7 @@
               <div class="slider-a-title">Missing Out<br></div>
             </div>
             <div class="carousel-category-label evento">Evento</div>
-          </a>
+            <% end %>
         </div>
         <div class="carousel-a-nav-container">
           <ul class="carousel-a-nav-dots-container w-list-unstyled">
@@ -102,41 +103,3 @@
     </div>
     <div data-w-id="16774e7c-3763-9faa-476f-ff55a2d3f075" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="centered-big-text">Al Circolo del Design le <strong>aziende</strong> incontrano i professionisti,<br>i <strong>designer</strong> presentano i loro progetti,<br>i <strong>creativi</strong> si danno appuntamento, i <strong>ricercatori</strong> e gli <strong>studenti</strong> consultano la biblioteca e trovano un luogo in cui studiare e lavorare.</div>
   </div>
-  <footer class="section-a-6-footer">
-    <div>
-      <div class="footer-top w-clearfix">
-        <div class="footer-cdd-heading">
-          <%= image_tag "LOGO_CdD_white.svg", alt: "Circolo del Design logo", class: "logo-footer" %>
-          <div class="footer-cdd-info">© 2020 Circolo Del Design Torino<br>All Rights Reserved</div><a href="mailto:info@circolodeldesign.it?subject=Email%20da%20sito" class="footer-info-mail">info@circolodeldesign.it</a><a href="https://www.facebook.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social">Facebook</a><a href="https://twitter.com/CdD_torino" target="_blank" class="footer-cdd-info-social">Twitter</a><a href="https://www.instagram.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social last">Instagram</a>
-        </div>
-        <div class="footer-sitemap-block">
-            <strong>ORARI:</strong><br>
-            Martedì, giovedì, venerdì, sabato / 13.30 – 19<br>
-            Mercoledì / 13.30 – 20
-        </div>
-      </div>
-      <div class="footer-divider"></div>
-      <div class="footer-sostenitori-container">
-        <%= link_to "https://www.compagniadisanpaolo.it/", target: "_blank", class: "w-inline-block" do %>
-        <%= image_tag "1_Copagnia-san-paolo-logo-cdd-white.png", alt: "Compagnia San Paolo", class: "footer-sostenitore-img" %>
-        <% end %>
-        <%= link_to "https://www.to.camcom.it/", target: "_blank", class: "w-inline-block" do %>
-        <%= image_tag "2_camera-di-commercio-torino-logo-cdd-white.png", alt: "Camera di Commercio Industria Artigianato e agricoltura di Torino", class: "footer-sostenitore-img" %>
-        <% end %>
-        <%= link_to "https://www.cna.it/", target: "_blank", class: "w-inline-block" do %>
-        <%= image_tag "CNA-cdd-white.png", alt: "Confederazione Nazionale dell'Artigianato e della Piccola e Media Impresa", class: "footer-sostenitore-img" %>
-        <% end %>
-        <%= link_to "https://www.ui.torino.it/", target: "_blank", class: "w-inline-block" do %>
-        <%= image_tag "UnioneIndustriale-CdD-white.png", alt: "Unione Industriale Torino", class: "footer-sostenitore-img" %>
-        <% end %>
-      </div>
-      <div class="footer-divider"></div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-center"><a href="#top" class="footer-bottom-item">Back to top</a></div>
-        <div class="footer-bottom-right">
-          <a href="media/CDD_press_kit.zip" class="footer-bottom-item footer-link-spacing">Press Kit</a>
-          <a href="privacy-cookie-policy.html" class="footer-bottom-item footer-link-spacing">Privacy &amp; Cookie Policy</a><a href="https://www.saglietti.it/" target="_blank" class="footer-bottom-item footer-link-spacing">Design</a>
-          <a href="https://www.fsansalvadore.com/" target="_blank" class="footer-bottom-item footer-link-spacing">Webdesign</a></div>
-      </div>
-    </div>
-  </footer>

@@ -1959,21 +1959,6 @@ h2 {
   margin-right: 60px;
 }
 
-.hp-banner {
-  position: relative;
-  left: auto;
-  top: 100px;
-  right: auto;
-  bottom: 0px;
-  display: block;
-  height: 550px;
-  border-radius: 1px;
-  background-image: url('../images/CDD_ingresso_2.jpg');
-  background-position: 0px 0px;
-  background-size: cover;
-  box-shadow: 1px 1px 100px 0 rgba(0, 0, 0, 0.15);
-}
-
 .centered-big-text {
   max-width: 900px;
   margin-right: auto;
@@ -3141,35 +3126,6 @@ h2 {
   font-size: 24px;
 }
 
-.edu-card-img {
-  height: 240px;
-  background-image: url('../images/joanna-kosinska-bF2vsubyHcQ-unsplash.jpg');
-  background-position: 50% 50%;
-  background-size: cover;
-}
-
-.edu-card-img.edu-img-2 {
-  background-image: url('../images/ryan-wallace-azA1hLbjBBo-unsplash.jpg');
-}
-
-.edu-card-img.edu-img-4 {
-  background-image: url('../images/maarten-deckers-T5nXYXCf50I-unsplash.jpg');
-}
-
-.edu-card-img.edu-img-3 {
-  background-image: url('../images/hope-house-press-leather-diary-studio-IOzk8YKDhYg-unsplash.jpg');
-  background-position: 50% 50%;
-}
-
-.edu-card-img.proj-2 {
-  background-image: url('../images/Torino2.jpg');
-  background-position: 50% 50%;
-}
-
-.edu-card-img.proj-1 {
-  background-image: url('../images/CDD_ingresso_2.jpg');
-}
-
 .card-content {
   position: relative;
   padding: 15px 18px;
@@ -3733,28 +3689,6 @@ h2 {
   text-align: right;
 }
 
-.div-block-37 {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  background-image: url('../images/img-tint-1.jpg');
-  background-position: 50% 50%;
-  background-size: cover;
-}
-
-.div-block-37.proj {
-  background-image: url('../images/img-tint-2.jpg');
-}
-
-.div-block-37.talk {
-  background-image: url('../images/img-tint-3.jpg');
-}
-
-.div-block-37.mostre {
-  background-image: url('../images/img-tint-4.jpg');
-}
-
 .div-block-38 {
   max-width: 1200px;
   margin-right: auto;
@@ -3869,21 +3803,6 @@ h2 {
   bottom: 40px;
   z-index: 100;
   width: 40px;
-}
-
-.hp-banner-a2 {
-  position: relative;
-  left: auto;
-  top: 100px;
-  right: auto;
-  bottom: 0px;
-  width: 100%;
-  height: 550px;
-  border-radius: 1px;
-  background-image: url('../images/CDD_ingresso_2.jpg');
-  background-position: 0px 0px;
-  background-size: cover;
-  box-shadow: 1px 1px 100px 0 rgba(0, 0, 0, 0.15);
 }
 
 .slider {
@@ -4489,18 +4408,18 @@ div,
   z-index: -200;
   width: 100%;
   height: 100%;
-  background-image: asset-url('./images/CLUB-FUTURO_anteprima-evento-blur.jpg');
+  background-image: asset-url('CLUB-FUTURO_anteprima-evento-blur.jpg');
   background-position: 50% 50%;
   background-size: cover;
   opacity: 0.15;
 }
 
 .event-header-bg-img.missing-out {
-  background-image: url('../images/Vanessa-Vozzo_missing-Out_blur.jpg');
+  background-image: asset-url('Vanessa-Vozzo_missing-Out_blur.jpg');
 }
 
 .event-header-bg-img.club-futuro-exhibition {
-  background-image: url('../images/CLUB-FUTURO_evento_blur.jpg');
+  background-image: asset-url('CLUB-FUTURO_evento_blur.jpg');
 }
 
 .event-header-info-text {
@@ -4551,17 +4470,17 @@ div,
   width: 60%;
   height: 380px;
   border-radius: 3px;
-  background-image: url('../images/CLUB-FUTURO_anteprima-evento.jpg');
+  background-image: asset-url('CLUB-FUTURO_anteprima-evento.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
 
 .event-header-main-img.missing-out {
-  background-image: url('../images/CDD_evento_Missing-Out_Vanessa-Vozzo_.jpg');
+  background-image: asset-url('CDD_evento_Missing-Out_Vanessa-Vozzo_.jpg');
 }
 
 .event-header-main-img.club-futuro-exhibition {
-  background-image: url('../images/CLUB-FUTURO_evento.jpg');
+  background-image: asset-url('CLUB-FUTURO_evento.jpg');
 }
 
 .container-5 {
