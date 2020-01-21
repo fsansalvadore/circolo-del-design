@@ -52,7 +52,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #333;
+  color: #000;
 }
 img {
   max-width: 100%;
@@ -509,6 +509,10 @@ textarea.w-select {
   margin-right: auto;
   max-width: 1000px;
 }
+.w-container.large {
+  max-width: 1200px;
+}
+
 .w-container:before,
 .w-container:after {
   content: " ";
