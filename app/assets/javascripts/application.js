@@ -18,4 +18,3 @@
 //= require cookies
 //= require webflow
 //= require slider
-//= require event-popup
