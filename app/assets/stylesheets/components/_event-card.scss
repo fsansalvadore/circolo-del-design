@@ -1,0 +1,95 @@
+.calendar-main-container {
+  display: flex;
+  padding-top: 80px;
+}
+.calendar-content-left {
+  width: 100%;
+}
+
+.event-card-container {
+  width: 30%;
+  margin: 20px 1%;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
+  color: #000;
+  display: inline-block;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: box-shadow, transform;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  &:hover .event-card-content-container {
+    opacity: 1;
+  }
+
+  &:hover .event-card-title {
+    text-decoration: underline;
+  }
+
+  &.featured-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.event-card-img-container {
+  height: 150px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: teal;
+}
+
+.event-card-category-label {
+  position: absolute;
+  padding: 12px;
+  color: #fff;
+
+  &.mostra {
+    background-color: #F49FC6;
+  }
+}
+
+.event-card-content-container {
+  padding: 20px;
+  opacity: 0.8;
+}
+
+.event-card-date-container {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+
+  p {
+    margin: 0 0 0 10px;
+    padding: 0;
+  }
+}
+
+.event-card-title {
+  margin: 0;
+}
+
+.event-card-subtitle {
+  padding-top: 15px;
+}
+
+.calendar-aside-container {
+  flex-grow: 1;
+  position: sticky;
+}
+
+.section-label-container {
+  padding: 6px 2px;
+  border-bottom: 1px solid #000;
+  font-weight: bold;
+
+  &.pink {
+    background-color: #F49FC6;
+  }
+}
