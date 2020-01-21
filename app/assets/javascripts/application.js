@@ -14,7 +14,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-//= require cookies
-//= require webflow
-//= require slider

@@ -1,4 +1,4 @@
-
+const cookies = () => {
 
  window.addEventListener("load", function(){
   window.cookieconsent.initialise({
@@ -19,4 +19,6 @@
       "href": "privacy-cookie-policy.html"
     }
   })});
+}
 
+export { cookies };

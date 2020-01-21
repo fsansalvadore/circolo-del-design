@@ -1,3 +1,4 @@
+const slider = () => {
 
 const slider = document.querySelector('.carousel-slider-a');
 let slideIndex = 0;
@@ -11,3 +12,6 @@ navDots.forEach(function(dot, ind) {
     slider.style.transform = 'translateX(' + (slideIndex) * -(100/(navDots.length)) + '%)';
   });
 });
+}
+
+export { slider };
