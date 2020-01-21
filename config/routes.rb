@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'events/index'
   get 'events/show'
   get 'events/new'
