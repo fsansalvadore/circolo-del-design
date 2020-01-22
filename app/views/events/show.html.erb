@@ -1,2 +1,78 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div data-collapse="none" data-animation="default" data-duration="400" class="navbar-inner-page w-nav">
+  <%= link_to root_path, class: "brand w-nav-brand" do %>
+    <%= image_tag "LOGO_CdD.svg", alt: "Circolo del Design", width: "151", class: "image" %>
+  <% end %>
+</div>
+<div data-w-id="d9606d54-5066-d045-659c-1c2fc8596509" class="event-popup-details-container">
+    <div class="event-popup-content-container w-container">
+      <h1 class="event-popup-title"><%= @event.titolo %></h1>
+      <div class="event-popup-right-info">
+        <div>18 gennaio – 21 febbraio</div>
+        <div class="div-block-43 popup"></div>
+        <div class="event-focus-bar-price">Gratuito per i soci</div>
+      </div>
+    </div>
+  </div>
+  <header id="top" class="event-header-container">
+    <div class="event-header-top-info">
+      <div class="container-5 w-container large">
+        <div class="event-header-info-text">
+          <div class="event-header-label-container">
+            <div class="event-label mostra"><%= @event.categoria %></div>
+          </div>
+          <h1 class="event-header-title"><%= @event.titolo %></h1>
+          <div class="event-header-subtitle"><%= @event.sottotitolo %></div>
+        </div>
+        <div class="event-header-main-img club-futuro-exhibition"></div>
+      </div>
+      <div class="event-header-bg-img club-futuro-exhibition"></div>
+    </div>
+    <div id="event-focus-bar" class="event-header-focus-bar">
+      <div class="event-header-focus-bar-content w-container large">
+        <%= image_tag "calendar-icon.svg", alt: "calendar", class: "image-3"%>
+        <div class="event-focus-bar-date"><%= @event.data_inizio.strftime('%e %B') %><%= @event.data_inizio != @event.data_fine ? " - " + @event.data_fine.strftime('%e %B') : "" %></div>
+        <div class="div-block-43"></div>
+        <div class="event-focus-bar-price">Gratuito per i soci</div>
+      </div>
+    </div>
+  </header>
+  <div class="page-postheader" id="main-content">
+    <main class="event-article-container w-container large">
+      <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+        <div class="event-aside-line"></div>
+        <ul class="event-aside-list w-list-unstyled">
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">Data e ora</div>
+            <div class="event-aside-list-text"><%= @event.data_inizio.strftime('%e %B') %><%= @event.data_inizio != @event.data_fine ? " - " + @event.data_fine.strftime('%e %B') : "" %>
+              <br>
+              <% if !@event.orario.empty? %>
+                <%= @event.orario %>
+              <% end %>
+            </div>
+          </li>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">Prezzo</div>
+            <div class="event-aside-list-text">Gratuito per i soci //<br>tesseramento Circolo del Design €5</div>
+          </li>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">Luogo</div>
+            <div class="event-aside-list-text">
+              <%= @event.luogo.empty? ? "Via San Francesco da Paola 17<br>10123 Torino TO Italia" : @event.luogo %>
+            </div>
+          </li>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">Durata</div>
+            <div class="event-aside-list-text">1 mese</div>
+          </li>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">N° posti</div>
+            <div class="event-aside-list-text">Illimitati</div>
+          </li>
+        </ul>
+      </aside>
+      <article class="event-article-content">
+        <div><strong>❯ CLUB FUTURO VOL.1 - THE EXHIBITION<br></strong>A cura di Club Futuro<br>Prodotta da Circolo del Design e Club Futuro<br>18 gennaio – 21 febbraio 2020<br><br>La mostra mette in scena il complesso ecosistema dei club, spazi liminali dal forte potere generativo e realtà fatte di valori, essenze/assenze, visioni e modi di fruizione collettiva, immaginando futuri alternativi e strumenti per iniziare a costruirli.<br>Grazie al contributo di musicisti, visionari e professionisti nasce un racconto collettivo del patrimonio dei club di Torino, città che da factory-town, si è trasformata nell’arco degli scorsi decenni generando espressioni stupende di umanità.<br><br>A cura di: <a target="_blank" href="https://www.facebook.com/assclubfuturo/" class="text-link">Club Futuro</a><br>Produzione: Circolo del Design e Club Futuro<br>Direzione creativa: <a target="_blank" href="https://www.facebook.com/followyourikigai/" class="text-link">Ikigai Media</a><br>Fotografie: Antonio La Grotta<br>Sponsor tecnico: <a target="_blank" href="https://www.facebook.com/sonosit/" class="text-link">Sonos Italia</a><br><br><a href="https://www.facebook.com/events/2703407803089180/" target="_blank" class="text-link">Scopri di più &gt;</a></div>
+      </article>
+    </main>
+  </div>
+

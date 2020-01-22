@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :missing_out, :club_futuro_vol_1_the_exhibition]
-  # before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -63,7 +63,7 @@ class EventsController < ApplicationController
       :orario,
       :prezzo,
       :descrizione,
-      :immagine,
+      :photo,
       :categoria,
       :luogo,
       :durata,

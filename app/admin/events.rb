@@ -5,7 +5,7 @@ ActiveAdmin.register Event do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :titolo, :sottotitolo, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :immagine, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured
+  permit_params :titolo, :sottotitolo, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :photo, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured
   config.comments = false
   #
   # or
@@ -49,7 +49,7 @@ ActiveAdmin.register Event do
       f.input :orario
       f.input :prezzo
       f.input :descrizione, as: :quill_editor
-      f.input :immagine
+      f.input :photo, as: :file
       f.input :categoria
       f.input :luogo
       f.input :durata
