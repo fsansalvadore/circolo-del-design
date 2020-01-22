@@ -22,15 +22,15 @@ ActiveAdmin.register Event do
       link_to event.titolo, admin_event_path(event)
     end
     column :categoria
-    column "Data inizio", :data_inizio
+    column "Data inizio", :data_inizio, :sortable => :data_inizio
     column "Data fine", :data_fine
     column :published
     column :featured
-    column "Titolo" do |event|
-      link_to "Anteprima", events_path(event)
+    column "Anteprima" do |event|
+      link_to "Visualizza", events_path(event)
     end
 
-    # default_actions
+    actions
   end
 
   filter :titolo
@@ -40,4 +40,25 @@ ActiveAdmin.register Event do
   filter :published
   filter :featured
 
+  form do |f|
+    f.inputs 'Event' do
+      f.input :titolo
+      f.input :sottotitolo
+      f.input :data_inizio
+      f.input :data_fine
+      f.input :orario
+      f.input :prezzo
+      f.input :descrizione, as: :quill_editor
+      f.input :immagine
+      f.input :categoria
+      f.input :luogo
+      f.input :durata
+      f.input :posti
+      f.input :target
+      f.input :link
+      f.input :featured
+      f.input :published
+    end
+    f.actions
+  end
 end

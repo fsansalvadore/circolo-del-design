@@ -40,7 +40,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'simple_form'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'activeadmin_quill_editor'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'cloudinary', '~> 1.12.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
