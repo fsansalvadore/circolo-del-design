@@ -1,0 +1,45 @@
+.devise-bg-container {
+  position: absolute;
+  margin: 0;
+  padding: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFED00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.devise-content-container {
+  width: 90%;
+  max-width: 400px;
+
+  .form-inputs {
+    padding: 20px 0;
+  }
+
+  .input {
+    padding-top: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+  }
+
+  .form-actions {
+    padding-bottom: 20px;
+
+    input {
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  a {
+    color: #000;
+    margin: 4px 0;
+  }
+}
