@@ -6,6 +6,7 @@ ActiveAdmin.register Event do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :titolo, :sottotitolo, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :immagine, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured
+  config.comments = false
   #
   # or
   #
@@ -14,5 +15,29 @@ ActiveAdmin.register Event do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  index do
+    selectable_column
+    column "Titolo" do |event|
+      link_to event.titolo, admin_event_path(event)
+    end
+    column :categoria
+    column "Data inizio", :data_inizio
+    column "Data fine", :data_fine
+    column :published
+    column :featured
+    column "Titolo" do |event|
+      link_to "Anteprima", events_path(event)
+    end
+
+    # default_actions
+  end
+
+  filter :titolo
+  filter :data_inizio
+  filter :data_fine
+  filter :categoria
+  filter :published
+  filter :featured
 
 end
