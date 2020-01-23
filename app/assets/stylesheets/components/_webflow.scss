@@ -3836,7 +3836,7 @@ h2 {
 .carousel-slider-a {
   position: relative;
   display: block;
-  width: calc(200% + 30px);
+  width: calc(200% + 10px);
   height: 550px;
   -webkit-flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
@@ -3850,7 +3850,7 @@ h2 {
 .carousel-a-slide {
   position: relative;
   display: inline-block;
-  width: 49.5%;
+  width: 48.5%;
   height: 100%;
   margin-right: 12px;
   float: left;
@@ -4408,6 +4408,8 @@ div,
   z-index: -200;
   width: 100%;
   height: 100%;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
   background-image: asset-url('CLUB-FUTURO_anteprima-evento-blur.jpg');
   background-position: 50% 50%;
   background-size: cover;

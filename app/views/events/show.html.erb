@@ -1,2 +1,110 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div data-collapse="none" data-animation="default" data-duration="400" class="navbar-inner-page w-nav">
+  <%= link_to root_path, class: "brand w-nav-brand" do %>
+    <%= image_tag "LOGO_CdD.svg", alt: "Circolo del Design", width: "151", class: "image" %>
+  <% end %>
+</div>
+<div data-w-id="d9606d54-5066-d045-659c-1c2fc8596509" class="event-popup-details-container">
+    <div class="event-popup-content-container w-container large">
+      <h1 class="event-popup-title"><%= @event.titolo %></h1>
+      <div class="event-popup-right-info">
+        <div><%= @event.data_inizio.strftime('%e %B') %><%= @event.data_inizio != @event.data_fine ? " - " + @event.data_fine.strftime('%e %B') : "" %></div>
+        <div class="div-block-43 popup"></div>
+        <div class="event-focus-bar-price"><%= @event.prezzo %></div>
+      </div>
+    </div>
+  </div>
+  <header id="top" class="event-header-container">
+    <div class="event-header-top-info">
+      <div class="container-5 w-container large">
+        <div class="event-header-info-text">
+          <div class="event-header-label-container">
+            <div class="event-label mostra"><%= @event.categoria %></div>
+          </div>
+          <h1 class="event-header-title"><%= @event.titolo %></h1>
+          <div class="event-header-subtitle"><%= @event.sottotitolo %></div>
+        </div>
+        <div class="event-header-main-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
+      </div>
+      <div class="event-header-bg-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
+    </div>
+    <div id="event-focus-bar" class="event-header-focus-bar">
+      <div class="event-header-focus-bar-content w-container large">
+        <%= image_tag "calendar-icon.svg", alt: "calendar", class: "image-3"%>
+        <div class="event-focus-bar-date"><%= @event.data_inizio.strftime('%e %B') %><%= @event.data_inizio != @event.data_fine ? " - " + @event.data_fine.strftime('%e %B') : "" %></div>
+        <div class="div-block-43"></div>
+        <div class="event-focus-bar-price"><%= @event.prezzo %></div>
+      </div>
+    </div>
+  </header>
+  <div class="page-postheader" id="main-content">
+    <main class="event-article-container w-container large">
+      <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+        <div class="event-aside-line"></div>
+        <ul class="event-aside-list w-list-unstyled">
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">Data e ora</div>
+            <div class="event-aside-list-text"><%= @event.data_inizio.strftime('%e %B') %><%= @event.data_inizio != @event.data_fine ? " - " + @event.data_fine.strftime('%e %B') : "" %>
+              <br>
+              <% if !@event.orario.empty? %>
+                <%= @event.orario %>
+              <% end %>
+            </div>
+          </li>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">Prezzo</div>
+            <div class="event-aside-list-text">Gratuito per i soci //<br>tesseramento Circolo del Design €5</div>
+          </li>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">Luogo</div>
+            <div class="event-aside-list-text">
+              <% if @event.luogo.empty? %>
+                Via San Francesco da Paola 17<br>10123 Torino TO Italia
+              <% else %>
+                <%= @event.luogo %>
+              <% end %>
+            </div>
+          </li>
+          <% if !@event.durata.empty? %>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">Durata</div>
+            <div class="event-aside-list-text"><%= @event.durata %></div>
+          </li>
+          <% end %>
+          <% if !@event.posti.empty? %>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">N° posti</div>
+            <div class="event-aside-list-text"><%= @event.posti %></div>
+          </li>
+          <% end %>
+          <% if !@event.link.empty? %>
+          <a data-w-id="fc471873-720f-cc09-a5c1-695dae3ac255" href="<%= @event.link %>" target="_blank" class="btn-link-arrow event-aside w-inline-block">
+          <div class="text-block-3">Registrati</div>
+          <div class="arrow-right">
+            <div style="width:0PX" class="div-block-8"></div>
+            <div class="arrow-point-right">
+              <div class="div-block-3"></div>
+              <div class="div-block-3 arrow-point-lower"></div>
+            </div>
+          </div>
+        </a>
+          <% end %>
+        </ul>
+      </aside>
+      <article class="event-article-content">
+        <div>
+          <%=raw @event.descrizione %>
+        </div>
+      </article>
+    </main>
+  </div>
+<script>
+  const popup = $(".event-popup-details-container");
+
+  $(window).on('scroll', function () {
+      if ($(window).scrollTop() >= ($('#main-content').offset().top) - $('.navbar-inner-page').height()) {
+          popup.addClass('popup-open');
+      } else {
+          popup.removeClass('popup-open');
+      }
+  });
+</script>
