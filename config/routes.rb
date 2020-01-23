@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
-  get 'events/index'
-  get 'events/show'
-  get 'events/new'
-  get 'events/edit'
+  # get 'events/index'
+  # get 'events/show'
+  # get 'events/new'
+  # get 'events/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
 

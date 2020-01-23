@@ -1,0 +1,10 @@
+development:
+  cloud_name: "cdd"
+  api_key: "548793432417296"
+  api_secret: "pR6jFIVXUFs9idF_5yMykO2iv6E"
+
+production:
+  cloud_name: "cdd"
+  api_key: "548793432417296"
+  api_secret: "pR6jFIVXUFs9idF_5yMykO2iv6E"
+

@@ -39,16 +39,5 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
     <%= javascript_pack_tag 'application' %>
     <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script>
-    const popup = $(".event-popup-details-container");
-
-    $(window).on('scroll', function () {
-        if ($(window).scrollTop() >= ($('#main-content').offset().top) - $('.navbar-inner-page').height()) {
-            popup.addClass('popup-open');
-        } else {
-            popup.removeClass('popup-open');
-        }
-    });
-  </script>
   </body>
 </html>

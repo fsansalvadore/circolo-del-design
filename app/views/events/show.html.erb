@@ -23,9 +23,9 @@
           <h1 class="event-header-title"><%= @event.titolo %></h1>
           <div class="event-header-subtitle"><%= @event.sottotitolo %></div>
         </div>
-        <div class="event-header-main-img club-futuro-exhibition"></div>
+        <div class="event-header-main-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
       </div>
-      <div class="event-header-bg-img club-futuro-exhibition"></div>
+      <div class="event-header-bg-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
     </div>
     <div id="event-focus-bar" class="event-header-focus-bar">
       <div class="event-header-focus-bar-content w-container large">
@@ -97,4 +97,14 @@
       </article>
     </main>
   </div>
+<script>
+  const popup = $(".event-popup-details-container");
 
+  $(window).on('scroll', function () {
+      if ($(window).scrollTop() >= ($('#main-content').offset().top) - $('.navbar-inner-page').height()) {
+          popup.addClass('popup-open');
+      } else {
+          popup.removeClass('popup-open');
+      }
+  });
+</script>

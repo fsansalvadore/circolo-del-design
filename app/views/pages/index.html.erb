@@ -13,36 +13,21 @@
         <div data-w-id="6666dabb-4ad3-644b-af0f-4068709a7f08" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-block-2">Il Circolo del Design è uno spazio <strong>aperto</strong>, <strong>inclusivo</strong> e <strong>partecipato</strong>.</div>
       </div>
       <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-carousel">
-        <div class="carousel-slider-a w-clearfix">
-          <%= link_to events_club_futuro_vol_1_the_exhibition_path, class: "carousel-a-slide w-inline-block" do %>
-<!--           <a href="events/club-futuro-vol-1-the-exhibition.html" class="carousel-a-slide w-inline-block"> -->            <div class="carousel-slide-img slide-club-exhibition"></div>
-            <div class="carousel-a-text-block">
-              <div class="slider-date">
-                <div class="div-block-40"></div>
-                <div class="slide-a-date-text">18 gennaio – 21 febbraio<br></div>
-              </div>
-              <div class="slider-a-title">&gt; Club Futuro vol. 1 -<br>The Exhibition<br></div>
-            </div>
-            <div class="carousel-category-label mostre">Mostra</div>
-          <!-- </a> -->
-          <% end %>
-          <%= link_to events_missing_out_path, class: "carousel-a-slide w-inline-block last-slide" do %>
-            <div class="carousel-slide-img slide-missing-out"
-            style= "
-              /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, transparent), to(#000)), url('CDD_evento_Missing-Out_Vanessa-Vozzo_.jpg');*/
-              background-image: linear-gradient(180deg, transparent 25%, #000), asset-url('CDD_evento_Missing-Out_Vanessa-Vozzo_.jpg');
-            ">
 
-            </div>
-            <div class="carousel-a-text-block">
-              <div class="slider-date">
-                <div class="div-block-40"></div>
-                <div class="slide-a-date-text">31 gennaio – 1 febbraio<br></div>
+        <div class="carousel-slider-a w-clearfix">
+          <% @events.each do |event| %>
+            <%= link_to event_path(event), class: "carousel-a-slide w-inline-block" do %>
+            <div class="carousel-slide-img slide-club-exhibition"></div>
+              <div class="carousel-category-label mostre">Mostra</div>
+              <div class="carousel-a-text-block">
+                <div class="slider-date">
+                  <div class="div-block-40"></div>
+                  <div class="slide-a-date-text"><%= event.data_inizio.strftime('%e %B') %><%= event.data_inizio != event.data_fine ? " - " + event.data_fine.strftime('%e %B') : "" %><br></div>
+                </div>
+                <div class="slider-a-title"><%= event.titolo %></div>
               </div>
-              <div class="slider-a-title">Missing Out<br></div>
-            </div>
-            <div class="carousel-category-label evento">Evento</div>
             <% end %>
+          <% end %>
         </div>
         <div class="carousel-a-nav-container">
           <ul class="carousel-a-nav-dots-container w-list-unstyled">
@@ -103,3 +88,5 @@
     </div>
     <div data-w-id="16774e7c-3763-9faa-476f-ff55a2d3f075" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="centered-big-text">Al Circolo del Design le <strong>aziende</strong> incontrano i professionisti,<br>i <strong>designer</strong> presentano i loro progetti,<br>i <strong>creativi</strong> si danno appuntamento, i <strong>ricercatori</strong> e gli <strong>studenti</strong> consultano la biblioteca e trovano un luogo in cui studiare e lavorare.</div>
   </div>
+
+

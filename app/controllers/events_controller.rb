@@ -64,6 +64,7 @@ class EventsController < ApplicationController
       :prezzo,
       :descrizione,
       :photo,
+      :image,
       :categoria,
       :luogo,
       :durata,
