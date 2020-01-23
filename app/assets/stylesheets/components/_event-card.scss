@@ -6,6 +6,12 @@
   width: 100%;
 }
 
+.calendar-cards-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
 .event-card-container {
   width: 30%;
   margin: 20px 1%;
@@ -52,6 +58,22 @@
 
   &.mostra {
     background-color: #F49FC6;
+  }
+
+  &.talk {
+    background-color: #81539c;
+  }
+
+  &.workshop {
+    background-color: #2581c4;
+  }
+
+  &.progetti {
+    background-color: #e1354b;
+  }
+
+  &.evento {
+    background-color: #000;
   }
 }
 
