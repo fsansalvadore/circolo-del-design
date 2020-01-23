@@ -45,7 +45,7 @@ gem 'activeadmin_quill_editor'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'carrierwave'
 gem 'cloudinary'
-
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
