@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
 
-  get    'events', to: 'events#index'
+  get    'whats-on/calendario', to: 'events#index'
 
   get    'events/new', to: 'events#new'
   post   'events', to: 'events#create'
 
-  get    'events/:id', to: 'events#show', as: :event
+  get    'whats-on/:id', to: 'events#show', as: :event
 
   get    'events/:id/edit', to: 'events#edit', as: 'edit_event'
   patch  'events/:id', to: 'events#update'

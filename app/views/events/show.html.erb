@@ -18,7 +18,7 @@
       <div class="container-5 w-container large">
         <div class="event-header-info-text">
           <div class="event-header-label-container">
-            <div class="event-label mostra"><%= @event.categoria %></div>
+            <div class="event-label <%= @event.categoria.downcase %>"><%= @event.categoria %></div>
           </div>
           <h1 class="event-header-title"><%= @event.titolo %></h1>
           <div class="event-header-subtitle"><%= @event.sottotitolo %></div>
