@@ -7,7 +7,11 @@
     <div class="event-popup-content-container w-container large">
       <h1 class="event-popup-title"><%= @event.titolo %></h1>
       <div class="event-popup-right-info">
-        <div><%= @event.data_inizio.strftime('%e %B') %><%= @event.data_inizio != @event.data_fine ? " - " + @event.data_fine.strftime('%e %B') : "" %></div>
+        <%  inizio = @event.data_inizio
+            fine = @event.data_fine
+            dash = @event.data_inizio != @event.data_fine ? " - " : ""
+        %>
+        <div><%= tag.time l(inizio, format: :short), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :short), datetime: fine) : "" %></div>
         <div class="div-block-43 popup"></div>
         <div class="event-focus-bar-price"><%= @event.prezzo %></div>
       </div>
@@ -30,7 +34,7 @@
     <div id="event-focus-bar" class="event-header-focus-bar">
       <div class="event-header-focus-bar-content w-container large">
         <%= image_tag "calendar-icon.svg", alt: "calendar", class: "image-3"%>
-        <div class="event-focus-bar-date"><%= @event.data_inizio.strftime('%e %B') %><%= @event.data_inizio != @event.data_fine ? " - " + @event.data_fine.strftime('%e %B') : "" %></div>
+        <div class="event-focus-bar-date"><%= tag.time l(inizio, format: :medium), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :medium), datetime: fine) : "" %></div>
         <div class="div-block-43"></div>
         <div class="event-focus-bar-price"><%= @event.prezzo %></div>
       </div>
@@ -43,7 +47,7 @@
         <ul class="event-aside-list w-list-unstyled">
           <li class="event-aside-list-item">
             <div class="event-aside-list-label">Data e ora</div>
-            <div class="event-aside-list-text"><%= @event.data_inizio.strftime('%e %B') %><%= @event.data_inizio != @event.data_fine ? " - " + @event.data_fine.strftime('%e %B') : "" %>
+            <div class="event-aside-list-text"><%= tag.time l(inizio, format: :medium), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :medium), datetime: fine) : "" %>
               <br>
               <% if !@event.orario.empty? %>
                 <%= @event.orario %>
@@ -97,14 +101,3 @@
       </article>
     </main>
   </div>
-<!-- <script>
-  const popup = $(".event-popup-details-container");
-
-  $(window).on('scroll', function () {
-      if ($(window).scrollTop() >= ($('#main-content').offset().top) - $('.navbar-inner-page').height()) {
-          popup.addClass('popup-open');
-      } else {
-          popup.removeClass('popup-open');
-      }
-  });
-</script> -->
