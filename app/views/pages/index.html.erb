@@ -14,10 +14,13 @@
       </div>
       <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-carousel">
 
-        <div class="carousel-slider-a w-clearfix">
-          <% @events.each do |event| %>
-            <%= link_to event_path(event), class: "carousel-a-slide w-inline-block" do %>
-            <div class="carousel-slide-img slide-club-exhibition"></div>
+        <div class="carousel-slider-a w-clearfix swiper-container">
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-wrapper">
+            <% @events.each do |event| %>
+              <%= link_to event_path(event), class: "carousel-a-slide w-inline-block swiper-slide" do %>
+              <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url('<%= cl_image_path event.image %>')"></div>
               <div class="carousel-category-label mostre">Mostra</div>
               <div class="carousel-a-text-block">
                 <div class="slider-date">
@@ -26,17 +29,20 @@
                 </div>
                 <div class="slider-a-title"><%= event.titolo %></div>
               </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="carousel-a-nav-container">
+
+        <!-- <div class="carousel-a-nav-container">
           <ul class="carousel-a-nav-dots-container w-list-unstyled">
             <li class="carousel-a-nav-dot selected"></li>
           </ul>
           <ul class="carousel-a-nav-dots-container w-list-unstyled">
             <li class="carousel-a-nav-dot"></li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -88,5 +94,25 @@
     </div>
     <div data-w-id="16774e7c-3763-9faa-476f-ff55a2d3f075" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="centered-big-text">Al Circolo del Design le <strong>aziende</strong> incontrano i professionisti,<br>i <strong>designer</strong> presentano i loro progetti,<br>i <strong>creativi</strong> si danno appuntamento, i <strong>ricercatori</strong> e gli <strong>studenti</strong> consultano la biblioteca e trovano un luogo in cui studiare e lavorare.</div>
   </div>
+<script>
+window.onload = function () {
 
+  var mySwiper = new Swiper ('.swiper-container', {
+slidesPerView: 1,
+      spaceBetween: 30,
+      keyboard: {
+        enabled: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+  });
+
+};
+  </script>
 
