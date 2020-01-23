@@ -16,6 +16,29 @@ ActiveAdmin.register Event do
   #   permitted
   # end
 
+  # scope :pubblicati, ->{where(published: true)}
+  # scope :bozze, ->{where(published: false)}
+
+  action_item :publish, only: :show do
+    link_to "Pubblica", publish_admin_event_path(event), method: :put if !event.published
+  end
+
+  action_item :publish, only: :show do
+    link_to "Metti offline", unpublish_admin_event_path(event), method: :put if event.published
+  end
+
+  member_action :publish, method: :put do
+    event = Event.find(params[:id])
+    event.update(published: true)
+    redirect_to admin_event_path(event)
+  end
+
+  member_action :unpublish, method: :put do
+    event = Event.find(params[:id])
+    event.update(published: false)
+    redirect_to admin_event_path(event)
+  end
+
   index do
     selectable_column
     column "Titolo" do |event|

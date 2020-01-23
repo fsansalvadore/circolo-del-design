@@ -10,6 +10,18 @@
   justify-content: center;
 }
 
+input {
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+
+input[type=submit]  {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
 .devise-content-container {
   width: 90%;
   max-width: 400px;
@@ -24,18 +36,10 @@
 
   input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #000;
   }
 
   .form-actions {
     padding-bottom: 20px;
-
-    input {
-      background-color: #000;
-      color: #fff;
-      cursor: pointer;
-    }
   }
 
   a {

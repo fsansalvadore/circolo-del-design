@@ -3,7 +3,17 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all.where(published: true)
+    if params[:query].present?
+      sql_query = " \
+        events.titolo ILIKE :query \
+        OR events.sottotitolo ILIKE :query \
+        OR events.descrizione ILIKE :query \
+        OR events.categoria ILIKE :query \
+      "
+      @events = Event.where(published: true).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @events = Event.where(published: true).order(:data_inizio)
+    end
   end
 
   def show

@@ -23,5 +23,4 @@ Rails.application.routes.draw do
   # get 'events/missing_out'
   # get 'events/club_futuro_vol_1_the_exhibition'
   get '/privacy_cookie_policy' => 'pages#privacy_cookie_policy'
-
 end

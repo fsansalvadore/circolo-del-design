@@ -3,13 +3,22 @@
   padding-top: 80px;
 }
 .calendar-content-left {
-  width: 100%;
+  width: 73%;
+}
+
+.calendar-filters-container {
+  padding-bottom: 30px;
+}
+
+.event-form-control {
+  width: 30%;
 }
 
 .calendar-cards-container {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  margin-left: -10px;
 }
 
 .event-card-container {
@@ -40,6 +49,14 @@
   &.featured-card {
     width: 100%;
     margin: 10px 0;
+
+    .event-card-img-container {
+      height: 130px;
+    }
+
+    // .event-card-content-container {
+    //   padding: 12px;
+    // }
   }
 }
 
@@ -53,7 +70,9 @@
 
 .event-card-category-label {
   position: absolute;
-  padding: 12px;
+  font-size: 12px;
+  padding: 6px 12px;
+  font-weight: bold;
   color: #fff;
 
   &.mostra {
@@ -98,12 +117,17 @@
 }
 
 .event-card-subtitle {
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .calendar-aside-container {
-  flex-grow: 1;
+  width: 27%;
+}
+
+.sticky {
+  position: -webkit-sticky; /* Safari */
   position: sticky;
+  top: 140px;
 }
 
 .section-label-container {
