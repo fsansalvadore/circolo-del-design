@@ -56,7 +56,13 @@
           </li>
           <li class="event-aside-list-item">
             <div class="event-aside-list-label">Prezzo</div>
-            <div class="event-aside-list-text">Gratuito per i soci //<br>tesseramento Circolo del Design €5</div>
+            <div class="event-aside-list-text">
+              <% if @event.prezzo.capitalize == "Gratuito per i soci" %>
+              Gratuito per i soci //<br>tesseramento Circolo del Design €5
+              <% else %>
+                <%= @event.prezzo.capitalize %>
+              <% end %>
+            </div>
           </li>
           <li class="event-aside-list-item">
             <div class="event-aside-list-label">Luogo</div>

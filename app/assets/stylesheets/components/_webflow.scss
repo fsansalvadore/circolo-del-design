@@ -4699,10 +4699,18 @@ div,
   background-color: #fff;
 }
 
+.text-link {
+  color: #000;
+}
+
 .text-link,
 .event-article-container a,
-.page-postheader a {
-  color: #000;
+.event-article-container,
+.page-postheader,
+.page-postheader a,
+article,
+aside,
+div {
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
