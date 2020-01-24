@@ -1,0 +1,64 @@
+.calendar-main-container {
+  display: flex;
+  padding-top: 80px !important;
+  flex-wrap: wrap;
+}
+.calendar-content-left {
+  width: 72%;
+  margin-right: 1%;
+}
+
+.calendar-filters-container {
+  padding-bottom: 30px;
+}
+
+.event-form-control {
+  width: 30%;
+}
+
+.calendar-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-left: -10px;
+}
+
+.calendar-aside-container {
+  width: 27%;
+}
+
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 140px;
+}
+
+@media screen and (max-width: 991px) {
+  .calendar-cards-container {
+    margin-left: -6px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .calendar-content-left {
+    width: 100%;
+  }
+
+  .calendar-aside-container {
+    width: 100%;
+  }
+
+  .calendar-main-container {
+    padding-top: 40px !important;
+  }
+
+  .event-form-control {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .calendar-cards-container {
+    margin-left: 0;
+  }
+}
