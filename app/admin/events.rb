@@ -23,7 +23,7 @@ ActiveAdmin.register Event do
     link_to "Pubblica", publish_admin_event_path(event), method: :put if !event.published
   end
 
-  action_item :publish, only: :show do
+  action_item :unpublish, only: :show do
     link_to "Metti offline", unpublish_admin_event_path(event), method: :put if event.published
   end
 
@@ -39,6 +39,18 @@ ActiveAdmin.register Event do
     redirect_to admin_event_path(event)
   end
 
+   member_action :publish, method: :put do
+    event = Event.find(params[:id])
+    event.update(published: true)
+    redirect_to admin_events_path
+  end
+
+  member_action :unpublish, method: :put do
+    event = Event.find(params[:id])
+    event.update(published: false)
+    redirect_to admin_events_path
+  end
+
   index do
     selectable_column
     column "Titolo" do |event|
@@ -49,8 +61,12 @@ ActiveAdmin.register Event do
     column "Data fine", :data_fine
     column :published
     column :featured
-    column "Anteprima" do |event|
-      link_to "Visualizza", event_path(event)
+    column "Pubblica" do |event|
+      if !event.published
+        link_to "Pubblica", publish_admin_event_path(event), method: :put
+      else
+        link_to "Metti offline", unpublish_admin_event_path(event), method: :put
+      end
     end
 
     actions

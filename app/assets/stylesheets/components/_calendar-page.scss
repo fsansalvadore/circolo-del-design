@@ -23,6 +23,13 @@
   margin-left: -10px;
 }
 
+.calendar-cards-container .result-message {
+  display: block;
+  width: 100%;
+  margin: 0 12px;
+  padding-bottom: 15px;
+}
+
 .calendar-aside-container {
   width: 27%;
 }
@@ -49,7 +56,7 @@
   }
 
   .calendar-main-container {
-    padding-top: 40px !important;
+    padding-top: 40px;
   }
 
   .event-form-control {

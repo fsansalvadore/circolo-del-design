@@ -25,6 +25,7 @@
       </div>
       <div class="calendar-cards-container">
         <% if !@events.empty? %>
+        <p class="result-message"><%= @events.all.count %> risultat<%= @events.all.count == 1 ? "o" : "i" %></p>
         <% @events.each do |event| %>
           <%= link_to event_path(event), class: "event-card-container" do %>
             <div class="event-card-img-container" style="background-image: url('<%= cl_image_path event.image %>');">
@@ -45,7 +46,7 @@
           <% end %>
         <% end %>
         <% else %>
-          <p>Non ci sono eventi in programmazione.</p>
+          <p class="result-message">Non ci sono eventi in programmazione.</p>
         <% end %>
       </div>
     </div>
