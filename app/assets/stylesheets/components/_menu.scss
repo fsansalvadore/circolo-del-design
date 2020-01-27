@@ -1,0 +1,37 @@
+.menu-main-link h2 {
+  display: inline;
+  margin-right: 12px;
+  line-height: 100%;
+}
+
+.menu-toggle-icon-contianer {
+  transition: transform 0.1s ease;
+}
+.menu-main-link:hover .menu-toggle-icon-contianer {
+  transform: rotate(180deg);
+}
+
+.menu-sub-links-container {
+  width: 100%;
+  height: auto;
+  text-transform: uppercase;
+  transform: translate3d(0px, -20px, 0px);
+  opacity: 0;
+  max-height: 0;
+  will-change: transform, opacity, max-height;
+  transform: translate3d(0px, -20px, 0px);
+  transition: all 0.3s cubic-bezier(.292, .003, .175, 1);
+}
+
+.submenu-open {
+  transform-style: preserve-3d;
+  opacity: 1;
+  max-height: 180px;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.menu-toggle-line.open {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
