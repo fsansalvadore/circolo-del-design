@@ -1,5 +1,4 @@
 ActiveAdmin.register Event do
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -80,21 +79,22 @@ ActiveAdmin.register Event do
   filter :featured
 
   form do |f|
+    f.semantic_errors *f.object.errors.keys
     f.inputs 'Event' do
-      f.input :titolo
-      f.input :sottotitolo
-      f.input :data_inizio
-      f.input :data_fine
-      f.input :orario
-      f.input :prezzo
+      f.input :titolo, placeholder: 'Titolo'
+      f.input :sottotitolo, placeholder: 'Sottotitolo'
+      f.input :data_inizio, as: :datepicker
+      f.input :data_fine, as: :datepicker
+      f.input :orario, placeholder: 'Opzionale'
+      f.input :prezzo, placeholder: 'Default: Gratuito per i soci', default: 'Gratuito per i soci'
       f.input :descrizione, as: :quill_editor
       f.input :image, as: :file
       f.input :categoria
-      f.input :luogo
-      f.input :durata
-      f.input :posti
-      f.input :target
-      f.input :link
+      f.input :luogo, placeholder: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
+      f.input :durata, placeholder: 'Opzionale'
+      f.input :posti, placeholder: 'Opzionale'
+      f.input :target, placeholder: 'Opzionale'
+      f.input :link, placeholder: 'Opzionale'
       f.input :featured
       f.input :published
     end

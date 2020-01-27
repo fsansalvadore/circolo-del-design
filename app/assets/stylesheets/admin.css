@@ -1,0 +1,28 @@
+#header {
+  background-color: #000 !important;
+  background-image: none !important;
+  color: #fff !important;
+}
+
+#header h1 {
+  color: #fff !important;
+}
+
+#title_bar {
+  background-image: none;
+  background-color: #ffed00 !important;
+  text-shadow: none !important;
+  color: #000 !important;
+  border: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000 !important;
+}
+
+.breadcrumb a,
+.breadcrumb a:link,
+.breadcrumb a:visited,
+.breadcrumb a:active {
+  color: #000;
+}
