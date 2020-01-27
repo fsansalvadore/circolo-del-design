@@ -1,0 +1,38 @@
+.menu-main-link h2 {
+  display: inline;
+  margin-right: 12px;
+  line-height: 100%;
+}
+
+.menu-toggle-icon-contianer {
+  transition: transform 0.1s ease;
+}
+.menu-main-link:hover .menu-toggle-icon-contianer {
+  transform: rotate(90deg);
+}
+
+.menu-sub-links-container {
+  width: 100%;
+  height: auto;
+  transform: translate3d(0px, -20px, 0px);
+  opacity: 0;
+  max-height: 0;
+  will-change: transform, opacity, max-height;
+  transform: translate3d(0px, -20px, 0px);
+  transition: all 0.2s cubic-bezier(.292, .003, .175, 1);
+}
+
+.submenu-open {
+  transform-style: preserve-3d;
+  // animation: submenu 0.25s 0.05s cubic-bezier(.292, .003, .175, 1) both;
+  opacity: 1;
+  max-height: 180px;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+@keyframes submenu {
+  0% {
+  }
+  100% {
+  }
+}
