@@ -1,10 +1,12 @@
 const Menu = () => {
   const MenuTitles = document.querySelectorAll('.menu-main-link');
   const SubMenus = document.querySelectorAll('.menu-sub-links-container');
+  const Pluses = document.querySelectorAll('.menu-toggle-line');
 
-  const toggleMenu = (s) => {
+  const toggleMenu = (s, p) => {
     if(s.style.display === "none") {
       s.style.display = "block";
+      p.classList.toggle('open');
       setTimeout(() => {
         s.classList.toggle('submenu-open');
       }, 20);
@@ -12,6 +14,7 @@ const Menu = () => {
       s.classList.toggle('submenu-open');
       setTimeout(() => {
         s.style.display = "none";
+        p.classList.toggle('open');
       }, 200);
     }
   };
@@ -19,18 +22,24 @@ const Menu = () => {
   MenuTitles.forEach((t) => {
     t.addEventListener('click', () => {
       let SubMenu = t.parentNode.querySelector('.menu-sub-links-container');
+      let Plus = t.parentNode.querySelector('.menu-toggle-line');
 
       if(SubMenu.classList.contains("submenu-open")) {
-        toggleMenu(SubMenu);
+        toggleMenu(SubMenu, Plus);
       } else {
         SubMenus.forEach((s) => {
           s.classList.remove("submenu-open");
           setTimeout(() => {
             s.style.display = "none";
-          }, 100);
+          }, 150);
         });
+
+        Pluses.forEach((p) => {
+          p.classList.remove("open");
+        });
+
         setTimeout(() => {
-          toggleMenu(SubMenu);
+          toggleMenu(SubMenu, Plus);
         }, 150);
       }
     });
