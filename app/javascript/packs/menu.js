@@ -2,8 +2,14 @@ const Menu = () => {
   const MenuTitles = document.querySelectorAll('.menu-main-link');
   const SubMenus = document.querySelectorAll('.menu-sub-links-container');
   const Pluses = document.querySelectorAll('.menu-toggle-line');
+  const MenuBtn = document.querySelector('.nav-menu-a');
+  const MenuCont = document.querySelector('.menu-container-a');
 
-  const toggleMenu = (s, p) => {
+  MenuBtn.addEventListener('click', () => {
+    MenuCont.classList.toggle('menu-toggle');
+  });
+
+  const toggleSubMenu = (s, p) => {
     if(s.style.display === "none") {
       s.style.display = "block";
       p.classList.toggle('open');
@@ -25,7 +31,7 @@ const Menu = () => {
       let Plus = t.parentNode.querySelector('.menu-toggle-line');
 
       if(SubMenu.classList.contains("submenu-open")) {
-        toggleMenu(SubMenu, Plus);
+        toggleSubMenu(SubMenu, Plus);
       } else {
         SubMenus.forEach((s) => {
           s.classList.remove("submenu-open");
@@ -39,7 +45,7 @@ const Menu = () => {
         });
 
         setTimeout(() => {
-          toggleMenu(SubMenu, Plus);
+          toggleSubMenu(SubMenu, Plus);
         }, 150);
       }
     });
