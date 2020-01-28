@@ -9,7 +9,7 @@
           <div class="footer-sitemap-block">
             <div data-w-id="4b5a7398-b1e9-d485-4fb6-16d03f677dac" class="footer-sitemap-list-title-no-hover">About Us</div>
             <div class="footer-sitemap-list-wrapper">
-              <a href="#" class="footer-sitemap-list-item">Il Circolo</a>
+              <%= link_to "Il Circolo", whats_on_calendario_path, class: "footer-sitemap-list-item" %>
               <a href="#" class="footer-sitemap-list-item">Team</a>
               <a href="#" class="footer-sitemap-list-item">Sostenitori</a>
               <a href="#" class="footer-sitemap-list-item">Store</a>
@@ -39,7 +39,9 @@
             </div>
           </div>
           <div class="footer-sitemap-block">
-            <a href="#" class="footer-sitemap-list-title">Contatti</a>
+            <%= link_to contatti_path, class: "footer-sitemap-list-title" do %>
+              Contatti
+            <% end %>
           </div>
           <div class="footer-sitemap-block">
             <a href="#" class="footer-sitemap-list-title">Become a Member</a>

@@ -596,6 +596,14 @@ textarea.w-select {
 .w-hidden-main {
   display: none !important;
 }
+
+@media (max-width: 1227px) {
+  .w-container {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .w-container {
     max-width: 728px;
