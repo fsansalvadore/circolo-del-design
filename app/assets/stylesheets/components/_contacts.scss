@@ -59,7 +59,7 @@ a {
 
 .map-container {
   height: 500px;
-  background-image: asset-url("map_preview.jpg");
+  background-image: url("https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyA4B5M4QmBYiqBYhOstjbDcsprP0ybEWes&center=45.065632065916716,7.6871243999999805&zoom=18&format=png&maptype=roadmap&style=element:labels%7Cvisibility:off&style=feature:administrative.land_parcel%7Cvisibility:off&style=feature:administrative.neighborhood%7Cvisibility:off&size=480x360");
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
