@@ -5,12 +5,56 @@
           <%= image_tag "LOGO_CdD_white.svg", alt: "Circolo del Design logo", class: "logo-footer" %>
           <div class="footer-cdd-info">© 2020 Circolo Del Design Torino<br>All Rights Reserved</div><a href="mailto:info@circolodeldesign.it?subject=Email%20da%20sito" class="footer-info-mail">info@circolodeldesign.it</a><a href="https://www.facebook.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social">Facebook</a><a href="https://twitter.com/CdD_torino" target="_blank" class="footer-cdd-info-social">Twitter</a><a href="https://www.instagram.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social last">Instagram</a>
         </div>
-        <div class="footer-sitemap-block">
-            <strong>ORARI:</strong><br>
-            Martedì, giovedì, venerdì, sabato / 13.30 – 19<br>
-            Mercoledì / 13.30 – 20
+        <div class="w-layout-grid footer-sitemap-grid">
+          <div class="footer-sitemap-block">
+            <div data-w-id="4b5a7398-b1e9-d485-4fb6-16d03f677dac" class="footer-sitemap-list-title-no-hover">About Us</div>
+            <div class="footer-sitemap-list-wrapper">
+              <a href="#" class="footer-sitemap-list-item">Il Circolo</a>
+              <a href="#" class="footer-sitemap-list-item">Team</a>
+              <a href="#" class="footer-sitemap-list-item">Sostenitori</a>
+              <a href="#" class="footer-sitemap-list-item">Store</a>
+            </div>
+          </div>
+          <div class="footer-sitemap-block">
+            <div data-w-id="fa246212-cee5-efd1-2237-f330bc55c245" class="footer-sitemap-list-title-no-hover">What&#x27;s On</div>
+            <div class="footer-sitemap-list-wrapper">
+              <a href="#" class="footer-sitemap-list-item">Calendario</a>
+              <a href="#" class="footer-sitemap-list-item">Impressum del mese</a>
+              <a href="#" class="footer-sitemap-list-item">Archivio</a>
+            </div>
+          </div>
+          <div class="footer-sitemap-block">
+            <div data-w-id="029f16f5-d0c9-3d36-9620-7667132adcf7" class="footer-sitemap-list-title-no-hover">Progetti Speciali</div>
+            <div class="footer-sitemap-list-wrapper">
+              <a href="#" class="footer-sitemap-list-item">Ask To Design</a>
+              <a href="#" class="footer-sitemap-list-item">Video Torino Creative City UNESCO</a>
+              <a href="#" class="footer-sitemap-list-item">Interaction 20</a>
+            </div>
+          </div>
+          <div class="footer-sitemap-block">
+            <div data-w-id="c5c01c71-4db2-1d45-e766-41bcb549dfaa" class="footer-sitemap-list-title-no-hover">Servizi</div>
+            <div class="footer-sitemap-list-wrapper">
+              <a href="#" class="footer-sitemap-list-item">Spazi</a>
+              <a href="#" class="footer-sitemap-list-item">Biblioteca</a>
+            </div>
+          </div>
+          <div class="footer-sitemap-block">
+            <a href="#" class="footer-sitemap-list-title">Contatti</a>
+          </div>
+          <div class="footer-sitemap-block">
+            <a href="#" class="footer-sitemap-list-title">Become a Member</a>
+          </div>
         </div>
       </div>
+      <div class="footer-divider"></div>
+      <div class="footer-sostenitori-container">
+        <div class="footer-orari-container">
+          <strong>ORARI</strong><br>
+          Martedì, giovedì, venerdì, sabato / 13.30 – 19<br>
+          Mercoledì / 13.30 – 20
+        </div>
+      </div>
+    </div>
       <div class="footer-divider"></div>
       <div class="footer-sostenitori-container">
         <%= link_to "https://www.compagniadisanpaolo.it/", target: "_blank", class: "w-inline-block" do %>
@@ -28,12 +72,15 @@
       </div>
       <div class="footer-divider"></div>
       <div class="footer-bottom">
-        <div class="footer-bottom-center"><a href="#top" class="footer-bottom-item">Back to top</a></div>
-        <div class="footer-bottom-right">
-          <a href="media/CDD_press_kit.zip" class="footer-bottom-item footer-link-spacing">Press Kit</a>
-          <%= link_to 'Privacy & Cookie Policy', privacy_cookie_policy_path, class: "footer-bottom-item footer-link-spacing" %>
-          <a href="https://www.saglietti.it/" target="_blank" class="footer-bottom-item footer-link-spacing">Design</a>
-          <a href="https://www.fsansalvadore.com/" target="_blank" class="footer-bottom-item footer-link-spacing">Webdesign</a></div>
+      <div class="footer-bottom-center">
+        <a href="#top" class="footer-bottom-item">Back to top</a>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="media/CDD_press_kit.zip" class="footer-bottom-item footer-link-spacing">Press Kit</a>
+        <%= link_to 'Privacy & Cookie Policy', privacy_cookie_policy_path, class: "footer-bottom-item footer-link-spacing" %>
+        <a href="https://www.saglietti.it/" target="_blank" class="footer-bottom-item footer-link-spacing">Design</a>
+        <a href="https://www.fsansalvadore.com/" target="_blank" class="footer-bottom-item footer-link-spacing">Webdesign</a>
+      </div>
       </div>
     </div>
   </footer>
