@@ -4072,8 +4072,8 @@ h2 {
   grid-column-gap: 6px;
   grid-row-gap: 10px;
   grid-template-areas: "Area";
-  -ms-grid-columns: 1fr 6px 1fr 6px 1fr 6px 1fr 6px 1fr 6px 1fr 6px 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 6px 1fr 6px 1fr 6px 1fr 6px 1fr 6px 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   -ms-grid-rows: auto;
   grid-template-rows: auto;
   color: #fff;
@@ -4141,8 +4141,15 @@ h2 {
   width: 100%;
   height: 1px;
   background-color: #fff;
-  opacity: 0.3;
+  opacity: 0.2;
   color: #fff;
+}
+
+.footer-orari-container {
+  text-align: center;
+  color: #fff;
+  opacity: 0.5;
+  font-size: 13px;
 }
 
 .footer-sostenitori-container {
