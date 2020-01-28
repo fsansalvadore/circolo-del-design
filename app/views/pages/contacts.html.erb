@@ -1,9 +1,14 @@
 <header id="top" class="page-header-container">
-  <div class="w-container large"><a href="index.html" class="breadcrumb-text">Home /</a>
+  <div class="w-container large">
+    <div class="breadcrumb-text">
+      <%= link_to "Home", root_path %> /
+    </div>
     <h1 class="page-header-title">Contatti</h1>
   </div>
 </header>
-<div class="full-w-img contacts-img parallax-bg" ></div>
+<div class="full-w-img contacts-img parallax-bg">
+  <%= image_tag "CDD_1.jpg", alt: "Circolo del Design", class: "contacts-prlx-img" %>
+</div>
 <div class="page-postheader">
   <main class="event-article-container w-container">
     <aside id="w-node-2d81cc58f9ee-c78ffa68" class="event-article-details"></aside>
