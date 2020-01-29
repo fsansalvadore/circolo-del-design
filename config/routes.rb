@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
   get    'whats-on/calendario', to: 'events#index'
+  get    'whats-on/archivio', to: 'events#archivio'
 
   get    'events/new', to: 'events#new'
   post   'events', to: 'events#create'
