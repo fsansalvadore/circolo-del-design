@@ -28,4 +28,8 @@ Rails.application.routes.draw do
   get '/about-us/team' => 'pages#about_team'
   get '/about-us/sostenitori' => 'pages#about_sostenitori'
   get '/about-us/store' => 'pages#about_store'
+
+  # about
+  get '/servizi/biblioteca' => 'pages#servizi_biblioteca'
+  get '/servizi/spazi' => 'pages#servizi_spazi'
 end

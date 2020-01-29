@@ -104,16 +104,16 @@
               </div>
             </div>
             <div class="menu-sub-links-container" style="display: none;">
-              <a href="#" class="menu-sub-link w-inline-block">
-                <div>SPAZI</div>
-              </a>
-              <a href="#" class="menu-sub-link w-inline-block">
+              <%= link_to servizi_biblioteca_path, class: "menu-sub-link w-inline-block" do %>
                 <div>BIBLIOTECA</div>
-              </a>
+              <% end %>
+              <%= link_to servizi_spazi_path, class: "menu-sub-link w-inline-block" do %>
+                <div>SPAZI</div>
+              <% end %>
             </div>
           </div>
           <%= link_to contatti_path, class: "link-menu-container link-a-5 w-inline-block" do %>
-            <div class="menu-main-link">CONTATTI</div>
+            <div class="menu-main-link"><h2>CONTATTI</h2></div>
           <% end %>
         </div>
         <div class="line-menu-a-1"></div>

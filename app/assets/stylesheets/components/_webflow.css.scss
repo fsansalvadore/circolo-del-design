@@ -4927,8 +4927,8 @@ div {
   .event-header-info-text,
   .calendar-main-container,
   .event-article-container {
-    margin-right: 12px;
-    margin-left: 12px;
+    // margin-right: 12px;
+    // margin-left: 12px;
   }
   .event-article-container {
     padding-top: 40px;
@@ -4937,6 +4937,10 @@ div {
     border-left: none;
     padding-left: 0;
   }
+  .line::before {
+    display: none;
+  }
+
   .event-header-top-info {
     padding-top: 120px;
   }
@@ -5228,8 +5232,8 @@ div {
     border-top: 1px solid hsla(0, 0%, 100%, 0.3);
   }
   .event-article-container {
-    padding-right: 12px;
-    padding-left: 12px;
+    // padding-right: 12px;
+    // padding-left: 12px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
