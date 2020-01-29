@@ -6,8 +6,19 @@
   height: 100vh;
   background-color: #FFED00;
   display: flex;
-  align-items: center;
+  padding-top: 50px;
   justify-content: center;
+}
+
+.devise-logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.devise-logo {
+  width: 200px;
 }
 
 input {
