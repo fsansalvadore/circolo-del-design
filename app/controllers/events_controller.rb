@@ -14,6 +14,8 @@ class EventsController < ApplicationController
     else
       @events = Event.where(published: true).order(:data_inizio)
     end
+
+    @featured = Event.all.select { |e| e.featured }
   end
 
   def show
@@ -52,10 +54,18 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
-  def missing_out
-  end
-
-  def club_futuro_vol_1_the_exhibition
+  def archivio
+    if params[:query].present?
+      sql_query = " \
+        events.titolo ILIKE :query \
+        OR events.sottotitolo ILIKE :query \
+        OR events.descrizione ILIKE :query \
+        OR events.categoria ILIKE :query \
+      "
+      @events = Event.where("data_fine < ?", Date.today).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @events = Event.where("data_fine < ?", Date.today)
+    end
   end
 
   private
