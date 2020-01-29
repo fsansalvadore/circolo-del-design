@@ -2,16 +2,18 @@
 <div class="page-postheader" id="main-content">
   <main class="event-article-container w-container large">
     <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
-      <div class="event-aside-line"></div>
-      <% subMenu = [
-        {title: "Il Circolo", path: about_us_il_circolo_path, active: "btn-active-yellow"},
-        {title: "Team", path: about_us_team_path, active: ""},
-        {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
-        {title: "Store", path: about_us_store_path, active: ""} ]
-        %>
-      <% subMenu.each do |s| %>
-        <%= render partial: 'shared/sub-link', locals: {item: s} %>
-      <% end %>
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Il Circolo", path: about_us_il_circolo_path, active: "btn-active-yellow"},
+          {title: "Team", path: about_us_team_path, active: ""},
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
+          {title: "Store", path: about_us_store_path, active: ""} ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
     </aside>
     <article class="event-article-content line big-content">
       <p>

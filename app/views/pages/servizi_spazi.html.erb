@@ -2,14 +2,17 @@
 <div class="page-postheader" id="main-content">
   <main class="event-article-container w-container large">
     <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
-      <div class="event-aside-line"></div>
-      <% subMenu = [
-        {title: "Biblioteca", path: servizi_biblioteca_path, active: ""},
-        {title: "Spazi", path: servizi_spazi_path, active: "btn-active-yellow"} ]
-        %>
-      <% subMenu.each do |s| %>
-        <%= render partial: 'shared/sub-link', locals: {item: s} %>
-      <% end %>
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Spazi", path: servizi_spazi_path, active: "btn-active-yellow"},
+          {title: "Biblioteca", path: servizi_biblioteca_path, active: ""}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
     </aside>
     <article class="event-article-content line big-content">
       <h2 class="listheading">UNO SPAZIO CONDIVISO PER TUTTI</h2>
@@ -78,7 +81,7 @@
       </section>
       <div class="container-4 w-container">
         <div class="text-block-5">Scarica il listino prezzi.</div>
-        <div class="form-block w-form">
+        <div class="form-block">
           <a href="#" class="submit-button w-button btn-wide">Scarica</a>
         </div>
       </div>

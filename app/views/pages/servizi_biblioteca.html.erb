@@ -1,15 +1,18 @@
 <%= render 'shared/servizi-header' %>
 <div class="page-postheader" id="main-content">
   <main class="event-article-container w-container large">
-    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
-      <div class="event-aside-line"></div>
-      <% subMenu = [
-        {title: "Biblioteca", path: servizi_biblioteca_path, active: "btn-active-yellow"},
-        {title: "Spazi", path: servizi_spazi_path, active: ""} ]
-        %>
-      <% subMenu.each do |s| %>
-        <%= render partial: 'shared/sub-link', locals: {item: s} %>
-      <% end %>
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details sticky">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Spazi", path: servizi_spazi_path, active: ""},
+          {title: "Biblioteca", path: servizi_biblioteca_path, active: "btn-active-yellow"}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
     </aside>
     <article class="event-article-content line big-content">
       <p>

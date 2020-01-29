@@ -6,9 +6,38 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.logo-grid-container {
+  width: 100%;
+  padding: 50px 0;
+  display: grid;
+  grid-column-gap: 12px;
+  grid-row-gap: 30px;
+  text-align: center;
+
+  h4 {
+    text-align: left;
+  }
+}
+
+.grid-2x {
+  grid-template-columns: 1fr 1fr;
+}
+.grid-3x {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .grid-img {
   width: 100%;
   height: auto;
+}
+
+.grid-logo {
+  max-height: 100px;
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 figcaption {
@@ -35,8 +64,15 @@ figcaption {
   .grid-container {
     grid-template-columns: 1fr 1fr;
   }
-
+  .grid-3x {
+    grid-template-columns: 1fr 1fr;
+  }
   .team-member-img {
     height: 40vw;
+  }
+}
+@media (max-width: 767px) {
+  .grid-2x {
+    grid-template-columns: 1fr;
   }
 }

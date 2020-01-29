@@ -130,7 +130,7 @@
       <div id="w-node-028f971a699b-f805d136" data-w-id="2da7f5ea-f4fc-e9eb-fc88-028f971a699b" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
         <h2 class="listheading">Servizi</h2>
         <div class="link-list">
-          <a data-w-id="99a5d35a-aca4-4863-6d1a-5575a67a95df" href="#" class="link-list-item w-inline-block">
+          <%= link_to servizi_spazi_path, { 'data-w-id' => "99a5d35a-aca4-4863-6d1a-5575a67a95df", class: "link-list-item w-inline-block" } do %>
             <div class="text-block-4">Spazi</div>
             <div class="arrow-right">
               <div class="arrow-point-right">
@@ -139,8 +139,8 @@
                 <div class="div-block-3 arrow-point-lower"></div>
               </div>
             </div>
-          </a>
-          <a data-w-id="99a5d35a-aca4-4863-6d1a-5575a67a95e7" href="#" class="link-list-item w-inline-block">
+          <% end %>
+          <%= link_to servizi_biblioteca_path, { 'data-w-id' => "99a5d35a-aca4-4863-6d1a-5575a67a95e7", class: "link-list-item w-inline-block" } do %>
             <div class="text-block-4">Biblioteca</div>
             <div class="arrow-right">
               <div class="arrow-point-right">
@@ -149,7 +149,7 @@
                 <div class="div-block-3 arrow-point-lower"></div>
               </div>
             </div>
-          </a>
+          <% end %>
         </div>
       </div>
     </div>
