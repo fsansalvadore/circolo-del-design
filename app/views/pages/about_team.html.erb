@@ -1,0 +1,94 @@
+<%= render 'shared/about-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Il Circolo", path: about_us_il_circolo_path, active: ""},
+          {title: "Team", path: about_us_team_path, active: "btn-active-yellow"},
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
+          {title: "Store", path: about_us_store_path, active: ""} ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <div class="grid-container">
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Sara Fortunati</h3>
+            <p>Direttore</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Luana Gravina</h3>
+            <p>Project Manager</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Marilivia Minnici</h3>
+            <p>Project Manager</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Rossana Bazzano</h3>
+            <p>Special Projects’ Operation Manager</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Giovanni Messina</h3>
+            <p>Location Manager</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Francesco Boccato Rorato</h3>
+            <p>Production Assistant</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Roberta Fitti</h3>
+            <p>Organization Assistant</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Enza Brunero</h3>
+            <p>Communication Manager</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Carola Serminato</h3>
+            <p>Press Officer</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member-container">
+          <div class="team-member-img" style=""></div>
+          <figcaption>
+            <h3>Carola Serminato</h3>
+            <p>Press Officer</p>
+          </figcaption>
+        </figure>
+      </div>
+    </article>
+  </main>
+</div>
+

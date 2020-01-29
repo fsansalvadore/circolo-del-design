@@ -1,0 +1,91 @@
+<%= render 'shared/servizi-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Spazi", path: servizi_spazi_path, active: "btn-active-yellow"},
+          {title: "Biblioteca", path: servizi_biblioteca_path, active: ""}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <h2 class="listheading">UNO SPAZIO CONDIVISO PER TUTTI</h2>
+      <p>
+        Il Circolo del Design dà la possibilità di affittare alcuni dei suoi spazi per eventi dedicati ad un pubblico specifico ristretto (team building aziendali, formazione…), e per eventi aperti al pubblico (conferenza stampa, presentazione di progetti/prodotti…).
+        <br><br/>
+        Per informazioni scriveteci a <a href="mailto:info@circolodeldesign.it"><strong>info@circolodeldesign.it</strong></a>.
+        <br><br/>
+      </p>
+      <section class="spazi-section">
+        <div class="spazio-info-container">
+          <h2>SCUDERIE</h2>
+          <ul class="spazio-info-details">
+            <li>Sala di 90 mq</li>
+            <li>Sedute n.80</li>
+          </ul>
+          <div class="spazio-attrezzatura-tecnica">
+            <h4>Attrezzatura Tecnica</h4>
+            <ul>
+              <li>Sistema di proiezione Full HD 1920×1080</li>
+              <li>1 monitor 4k da 65” (su prenotazione)</li>
+              <li>Impianto e mixer audio con microfoni: fisso e a gelato</li>
+              <li>Presenter e puntatore laser per la gestione   delle presentazioni</li>
+              <li>80 sedie</li>
+            </ul>
+          </div>
+        </div>
+        <%= image_tag "spazi/cdd-laboratorio.jpg", alt: "Circolo del Design - Spazi — Scuderie", class: "grid-img" %>
+      </section>
+      <section class="spazi-section">
+        <div class="spazio-info-container">
+          <h2>BOTTEGA</h2>
+          <ul class="spazio-info-details">
+            <li>Sala di 30 mq</li>
+            <li>Sedute n.25 max</li>
+          </ul>
+          <div class="spazio-attrezzatura-tecnica">
+            <h4>Attrezzatura Tecnica</h4>
+            <ul>
+              <li>1 monitor 4k da 65” (su prenotazione)</li>
+              <li>tavolo 90x190cm</li>
+              <li>25 sedie</li>
+            </ul>
+          </div>
+        </div>
+        <%= image_tag "spazi/cdd-sala-grande.jpg", alt: "Circolo del Design - Spazi — Bottega", class: "grid-img" %>
+      </section>
+      <section class="spazi-section">
+        <div class="spazio-info-container">
+          <h2>SALA RIUNIONI</h2>
+          <ul class="spazio-info-details">
+            <li>Sala di 18 mq</li>
+            <li>Sedute n.12</li>
+            <li>Possibilità di ingresso autonomo</li>
+          </ul>
+          <div class="spazio-attrezzatura-tecnica">
+            <h4>Attrezzatura Tecnica</h4>
+            <ul>
+              <li>1 monitor 4k da 65” (su prenotazione)</li>
+              <li>tavolo riunioni 130x260cm</li>
+              <li>12 sedie</li>
+            </ul>
+          </div>
+        </div>
+        <%= image_tag "spazi/cdd-sala-riunione.jpg", alt: "Circolo del Design - Spazi — Sala Riunioni", class: "grid-img" %>
+      </section>
+      <div class="container-4 w-container">
+        <div class="text-block-5">Scarica il listino prezzi.</div>
+        <div class="form-block">
+          <a href="#" class="submit-button w-button btn-wide">Scarica</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</div>
+

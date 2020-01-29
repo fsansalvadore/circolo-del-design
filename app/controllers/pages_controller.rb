@@ -1,5 +1,15 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :privacy_cookie_policy, :contacts]
+  skip_before_action :authenticate_user!, only: [
+    :index,
+    :privacy_cookie_policy,
+    :contacts,
+    :about_circolo,
+    :about_team,
+    :about_sostenitori,
+    :about_store,
+    :servizi_spazi,
+    :servizi_biblioteca
+  ]
 
   def index
     @events = Event.all.where('data_fine >= ?', DateTime.now)
@@ -11,7 +21,24 @@ class PagesController < ApplicationController
 
   def contacts
     @contact = Event.new
-
-    @markers = [lat: 45.065, lng: 7.687]
   end
+
+  def about_circolo
+  end
+
+  def about_team
+  end
+
+  def about_sostenitori
+  end
+
+  def about_store
+  end
+
+  def servizi_spazi
+  end
+
+  def servizi_biblioteca
+  end
+
 end

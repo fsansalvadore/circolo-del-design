@@ -1,0 +1,34 @@
+<%= render 'shared/servizi-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details sticky">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Spazi", path: servizi_spazi_path, active: ""},
+          {title: "Biblioteca", path: servizi_biblioteca_path, active: "btn-active-yellow"}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <p>
+        La Biblioteca sostiene la ricerca e la creatività di professionisti e studenti del settore e fornisce occasioni di approfondimento a curiosi e appassionati.
+        <br><br/>
+        Oltre 500 volumi tra <strong>libri</strong>, <strong>riviste</strong> di settore nazionali e internazionali, <strong>cataloghi di mostre e aziende</strong>.
+        <br><br/>
+        La collezione dei volumi, che mira a creare un archivio in continuo incremento e che spazia dalla tradizione ai temi del contemporaneo, è partita da una chiamata rivolta a potenziali Donors, enti o singoli individui che condividono la volontà di divulgare la cultura del progetto e che pertanto hanno deciso di mettere a disposizione del pubblico una parte, o anche un solo volume, della loro raccolta di libri a tema “design”.
+        <br><br/>
+      </p>
+      <figure class="article-image-container">
+        <div class="grid-container">
+          <%= image_tag "CdD-Biblioteca-del-design-logo.png", alt: "Circolo del Design - Biblioteca", class: "grid-img" %>
+        </div>
+      </figure>
+    </article>
+  </main>
+</div>
+

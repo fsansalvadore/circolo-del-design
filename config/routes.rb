@@ -20,8 +20,16 @@ Rails.application.routes.draw do
 
   delete 'events/:id', to: 'events#destroy'
 
-  # get 'events/missing_out'
-  # get 'events/club_futuro_vol_1_the_exhibition'
   get '/privacy_cookie_policy' => 'pages#privacy_cookie_policy'
   get '/contatti' => 'pages#contacts'
+
+  # about
+  get '/about-us/il-circolo' => 'pages#about_circolo'
+  get '/about-us/team' => 'pages#about_team'
+  get '/about-us/sostenitori' => 'pages#about_sostenitori'
+  get '/about-us/store' => 'pages#about_store'
+
+  # about
+  get '/servizi/biblioteca' => 'pages#servizi_biblioteca'
+  get '/servizi/spazi' => 'pages#servizi_spazi'
 end

@@ -1,0 +1,51 @@
+.spazi-section {
+  width: 100%;
+  padding: 50px 0;
+  border-top: 1px solid #ddd;
+}
+
+.spazio-info-container {
+  width: 100%;
+  display: grid;
+  grid-column-gap: 12px;
+  grid-template-columns: 1fr 0.75fr 1fr;
+  padding-bottom: 30px;
+}
+
+.spazio-info-details {
+  padding: 0;
+
+  li {
+    list-style: none;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+  }
+  li:last-of-type {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+  }
+}
+
+.spazio-attrezzatura-tecnica {
+  h4 {
+    margin-top: 0;
+  }
+  ul {
+    padding-left: 20px;
+  }
+}
+
+.btn-wide {
+  // padding: 20px 40px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+@media (max-width: 991px) {
+  .spazi-section {
+    padding: 30px 0;
+  }
+  .spazio-info-container {
+    grid-template-columns: 1fr;
+  }
+}

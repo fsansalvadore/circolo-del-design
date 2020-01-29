@@ -18,18 +18,18 @@
               </div>
             </div>
             <div class="menu-sub-links-container" style="display: none;">
-              <a href="#" class="menu-sub-link w-inline-block">
+              <%= link_to about_us_il_circolo_path, class: "menu-sub-link w-inline-block" do %>
                 <div>IL CIRCOLO</div>
-              </a>
-              <a href="#" class="menu-sub-link w-inline-block">
+              <% end %>
+              <%= link_to about_us_team_path, class: "menu-sub-link w-inline-block" do %>
                 <div>TEAM</div>
-              </a>
-              <a href="#" class="menu-sub-link w-inline-block">
+              <% end %>
+              <%= link_to about_us_sostenitori_path, class: "menu-sub-link w-inline-block" do %>
                 <div>SOSTENITORI</div>
-              </a>
-              <a href="#" class="menu-sub-link w-inline-block">
+              <% end %>
+              <%= link_to about_us_store_path, class: "menu-sub-link w-inline-block" do %>
                 <div>STORE</div>
-              </a>
+              <% end %>
             </div>
           </div>
           <div data-w-id="" class="link-menu-container link-a-2">
@@ -104,16 +104,16 @@
               </div>
             </div>
             <div class="menu-sub-links-container" style="display: none;">
-              <a href="#" class="menu-sub-link w-inline-block">
+              <%= link_to servizi_spazi_path, class: "menu-sub-link w-inline-block" do %>
                 <div>SPAZI</div>
-              </a>
-              <a href="#" class="menu-sub-link w-inline-block">
+              <% end %>
+              <%= link_to servizi_biblioteca_path, class: "menu-sub-link w-inline-block" do %>
                 <div>BIBLIOTECA</div>
-              </a>
+              <% end %>
             </div>
           </div>
           <%= link_to contatti_path, class: "link-menu-container link-a-5 w-inline-block" do %>
-            <div class="menu-main-link">CONTATTI</div>
+            <div class="menu-main-link"><h2>CONTATTI</h2></div>
           <% end %>
         </div>
         <div class="line-menu-a-1"></div>

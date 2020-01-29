@@ -1,0 +1,35 @@
+<%= render 'shared/about-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Il Circolo", path: about_us_il_circolo_path, active: ""},
+          {title: "Team", path: about_us_team_path, active: ""},
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
+          {title: "Store", path: about_us_store_path, active: "btn-active-yellow"} ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <h2 class="listheading">N.O.S. / NOT AN ORDINARY STORE</h2>
+      <p>
+La mission del Circolo del Design è la diffusione della cultura del progetto e viene perseguita attraverso la produzione di attività culturali e di formazione, la costruzione di progetti per lo sviluppo di opportunità professionali tra aziende e designer e la collaborazione con le istituzioni per l’utilizzo dei sistemi propri del design nei processi pubblici.<br><br/>
+Mostre, incontri e workshop costituiscono l’ossatura del palinsesto culturale del Circolo del Design, cui si affiancano la Biblioteca del Design, che oggi conta oltre 500 volumi, e NOS. Not (an) Ordinary Store, che propone un’accurata selezione di prodotti.
+      </p><br/>
+      <div class="grid-container">
+        <%= image_tag "store/O1a3349-53-55combo_web.jpg", alt: "Circolo del Design - Store", class: "grid-img" %>
+        <%= image_tag "store/O1A3405_web.jpg", alt: "Circolo del Design - Store", class: "grid-img" %>
+        <%= image_tag "store/O1A3418_web.jpg", alt: "Circolo del Design - Store", class: "grid-img" %>
+        <%= image_tag "store/O1A3548_web.jpg", alt: "Circolo del Design - Store", class: "grid-img" %>
+        <%= image_tag "store/cdd-store-half-1.jpg", alt: "Circolo del Design - Store", class: "grid-img" %>
+        <%= image_tag "store/cdd-store-half-2.jpg", alt: "Circolo del Design - Store", class: "grid-img" %>
+      </div>
+    </article>
+  </main>
+</div>
+
