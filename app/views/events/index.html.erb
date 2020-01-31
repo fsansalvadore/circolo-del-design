@@ -1,15 +1,15 @@
 <header id="top" class="page-header-container">
   <div class="w-container large">
-    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's Up</div>
-    <h1 class="page-header-title">Calendario</h1>
-    <div class="page-header-subtitle">Lorem ipsum dolor sit amet.</div>
+    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On</div>
+    <h1 class="page-header-title">Programma</h1>
+    <div class="page-header-subtitle">I prossimi appuntamenti al Circolo del Design.</div>
   </div>
 </header>
 <main class="page-postheader">
   <div class="calendar-main-container w-container large">
     <div class="calendar-content-left">
       <div class="calendar-filters-container">
-        <%= form_tag whats_on_calendario_path, method: :get do %>
+        <%= form_tag whats_on_programma_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "event-form-control",

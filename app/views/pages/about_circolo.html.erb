@@ -7,8 +7,8 @@
         <% subMenu = [
           {title: "Il Circolo", path: about_us_il_circolo_path, active: "btn-active-yellow"},
           {title: "Team", path: about_us_team_path, active: ""},
-          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
-          {title: "Store", path: about_us_store_path, active: ""} ]
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""}
+        ]
           %>
         <% subMenu.each do |s| %>
           <%= render partial: 'shared/sub-link', locals: {item: s} %>

@@ -6,9 +6,9 @@ class PagesController < ApplicationController
     :about_circolo,
     :about_team,
     :about_sostenitori,
-    :about_store,
     :servizi_spazi,
-    :servizi_biblioteca
+    :servizi_biblioteca,
+    :servizi_store
   ]
 
   def index
@@ -32,13 +32,12 @@ class PagesController < ApplicationController
   def about_sostenitori
   end
 
-  def about_store
-  end
-
   def servizi_spazi
   end
 
   def servizi_biblioteca
   end
 
+  def servizi_store
+  end
 end
