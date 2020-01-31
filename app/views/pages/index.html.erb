@@ -47,7 +47,7 @@
             <% @events.each do |event| %>
               <%= link_to event_path(event), class: "carousel-a-slide w-inline-block swiper-slide" do %>
               <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url('<%= cl_image_path event.image %>')"></div>
-              <div class="carousel-category-label mostre">Mostra</div>
+              <div class="carousel-category-label <%= event.categoria.downcase %>"><%= event.categoria %></div>
               <div class="carousel-a-text-block">
                 <div class="slider-date">
                   <div class="div-block-40"></div>
