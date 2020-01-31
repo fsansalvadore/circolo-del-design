@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
 
-  get    'whats-on/calendario', to: 'events#index'
+  get    'whats-on/programma', to: 'events#index'
   get    'whats-on/archivio', to: 'events#archivio'
 
   get    'events/new', to: 'events#new'
@@ -28,9 +28,9 @@ Rails.application.routes.draw do
   get '/about-us/il-circolo' => 'pages#about_circolo'
   get '/about-us/team' => 'pages#about_team'
   get '/about-us/sostenitori' => 'pages#about_sostenitori'
-  get '/about-us/store' => 'pages#about_store'
 
   # about
   get '/servizi/biblioteca' => 'pages#servizi_biblioteca'
   get '/servizi/spazi' => 'pages#servizi_spazi'
+  get '/servizi/store' => 'pages#servizi_store'
 end

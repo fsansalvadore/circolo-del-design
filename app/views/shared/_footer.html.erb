@@ -2,8 +2,15 @@
     <div>
       <div class="footer-top w-clearfix">
         <div class="footer-cdd-heading">
-          <%= image_tag "LOGO_CdD_white.svg", alt: "Circolo del Design logo", class: "logo-footer" %>
-          <div class="footer-cdd-info">© 2020 Circolo Del Design Torino<br>All Rights Reserved</div><a href="mailto:info@circolodeldesign.it?subject=Email%20da%20sito" class="footer-info-mail">info@circolodeldesign.it</a><a href="https://www.facebook.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social">Facebook</a><a href="https://twitter.com/CdD_torino" target="_blank" class="footer-cdd-info-social">Twitter</a><a href="https://www.instagram.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social last">Instagram</a>
+          <%= link_to root_path do  %>
+            <%= image_tag "LOGO_CdD_white.svg", alt: "Circolo del Design logo", class: "logo-footer" %>
+          <% end %>
+          <div class="footer-cdd-info">© 2020 Circolo Del Design Torino<br>All Rights Reserved</div>
+          <a href="mailto:info@circolodeldesign.it?subject=Email%20da%20sito" target="_blank" class="footer-info-mail">info@circolodeldesign.it</a>
+          <a href="tel:+393713242750" class="footer-info-mail">+39 371 324 2750</a>
+          <a href="https://www.facebook.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social">Facebook</a>
+          <a href="https://www.linkedin.com/company/circolo-del-design/" target="_blank" class="footer-cdd-info-social">Linkedin</a>
+          <a href="https://www.instagram.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social last">Instagram</a>
         </div>
         <div class="w-layout-grid footer-sitemap-grid">
           <div class="footer-sitemap-block">
@@ -12,15 +19,13 @@
               <%= link_to "Il Circolo", about_us_il_circolo_path, class: "footer-sitemap-list-item" %>
               <%= link_to "Team", about_us_team_path, class: "footer-sitemap-list-item" %>
               <%= link_to "Sostenitori", about_us_sostenitori_path, class: "footer-sitemap-list-item" %>
-              <%= link_to "Store", about_us_store_path, class: "footer-sitemap-list-item" %>
             </div>
           </div>
           <div class="footer-sitemap-block">
             <div data-w-id="fa246212-cee5-efd1-2237-f330bc55c245" class="footer-sitemap-list-title-no-hover">What&#x27;s On</div>
             <div class="footer-sitemap-list-wrapper">
-              <%= link_to "Calendario", whats_on_calendario_path, class: "footer-sitemap-list-item" %>
+              <%= link_to "Programma", whats_on_programma_path, class: "footer-sitemap-list-item" %>
               <a href="#" class="footer-sitemap-list-item">Impressum del mese</a>
-              <%= link_to "Archivio", whats_on_archivio_path, class: "footer-sitemap-list-item" %>
             </div>
           </div>
           <div class="footer-sitemap-block">
@@ -36,6 +41,7 @@
             <div class="footer-sitemap-list-wrapper">
               <%= link_to "Spazi", servizi_spazi_path, class: "footer-sitemap-list-item" %>
               <%= link_to "Biblioteca", servizi_biblioteca_path, class: "footer-sitemap-list-item" %>
+              <%= link_to "Store", servizi_store_path, class: "footer-sitemap-list-item" %>
             </div>
           </div>
           <div class="footer-sitemap-block">

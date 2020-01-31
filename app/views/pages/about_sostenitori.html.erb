@@ -7,8 +7,8 @@
         <% subMenu = [
           {title: "Il Circolo", path: about_us_il_circolo_path, active: ""},
           {title: "Team", path: about_us_team_path, active: ""},
-          {title: "Sostenitori", path: about_us_sostenitori_path, active: "btn-active-yellow"},
-          {title: "Store", path: about_us_store_path, active: ""} ]
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: "btn-active-yellow"}
+        ]
           %>
         <% subMenu.each do |s| %>
           <%= render partial: 'shared/sub-link', locals: {item: s} %>
@@ -23,50 +23,38 @@
         <%= image_tag "partner/2_camera-di-commercio-torino-logo-cdd.png", alt: "Camera di Commercio Torino", class: "grid-logo" %>
         <%= image_tag "partner/UnioneIndustriale-CdD-black.png", alt: "Unione Industriale Torino", class: "grid-logo" %>
       </div>
-      <h4>Con il contributo di</h4>
-      <hr>
-      <div class="logo-grid-container grid-2x">
-        <%= image_tag "partner/3_regione-piemonte-logo-cdd-1.png", alt: "Regione Piemonte", class: "grid-logo" %>
-        <%= image_tag "partner/4_CRT-logo-cdd-8.png", alt: "CRT", class: "grid-logo" %>
-      </div>
-      <h4>Sponsor Tecnici</h4>
-      <hr>
-      <div class="logo-grid-container grid-3x">
-        <%= image_tag "partner/5_techart-logo-cdd.png", alt: "Techart", class: "grid-logo" %>
-        <%= image_tag "partner/6_colos-logo-cdd.png", alt: "Colos", class: "grid-logo" %>
-        <%= image_tag "partner/7_dock-e-docker-logo-cdd.png", alt: "Dock e Docker", class: "grid-logo" %>
-        <%= image_tag "partner/8_biliani-logo-cdd-1.png", alt: "Billiani", class: "grid-logo" %>
-        <%= image_tag "partner/9_luceper-logo-cdd.png", alt: "Luceper", class: "grid-logo" %>
-        <%= image_tag "partner/10_lago-logo-cdd.png", alt: "Lago", class: "grid-logo" %>
-      </div>
-      <h2 class="listheading">2019</h2>
-      <div class="logo-grid-container grid-2x">
-        <div>
-          <h4>Main partner</h4>
+      <div class="toggle-container">
+        <h2 class="listheading toggle-btn">2019<div class="toggle-arrow"></div></h2>
+        <div class="toggle-content">
+          <div class="logo-grid-container grid-2x">
+            <div>
+              <h4>Main partner</h4>
+              <hr>
+              <%= image_tag "partner/1_Copagnia-san-paolo-logo-cdd.png", alt: "Compagnia San Paolo", class: "grid-logo" %>
+            </div>
+            <div>
+              <h4>Partner</h4>
+              <hr>
+              <%= image_tag "partner/2_camera-di-commercio-torino-logo-cdd.png", alt: "Camera di Commercio Torino", class: "grid-logo" %>
+            </div>
+          </div>
+          <h4>Con il contributo di</h4>
           <hr>
-          <%= image_tag "partner/1_Copagnia-san-paolo-logo-cdd.png", alt: "Compagnia San Paolo", class: "grid-logo" %>
-        </div>
-        <div>
-          <h4>Partner</h4>
+          <div class="logo-grid-container grid-2x">
+            <%= image_tag "partner/3_regione-piemonte-logo-cdd-1.png", alt: "Regione Piemonte", class: "grid-logo" %>
+            <%= image_tag "partner/4_CRT-logo-cdd-8.png", alt: "CRT", class: "grid-logo" %>
+          </div>
+          <h4>Sponsor Tecnici</h4>
           <hr>
-          <%= image_tag "partner/2_camera-di-commercio-torino-logo-cdd.png", alt: "Camera di Commercio Torino", class: "grid-logo" %>
+          <div class="logo-grid-container grid-3x">
+            <%= image_tag "partner/5_techart-logo-cdd.png", alt: "Techart", class: "grid-logo" %>
+            <%= image_tag "partner/6_colos-logo-cdd.png", alt: "Colos", class: "grid-logo" %>
+            <%= image_tag "partner/7_dock-e-docker-logo-cdd.png", alt: "Dock e Docker", class: "grid-logo" %>
+            <%= image_tag "partner/8_biliani-logo-cdd-1.png", alt: "Billiani", class: "grid-logo" %>
+            <%= image_tag "partner/9_luceper-logo-cdd.png", alt: "Luceper", class: "grid-logo" %>
+            <%= image_tag "partner/10_lago-logo-cdd.png", alt: "Lago", class: "grid-logo" %>
+          </div>
         </div>
-      </div>
-      <h4>Con il contributo di</h4>
-      <hr>
-      <div class="logo-grid-container grid-2x">
-        <%= image_tag "partner/3_regione-piemonte-logo-cdd-1.png", alt: "Regione Piemonte", class: "grid-logo" %>
-        <%= image_tag "partner/4_CRT-logo-cdd-8.png", alt: "CRT", class: "grid-logo" %>
-      </div>
-      <h4>Sponsor Tecnici</h4>
-      <hr>
-      <div class="logo-grid-container grid-3x">
-        <%= image_tag "partner/5_techart-logo-cdd.png", alt: "Techart", class: "grid-logo" %>
-        <%= image_tag "partner/6_colos-logo-cdd.png", alt: "Colos", class: "grid-logo" %>
-        <%= image_tag "partner/7_dock-e-docker-logo-cdd.png", alt: "Dock e Docker", class: "grid-logo" %>
-        <%= image_tag "partner/8_biliani-logo-cdd-1.png", alt: "Billiani", class: "grid-logo" %>
-        <%= image_tag "partner/9_luceper-logo-cdd.png", alt: "Luceper", class: "grid-logo" %>
-        <%= image_tag "partner/10_lago-logo-cdd.png", alt: "Lago", class: "grid-logo" %>
       </div>
     </article>
   </main>

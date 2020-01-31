@@ -16,11 +16,14 @@
   <div class="event-header-top-info">
     <div class="container-5 w-container large">
       <div class="event-header-info-text">
-        <div class="event-header-label-container">
-          <div class="event-label <%= @event.categoria.downcase %>"><%= @event.categoria %></div>
+        <div class="breadcrumb-text">
+          <%= link_to "Home", root_path %> / What's On / <%= link_to "Programma", whats_on_programma_path %>
         </div>
         <h1 class="event-header-title"><%= @event.titolo %></h1>
         <div class="event-header-subtitle"><%= @event.sottotitolo %></div>
+        <div class="event-header-label-container">
+          <div class="event-label <%= @event.categoria.downcase %>"><%= @event.categoria %></div>
+        </div>
       </div>
       <div class="event-header-main-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
     </div>
@@ -82,7 +85,7 @@
         </li>
         <% end %>
         <% if !@event.link.empty? %>
-        <a data-w-id="fc471873-720f-cc09-a5c1-695dae3ac255" href="<%= @event.link %>" target="_blank" class="btn-link-arrow event-aside w-inline-block btn-active-yellow">
+        <a data-w-id="fc471873-720f-cc09-a5c1-695dae3ac255" href="<%= @event.link %>" target="_blank" class="btn-link-arrow event-aside m-top-30 w-inline-block btn-active-yellow">
           <div class="text-block-3">Registrati</div>
           <div class="arrow-right">
             <div class="arrow-point-right">

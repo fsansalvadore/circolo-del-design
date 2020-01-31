@@ -41,6 +41,60 @@
   padding-right: 60px;
 }
 
+.toggle-btn {
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle-arrow {
+  position: absolute;
+  top: 50%;
+  height: 16px;
+  transform: translateY(-50%) rotate(0deg);
+  right: 30px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    left: -6px;
+    width: 2px;
+    height: 14px;
+    background-color: #000;
+    transform: rotate(45deg)
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    width: 2px;
+    right:-6px;
+    height: 14px;
+    background-color: #000;
+    transform: rotate(-45deg)
+  }
+
+  &.toggle-open {
+    transform: translateY(-50%) rotate(180deg) !important;
+  }
+}
+
+.toggle-content {
+  display: none;
+
+  &.toggle-content-open {
+    display: block;
+  }
+}
+
+.m-top-30 {
+  margin-top: 30px;
+}
+.m-top-80 {
+  margin-top: 80px;
+}
+.m-bottom-0 {
+  margin-bottom: 0 !important;
+}
+
 @media (max-width: 991px) {
   .spazi-section {
     padding: 30px 0;
