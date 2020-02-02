@@ -1,0 +1,27 @@
+<%= render 'shared/projects-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Introduzione", path: progetti_speciali_introduzione_path, active: ""},
+          {title: "Ask To Design", path: progetti_speciali_ask_to_design_path, active: "btn-active-yellow progetti"},
+          {title: "Video Torino Creative City Unesco", path: progetti_speciali_video_torino_creative_city_unesco_path, active: ""},
+          {title: "Interaction 20", path: progetti_speciali_interaction_20_path, active: ""}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <%= image_tag "ask_to_design.gif", alt: "Ask To Design", class: "full-w-img m-bottom-50" %>
+      <p>Ask to Design vuole alimentare la cultura del progetto nel mondo della produzione e promuovere l’incontro tra le realtà aziendali e i progettisti, aumentando la consapevolezza delle aziende rispetto al valore del design come strumento di sviluppo d’impresa e valorizzando la design community del territorio.
+<br><br/>
+Ask to Design è un progetto del <strong>Circolo del Design</strong> e di <a href="https://www.to.camcom.it/" target="_blank" alt="Camera di Commercio Industria Artigianato e agricoltura di Torino"><strong>Camera di commercio di Torino</strong></a> e si avvale della partnership scientifica del <a href="https://www.polito.it/" target="_blank" alt="Politecnico di Torino"><strong>Politecnico di Torino</strong></a>. Il 2019 dà l’avvio allʼedizione “zero” del progetto, ideato per diventare scalabile negli anni successivi.</p>
+    </article>
+  </main>
+</div>
+
