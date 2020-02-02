@@ -1,0 +1,27 @@
+<%= render 'shared/projects-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Introduzione", path: progetti_speciali_introduzione_path, active: ""},
+          {title: "Ask To Design", path: progetti_speciali_ask_to_design_path, active: ""},
+          {title: "Video Torino Creative City Unesco", path: progetti_speciali_video_torino_creative_city_unesco_path, active: "btn-active-yellow progetti"},
+          {title: "Interaction 20", path: progetti_speciali_interaction_20_path, active: ""}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <div style="padding:56.25% 0 0 0;position:relative;" class="m-bottom-50"><iframe src="https://player.vimeo.com/video/346866740?title=0&byline=0&portrait=0" class="video-full-w" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      <p>Il video Torino Creative City, prodotto dal Circolo del Design, è stato presentato in anteprima a Fabriano in occasione dell’Assemblea mondiale delle città creative Unesco, in cui Torino era presente come città creativa Unesco per il design.
+<br><br/>
+Il progetto è realizzato con il sostegno di <a href="https://www.to.camcom.it/" target="_blank" alt="Camera di Commercio Industria Artigianato e agricoltura di Torino"><strong>Camera di commercio di Torino</strong></a> e di <a href="https://www.compagniadisanpaolo.it/" target="_blank" alt="Compagnia di San Paolo"><strong>Compagnia di San Paolo</strong></a>, con il patrocinio della <a href="http://www.comune.torino.it/" target="_blank" alt="Città di Torino"><strong>Città di Torino</strong></a>, scritto, diretto e composto da Mybosswas.</p>
+    </article>
+  </main>
+</div>
+

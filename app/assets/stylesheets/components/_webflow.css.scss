@@ -1893,6 +1893,9 @@ h2 {
 .btn-active-yellow {
   background-color: #ffed00;
 }
+.btn-active-red {
+  background-color: #e1354b;
+}
 
 .btn-link-arrow._404-btn {
   width: 300px;
@@ -2995,7 +2998,7 @@ h2 {
   color: #81539c;
 }
 
-.carousel-text.mostre {
+.carousel-text.mostra {
   color: #f49fc6;
 }
 
@@ -3646,7 +3649,7 @@ h2 {
   background-color: #81539c;
 }
 
-.b2-category-title.mostre {
+.b2-category-title.mostra {
   background-color: #f49fc6;
 }
 
@@ -3691,7 +3694,7 @@ h2 {
   background-color: #e1354b;
 }
 
-.b2-category-content-r.b2-cat-content-left.mostre {
+.b2-category-content-r.b2-cat-content-left.mostra {
   background-color: #f49fc6;
 }
 
@@ -4320,7 +4323,7 @@ h2 {
   background-color: #81539c;
 }
 
-.carousel-category-label.mostre {
+.carousel-category-label.mostra {
   background-color: #f49fc6;
 }
 
@@ -4781,6 +4784,16 @@ div {
 .page-header-container {
   padding-top: 150px;
   padding-bottom: 40px;
+
+  &.progetti {
+    background-color: #e1354b;
+
+    .breadcrumb-text,
+    .breadcrumb-text a {
+      opacity: 1;
+      color: #fff;
+    }
+  }
 }
 
 .breadcrumb-text {

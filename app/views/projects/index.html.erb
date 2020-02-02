@@ -1,0 +1,27 @@
+<%= render 'shared/projects-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Introduzione", path: progetti_speciali_introduzione_path, active: "btn-active-yellow progetti"},
+          {title: "Ask To Design", path: progetti_speciali_ask_to_design_path, active: ""},
+          {title: "Video Torino Creative City Unesco", path: progetti_speciali_video_torino_creative_city_unesco_path, active: ""},
+          {title: "Interaction 20", path: progetti_speciali_interaction_20_path, active: ""}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <div class="img-txt-container m-bottom-50 progetti-intro">
+        <strong>Il Circolo collabora in maniera sinergica con il mondo della formazione, il sistema della cultura, le istituzioni, le aziende e i professionisti.</strong>
+      </div>
+      <p>Il progetto <strong>Ask to Design</strong> favorisce un incontro consapevole tra domanda (a volte ancora inespressa) di design delle realtà aziendali da un lato e i professionisti del design dall'altro, il video <strong>Torino Creative City Unesco</strong> promuove il comparto creativo del sistema città, <strong>Interaction 20</strong> porta in città le figure chiave di 50 aziende internazionali per promuovere il territorio e il suo settore di interaction design.</p>
+    </article>
+  </main>
+</div>
+
