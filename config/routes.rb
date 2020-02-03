@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
   # resources :contacts, only: [:index, :new, :create]
-  get    'contatti', to: 'contacts#index', as: :contacts
+  get    'contatti', to: 'contacts#index'
   post   'contatti', to: 'contacts#create'
-  get    'contatti/new', to: 'contacts#new', as: :contacts_new
+  get    'contatti/new', to: 'contacts#new'
 
   get    'whats-on/programma', to: 'events#index'
   get    'whats-on/archivio', to: 'events#archivio'

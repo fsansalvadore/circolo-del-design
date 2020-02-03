@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module CircoloDelDesign
   class Application < Rails::Application
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.i18n.available_locales = [:it, :en]

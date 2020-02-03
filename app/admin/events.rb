@@ -18,7 +18,6 @@ ActiveAdmin.register Event do
   # scope :pubblicati, ->{where(published: true)}
   # scope :bozze, ->{where(published: false)}
 
-
   member_action :publish_event, method: :put do
     event = Event.find(params[:id])
     event.update(published: true)
