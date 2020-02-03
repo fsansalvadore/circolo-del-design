@@ -5,6 +5,7 @@ import { webflowJS } from '../packs/webflow';
 import { Menu } from '../packs/menu';
 import { Popup } from '../packs/event-popup';
 import { Toggle } from '../packs/toggle';
+import { flashFade } from '../packs/flash-fade';
 import { SimpleParallax } from '../packs/simple-parallax';
 // import { initMapbox } from '../plugins/init_mapbox';
 
@@ -13,5 +14,6 @@ webflowJS();
 Menu();
 Popup();
 Toggle();
+flashFade();
 SimpleParallax();
 
