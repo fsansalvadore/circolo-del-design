@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # get 'events/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
+  resources :contacts, only: [:index, :new, :create]
 
   get    'whats-on/programma', to: 'events#index'
   get    'whats-on/archivio', to: 'events#archivio'
