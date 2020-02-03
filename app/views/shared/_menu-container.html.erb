@@ -94,7 +94,7 @@
         <div class="line-menu-a-2"></div>
         <div class="line-menu-a-3"></div>
         <div class="menu-right-div">
-          <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937810" href="#" class="menu-member-container w-inline-block">
+          <%= link_to membership_path, {'data-w-id' => "e1ce827e-4e2b-205f-0506-831e04937810", class: "menu-member-container w-inline-block"} do %>
             <div data-w-id="e1ce827e-4e2b-205f-0506-831e04937811" class="menu-member-content">
               <div>Become a Member</div>
               <div class="arrow-right member-arrow">
@@ -105,7 +105,7 @@
                 </div>
               </div>
             </div>
-          </a>
+          <% end %>
           <div class="line-menu-a-4"></div>
           <div class="menu-info-box">
             <div class="menu-info-text">

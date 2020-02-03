@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   get '/about-us/sostenitori' => 'pages#about_sostenitori'
 
   # servizi
-  get '/servizi/biblioteca' => 'pages#servizi_biblioteca'
   get '/servizi/spazi' => 'pages#servizi_spazi'
+  get '/servizi/biblioteca' => 'pages#servizi_biblioteca'
   get '/servizi/store' => 'pages#servizi_store'
 
   # progetti speciali
@@ -39,4 +39,7 @@ Rails.application.routes.draw do
   get '/progetti-speciali/ask-to-design' => 'projects#ask_to_design'
   get '/progetti-speciali/video-torino-creative-city_unesco' => 'projects#video_torino_creative_city_unesco'
   get '/progetti-speciali/interaction-20' => 'projects#interaction_20'
+
+  # membership
+  get '/membership' => 'pages#membership'
 end
