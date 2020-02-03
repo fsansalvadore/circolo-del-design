@@ -4,7 +4,7 @@ const flashFade = () => {
     setTimeout(() => {
       f.style.opacity = "0";
       setTimeout(() => {
-        f.style.display = "none";
+        f.remove();
       }, 1000);
     }, 5000)
   })

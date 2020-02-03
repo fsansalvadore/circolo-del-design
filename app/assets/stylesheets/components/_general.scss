@@ -11,7 +11,7 @@
 }
 
 .form-alert {
-  padding: 20px;
+  padding: 30px;
   font-size: 20px;
   line-height: 120%;
   background-color: #ffde00;
@@ -21,8 +21,10 @@
 
 #flash-message {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  left: 0;
+  text-align: center;
+  bottom: 0;
+  right: 0;
   z-index: 9999;
 }
 
