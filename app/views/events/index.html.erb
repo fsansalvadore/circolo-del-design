@@ -17,6 +17,9 @@
         %>
         <%= submit_tag "Cerca", class: "btn" %>
         <% end %>
+        <%= simple_form_for @events, url: examples_vertical_path do |f| %>
+          <%= f.input :data_inizio, as: :check_boxes, collection: User::DATA_INIZIO, wrapper: :vertical_collection_inline %>
+        <% end %>
       </div>
       <div class="calendar-cards-container">
         <% if !@events.empty? %>
