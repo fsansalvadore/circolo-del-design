@@ -8,7 +8,8 @@ class PagesController < ApplicationController
     :about_sostenitori,
     :servizi_spazi,
     :servizi_biblioteca,
-    :servizi_store
+    :servizi_store,
+    :membership
   ]
 
   def index
@@ -39,5 +40,8 @@ class PagesController < ApplicationController
   end
 
   def servizi_store
+  end
+
+  def membership
   end
 end

@@ -12,7 +12,7 @@
     </nav>
     <%= render "shared/menu-container" %>
     <div class="menu-circle-bg"></div>
-    <a data-w-id="" href="#" class="membership-link w-inline-block">
+    <%= link_to membership_path, class: "membership-link w-inline-block" do %>
       <div class="nav-cta-membership">Become a member</div>
-    </a>
+    <% end %>
   </div>
