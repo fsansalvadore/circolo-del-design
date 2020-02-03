@@ -1,12 +1,12 @@
 <%= form_for @contact, url: contacts_path, remote: true do |f| %>
     <div class="col-md-6">
-        <%= f.label :nome %></br>
-        <%= f.text_field  :nome, required: true, class: "contact-form-text-area" %></br>
+        <%= f.label :nome %>
+        <%= f.text_field  :nome, required: true, class: "contact-form-text-area", placeholder: "Nome" %></br>
 
-        <%= f.label :email %></br>
-        <%= f.text_field :email, required: true, class: "contact-form-text-area" %></br>
+        <%= f.label :email %>
+        <%= f.text_field :email, required: true, class: "contact-form-text-area", placeholder: "Email" %></br>
 
-      <%= f.label :messaggio %></br>
+      <%= f.label :messaggio %>
       <%= f.text_area :messaggio, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
                         placeholder: "Scrivi un messaggio"%></br>
 
@@ -18,6 +18,6 @@
       <%= f.submit 'Invia Messaggio', class: 'btn btn-primary' %>
     </div>
   <% end %>
-  <div class="col-md-6" id="flash-message">
-    <%= render 'flash' %>
+  <div id="flash-message">
+    <%= render 'shared/flash' %>
   </div>

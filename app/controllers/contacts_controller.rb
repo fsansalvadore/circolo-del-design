@@ -1,4 +1,10 @@
 class ContactsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate_user!, only: [
+    :index,
+    :new,
+    :create,
+  ]
   def index
     @contact = Contact.new(params[:contact])
   end
