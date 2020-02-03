@@ -1,29 +1,23 @@
-<%= form_for(@contact) do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+<%= form_for @contact, url: contacts_path, remote: true do |f| %>
+    <div class="col-md-6">
+        <%= f.label :nome %></br>
+        <%= f.text_field  :nome, required: true, class: "contact-form-text-area" %></br>
 
-      <ul>
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <%= f.label :email %></br>
+        <%= f.text_field :email, required: true, class: "contact-form-text-area" %></br>
+
+      <%= f.label :messaggio %></br>
+      <%= f.text_area :messaggio, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
+                        placeholder: "Scrivi un messaggio"%></br>
+
+      <div class= "hidden">
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
+      </div>
+
+      <%= f.submit 'Invia Messaggio', class: 'btn btn-primary' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :titolo %>
-    <%= f.text_field :titolo, placeholder: "Nome" %>
+  <div class="col-md-6" id="flash-message">
+    <%= render 'flash' %>
   </div>
-  <div class="field">
-    <%= f.label :sottotitolo %>
-    <%= f.text_field :sottotitolo, placeholder: "Email" %>
-  </div>
-  <div class="field">
-    <%= f.label :descrizione %>
-    <%= f.text_area :descrizione, placeholder: "Messaggio" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Invia messaggio"%>
-  </div>
-<% end %>
