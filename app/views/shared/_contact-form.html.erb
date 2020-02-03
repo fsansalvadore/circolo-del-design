@@ -1,23 +1,23 @@
 <%= form_for @contact, url: contacts_path, remote: true do |f| %>
-    <div class="col-md-6">
-        <%= f.label :nome %>
-        <%= f.text_field  :nome, required: true, class: "contact-form-text-area", placeholder: "Nome" %></br>
+  <div>
+      <%= f.label :nome %>
+      <%= f.text_field  :nome, required: true, class: "contact-form-text-area", placeholder: "Nome" %></br>
 
-        <%= f.label :email %>
-        <%= f.text_field :email, required: true, class: "contact-form-text-area", placeholder: "Email" %></br>
+      <%= f.label :email %>
+      <%= f.text_field :email, required: true, class: "contact-form-text-area", placeholder: "Email" %></br>
 
-      <%= f.label :messaggio %>
-      <%= f.text_area :messaggio, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
-                        placeholder: "Scrivi un messaggio"%></br>
+    <%= f.label :messaggio %>
+    <%= f.text_area :messaggio, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
+                      placeholder: "Scrivi un messaggio"%></br>
 
-      <div class= "hidden">
-        <%= f.label :nickname %>
-        <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
-      </div>
-
-      <%= f.submit 'Invia Messaggio', class: 'btn btn-primary' %>
+    <div class= "hidden">
+      <%= f.label :nickname %>
+      <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
     </div>
-  <% end %>
-  <div id="flash-message">
-    <%= render 'shared/flash' %>
+
+    <%= f.submit 'Invia Messaggio', class: 'btn btn-primary' %>
   </div>
+<% end %>
+<div id="flash-message">
+  <%= render 'shared/flash' %>
+</div>

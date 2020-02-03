@@ -3,8 +3,12 @@ class ContactsController < ApplicationController
   skip_before_action :authenticate_user!, only: [
     :index,
     :new,
-    :create,
+    :create
   ]
+  # def new
+  #   @contact = Contact.new
+  # end
+
   def index
     @contact = Contact.new(params[:contact])
   end
@@ -20,7 +24,7 @@ class ContactsController < ApplicationController
         format.html { render 'index'}
         format.js   { flash.now[:success] = @message = "Grazie per il messaggio! Cercheremo di rispondere in breve tempo." }
       else
-        # flash.now[:error] = "Cannot send message"
+        # flash.now[:error] = "Non è possibile inviare il messaggio al momento."
         # render :new
         format.html { render 'index' }
         format.js   { flash.now[:error] = @message = "Non è possibile inviare il messaggio al momento." }

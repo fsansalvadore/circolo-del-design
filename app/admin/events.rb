@@ -18,6 +18,19 @@ ActiveAdmin.register Event do
   # scope :pubblicati, ->{where(published: true)}
   # scope :bozze, ->{where(published: false)}
 
+
+  member_action :publish_event, method: :put do
+    event = Event.find(params[:id])
+    event.update(published: true)
+    redirect_to admin_event_path(event)
+  end
+
+  member_action :unpublish_event, method: :put do
+    event = Event.find(params[:id])
+    event.update(published: false)
+    redirect_to admin_event_path(event)
+  end
+
   action_item :publish, only: :show do
     link_to "Pubblica", publish_admin_event_path(event), method: :put if !event.published
   end
@@ -27,18 +40,6 @@ ActiveAdmin.register Event do
   end
 
   member_action :publish, method: :put do
-    event = Event.find(params[:id])
-    event.update(published: true)
-    redirect_to admin_event_path(event)
-  end
-
-  member_action :unpublish, method: :put do
-    event = Event.find(params[:id])
-    event.update(published: false)
-    redirect_to admin_event_path(event)
-  end
-
-   member_action :publish, method: :put do
     event = Event.find(params[:id])
     event.update(published: true)
     redirect_to admin_events_path
