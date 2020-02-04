@@ -1,6 +1,6 @@
 .calendar-main-container {
   display: flex;
-  padding-top: 80px !important;
+  padding-top: 80px;
   flex-wrap: wrap;
 }
 .calendar-content-left {
@@ -9,11 +9,13 @@
 }
 
 .calendar-filters-container {
-  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .event-form-control {
-  width: 30%;
+  width: 220px;
 }
 
 .calendar-cards-container {
@@ -42,9 +44,144 @@
   top: 140px;
 }
 
+.events-search-form {
+  display: inline-block;
+  margin-right: 20px;
+  width: 300px;
+}
+
+.selected {
+  background-color: #000 !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.form-reset-btn-contianer {
+  height: auto;
+
+  p {
+    position: absolute;
+    width: 60px;
+    box-sizing: border-box;
+    transform: translate(-30%, -10px);
+    opacity: 0;
+    transition: all 0.2s ease;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  &:hover p {
+    opacity: 1;
+    transform: translate(-30%, -30px);
+  }
+}
+
+.form-reset-btn {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 2px;
+    transform: rotate(-45deg);
+    background-color: #fff;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 2px;
+    transform: rotate(45deg);
+    background-color: #fff;
+
+  }
+}
+
+.month-filter-form {
+  display: inline-flex;
+  align-items: center;
+
+  .month-checkbox-container {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    color: #000;
+    margin-right: 10px;
+
+    input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+      z-index: 300;
+      width: 30px;
+      height: 30px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:hover + .month-checkbox {
+        background-color: #ffed00;
+      }
+    }
+
+    input[type=checkbox]:checked + .month-checkbox {
+      background-color: #fff;
+      color: #000;
+      opacity: 1;
+    }
+
+    .month-checkbox {
+      position: absolute;
+      width: 30px;
+      display: flex;
+      opacity: 0.25;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      min-width: 30px;
+      min-height: 30px;
+      border: 2px solid #000 !important;
+      border-radius: 50%;
+      background-color: transparent;
+
+      &.current {
+        opacity: 1;
+      }
+
+      p {
+        margin: 0;
+      }
+
+
+    }
+  }
+
+}
+
+
 @media screen and (max-width: 991px) {
   .calendar-cards-container {
     margin-left: -6px;
+  }
+
+  .calendar-filters-container {
+    flex-direction: column;
+  }
+
+  .events-search-form {
+    width: 100%;
+  }
+  .event-form-control {
+    width: 80%;
+    margin-left: 12px;
   }
 }
 
@@ -59,10 +196,6 @@
 
   .calendar-main-container {
     padding-top: 40px;
-  }
-
-  .event-form-control {
-    width: 80%;
   }
 
   .calendar-aside-container {

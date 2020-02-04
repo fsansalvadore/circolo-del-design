@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :eventi_passati]
+  skip_before_action :authenticate_user!, only: [:index, :show, :eventi_passati, :get_events_by_month]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,11 +11,18 @@ class EventsController < ApplicationController
         OR events.categoria ILIKE :query \
       "
       @events = Event.where("published = ? AND data_fine > ?", true, Date.today).where(sql_query, query: "%#{params[:query]}%")
+    elsif params[:i].present?
+      @events = Event.where("published = ? AND data_fine > ?", true, Date.today).where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i])
+      @monthSelect = params[:i]
     else
       @events = Event.where("published = ? AND data_fine > ?", true, Date.today).order(:data_inizio)
     end
 
     @featured = Event.all.select { |e| e.featured }
+  end
+
+  def get_events_by_month
+    @events = Event.where("published = ? AND data_fine < ?", true, Date.today).where("data_inizio OR data_fine = ?", params[:i])
   end
 
   def show

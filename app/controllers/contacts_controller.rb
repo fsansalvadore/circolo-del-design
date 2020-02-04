@@ -22,7 +22,6 @@ class ContactsController < ApplicationController
       render :index
     end
 
-
     #   respond_to do |format|
     #     @contact = Contact.new
     #     format.html { render 'index'}

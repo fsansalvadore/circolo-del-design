@@ -9,13 +9,44 @@
   <div class="calendar-main-container w-container large">
     <div class="calendar-content-left">
       <div class="calendar-filters-container">
-        <%= form_tag whats_on_programma_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "event-form-control",
-          placeholder: "Cerca un evento"
-        %>
-        <%= submit_tag "Cerca", class: "w-button" %>
+        <%= form_tag whats_on_programma_path, method: :get, class: "events-search-form m-bottom-30" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "event-form-control",
+            placeholder: "Cerca tra gli eventi"
+          %>
+          <%= submit_tag "Cerca", class: "w-button" %>
+        <% end %>
+        <!-- Date select -->
+        <%= form_tag events_by_month_path, method: :get, class: "month-filter-form m-bottom-30" do %>
+          <% months = %w(G F M A M G L A S O N D) %>
+          <%# months = [Date.today.month, "F", "M", "A", "M", "G", "L", "A", "S", "O", "N", "D"] %>
+          <% months.each_with_index do |m, i| %>
+            <div class="month-checkbox-container" title="<%= Date::MONTHNAMES[i + 1] %>">
+              <% current = i + 1 <= Date.current.month ? "current" : "" %>
+              <%= check_box_tag "i", i + 1, false, {
+                title: Date::MONTHNAMES[i + 1],
+                class: "month-checkbox-default",
+                onclick: "$('input[type=checkbox]').change(function() {
+                            if($(this).prop('checked') == true) {
+                              $('form.month-filter-form').submit();
+                            }
+                          });"} %>
+              <%  if @monthSelect.to_i == i + 1
+                    selected = "selected"
+                  else
+                    selected = ""
+                  end
+                %>
+              <span class="month-checkbox <%= current %> <%= selected %>">
+                <p><%= m %></p>
+              </span>
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to whats_on_programma_path, {class: "form-reset-btn-contianer m-bottom-30"} do %>
+          <p>Azzera filtri</p>
+          <div class="form-reset-btn"></div>
         <% end %>
       </div>
       <div class="calendar-cards-container">
@@ -41,7 +72,7 @@
           <% end %>
         <% end %>
         <% else %>
-          <p class="result-message">Non ci sono eventi in programmazione.</p>
+          <p class="result-message">Nessun evento trovato.</p>
         <% end %>
       </div>
     </div>
