@@ -307,9 +307,10 @@ input[type="reset"] {
 }
 .w-form-done {
   display: none;
-  padding: 20px;
+  font-size: 16px;
+  padding: 24px;
   text-align: center;
-  background-color: #dddddd;
+  background-color: transparent;
 }
 .w-form-fail {
   display: none;

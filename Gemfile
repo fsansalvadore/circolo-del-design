@@ -49,6 +49,7 @@ gem 'cloudinary'
 gem 'rails-i18n'
 gem 'mail_form'
 gem 'sendgrid-ruby'
+gem 'gibbon'
 
 
 group :development, :test do
