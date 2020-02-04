@@ -3033,6 +3033,18 @@ h2 {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 }
 
+// .event-card-img-container {
+//   filter: gray; /* IE5+ */
+//   -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+//   transition: all 0.15s ease;
+// }
+
+// .event-card:hover .event-card-img-container {
+//   filter: none;
+//   -webkit-filter: grayscale(0);
+//   -webkit-transform: scale(1.01);
+// }
+
 .grid {
   grid-template-areas: "Area Area-2 Area-2 Area-4";
   -ms-grid-columns: 1fr 1fr;
@@ -3907,6 +3919,12 @@ h2 {
   text-decoration: underline;
 }
 
+.carousel-a-slide:hover .carousel-slide-img {
+  filter: none;
+  -webkit-filter: grayscale(0);
+  -webkit-transform: scale(1.01);
+}
+
 /*.carousel-a-slide:hover .carousel-slide-img {
   background-size: auto, 104%;
 }
@@ -3920,11 +3938,17 @@ h2 {
   height: 100%;
   /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, transparent), to(#000)), url('https://d3e54v103j8qbb.cloudfront.net/img/example-bg.png');
   background-image: linear-gradient(180deg, transparent 25%, #000), url('https://d3e54v103j8qbb.cloudfront.net/img/example-bg.png');
- */ background-position: 0px 0px, 50% 50%;
+ */
+  background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
+  filter: gray; /* IE5+ */
+  -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+  -webkit-transition: all .8s ease-in-out;
   -webkit-transition: all 0.3s cubic-bezier(.292, .003, .175, 1);
   transition: all 0.3s cubic-bezier(.292, .003, .175, 1);
 }
+
+
 
 .carousel-slide-img.slide-club-futuro {
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, transparent), to(#000)), url('CDD_CLUB-FUTURO.jpg');
