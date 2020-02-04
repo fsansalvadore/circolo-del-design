@@ -49,8 +49,6 @@ gem 'cloudinary'
 gem 'rails-i18n'
 gem 'mail_form'
 gem 'sendgrid-ruby'
-gem 'gibbon'
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
