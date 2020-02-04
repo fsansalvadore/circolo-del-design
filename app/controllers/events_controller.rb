@@ -10,9 +10,9 @@ class EventsController < ApplicationController
         OR events.descrizione ILIKE :query \
         OR events.categoria ILIKE :query \
       "
-      @events = Event.where(published: true).where(sql_query, query: "%#{params[:query]}%")
+      @events = Event.where("published = ? AND data_fine > ?", true, Date.today).where(sql_query, query: "%#{params[:query]}%")
     else
-      @events = Event.where(published: true).order(:data_inizio)
+      @events = Event.where("published = ? AND data_fine > ?", true, Date.today).order(:data_inizio)
     end
 
     @featured = Event.all.select { |e| e.featured }
@@ -62,9 +62,9 @@ class EventsController < ApplicationController
         OR events.descrizione ILIKE :query \
         OR events.categoria ILIKE :query \
       "
-      @events = Event.where("data_fine < ?", Date.today).where(sql_query, query: "%#{params[:query]}%")
+      @events = Event.where("published = ? AND data_fine < ?", true, Date.today).where(sql_query, query: "%#{params[:query]}%")
     else
-      @events = Event.where("data_fine < ?", Date.today)
+      @events = Event.where("published = ? AND data_fine < ?", true, Date.today).order(:data_inizio)
     end
   end
 
