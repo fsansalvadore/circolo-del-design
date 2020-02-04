@@ -9,16 +9,16 @@
   <div class="calendar-main-container w-container large">
     <div class="calendar-content-left">
       <div class="calendar-filters-container">
-        <%= form_tag whats_on_programma_path, method: :get, class: "events-search-form" do %>
+        <%= form_tag whats_on_programma_path, method: :get, class: "events-search-form m-bottom-30" do %>
           <%= text_field_tag :query,
             params[:query],
             class: "event-form-control",
-            placeholder: "Cerca un evento"
+            placeholder: "Cerca tra gli eventi"
           %>
           <%= submit_tag "Cerca", class: "w-button" %>
         <% end %>
         <!-- Date select -->
-        <%= form_tag events_by_month_path, method: :get, class: "month-filter-form" do %>
+        <%= form_tag events_by_month_path, method: :get, class: "month-filter-form m-bottom-30" do %>
           <% months = %w(G F M A M G L A S O N D) %>
           <%# months = [Date.today.month, "F", "M", "A", "M", "G", "L", "A", "S", "O", "N", "D"] %>
           <% months.each_with_index do |m, i| %>
@@ -44,7 +44,7 @@
             </div>
           <% end %>
         <% end %>
-        <%= link_to whats_on_programma_path, {class: "form-reset-btn-contianer"} do %>
+        <%= link_to whats_on_programma_path, {class: "form-reset-btn-contianer m-bottom-30"} do %>
           <p>Azzera filtri</p>
           <div class="form-reset-btn"></div>
         <% end %>

@@ -1,6 +1,6 @@
 .calendar-main-container {
   display: flex;
-  padding-top: 80px !important;
+  padding-top: 80px;
   flex-wrap: wrap;
 }
 .calendar-content-left {
@@ -9,7 +9,6 @@
 }
 
 .calendar-filters-container {
-  padding-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,6 +171,18 @@
   .calendar-cards-container {
     margin-left: -6px;
   }
+
+  .calendar-filters-container {
+    flex-direction: column;
+  }
+
+  .events-search-form {
+    width: 100%;
+  }
+  .event-form-control {
+    width: 80%;
+    margin-left: 12px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -185,10 +196,6 @@
 
   .calendar-main-container {
     padding-top: 40px;
-  }
-
-  .event-form-control {
-    width: 80%;
   }
 
   .calendar-aside-container {
