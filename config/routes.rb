@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get    'contatti/new', to: 'contacts#new'
 
   get    'whats-on/programma', to: 'events#index'
-  get    'whats-on/archivio', to: 'events#archivio'
+  get    'whats-on/eventi-passati', to: 'events#eventi_passati'
 
   get    'events/new', to: 'events#new'
   post   'events', to: 'events#create'

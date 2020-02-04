@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :missing_out, :club_futuro_vol_1_the_exhibition]
+  skip_before_action :authenticate_user!, only: [:index, :show, :eventi_passati]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -54,7 +54,7 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
-  def archivio
+  def eventi_passati
     if params[:query].present?
       sql_query = " \
         events.titolo ILIKE :query \
