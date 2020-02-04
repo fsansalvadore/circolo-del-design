@@ -33,6 +33,7 @@
 .calendar-aside-container {
   // width: 27%;
   flex: 1;
+  margin-top: 122px;
 }
 
 .sticky {
@@ -62,6 +63,10 @@
 
   .event-form-control {
     width: 80%;
+  }
+
+  .calendar-aside-container {
+    margin-top: 30px;
   }
 }
 
