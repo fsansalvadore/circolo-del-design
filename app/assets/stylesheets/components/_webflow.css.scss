@@ -1985,15 +1985,27 @@ h2 {
   margin-right: 40px;
 }
 
+// .centered-big-text {
+//   max-width: 900px;
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding-right: 0px;
+//   padding-left: 0px;
+//   font-size: 30px;
+//   line-height: 160%;
+//   text-align: center;
+// }
+
 .centered-big-text {
   max-width: 900px;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 0px;
-  padding-left: 0px;
-  font-size: 30px;
+  padding: 0 20px;
+  width: 50%;
+  float: left;
+  font-size: 28px;
   line-height: 160%;
-  text-align: center;
+  text-align: left;
 }
 
 .down-arrows-group {
@@ -2047,7 +2059,7 @@ h2 {
 }
 
 .section-a-3 {
-  margin-bottom: 130px;
+  margin-bottom: 100px;
 }
 
 .section-b-5-proj {
@@ -4836,7 +4848,7 @@ div {
     margin-bottom: 90px;
   }
   .section-a-3 {
-    margin-bottom: 100px;
+    margin-bottom: 70px;
   }
   .link-list-item {
     font-size: 18px;
@@ -5054,7 +5066,7 @@ div {
     padding-bottom: 30px;
   }
   .section-a-1 {
-    margin-bottom: 80px;
+    margin-bottom: 0;
   }
   .container-2 {
     padding-right: 12px;
@@ -5077,6 +5089,7 @@ div {
   .centered-big-text {
     padding-right: 12px;
     padding-left: 12px;
+    width: 100%;
   }
   .down-arrows-group {
     padding-right: 90px;
@@ -5335,7 +5348,7 @@ div {
   }
   .section-a-1 {
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   .container-2 {
     margin-top: 115px;
