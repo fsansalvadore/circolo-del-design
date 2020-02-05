@@ -71,6 +71,27 @@ ActiveAdmin.register Event do
     actions
   end
 
+  show title: :titolo do
+    attributes_table do
+      row :titolo
+      row :sottotitolo
+      row :data_inizio
+      row :data_fine
+      row :orario
+      row :prezzo
+      row :descrizione
+      row :image
+      row :categoria
+      row :luogo
+      row :durata
+      row :posti
+      row :target
+      row :link
+      row :featured
+      row :published
+    end
+  end
+
   filter :titolo
   filter :data_inizio
   filter :data_fine
@@ -89,7 +110,7 @@ ActiveAdmin.register Event do
       f.input :prezzo, placeholder: 'Default: Gratuito per i soci', default: 'Gratuito per i soci'
       f.input :descrizione, as: :quill_editor
       f.input :image, as: :file
-      f.input :categoria
+      f.input :categoria, as: :select, collection: ['Mostra', 'Evento', 'Programmi Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
       f.input :luogo, placeholder: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
       f.input :durata, placeholder: 'Opzionale'
       f.input :posti, placeholder: 'Opzionale'
