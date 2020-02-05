@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @events = Event.where("published = ? AND data_fine > ?", true, Date.today)
     if params[:query].present?
       sql_query = " \
         events.titolo ILIKE :query \
@@ -10,12 +11,15 @@ class EventsController < ApplicationController
         OR events.descrizione ILIKE :query \
         OR events.categoria ILIKE :query \
       "
-      @events = Event.where("published = ? AND data_fine > ?", true, Date.today).where(sql_query, query: "%#{params[:query]}%")
+      @events = @events.where(sql_query, query: "%#{params[:query]}%")
     elsif params[:i].present?
-      @events = Event.where("published = ? AND data_fine > ?", true, Date.today).where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i])
+      @events = @events.where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i])
       @monthSelect = params[:i]
+    elsif params[:categoria].present?
+      @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ?", true, Date.today) : @events.where("categoria = ?", params[:categoria])
+      @categorySelect = params[:categoria]
     else
-      @events = Event.where("published = ? AND data_fine > ?", true, Date.today).order(:data_inizio)
+      @events = @events.order(:data_inizio)
     end
 
     @featured = Event.all.select { |e| e.featured }
