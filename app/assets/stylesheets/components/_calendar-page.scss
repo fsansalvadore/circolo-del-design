@@ -59,21 +59,36 @@
 .form-reset-btn-contianer {
   height: auto;
 
-  p {
-    position: absolute;
-    width: 60px;
-    box-sizing: border-box;
-    transform: translate(-30%, -10px);
-    opacity: 0;
-    transition: all 0.2s ease;
-    font-size: 10px;
-    text-align: center;
-  }
-
-  &:hover p {
+  &:hover p.label-reveal {
     opacity: 1;
     transform: translate(-30%, -30px);
   }
+}
+
+.label-reveal {
+  position: absolute;
+  width: 60px;
+  box-sizing: border-box;
+  transform: translate(-30%, -10px);
+  opacity: 0;
+  transition: all 0.2s ease;
+  font-size: 10px;
+  text-align: center;
+}
+
+.month-checkbox-container .label-reveal {
+  transform: translate(0, -10px);
+}
+
+.month-checkbox-default:hover ~ .month-checkbox .label-reveal {
+  opacity: 1;
+  transform: translate(0, -30px);
+}
+
+
+.form-reset-btn-contianer:hover .label-reveal {
+  opacity: 1;
+  transform: translate(-30%, -30px);
 }
 
 .form-reset-btn {
@@ -114,7 +129,7 @@
     height: 30px;
     position: relative;
     color: #000;
-    margin-right: 10px;
+    margin-right: 5px;
 
     input[type=checkbox] {
       position: absolute;
@@ -142,7 +157,7 @@
       position: absolute;
       width: 30px;
       display: flex;
-      opacity: 0.25;
+      opacity: 0.3;
       align-items: center;
       justify-content: center;
       height: 30px;
@@ -159,11 +174,8 @@
       p {
         margin: 0;
       }
-
-
     }
   }
-
 }
 
 

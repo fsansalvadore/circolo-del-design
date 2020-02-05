@@ -18,14 +18,12 @@
           <%= submit_tag "Cerca", class: "w-button" %>
         <% end %>
         <!-- Date select -->
-        <%= form_tag events_by_month_path, method: :get, class: "month-filter-form m-bottom-30" do %>
-          <% months = %w(G F M A M G L A S O N D) %>
-          <%# months = [Date.today.month, "F", "M", "A", "M", "G", "L", "A", "S", "O", "N", "D"] %>
+        <%= form_tag whats_on_programma_path, method: :get, class: "month-filter-form m-bottom-30" do %>
+          <% months = %w(Gennaio Febbraio Marzo Aprile Maggio Giugno Luglio Agosto Settempre Ottobre Novembre Dicembre) %>
           <% months.each_with_index do |m, i| %>
-            <div class="month-checkbox-container" title="<%= Date::MONTHNAMES[i + 1] %>">
+            <div class="month-checkbox-container">
               <% current = i + 1 <= Date.current.month ? "current" : "" %>
               <%= check_box_tag "i", i + 1, false, {
-                title: Date::MONTHNAMES[i + 1],
                 class: "month-checkbox-default",
                 onclick: "$('input[type=checkbox]').change(function() {
                             if($(this).prop('checked') == true) {
@@ -37,15 +35,16 @@
                   else
                     selected = ""
                   end
-                %>
+              %>
               <span class="month-checkbox <%= current %> <%= selected %>">
-                <p><%= m %></p>
+                <p class="label-reveal"><%= m %></p>
+                <p><%= m.chars.first %></p>
               </span>
             </div>
           <% end %>
         <% end %>
         <%= link_to whats_on_programma_path, {class: "form-reset-btn-contianer m-bottom-30"} do %>
-          <p>Azzera filtri</p>
+          <p class="label-reveal">Azzera filtri</p>
           <div class="form-reset-btn"></div>
         <% end %>
       </div>

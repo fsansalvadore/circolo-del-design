@@ -12,6 +12,7 @@ module CircoloDelDesign
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     config.i18n.available_locales = [:it, :en]
     config.i18n.default_locale = :it
     # Settings in config/environments/* take precedence over those specified here.
