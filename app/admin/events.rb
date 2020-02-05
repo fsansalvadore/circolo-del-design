@@ -89,7 +89,7 @@ ActiveAdmin.register Event do
       f.input :prezzo, placeholder: 'Default: Gratuito per i soci', default: 'Gratuito per i soci'
       f.input :descrizione, as: :quill_editor
       f.input :image, as: :file
-      f.input :categoria
+      f.input :categoria, as: :select, collection: ['Mostra', 'Evento', 'Programmi Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
       f.input :luogo, placeholder: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
       f.input :durata, placeholder: 'Opzionale'
       f.input :posti, placeholder: 'Opzionale'
