@@ -26,3 +26,8 @@ h1, h2, h3, h4, h5, h6 {
 .breadcrumb a:active {
   color: #000;
 }
+
+.image-preview {
+  max-width: 250px;
+  max-height: 250px;
+}
