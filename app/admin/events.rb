@@ -76,12 +76,14 @@ ActiveAdmin.register Event do
     attributes_table do
       row :titolo
       row :sottotitolo
+      row :image do |i|
+        image_tag(cl_image_path(event.image), class: "image-preview")
+      end
       row :data_inizio
       row :data_fine
       row :orario
       row :prezzo
-      row :descrizione
-      row :image
+      row (:descrizione) { |event| raw(event.descrizione) }
       row :categoria
       row :luogo
       row :durata
@@ -111,7 +113,7 @@ ActiveAdmin.register Event do
       f.input :orario, placeholder: 'Opzionale'
       f.input :prezzo, placeholder: 'Default: Gratuito per i soci', default: 'Gratuito per i soci'
       f.input :descrizione, as: :quill_editor
-      f.input :image, as: :file
+      f.input :image, as: :file, :image_preview => true
       f.input :categoria, as: :select, collection: ['Mostra', 'Evento', 'Programmi Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
       f.input :luogo, placeholder: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
       f.input :durata, placeholder: 'Opzionale'
@@ -121,7 +123,6 @@ ActiveAdmin.register Event do
       f.input :featured
       f.input :published
       f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna", 5]], prompt: "Seleziona l'ordine in Home Page"
-      # f.input :priority, :as => :number, :min => 1, :max => 5, :step => 1
     end
     f.actions
   end
