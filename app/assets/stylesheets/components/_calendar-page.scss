@@ -53,6 +53,7 @@
 
 .category-search-form {
   // width: 200px;
+  cursor: pointer;
   margin-right: 10px;
 }
 
@@ -93,6 +94,7 @@
 
 .category-select {
   display: block;
+  cursor: pointer;
   font-size: 13px;
   font-family: sans-serif;
   font-weight: 700;
@@ -128,11 +130,6 @@
 
 .form-reset-btn-contianer {
   height: auto;
-
-  &:hover p.label-reveal {
-    opacity: 1;
-    transform: translate(-30%, -30px);
-  }
 }
 
 .label-reveal {
@@ -269,6 +266,22 @@
   .event-form-control {
     // width: 80%;
     margin-left: 12px;
+  }
+
+  .label-reveal span {
+    margin: 0 14px;
+  }
+  .form-reset-btn-contianer .label-reveal {
+    opacity: 1;
+    width: auto;
+    transform: translate(-47%, 0);
+  }
+
+  .form-reset-btn-contianer:hover .label-reveal {
+    transform: translate(-47%, 0);
+  }
+  .month-checkbox-default:hover ~ .month-checkbox .label-reveal {
+    opacity: 0;
   }
 }
 
