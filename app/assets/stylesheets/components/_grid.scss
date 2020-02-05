@@ -56,8 +56,8 @@ figcaption {
 
 .team-member-img {
   width: 100%;
-  height: 320px;
-  background-color: #333;
+  height: auto;
+  // background-color: #333;
 }
 
 @media (max-width: 991px) {
@@ -67,9 +67,9 @@ figcaption {
   .grid-3x {
     grid-template-columns: 1fr 1fr;
   }
-  .team-member-img {
-    height: 60vw;
-  }
+  // .team-member-img {
+  //   height: 60vw;
+  // }
 }
 @media (max-width: 767px) {
   .grid-2x {
