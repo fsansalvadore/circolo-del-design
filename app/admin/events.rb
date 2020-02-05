@@ -71,6 +71,27 @@ ActiveAdmin.register Event do
     actions
   end
 
+  show title: :titolo do
+    attributes_table do
+      row :titolo
+      row :sottotitolo
+      row :data_inizio
+      row :data_fine
+      row :orario
+      row :prezzo
+      row :descrizione
+      row :image
+      row :categoria
+      row :luogo
+      row :durata
+      row :posti
+      row :target
+      row :link
+      row :featured
+      row :published
+    end
+  end
+
   filter :titolo
   filter :data_inizio
   filter :data_fine
