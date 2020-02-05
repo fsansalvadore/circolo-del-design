@@ -15,7 +15,19 @@
             class: "event-form-control",
             placeholder: "Cerca tra gli eventi"
           %>
-          <%= submit_tag "Cerca", class: "w-button" %>
+          <%= button_tag :submit, {class: "search-btn"} do %>
+            <div class="search icon"></div>
+          <% end %>
+        <% end %>
+        <!-- Categories select -->
+        <%= form_tag whats_on_programma_path, method: :get, class: "category-search-form m-bottom-30" do %>
+          <%= select_tag("categoria", options_from_collection_for_select(@events, :categoria, :categoria, @categorySelect),
+            prompt: "Tutte le categorie",
+            class: "category-select",
+            onclick: "$('.category-select').change(function() {
+                        $('form.category-search-form').submit();
+                      });",
+            ) %>
         <% end %>
         <!-- Date select -->
         <%= form_tag whats_on_programma_path, method: :get, class: "month-filter-form m-bottom-30" do %>
@@ -29,7 +41,8 @@
                             if($(this).prop('checked') == true) {
                               $('form.month-filter-form').submit();
                             }
-                          });"} %>
+                          });",
+                        } %>
               <%  if @monthSelect.to_i == i + 1
                     selected = "selected"
                   else
