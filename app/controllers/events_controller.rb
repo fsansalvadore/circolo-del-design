@@ -103,7 +103,8 @@ class EventsController < ApplicationController
       :target,
       :link,
       :published,
-      :featured
+      :featured,
+      :priority
       )
   end
 

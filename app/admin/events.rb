@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :titolo, :sottotitolo, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :photo, :image, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured
+  permit_params :titolo, :sottotitolo, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :photo, :image, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured, :priority
   config.comments = false
   #
   # or
@@ -58,6 +58,7 @@ ActiveAdmin.register Event do
     column :categoria
     column "Data inizio", :data_inizio, :sortable => :data_inizio
     column "Data fine", :data_fine
+    column :priority
     column :published
     column :featured
     column "Pubblica" do |event|
@@ -89,6 +90,7 @@ ActiveAdmin.register Event do
       row :link
       row :featured
       row :published
+      row :priority
     end
   end
 
@@ -118,6 +120,8 @@ ActiveAdmin.register Event do
       f.input :link, placeholder: 'Opzionale'
       f.input :featured
       f.input :published
+      f.input :priority, as: :select, collection: [["In evidenza", 1], ["Secondo", 2], ["Terzo", 3], ["Quarto", 4], ["Nessuna", 5]], prompt: "Seleziona l'ordine in Home Page"
+      # f.input :priority, :as => :number, :min => 1, :max => 5, :step => 1
     end
     f.actions
   end
