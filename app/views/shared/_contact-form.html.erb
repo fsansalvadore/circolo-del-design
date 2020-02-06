@@ -25,6 +25,8 @@
       <%= f.label :nickname %>
       <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
     </div>
+    <%= check_box_tag("privacy", value = "1", checked = false) %>
+    <%= label_tag("privacy", "Dichiaro di aver letto e accettato l'informativa sulla privacy.", class: "privacy-label") %>
 
     <%= f.submit 'Invia Messaggio', class: 'submit-button w-button btn-wide' %>
   </div>

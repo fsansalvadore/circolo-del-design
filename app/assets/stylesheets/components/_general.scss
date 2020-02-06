@@ -144,6 +144,16 @@
   padding-top: 30px;
 }
 
+.contact-form {
+  input[type="checkbox"],
+  .privacy-label {
+    display: inline !important;
+    width: auto;
+    line-height: 110%;
+    font-weight: 400;
+  }
+}
+
 .m-top-0 {
   margin-top: 0px;
 }
