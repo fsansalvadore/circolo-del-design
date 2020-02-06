@@ -16,15 +16,15 @@ Rails.application.routes.draw do
   get    'whats-on/programma', to: 'events#index'
   get    'whats-on/eventi-passati', to: 'events#eventi_passati'
 
-  get    'events/new', to: 'events#new'
-  post   'events', to: 'events#create'
+  get    'events/programma/new', to: 'events#new'
+  post   'events/programma', to: 'events#create'
 
-  get    'whats-on/:id', to: 'events#show', as: :event
+  get    'whats-on/programma/:slug', to: 'events#show', as: :event
 
-  get    'events/:id/edit', to: 'events#edit', as: 'edit_event'
-  patch  'events/:id', to: 'events#update'
+  get    'events/programma/:slug/edit', to: 'events#edit', as: 'edit_event'
+  patch  'events/programma/:slug', to: 'events#update'
 
-  delete 'events/:id', to: 'events#destroy'
+  delete 'events/programma/:slug', to: 'events#destroy'
 
   get '/privacy_cookie_policy' => 'pages#privacy_cookie_policy'
   get '/contatti' => 'pages#contacts'

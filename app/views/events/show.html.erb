@@ -22,7 +22,7 @@
         <h1 class="event-header-title"><%= @event.titolo %></h1>
         <div class="event-header-subtitle"><%= @event.sottotitolo %></div>
         <div class="event-header-label-container">
-          <div class="event-label <%= @event.categoria.downcase %>"><%= @event.categoria %></div>
+          <div class="event-label <%= @event.categoria.split(' ').first.downcase %>"><%= @event.categoria %></div>
         </div>
       </div>
       <div class="event-header-main-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
