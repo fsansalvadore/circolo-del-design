@@ -19,14 +19,15 @@
 
     <%= f.label :messaggio %>
     <%= f.text_area :messaggio, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
-                      placeholder: "Scrivi un messaggio"%></br>
+                      placeholder: "Scrivi un messaggio"%>
 
     <div class= "hidden">
       <%= f.label :nickname %>
       <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
     </div>
-    <%= check_box_tag("privacy", value = "1", checked = false) %>
-    <%= label_tag("privacy", "Dichiaro di aver letto e accettato l'informativa sulla privacy.", class: "privacy-label") %>
+    <div class="form-checkbox-terms">
+      <input type="checkbox" required name="terms"> <span>Dichiaro di aver letto e accettato l'<%= link_to "informativa sulla privacy", privacy_cookie_policy_path %>.</span></br>
+    </div>
 
     <%= f.submit 'Invia Messaggio', class: 'submit-button w-button btn-wide' %>
   </div>
