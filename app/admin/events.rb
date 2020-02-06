@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :titolo, :sottotitolo, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :photo, :image, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured, :priority
+  permit_params :titolo, :sottotitolo, :slug, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :photo, :image, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured, :priority
   config.comments = false
   #
   # or
@@ -19,13 +19,13 @@ ActiveAdmin.register Event do
   # scope :bozze, ->{where(published: false)}
 
   member_action :publish_event, method: :put do
-    event = Event.find(params[:id])
+    event = Event.friendly.find_by_slug(params[:slug])
     event.update(published: true)
     redirect_to admin_event_path(event)
   end
 
   member_action :unpublish_event, method: :put do
-    event = Event.find(params[:id])
+    event = Event.friendly.find_by_slug(params[:slug])
     event.update(published: false)
     redirect_to admin_event_path(event)
   end
@@ -39,13 +39,13 @@ ActiveAdmin.register Event do
   end
 
   member_action :publish, method: :put do
-    event = Event.find(params[:id])
+    event = Event.friendly.find_by_slug(params[:slug])
     event.update(published: true)
     redirect_to admin_events_path
   end
 
   member_action :unpublish, method: :put do
-    event = Event.find(params[:id])
+    event = Event.friendly.find_by_slug(params[:slug])
     event.update(published: false)
     redirect_to admin_events_path
   end
@@ -76,6 +76,7 @@ ActiveAdmin.register Event do
     attributes_table do
       row :titolo
       row :sottotitolo
+      row :slug
       row :image do |i|
         image_tag(cl_image_path(event.image), class: "image-preview")
       end
@@ -108,13 +109,14 @@ ActiveAdmin.register Event do
     f.inputs 'Event' do
       f.input :titolo, placeholder: 'Titolo'
       f.input :sottotitolo, placeholder: 'Sottotitolo'
+      f.input :slug, placeholder: :slug
       f.input :data_inizio, as: :datepicker
       f.input :data_fine, as: :datepicker
       f.input :orario, placeholder: 'Opzionale'
       f.input :prezzo, placeholder: 'Default: Gratuito per i soci', default: 'Gratuito per i soci'
       f.input :descrizione, as: :quill_editor
       f.input :image, as: :file, :image_preview => true
-      f.input :categoria, as: :select, collection: ['Mostra', 'Evento', 'Programmi Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
+      f.input :categoria, as: :select, collection: ['Mostra', 'Evento', 'Progetti Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
       f.input :luogo, placeholder: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
       f.input :durata, placeholder: 'Opzionale'
       f.input :posti, placeholder: 'Opzionale'

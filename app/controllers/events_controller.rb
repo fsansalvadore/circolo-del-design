@@ -51,6 +51,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event.slug = nil if @event.titolo != params[:titolo]
     @event.update(event_params)
 
     if @event.update(event_params)
@@ -82,7 +83,7 @@ class EventsController < ApplicationController
   private
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.friendly.find_by_slug(params[:slug])
   end
 
   def event_params
@@ -91,6 +92,7 @@ class EventsController < ApplicationController
       :sottotitolo,
       :data_inizio,
       :data_fine,
+      :slug,
       :orario,
       :prezzo,
       :descrizione,

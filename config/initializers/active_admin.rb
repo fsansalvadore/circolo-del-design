@@ -2,6 +2,13 @@ def authenticate_admin!
   redirect_to new_user_session_path unless current_user && current_user.admin
 end
 
+ActiveAdmin::ResourceController.class_eval do
+  def find_resource
+    finder = resource_class.is_a?(FriendlyId) ? :slug : :id
+    scoped_collection.find_by(finder => params[:id])
+  end
+end
+
 ActiveAdmin.setup do |config|
   # == Site Title
   #
