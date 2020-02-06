@@ -1,3 +1,6 @@
+<% content_for :meta_title, "Programma — What's On — Circolo del Design" %>
+<% content_for :meta_description, "I prossimi appuntamenti al Circolo del Design." %>
+
 <header id="top" class="page-header-container">
   <div class="w-container large">
     <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On</div>
@@ -21,14 +24,7 @@
         <% end %>
         <!-- Categories select -->
         <%= form_tag whats_on_programma_path, method: :get, class: "category-search-form m-bottom-30" do %>
-          <%#= select_tag("categoria", options_from_collection_for_select(@events , :categoria, :categoria, @categorySelect),
-            prompt: "Tutte le categorie",
-            class: "category-select",
-            onclick: "$('.category-select').change(function() {
-                        $('form.category-search-form').submit();
-                      });",
-            ) %>
-          <%= select_tag("categoria", options_for_select([["Evento", "Evento"], ["Mostra", "Mostra"], ["Progetti Speciali", "Progetti"], ["Talk", "Talk"], ["Workshop", "Workshop"]], @categorySelect),
+          <%= select_tag("categoria", options_for_select([["Evento", "Evento"], ["Mostra", "Mostra"], ["Progetti Speciali", "Progetti Speciali"], ["Talk", "Talk"], ["Workshop", "Workshop"]], @categorySelect),
             prompt: "Tutte le categorie",
             class: "category-select",
             onclick: "$('.category-select').change(function() {

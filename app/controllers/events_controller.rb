@@ -16,7 +16,7 @@ class EventsController < ApplicationController
       @events = @events.where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i]).order(:data_inizio)
       @monthSelect = params[:i]
     elsif params[:categoria].present?
-      @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ?", true, Date.today) : @events.where("categoria = ?", params[:categoria].capitalize).order(:data_inizio)
+      @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ?", true, Date.today) : @events.where("categoria = ?", params[:categoria].gsub("+", " ")).order(:data_inizio)
       @categorySelect = params[:categoria]
     else
       @events = @events.order(:data_inizio)

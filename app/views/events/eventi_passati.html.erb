@@ -1,6 +1,8 @@
+<% content_for :meta_title, "Eventi Passati — What's On — Circolo del Design" %>
+
 <header id="top" class="page-header-container">
   <div class="w-container large">
-    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's Up</div>
+    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On</div>
     <h1 class="page-header-title">Eventi Passati</h1>
     <div class="page-header-subtitle">Scopri tutti gli eventi che si sono conclusi.</div>
   </div>
@@ -9,13 +11,15 @@
   <div class="calendar-main-container w-container large">
     <div class="calendar-content-left">
       <div class="calendar-filters-container">
-        <%= form_tag whats_on_eventi_passati_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "event-form-control",
-          placeholder: "Cerca un evento"
-        %>
-        <%= submit_tag "Cerca", class: "w-button" %>
+        <%= form_tag whats_on_eventi_passati_path, method: :get, class: "events-search-form m-bottom-30" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "event-form-control",
+            placeholder: "Cerca un evento"
+          %>
+          <%= button_tag :submit, {class: "search-btn"} do %>
+            <div class="search icon"></div>
+          <% end %>
         <% end %>
       </div>
       <div class="calendar-cards-container">

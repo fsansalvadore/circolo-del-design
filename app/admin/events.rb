@@ -18,14 +18,18 @@ ActiveAdmin.register Event do
   # scope :pubblicati, ->{where(published: true)}
   # scope :bozze, ->{where(published: false)}
 
+  controller do
+    defaults :finder => :find_by_slug
+  end
+
   member_action :publish_event, method: :put do
-    event = Event.friendly.find_by_slug(params[:slug])
+    event = Event.friendly.find_by_slug(params[:id])
     event.update(published: true)
     redirect_to admin_event_path(event)
   end
 
   member_action :unpublish_event, method: :put do
-    event = Event.friendly.find_by_slug(params[:slug])
+    event = Event.friendly.find_by_slug(params[:id])
     event.update(published: false)
     redirect_to admin_event_path(event)
   end
@@ -39,13 +43,13 @@ ActiveAdmin.register Event do
   end
 
   member_action :publish, method: :put do
-    event = Event.friendly.find_by_slug(params[:slug])
+    event = Event.friendly.find_by_slug(params[:id])
     event.update(published: true)
     redirect_to admin_events_path
   end
 
   member_action :unpublish, method: :put do
-    event = Event.friendly.find_by_slug(params[:slug])
+    event = Event.friendly.find_by_slug(params[:id])
     event.update(published: false)
     redirect_to admin_events_path
   end
@@ -107,24 +111,24 @@ ActiveAdmin.register Event do
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Event' do
-      f.input :titolo, placeholder: 'Titolo'
-      f.input :sottotitolo, placeholder: 'Sottotitolo'
-      f.input :slug, placeholder: :slug
-      f.input :data_inizio, as: :datepicker
-      f.input :data_fine, as: :datepicker
-      f.input :orario, placeholder: 'Opzionale'
-      f.input :prezzo, placeholder: 'Default: Gratuito per i soci', default: 'Gratuito per i soci'
-      f.input :descrizione, as: :quill_editor
-      f.input :image, as: :file, :image_preview => true
+      f.input :titolo, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
+      f.input :sottotitolo, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
+      f.input :slug, placeholder: :slug, hint: "È come verrà visualizzato l'indirizzo URL della pagina. Viene impostato automaticamente in base al Titolo se lasciato vuoto."
+      f.input :data_inizio, as: :datepicker, hint: "Obbligatorio"
+      f.input :data_fine, as: :datepicker, hint: "Obbligatorio (Se uguale a 'Data inizio' verrà mostrato il singolo giorno)"
+      f.input :orario, placeholder: 'Orario', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+      f.input :prezzo, placeholder: 'Inserisci prezzo', hint: "Default: Gratuito per i soci"
+      f.input :descrizione, as: :quill_editor, hint: "Obbligatorio"
+      f.input :image, as: :file, :image_preview => true, hint: "Obbligatorio"
       f.input :categoria, as: :select, collection: ['Mostra', 'Evento', 'Progetti Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
-      f.input :luogo, placeholder: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
-      f.input :durata, placeholder: 'Opzionale'
-      f.input :posti, placeholder: 'Opzionale'
-      f.input :target, placeholder: 'Opzionale'
-      f.input :link, placeholder: 'Opzionale'
-      f.input :featured
+      f.input :luogo, placeholder: 'Inserisci indirizzo', hint: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
+      f.input :durata, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+      f.input :posti, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+      f.input :target, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+      f.input :link, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+      f.input :featured, hint: "Gli eventi 'featured' andranno nella colonna 'Mostre in evidenza' nella pagina Programma"
       f.input :published
-      f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna", 5]], prompt: "Seleziona l'ordine in Home Page"
+      f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna Priorità", 5]], prompt: "Seleziona l'ordine in Home Page", hint: "Gli eventi in Home Page vengono mostrati in ordine di Data d'inizio a meno che non venga impostata una priorità. Gli eventi con priorità 1 vengono mostrati per primi, quelli con 5 per ultimi (valore di default)."
     end
     f.actions
   end
