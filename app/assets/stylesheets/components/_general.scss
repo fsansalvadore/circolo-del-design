@@ -149,8 +149,13 @@
   .privacy-label {
     display: inline !important;
     width: auto;
-    line-height: 110%;
+    margin-bottom: 0;
+    line-height: 100%;
     font-weight: 400;
+  }
+
+  .form-checkbox-terms {
+    margin-bottom: 15px;
   }
 }
 
