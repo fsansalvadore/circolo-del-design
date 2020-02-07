@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   ]
 
   def index
-    @events = Event.all.where('data_fine >= ? OR data_inizio >= ?', DateTime.now, DateTime.now + 20).sort_by{ |e| [e.priority, e.data_inizio] }
+    @events = Event.where('data_fine >= ? OR data_inizio >= ?', DateTime.now, DateTime.now + 20).where("published = true").sort_by{ |e| [e.priority, e.data_inizio] }
     render :layout => 'home'
   end
 
