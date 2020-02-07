@@ -1857,7 +1857,8 @@ h2 {
 
 .text-block-2 {
   font-size: 22px;
-  line-height: 60px;
+  line-height: 150%;
+  margin-bottom: 20px;
 }
 
 .btn-link-arrow {
@@ -1866,7 +1867,7 @@ h2 {
   width: auto;
   margin-bottom: 20px;
   margin-right: 20px;
-  padding: 20px 10px;
+  padding: 15px 10px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1878,7 +1879,7 @@ h2 {
   border-bottom: 1px none #000;
   background-color: transparent;
   color: #000;
-  font-size: 20px;
+  font-size: 17px;
   text-decoration: none;
 
   &.progetti {
@@ -3028,6 +3029,10 @@ h2 {
   font-weight: 700;
 }
 
+.carousel-text.design {
+  color: #ffed00;
+}
+
 .carousel-text.talk {
   color: #81539c;
 }
@@ -3052,6 +3057,15 @@ h2 {
   position: absolute;
   left: 0;
   z-index: 30;
+}
+
+.event-card-category-label.design {
+  background-color: #ffed00;
+  color: #000;
+}
+
+.event-card-category-label.experience {
+  background-color: #000;
 }
 
 .event-card {
@@ -3692,6 +3706,10 @@ h2 {
   text-decoration: none;
 }
 
+.b2-category-title.design {
+  background-color: #ffed00;
+}
+
 .b2-category-title.workshop {
   background-color: #2581c4;
 }
@@ -3747,6 +3765,10 @@ h2 {
 
 .b2-category-content-r.b2-cat-content-left.proj {
   background-color: #e1354b;
+}
+
+.b2-category-content-r.b2-cat-content-left.design {
+  background-color: #ffed00;
 }
 
 .b2-category-content-r.b2-cat-content-left.mostra {
@@ -3977,23 +3999,6 @@ h2 {
   -webkit-transition: all .8s ease-in-out;
   -webkit-transition: all 0.3s cubic-bezier(.292, .003, .175, 1);
   transition: all 0.3s cubic-bezier(.292, .003, .175, 1);
-}
-
-
-
-.carousel-slide-img.slide-club-futuro {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, transparent), to(#000)), url('CDD_CLUB-FUTURO.jpg');
-  background-image: linear-gradient(180deg, transparent 25%, #000), asset-url('CDD_CLUB-FUTURO.jpg');
-}
-
-.carousel-slide-img.slide-missing-out {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, transparent), to(#000)), asset-url('CDD_evento_Missing-Out_Vanessa-Vozzo_.jpg');
-  background-image: linear-gradient(180deg, transparent 25%, #000), asset-url('CDD_evento_Missing-Out_Vanessa-Vozzo_.jpg');
-}
-
-.carousel-slide-img.slide-club-exhibition {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, transparent), to(#000)), url('CLUB-FUTURO_evento.jpg');
-  background-image: linear-gradient(180deg, transparent 25%, #000), asset-url('CLUB-FUTURO_evento.jpg');
 }
 
 .carousel-a-text-block {
@@ -4378,6 +4383,11 @@ h2 {
   text-transform: uppercase;
 }
 
+.carousel-category-label.design {
+  background-color: #ffed00;
+  color: #000;
+}
+
 .carousel-category-label.workshop {
   background-color: #2581c4;
 }
@@ -4394,7 +4404,7 @@ h2 {
   background-color: #f49fc6;
 }
 
-.carousel-category-label.evento {
+.carousel-category-label.experience {
   background-color: #000;
 }
 
@@ -4517,18 +4527,9 @@ div,
   height: 100%;
   filter: blur(10px);
   -webkit-filter: blur(10px);
-  background-image: asset-url('CLUB-FUTURO_anteprima-evento-blur.jpg');
   background-position: 50% 50%;
   background-size: cover;
   opacity: 0.15;
-}
-
-.event-header-bg-img.missing-out {
-  background-image: asset-url('Vanessa-Vozzo_missing-Out_blur.jpg');
-}
-
-.event-header-bg-img.club-futuro-exhibition {
-  background-image: asset-url('CLUB-FUTURO_evento_blur.jpg');
 }
 
 .event-header-info-text {
@@ -4558,6 +4559,16 @@ div,
   margin-top: 20px;
 }
 
+.event-label.design {
+  background-color: #ffed00;
+  color: #000;
+}
+
+.design {
+  background-color: #ffed00;
+  color: #000;
+}
+
 .event-label.workshop {
   background-color: #2581c4;
 }
@@ -4579,7 +4590,11 @@ div,
   color: #fff;
 }
 
-.event-label.evento {
+.experience {
+  background-color: #000;
+}
+
+.event-label.experience {
   background-color: #000;
 }
 
@@ -4590,17 +4605,8 @@ div,
   z-index: 10 !important;
   width: 50%;
   height: 380px;
-  background-image: asset-url('CLUB-FUTURO_anteprima-evento.jpg');
   background-position: 50% 50%;
   background-size: cover;
-}
-
-.event-header-main-img.missing-out {
-  background-image: asset-url('CDD_evento_Missing-Out_Vanessa-Vozzo_.jpg');
-}
-
-.event-header-main-img.club-futuro-exhibition {
-  background-image: asset-url('CLUB-FUTURO_evento.jpg');
 }
 
 .container-5 {
@@ -5134,7 +5140,7 @@ div {
   }
   .text-block-2 {
     margin-top: 23px;
-    margin-bottom: 23px;
+    margin-bottom: 17px;
     line-height: 32px;
   }
   .btn-link-arrow {
@@ -5227,7 +5233,7 @@ div {
   }
   .hp-carousel {
     top: 30px;
-    height: 490px;
+    height: 450px;
   }
   .carousel-slider-a {
     width: calc(200% + 12px);
@@ -5576,9 +5582,6 @@ div {
   }
   .event-header-main-img {
     height: 270px;
-  }
-  .event-focus-bar-date {
-    margin-left: 0px;
   }
   .div-block-43.popup {
     display: none;

@@ -113,14 +113,14 @@ ActiveAdmin.register Event do
     f.inputs 'Event' do
       f.input :titolo, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
       f.input :sottotitolo, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
-      f.input :slug, placeholder: :slug, hint: "È come verrà visualizzato l'indirizzo URL della pagina. Viene impostato automaticamente in base al Titolo se lasciato vuoto."
+      # f.input :slug, placeholder: :slug, hint: "È come verrà visualizzato l'indirizzo URL della pagina. Viene impostato automaticamente in base al Titolo se lasciato vuoto."
       f.input :data_inizio, as: :datepicker, hint: "Obbligatorio"
       f.input :data_fine, as: :datepicker, hint: "Obbligatorio (Se uguale a 'Data inizio' verrà mostrato il singolo giorno)"
       f.input :orario, placeholder: 'Orario', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       f.input :prezzo, placeholder: 'Inserisci prezzo', hint: "Default: Gratuito per i soci"
       f.input :descrizione, as: :quill_editor, hint: "Obbligatorio"
       f.input :image, as: :file, :image_preview => true, hint: "Obbligatorio"
-      f.input :categoria, as: :select, collection: ['Mostra', 'Evento', 'Progetti Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
+      f.input :categoria, as: :select, collection: ['Design Insights', 'Mostra', 'Experience', 'Progetti Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
       f.input :luogo, placeholder: 'Inserisci indirizzo', hint: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
       f.input :durata, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       f.input :posti, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get    'contatti/new', to: 'contacts#new'
 
   get    'whats-on/programma', to: 'events#index'
-  get    'whats-on/eventi-passati', to: 'events#eventi_passati'
+  #get    'whats-on/eventi-passati', to: 'events#eventi_passati'
 
   get    'events/programma/new', to: 'events#new'
   post   'events/programma', to: 'events#create'
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   # servizi
   get '/servizi/spazi' => 'pages#servizi_spazi'
   get '/servizi/biblioteca' => 'pages#servizi_biblioteca'
-  get '/servizi/store' => 'pages#servizi_store'
+  #get '/servizi/store' => 'pages#servizi_store'
 
   # progetti speciali
   get '/progetti-speciali/introduzione' => 'projects#index'
