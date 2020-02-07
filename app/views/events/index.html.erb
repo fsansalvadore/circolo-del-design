@@ -24,7 +24,7 @@
         <% end %>
         <!-- Categories select -->
         <%= form_tag whats_on_programma_path, method: :get, class: "category-search-form m-bottom-30" do %>
-          <%= select_tag("categoria", options_for_select([["Evento", "Evento"], ["Mostra", "Mostra"], ["Progetti Speciali", "Progetti Speciali"], ["Talk", "Talk"], ["Workshop", "Workshop"]], @categorySelect),
+          <%= select_tag("categoria", options_for_select([["Design Insights", "Design Insights"], ["Experience", "Experience"], ["Mostra", "Mostra"], ["Progetti Speciali", "Progetti Speciali"], ["Talk", "Talk"], ["Workshop", "Workshop"]], @categorySelect),
             prompt: "Tutte le categorie",
             class: "category-select",
             onclick: "$('.category-select').change(function() {
@@ -93,9 +93,8 @@
     </div>
     <aside class="calendar-aside-container">
       <div class="sticky">
-        <% if @featured %>
-          <h2 class="section-label-container pink">Mostre in corso</h2>
-          <% featured = @events.select { |e| e.featured } %>
+        <h2 class="section-label-container pink">Mostre in corso</h2>
+        <% if !@featured.empty? %>
           <% @featured.each do |featured| %>
             <%= link_to "#", class: "event-card-container featured-card" do %>
               <div class="event-card-category-label <%= featured.categoria.downcase %>"><%= featured.categoria.upcase %></div>
@@ -115,6 +114,8 @@
               </div>
             <% end %>
           <% end %>
+        <% else %>
+        <p class="m-top-30">Non ci sono mostre in corso al momento.</p>
         <% end %>
       </div>
     </aside>
