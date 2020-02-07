@@ -213,3 +213,25 @@ it:
       long: "%d %B %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  devise:
+    confirmations:
+      confirmed: "La tua email è stata confermata con successo."
+      send_instructions: "A breve rivecerai una mail con le istruzioni su come confermare il tuo indirizzo email."
+      send_paranoid_instructions: "Se la tua email esiste nel nostro database, a breve rivecerai una mail con le istruzioni su come confermare il tuo indirizzo email."
+    failure:
+      already_authenticated: "Sei già registrato"
+      inactive: "Il tuo account non è ancora attivo."
+      invalid: "%{authentication_keys} o password non sono corretti."
+      locked: "Il tuo account è bloccato."
+      last_attempt: "Ti rimane soltanto un tentativo prima che il tuo account venga bloccato."
+      not_found_in_database: "%{authentication_keys} o password non sono corretti."
+      timeout: "La tua sessione è scaduta. Effettua di nuovo l'accesso."
+      unauthenticated: "Devi registrarti o accedere per continuare."
+      unconfirmed: "Devi confermare la tua email per procedere."
+    sessions:
+      signed_in: "Hai effettuato l'accesso."
+      signed_out: "Disconnesso correttamente."
+      already_signed_out: "Disconnesso correttamente."
+    omniauth_callbacks:
+      failure: "Non è stato possibile autenticarti a %{kind} perché \"%{reason}\"."
+      success: "Autenticata con successo all'account %{kind}."

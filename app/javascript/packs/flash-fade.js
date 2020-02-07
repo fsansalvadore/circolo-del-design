@@ -6,7 +6,7 @@ const flashFade = () => {
       setTimeout(() => {
         f.remove();
       }, 1000);
-    }, 5000)
+    }, 6000)
   })
 }
 
