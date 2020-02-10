@@ -42,7 +42,7 @@ it:
     - Sabato
     formats:
       default: "%d/%m/%Y"
-      long: "%A %e %B"
+      long: "%A %e %B %Y"
       medium: "%d %B"
       short: "%d %b"
     month_names:
