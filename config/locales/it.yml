@@ -20,18 +20,18 @@ it:
     - sab
     abbr_month_names:
     -
-    - gen
-    - feb
-    - mar
-    - apr
-    - mag
-    - giu
-    - lug
-    - ago
-    - set
-    - ott
-    - nov
-    - dic
+    - Gen
+    - Feb
+    - Mar
+    - Apr
+    - Mag
+    - Giu
+    - Lug
+    - Ago
+    - Set
+    - Ott
+    - Nov
+    - Dic
     day_names:
     - Domenica
     - Lunedì
@@ -44,6 +44,7 @@ it:
       default: "%d/%m/%Y"
       long: "%A %e %B %Y"
       medium: "%d %B"
+      medium2: "%e %B"
       short: "%d %b"
     month_names:
     -

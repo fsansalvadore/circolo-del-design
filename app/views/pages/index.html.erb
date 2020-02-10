@@ -55,7 +55,11 @@
                 <div class="carousel-a-text-block">
                   <div class="slider-date">
                     <div class="div-block-40"></div>
-                    <div class="slide-a-date-text"><%= event.data_inizio.strftime('%e %B') %><%= event.data_inizio != event.data_fine ? " - " + event.data_fine.strftime('%e %B') : "" %><br></div>
+                    <%  inizio = event.data_inizio
+                        fine = event.data_fine
+                        dash = event.data_inizio != event.data_fine ? " - " : ""
+                    %>
+                    <div class="slide-a-date-text"><%= tag.time l(inizio, format: :medium2), datetime: inizio %><%= dash %><%= event.data_inizio != event.data_fine ? (tag.time l(fine, format: :medium2), datetime: fine) : "" %><br></div>
                   </div>
                   <div class="slider-a-title"><%= event.titolo %></div>
                 </div>
@@ -150,8 +154,8 @@
     </div>
   </div>
   <div class="section-a-2">
-    <!-- <div class="event-article-container w-container large"> -->
-      <div data-w-id="3cbb9d82-a808-1f90-5ac3-cc69363709a1" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="centered-big-text left">La mission del Circolo del Design è la <strong>diffusione della cultura del progetto</strong> e viene perseguita attraverso la produzione di attività culturali e di formazione, lo sviluppo di opportunità professionali tra aziende e designer e l’utilizzo dei sistemi propri del design nei processi pubblici.</div>
+      <div data-w-id="3cbb9d82-a808-1f90-5ac3-cc69363709a1" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="centered-big-text left">Il Circolo del Design alimenta e diffonde la <strong>cultura del progetto</strong>.
+Lo fa attraverso la produzione di attività culturali e di formazione, lo sviluppo di opportunità professionali tra aziende e designer e la collaborazione con le istituzioni per la creazione di sistemi propri del design a servizio del territorio.</div>
       <div class="down-arrows-group">
         <div data-w-id="a2223052-a4f1-3782-8e5f-e33ce7bfa81b" style="opacity:0;-webkit-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="arrow-down">
           <div class="div-block-5"></div>
@@ -160,45 +164,8 @@
             <div class="arrow-down-point point-right"></div>
           </div>
         </div>
-        <!-- <div data-w-id="a3dae3f4-f7fd-e06d-80f7-c49e57d86c01" style="opacity:0;-webkit-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="arrow-down">
-          <div class="div-block-5"></div>
-          <div class="arrow-down-point-group">
-            <div class="arrow-down-point"></div>
-            <div class="arrow-down-point point-right"></div>
-          </div>
-        </div>
-        <div data-w-id="0b766d26-1ca2-2a0d-c51b-fd588a20750a" style="opacity:0;-webkit-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="arrow-down">
-          <div class="div-block-5"></div>
-          <div class="arrow-down-point-group">
-            <div class="arrow-down-point"></div>
-            <div class="arrow-down-point point-right"></div>
-          </div>
-        </div>
-        <div data-w-id="6f75c14c-fb44-848b-e09b-f86956a9cd1d" style="opacity:0;-webkit-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="arrow-down">
-          <div class="div-block-5"></div>
-          <div class="arrow-down-point-group">
-            <div class="arrow-down-point"></div>
-            <div class="arrow-down-point point-right"></div>
-          </div>
-        </div>
-        <div data-w-id="beeebd24-bea8-48e8-0215-ca8d5e662717" style="opacity:0;-webkit-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="arrow-down">
-          <div class="div-block-5"></div>
-          <div class="arrow-down-point-group">
-            <div class="arrow-down-point"></div>
-            <div class="arrow-down-point point-right"></div>
-          </div>
-        </div>
-        <div data-w-id="1b325f83-a721-0db9-3648-843e7c52ad41" style="opacity:0;-webkit-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="arrow-down">
-          <div class="div-block-5"></div>
-          <div class="arrow-down-point-group">
-            <div class="arrow-down-point"></div>
-            <div class="arrow-down-point point-right"></div>
-          </div>
-        </div> -->
       </div>
-      <!-- <br/> -->
-      <div data-w-id="16774e7c-3763-9faa-476f-ff55a2d3f075" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="centered-big-text">Al Circolo del Design le <strong>aziende</strong> incontrano i professionisti, i <strong>designer</strong> presentano i loro progetti, i <strong>creativi</strong> si danno appuntamento, i <strong>ricercatori</strong> e gli <strong>studenti</strong> consultano la biblioteca e trovano un luogo in cui studiare e lavorare.</div>
-    <!-- </div> -->
+      <div data-w-id="16774e7c-3763-9faa-476f-ff55a2d3f075" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="centered-big-text">Al Circolo del Design le <strong>aziende</strong> incontrano i professionisti, i <strong>progettisti</strong> si confrontano e si danno appuntamento, i <strong>ricercatori</strong> e gli <strong>studenti</strong> consultano la biblioteca e trovano un luogo in cui studiare e lavorare.</div>
   </div>
   <div class="section-a-4">
     <div data-w-id="06b735b0-7464-0951-2c74-2b5b408766d3" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="w-container">
