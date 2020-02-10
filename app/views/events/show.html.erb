@@ -50,7 +50,7 @@
       <ul class="event-aside-list w-list-unstyled">
         <li class="event-aside-list-item">
           <div class="event-aside-list-label">Data e ora</div>
-          <div class="event-aside-list-text"><%= tag.time l(inizio, format: :medium), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :medium), datetime: fine) : "" %>
+          <div class="event-aside-list-text"><%= tag.time l(inizio, format: :long), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :long), datetime: fine) : "" %>
             <br>
             <% if !@event.orario.empty? %>
               <%= @event.orario %>
