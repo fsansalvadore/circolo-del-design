@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_094250) do
+ActiveRecord::Schema.define(version: 2020_02_10_114322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2020_02_06_094250) do
     t.string "image"
     t.integer "priority", default: 5
     t.string "slug"
+    t.string "sotto_categoria"
+    t.string "curator"
     t.index ["slug"], name: "index_events_on_slug", unique: true
   end
 

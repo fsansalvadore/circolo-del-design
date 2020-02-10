@@ -47,16 +47,19 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-wrapper">
             <% @events.each do |event| %>
-              <%= link_to event_path(event), class: "carousel-a-slide w-inline-block swiper-slide" do %>
-              <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url('<%= cl_image_path event.image %>')"></div>
-              <div class="carousel-category-label <%= event.categoria.downcase %>"><%= event.categoria %></div>
-              <div class="carousel-a-text-block">
-                <div class="slider-date">
-                  <div class="div-block-40"></div>
-                  <div class="slide-a-date-text"><%= event.data_inizio.strftime('%e %B') %><%= event.data_inizio != event.data_fine ? " - " + event.data_fine.strftime('%e %B') : "" %><br></div>
+              <% unless event.priority == 5 %>
+                <%= link_to event_path(event), class: "carousel-a-slide w-inline-block swiper-slide" do %>
+                <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url('<%= cl_image_path event.image %>')"></div>
+                <% separator = event.sotto_categoria && !event.sotto_categoria.empty? ? " / " : ""  %>
+                <div class="carousel-category-label <%= event.categoria.downcase %>"><%= event.categoria %><%= separator %><%= event.sotto_categoria.upcase if event.sotto_categoria %></div>
+                <div class="carousel-a-text-block">
+                  <div class="slider-date">
+                    <div class="div-block-40"></div>
+                    <div class="slide-a-date-text"><%= event.data_inizio.strftime('%e %B') %><%= event.data_inizio != event.data_fine ? " - " + event.data_fine.strftime('%e %B') : "" %><br></div>
+                  </div>
+                  <div class="slider-a-title"><%= event.titolo %></div>
                 </div>
-                <div class="slider-a-title"><%= event.titolo %></div>
-              </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>

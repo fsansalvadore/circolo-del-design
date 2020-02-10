@@ -24,9 +24,10 @@
           <%= link_to "Home", root_path %> / What's On / <%= link_to "Programma", whats_on_programma_path %>
         </div>
         <h1 class="event-header-title"><%= @event.titolo %></h1>
-        <div class="event-header-subtitle"><%= @event.sottotitolo %></div>
+        <div class="event-header-subtitle"><%= @event.sottotitolo if @event.sottotitolo %></div>
         <div class="event-header-label-container">
-          <div class="event-label <%= @event.categoria.split(' ').first.downcase %>"><%= @event.categoria %></div>
+          <% separator = @event.sotto_categoria && !@event.sotto_categoria.empty? ? " / " : ""  %>
+          <div class="event-label <%= @event.categoria.split(' ').first.downcase %>"><%= @event.categoria %><%= separator %><%= @event.sotto_categoria.upcase if @event.sotto_categoria %></div>
         </div>
       </div>
       <div class="event-header-main-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
@@ -56,6 +57,12 @@
             <% end %>
           </div>
         </li>
+        <% if !@event.curator.empty? %>
+          <li class="event-aside-list-item">
+            <div class="event-aside-list-label">A cura di</div>
+            <div class="event-aside-list-text"><%= @event.curator %></div>
+          </li>
+        <% end %>
         <li class="event-aside-list-item">
           <div class="event-aside-list-label">Prezzo</div>
           <div class="event-aside-list-text">
