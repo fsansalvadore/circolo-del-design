@@ -1,4 +1,4 @@
-Sitemap: https://www.circolodeldesign.it//sitemap.xml.gz
+Sitemap: https://www.circolodeldesign.it/sitemap.xml.gz
 
 User-agent: *
 Disallow: /admin/
