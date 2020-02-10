@@ -57,7 +57,7 @@
             <% end %>
           </div>
         </li>
-        <% if !@event.curator.empty? %>
+        <% if @event.curator && !@event.curator.empty? %>
           <li class="event-aside-list-item">
             <div class="event-aside-list-label">A cura di</div>
             <div class="event-aside-list-text"><%= @event.curator %></div>
