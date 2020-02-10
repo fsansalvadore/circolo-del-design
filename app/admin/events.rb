@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :titolo, :sottotitolo, :slug, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :photo, :image, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured, :priority
+  permit_params :titolo, :sottotitolo, :slug, :data_inizio, :data_fine, :orario, :curator, :prezzo, :descrizione, :photo, :image, :categoria, :sotto_categoria, :luogo, :durata, :posti, :target, :link, :published, :featured, :priority
   config.comments = false
   #
   # or
@@ -87,9 +87,11 @@ ActiveAdmin.register Event do
       row :data_inizio
       row :data_fine
       row :orario
+      row :curator
       row :prezzo
       row (:descrizione) { |event| raw(event.descrizione) }
       row :categoria
+      row :sotto_categoria
       row :luogo
       row :durata
       row :posti
@@ -117,18 +119,20 @@ ActiveAdmin.register Event do
       f.input :data_inizio, as: :datepicker, hint: "Obbligatorio"
       f.input :data_fine, as: :datepicker, hint: "Obbligatorio (Se uguale a 'Data inizio' verrà mostrato il singolo giorno)"
       f.input :orario, placeholder: 'Orario', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+      f.input :curator, placeholder: 'A cura di...', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       f.input :prezzo, placeholder: 'Inserisci prezzo', hint: "Default: Gratuito per i soci"
       f.input :descrizione, as: :quill_editor, hint: "Obbligatorio"
       f.input :image, as: :file, :image_preview => true, hint: "Obbligatorio"
       f.input :categoria, as: :select, collection: ['Design Insights', 'Mostra', 'Experience', 'Progetti Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
+      f.input :sotto_categoria, placeholder: 'Inserisci una sotto categoria', hint: 'Opzionale: se inserito compare di fianco alla categoria principale.'
       f.input :luogo, placeholder: 'Inserisci indirizzo', hint: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
       f.input :durata, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       f.input :posti, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       f.input :target, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       f.input :link, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
-      f.input :featured, hint: "Gli eventi 'featured' andranno nella colonna 'Mostre in evidenza' nella pagina Programma"
+      f.input :featured, hint: "Gli eventi 'featured' compariranno nella colonna 'Mostre in evidenza' nella pagina Programma, durante le date effettive della mostra."
       f.input :published
-      f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna Priorità", 5]], prompt: "Seleziona l'ordine in Home Page", hint: "Gli eventi in Home Page vengono mostrati in ordine di Data d'inizio a meno che non venga impostata una priorità. Gli eventi con priorità 1 vengono mostrati per primi, quelli con 5 per ultimi (valore di default)."
+      f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna Priorità", 5]], prompt: "Seleziona l'ordine in Home Page", hint: "Gli eventi in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per Data d'inizio nel caso di stessa priorità. Gli eventi con priorità 5 non compaiono in Home Page."
     end
     f.actions
   end
