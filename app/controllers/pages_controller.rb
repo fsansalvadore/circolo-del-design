@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   end
 
   def about_team
-    @members = TeamMember.all.order(:order)
+    @members = TeamMember.where(published: true).order(:order)
   end
 
   def about_sostenitori
