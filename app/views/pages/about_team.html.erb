@@ -20,14 +20,16 @@
     </aside>
     <article class="event-article-content line big-content">
       <div class="grid-container">
-        <% @members.each do |member| %>
-          <figure class="team-member-container">
-            <%= cl_image_tag member.image, alt: "Sara Fortunati", class: "team-member-img" %>
-            <figcaption>
-              <h3><%= member.nome %> <%= member.cognome %></h3>
-              <p><%= member.ruolo %></p>
-            </figcaption>
-          </figure>
+        <% if @members && !@members.empty? %>
+          <% @members.each do |member| %>
+            <figure class="team-member-container">
+              <%= cl_image_tag member.image, alt: "Sara Fortunati", class: "team-member-img" %>
+              <figcaption>
+                <h3><%= member.nome %> <%= member.cognome %></h3>
+                <p><%= member.ruolo %></p>
+              </figcaption>
+            </figure>
+          <% end %>
         <% end %>
       </div>
     </article>
