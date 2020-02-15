@@ -30,6 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  active_admin:
+    resources:
+      event: # Registered resource
+        events_programma_new: 'Add Event' # new action item
+        edit_event: 'Update Event' # edit action item
+        delete_event: 'Delete Event' # delete action item
   hello: "Hello world"
   date:
     abbr_day_names:
