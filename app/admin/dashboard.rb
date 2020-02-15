@@ -13,17 +13,31 @@ ActiveAdmin.register_page "Dashboard" do
     #
     columns do
       column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
+        panel "Benvenuti" do
+          para "Dal pannello Admin puoi gestire tutto ciò che riguarda gli Eventi e i Membri del Team."
         end
       end
 
       column do
-        panel "Eventi recenti" do
-          ul do
-            Event.all.order(:created_at) do |event|
-              li link_to(event.titolo, admin_event_path(event))
+        panel "Eventi" do
+          if Event.all.length > 0
+            Event.all.order(:created_at).each do |event|
+              div link_to(event.titolo, admin_event_path(event))
             end
+          else
+            para "Non ci sono eventi."
+          end
+        end
+      end
+
+      column do
+        panel "Team Members" do
+          if TeamMember.all.length > 0
+            TeamMember.all.order(:order).each do |member|
+              div link_to("#{member.nome} #{member.cognome}", admin_team_member_path(member))
+            end
+          else
+            para "Non ci sono membri del team."
           end
         end
       end

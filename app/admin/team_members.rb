@@ -84,6 +84,11 @@ ActiveAdmin.register TeamMember do
     end
   end
 
+  filter :nome
+  filter :cognome
+  filter :ruolo
+  filter :published
+
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs 'TeamMember' do
