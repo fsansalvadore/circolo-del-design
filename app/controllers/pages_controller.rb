@@ -28,6 +28,7 @@ class PagesController < ApplicationController
   end
 
   def about_team
+    @members = TeamMember.all.order(:order)
   end
 
   def about_sostenitori

@@ -1,5 +1,11 @@
 ---
 it:
+  active_admin:
+    resources:
+      event: # Registered resource
+        events_programma_new: 'Aggiungi Evento' # new action item
+        edit_event: 'Aggiorna Evento' # edit action item
+        delete_event: 'Elimina Evento' # delete action item
   activerecord:
     errors:
       messages:

@@ -17,6 +17,7 @@ ActiveAdmin.register Event do
 
   # scope :pubblicati, ->{where(published: true)}
   # scope :bozze, ->{where(published: false)}
+  config.sort_order = 'created_at_asc'
 
   controller do
     defaults :finder => :find_by_slug

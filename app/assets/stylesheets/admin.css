@@ -34,6 +34,10 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 250px;
 }
 
+.image-preview.sm {
+  max-height: 100px;
+}
+
 #title_bar #titlebar_left,
 #title_bar #titlebar_right {
   height: auto;
