@@ -14,6 +14,8 @@
   text-shadow: none !important;
   color: #000 !important;
   border: none !important;
+  display: inline-flex;
+  padding: 30px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,4 +32,20 @@ h1, h2, h3, h4, h5, h6 {
 .image-preview {
   max-width: 250px;
   max-height: 250px;
+}
+
+#title_bar #titlebar_left,
+#title_bar #titlebar_right {
+  height: auto;
+  vertical-align: none;
+}
+
+#title_bar #titlebar_left {
+  box-sizing: content-box;
+  flex: 1;
+  }
+#title_bar #titlebar_right {
+  width: auto;
+  display: inline-flex;
+  align-items: center;
 }
