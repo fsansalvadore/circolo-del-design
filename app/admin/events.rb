@@ -35,6 +35,10 @@ ActiveAdmin.register Event do
   end
 
   action_item :publish, only: :show do
+    link_to "Anteprima live", event_path(event)
+  end
+
+  action_item :publish, only: :show do
     link_to "Pubblica", publish_admin_event_path(event), method: :put if !event.published
   end
 
