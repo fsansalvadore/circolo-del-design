@@ -44,6 +44,8 @@ gem 'thor', '~> 0.19.1'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'activeadmin_quill_editor'
 gem 'responsive_active_admin'
+gem 'acts_as_list'
+gem "activeadmin_sortable_table"
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'carrierwave'
 gem 'cloudinary'

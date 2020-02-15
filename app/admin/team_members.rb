@@ -1,4 +1,6 @@
 ActiveAdmin.register TeamMember do
+  include ActiveAdmin::SortableTable # creates the controller action which handles the sorting
+  config.sort_order = 'position_asc'
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,7 +16,6 @@ ActiveAdmin.register TeamMember do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  config.sort_order = 'order_asc'
   config.comments = false
 
   member_action :publish_team_member, method: :put do
@@ -51,7 +52,7 @@ ActiveAdmin.register TeamMember do
 
   index do
     selectable_column
-    column :order
+    handle_column
     column "Nome" do |member|
       link_to "#{member.nome} #{member.cognome}", admin_team_member_path(member)
     end
@@ -76,7 +77,7 @@ ActiveAdmin.register TeamMember do
       row :nome
       row :cognome
       row :ruolo
-      row :order
+      row :position
       row :image do |i|
         image_tag(cl_image_path(team_member.image), class: "image-preview")
       end
@@ -96,7 +97,6 @@ ActiveAdmin.register TeamMember do
       f.input :cognome, placeholder: 'Cognome', hint: "Obbligatorio"
       f.input :ruolo, placeholder: "Ruolo", hint: "Obbligatorio"
       f.input :image, as: :file, :image_preview => true, hint: "Obbligatoria"
-      f.input :order, as: :number, placeholder: "Inserisci un valore numerico", hint: "Questo valore stabilisce l'ordine in cui vengono mostrati i membri del team."
       f.input :published
     end
     f.actions
