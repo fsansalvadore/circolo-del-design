@@ -52,6 +52,9 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
     activeadmin_quill_editor (0.2.0)
       activeadmin (>= 1.0)
+    activeadmin_sortable_table (1.3.0)
+      activeadmin (>= 1.0.0.pre1)
+      uber (= 0.0.15)
     activejob (5.2.4.1)
       activesupport (= 5.2.4.1)
       globalid (>= 0.3.6)
@@ -70,6 +73,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_list (1.0.0)
+      activerecord (>= 4.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arbre (1.2.1)
@@ -308,6 +313,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
+    uber (0.0.15)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
@@ -336,6 +342,8 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   activeadmin_quill_editor
+  activeadmin_sortable_table
+  acts_as_list
   autoprefixer-rails
   bootsnap (>= 1.1.0)
   byebug
