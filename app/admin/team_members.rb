@@ -65,11 +65,15 @@ ActiveAdmin.register TeamMember do
         link_to "Metti offline", unpublish_admin_team_member_path(member), method: :put
       end
     end
-    # column :image do |member|
-    #   image_tag(cl_image_path(member.image), class: "image-preview sm")
-    # end
+    actions defaults: true do |member|
+      link_to 'Duplica', clone_admin_team_member_path(member)
+    end
+  end
 
-    actions
+  member_action :clone, method: :get do
+    @team_member = resource.dup
+    @team_member.save!
+    redirect_to admin_team_members_path
   end
 
   show title: :cognome do

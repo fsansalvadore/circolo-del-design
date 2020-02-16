@@ -77,8 +77,15 @@ ActiveAdmin.register Event do
         link_to "Metti offline", unpublish_admin_event_path(event), method: :put
       end
     end
+    actions defaults: true do |event|
+      link_to 'Duplica', clone_admin_event_path(event)
+    end
+  end
 
-    actions
+  member_action :clone, method: :get do
+    @event = resource.dup
+    @event.save!
+    redirect_to admin_events_path
   end
 
   show title: :titolo do
