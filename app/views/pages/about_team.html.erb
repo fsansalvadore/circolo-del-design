@@ -1,5 +1,6 @@
 <% content_for :meta_title, "Team — About — Circolo del Design" %>
 <% content_for :meta_description, "La mission del Circolo del Design è la diffusione della cultura del progetto e viene perseguita attraverso la produzione di attività culturali e di formazione." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, team, chi siamo, persone" %>
 
 <%= render 'shared/about-header' %>
 <div class="page-postheader" id="main-content">
@@ -23,7 +24,7 @@
         <% if @members && !@members.empty? %>
           <% @members.each do |member| %>
             <figure class="team-member-container">
-              <%= cl_image_tag member.image, alt: "Sara Fortunati", class: "team-member-img" %>
+              <%= cl_image_tag member.image, alt: "#{member.nome} #{member.cognome} — #{member.ruolo}", class: "team-member-img" %>
               <figcaption>
                 <h3><%= member.nome %> <%= member.cognome %></h3>
                 <p><%= member.ruolo %></p>

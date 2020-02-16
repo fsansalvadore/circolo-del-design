@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :titolo, :sottotitolo, :slug, :data_inizio, :data_fine, :orario, :curator, :prezzo, :descrizione, :photo, :image, :categoria, :sotto_categoria, :luogo, :durata, :posti, :target, :link, :published, :featured, :priority
+  permit_params :titolo, :sottotitolo, :slug, :keywords, :data_inizio, :data_fine, :orario, :curator, :prezzo, :descrizione, :photo, :image, :categoria, :sotto_categoria, :luogo, :durata, :posti, :target, :link, :published, :featured, :priority
   config.comments = false
   #
   # or
@@ -86,6 +86,7 @@ ActiveAdmin.register Event do
       row :titolo
       row :sottotitolo
       row :slug
+      row :keywords
       row :image do |i|
         image_tag(cl_image_path(event.image), class: "image-preview")
       end
@@ -120,7 +121,7 @@ ActiveAdmin.register Event do
     f.inputs 'Event' do
       f.input :titolo, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
       f.input :sottotitolo, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
-      # f.input :slug, placeholder: :slug, hint: "È come verrà visualizzato l'indirizzo URL della pagina. Viene impostato automaticamente in base al Titolo se lasciato vuoto."
+      f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
       f.input :data_inizio, as: :datepicker, hint: "Obbligatorio"
       f.input :data_fine, as: :datepicker, hint: "Obbligatorio (Se uguale a 'Data inizio' verrà mostrato il singolo giorno)"
       f.input :orario, placeholder: 'Orario', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
