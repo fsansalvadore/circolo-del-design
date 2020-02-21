@@ -47,4 +47,6 @@ Rails.application.routes.draw do
 
   # membership
   get '/membership' => 'pages#membership'
+
+  get '/sitemap' => 'sitemaps#index'
 end
