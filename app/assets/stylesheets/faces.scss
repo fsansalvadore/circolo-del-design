@@ -35,9 +35,11 @@
   z-index: 10;
   background-color: rgba(255, 237, 0, 0);
   transition: background-color 0.15s ease;
+  will-change: background-color;
 }
 
 .face-info-text {
+  will-change: opacity, transform;
   opacity: 0;
   transform: translateY(12px);
   transition: all 0.5s ease;
