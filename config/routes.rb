@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   delete 'events/programma/:slug', to: 'events#destroy'
 
+  get    'whats-on/i-volti-2019', to: 'faces#index'
+
   get '/privacy_cookie_policy' => 'pages#privacy_cookie_policy'
   get '/contatti' => 'pages#contacts'
 

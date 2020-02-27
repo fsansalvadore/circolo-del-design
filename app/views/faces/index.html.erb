@@ -1,0 +1,31 @@
+<% content_for :meta_title, "I volti 2019 — What's On — Circolo del Design" %>
+<% content_for :meta_description, "I designer e gli imprenditori che hanno portato le loro esperienze." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, designer, aziende" %>
+
+<header id="top" class="page-header-container">
+  <div class="w-container large">
+    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On /</div>
+    <h1 class="page-header-title">I volti 2019</h1>
+    <div class="page-header-subtitle">I designer e gli imprenditori che hanno portato le loro esperienze.</div>
+  </div>
+</header>
+<main class="page-postheader">
+  <div class="calendar-main-container w-container large">
+    <div class="faces-grid">
+      <% if @faces %>
+        <% @faces.each do |face| %>
+          <div class="faces-container">
+            <div class="face-info">
+              <div class="face-info-text">
+                <h4><%= face.nome if face.nome %> <%= face.cognome if face.cognome %></h4>
+                <p><strong><%= face.azienda if face.azienda %></strong></p>
+                <p><%= face.categoria %></p>
+              </div>
+            </div>
+            <div class="face-img" style="background-image: url('<%= cl_image_path face.image %>');"></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</main>
