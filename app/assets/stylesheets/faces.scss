@@ -17,7 +17,7 @@
   text-align: center;
   opacity: 0;
   transform: translateY(12px);
-  transition: all 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .face-in {
