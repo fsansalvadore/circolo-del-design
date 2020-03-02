@@ -19,7 +19,7 @@
               <div class="face-info-text">
                 <h4><%= face.nome if face.nome %> <%= face.cognome if face.cognome %></h4>
                 <p><strong><%= face.azienda if face.azienda %></strong></p>
-                <p><%= face.categoria %></p>
+                <p><%= face.categoria if face.categoria %></p>
               </div>
             </div>
             <div class="face-img" style="background-image: url('<%= cl_image_path face.image %>');"></div>

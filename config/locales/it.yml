@@ -7,6 +7,13 @@ it:
         edit_event: 'Aggiorna Evento' # edit action item
         delete_event: 'Elimina Evento' # delete action item
   activerecord:
+    models:
+      # face:
+      #   one: volto
+      #   one: volto
+    attributes:
+      face:
+        cognome: Cognome/Designer
     errors:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'
