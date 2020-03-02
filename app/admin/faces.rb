@@ -38,7 +38,7 @@ ActiveAdmin.register Face do
 
   index do
     selectable_column
-    column "Nome Completo" do |face|
+    column "Nome Completo / Titolo" do |face|
       link_to "#{face.nome} #{face.cognome}", admin_face_path(face)
     end
     column :azienda

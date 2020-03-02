@@ -8,12 +8,18 @@ it:
         delete_event: 'Elimina Evento' # delete action item
   activerecord:
     models:
-      # face:
-      #   one: volto
-      #   one: volto
+      face:
+        one: Volto
+        other: Volti
+      event:
+        one: Evento
+        other: Eventi
+      team_member:
+        one: Membro del Team
+        other: Membri del Team
     attributes:
       face:
-        cognome: Cognome/Designer
+        cognome: Cognome/Titolo
     errors:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'
