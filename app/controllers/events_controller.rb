@@ -22,7 +22,7 @@ class EventsController < ApplicationController
       @events = @events.order(:data_inizio)
     end
 
-    @featured = Event.where("categoria = 'Mostra' AND data_inizio <= ? AND data_fine >= ? OR featured = true AND published = true", Date.today, Date.today)
+    @featured = Event.where("categoria = 'Mostra' AND data_inizio <= ? AND data_fine >= ? OR featured = true", Date.today, Date.today).where(published: true)
   end
 
   def get_events_by_month
