@@ -97,7 +97,7 @@
       <div class="sticky">
         <h2 class="section-label-container pink">Mostre in corso</h2>
         <% if !@featured.empty? %>
-          <% @featured.each do |featured| %>
+          <% @featured.where(published: true).each do |featured| %>
             <%= link_to event_path(featured), class: "event-card-container featured-card" do %>
               <div class="event-card-category-label <%= featured.categoria.downcase %>"><%= featured.categoria.upcase %></div>
               <div class="event-card-img-container" style="background-image: url('<%= cl_image_path featured.image %>');">
@@ -112,12 +112,11 @@
                   %>
                   <p><%= tag.time l(inizio, format: :short), datetime: inizio %><%= dash %><%= featured.data_inizio != featured.data_fine ? (tag.time l(fine, format: :short), datetime: fine) : "" %></p>
                 </div>
-                <!-- <p class="event-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
               </div>
             <% end %>
           <% end %>
         <% else %>
-        <p class="m-top-30">Non ci sono mostre in corso al momento.</p>
+        <p class="m-top-30">Coming soon.</p>
         <% end %>
       </div>
     </aside>
