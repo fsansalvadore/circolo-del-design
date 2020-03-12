@@ -1,6 +1,6 @@
 ActiveAdmin.register Face do
 
-  permit_params :nome, :cognome, :azienda, :categoria, :image, :published
+  permit_params :nome, :cognome, :azienda, :ruolo, :image, :published
 
   config.comments = false
 
@@ -42,7 +42,7 @@ ActiveAdmin.register Face do
       link_to "#{face.nome} #{face.cognome}", admin_face_path(face)
     end
     column :azienda
-    column :categoria
+    column :ruolo
     column :published
     column "Pubblica" do |face|
       if !face.published
@@ -67,10 +67,11 @@ ActiveAdmin.register Face do
       row :nome
       row :cognome
       row :azienda
+      row :ruolo
+      row :categoria
       row :image do |i|
         image_tag(cl_image_path(face.image), class: "image-preview")
       end
-      row :categoria
       row :published
     end
   end
@@ -82,6 +83,7 @@ ActiveAdmin.register Face do
       f.input :cognome, placeholder: 'Cognome', hint: "Obbligatorio: tutti i volti verranno mostrati in ordine alfabetico in base al Cognome."
       f.input :azienda, placeholder: 'Azienda'
       f.input :categoria, as: :select, collection: ['Designer', 'Azienda'], prompt: "Seleziona una categoria"
+      f.input :ruolo, placeholder: 'Ruolo'
       f.input :image, as: :file, :image_preview => true, hint: "Obbligatorio"
       f.input :published
     end
