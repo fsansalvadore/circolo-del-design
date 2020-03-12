@@ -41,6 +41,7 @@
 .face-info-text {
   will-change: opacity, transform;
   opacity: 0;
+  padding: 0 15px;
   transform: translateY(12px);
   transition: all 0.5s ease;
 }
