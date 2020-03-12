@@ -1,6 +1,7 @@
 ActiveAdmin.register Face do
 
   permit_params :nome, :cognome, :azienda, :ruolo, :image, :published
+  config.sort_order = 'cognome_asc'
 
   config.comments = false
 
@@ -37,6 +38,7 @@ ActiveAdmin.register Face do
   end
 
   index do
+    selectable_column
     column :cognome, as: "Cognome / Titolo"
     column :nome
     column :azienda
