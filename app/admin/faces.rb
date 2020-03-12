@@ -68,7 +68,6 @@ ActiveAdmin.register Face do
       row :cognome
       row :azienda
       row :ruolo
-      row :categoria
       row :image do |i|
         image_tag(cl_image_path(face.image), class: "image-preview")
       end
@@ -82,7 +81,7 @@ ActiveAdmin.register Face do
       f.input :nome, placeholder: 'Nome'
       f.input :cognome, placeholder: 'Cognome', hint: "Obbligatorio: tutti i volti verranno mostrati in ordine alfabetico in base al Cognome."
       f.input :azienda, placeholder: 'Azienda'
-      f.input :categoria, as: :select, collection: ['Designer', 'Azienda'], prompt: "Seleziona una categoria"
+      # f.input :categoria, as: :select, collection: ['Designer', 'Azienda'], prompt: "Seleziona una categoria"
       f.input :ruolo, placeholder: 'Ruolo'
       f.input :image, as: :file, :image_preview => true, hint: "Obbligatorio"
       f.input :published
