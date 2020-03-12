@@ -9,8 +9,8 @@ it:
   activerecord:
     models:
       face:
-        one: Volto
-        other: Volti
+        one: Volto 2019
+        other: Volti 2019
       event:
         one: Evento
         other: Eventi
