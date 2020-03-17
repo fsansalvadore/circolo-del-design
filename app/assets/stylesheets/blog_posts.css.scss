@@ -1,9 +1,6 @@
 header.blog {
   text-align: center;
 
-  h1 {
-    font-size: 70px;
-  }
 }
 
 main.blog {
@@ -17,8 +14,12 @@ main.blog {
   }
 
   .event-card-container {
-    height: 300px;
+    height: 340px;
     min-height: 300px;
+
+  }
+  .blog_grid {
+    width: 100%;
   }
   .event-card-container:first-child {
     width: 64.1%;
@@ -66,14 +67,15 @@ main.blog {
 }
 
 .social_share_container {
-  position: absolute;
-  left: -100px;
-  height: 100%;
+  position: relative;
+  left: 0;
+  height: auto;
 }
 
 .social_share_group {
   position: relative;
-  padding-bottom: 40px;
+  margin-bottom: 30px;
+  margin-left: -10px;
 
   &.sticky {
     position: -webkit-sticky; /* Safari */
@@ -83,8 +85,10 @@ main.blog {
   }
 
   a {
-    display: block;
+    text-decoration: none;
+    display: inline;
     padding: 10px;
+    margin-right: 6px;
     margin-bottom: 6px;
   }
 
@@ -111,8 +115,34 @@ main.blog {
 
 article.blog {
   position: relative;
+  width: 100%;
   font-size: 21px;
   line-height: 158%;
+
+  .post_images_container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: [col] 50% [col] 50%;
+    margin-top: 50px;
+
+    figure {
+      margin-top: 20px;
+    }
+
+    figcaption {
+      font-size: 15px;
+      font-weight: 400;
+      margin-top: 10px;
+    }
+
+    .blog_img.half {
+      grid-column: span 1;
+    }
+
+    .blog_img.full {
+      grid-column: span 2;
+    }
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -124,11 +154,31 @@ article.blog {
   }
 }
 
+@media screen and (min-width: 1080px) {
+  header.blog h1 {
+    font-size: 70px;
+  }
+
+  .social_share_container {
+    position: absolute;
+    left: -100px;
+    height: 100%;
+  }
+  .social_share_group {
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+
+  .social_share_group a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 6px;
+  }
+}
 @media screen and (max-width: 479px) {
-  header.blog {
-    h1 {
-      font-size: 40px;
-    }
+  article.blog {
+    font-size: 18px;
+    line-height: 156%;
   }
 
   main.blog {
@@ -140,5 +190,15 @@ article.blog {
       margin: 10px 0;
       height: auto;
     }
+  }
+
+  .social_share_container {
+    position: relative;
+    left: 0;
+    height: auto;
+  }
+
+  article.blog .post_images_container figure {
+    margin-top: 20px;
   }
 }

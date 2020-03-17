@@ -9,14 +9,6 @@
     <div class="page-header-subtitle"><%= @blog_post.subtitle if @blog_post.subtitle %></div>
   </div>
 </header>
-            <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s); js.id = id;
-              js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
 <main class="page-postheader blog">
   <div class="calendar-main-container w-container">
     <article class="blog">
@@ -37,20 +29,48 @@
         </div>
       </div>
       <%=raw @blog_post.content %>
+      <div class="post_images_container">
+        <figure class="blog_img half">
+          <%= image_tag "homingCdD-1/01.jpg", alt: "Arflex, 1966." %>
+          <figcaption>Arflex, 1966.</figcaption>
+        </figure>
+        <figure class="blog_img half">
+          <%= image_tag "homingCdD-1/02.jpg", alt: "Arflex, 1969." %>
+          <figcaption>Arflex, 1969.</figcaption>
+        </figure>
+        <figure class="blog_img half">
+          <%= image_tag "homingCdD-1/03.jpg", alt: "Arflex, 1972." %>
+          <figcaption>Arflex, 1972.</figcaption>
+        </figure>
+        <figure class="blog_img half">
+          <%= image_tag "homingCdD-1/04.jpg", alt: "Arflex, 1978." %>
+          <figcaption>Arflex, 1978.</figcaption>
+        </figure>
+        <figure class="blog_img half">
+          <%= image_tag "homingCdD-1/05.jpg", alt: "Arflex, 1982." %>
+          <figcaption>Arflex, 1982.</figcaption>
+        </figure>
+        <figure class="blog_img half">
+          <%= image_tag "homingCdD-1/06.jpg", alt: "Arflex, 1988." %>
+          <figcaption>Arflex, 1988.</figcaption>
+        </figure>
+      </div>
     </article>
-    <aside>
-      <h2>Altro in #HomingCdD</h2>
-      <% @suggested_posts.each do |post| %>
-        <%= link_to blog_post_path(post), class: "event-card-container" do %>
-          <div class="event-card-category-label">Rubrica</div>
-          <div class="event-card-img-container" style="background-image: url('<%= cl_image_path post.cover if post.cover %>');">
-          </div>
-          <div class="event-card-content-container">
-            <h3 class="event-card-title"><%= post.title.truncate(100) %></h3>
-            <p class="event-card-subtitle"><%= post.subtitle.truncate(140) %></p>
-          </div>
+    <% unless @suggested_posts.empty? %>
+      <aside>
+        <h2>Altro in #HomingCdD</h2>
+        <% @suggested_posts.each do |post| %>
+          <%= link_to blog_post_path(post), class: "event-card-container" do %>
+            <div class="event-card-category-label">Rubrica</div>
+            <div class="event-card-img-container" style="background-image: url('<%= cl_image_path post.cover if post.cover %>');">
+            </div>
+            <div class="event-card-content-container">
+              <h3 class="event-card-title"><%= post.title.truncate(100) %></h3>
+              <p class="event-card-subtitle"><%= post.subtitle.truncate(140) %></p>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </aside>
+      </aside>
+    <% end %>
   </div>
 </main>
