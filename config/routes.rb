@@ -31,6 +31,11 @@ Rails.application.routes.draw do
   get '/privacy_cookie_policy' => 'pages#privacy_cookie_policy'
   get '/contatti' => 'pages#contacts'
 
+  # blog
+  get    'whats-on/HomingCdD', to: 'blog_posts#index'
+  get    'whats-on/HomingCdD/:slug', to: 'blog_posts#show', as: :blog_post
+
+
   # about
   get '/about-us/il-circolo' => 'pages#about_circolo'
   get '/about-us/team' => 'pages#about_team'

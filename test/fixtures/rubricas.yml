@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  priorità: 1
+  position: 1
+  published: false
+
+two:
+  nome: MyString
+  priorità: 1
+  position: 1
+  published: false

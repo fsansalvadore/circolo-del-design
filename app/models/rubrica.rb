@@ -1,0 +1,2 @@
+class Rubrica < ApplicationRecord
+end

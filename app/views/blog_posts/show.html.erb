@@ -1,0 +1,56 @@
+<% content_for :meta_title, "Programma — What's On — Circolo del Design" %>
+<% content_for :meta_description, "I prossimi appuntamenti al Circolo del Design." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, eventi, mostre, workshop, progetti, partner, programma, appuntamenti, mostre in corso" %>
+
+<header id="top" class="page-header-container blog">
+  <div class="w-container large">
+    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On / <%= link_to "#HomingCdD", whats_on_HomingCdD_path %></div>
+    <h1 class="page-header-title"><%= @blog_post.title %></h1>
+    <div class="page-header-subtitle"><%= @blog_post.subtitle if @blog_post.subtitle %></div>
+  </div>
+</header>
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+<main class="page-postheader blog">
+  <div class="calendar-main-container w-container">
+    <article class="blog">
+      <div class="social_share_container">
+        <div class="social_share_group sticky">
+          <a id="facebook" href="#">
+            <%= image_tag "icon_facebook.svg", alt: "alttext" %>
+          </a>
+          <a id="twitter" href="#">
+            <%= image_tag "icon_twitter.svg", alt: "alttext" %>
+          </a>
+          <a id="whatsapp" href="#">
+            <%= image_tag "icon_whatsapp.svg", alt: "alttext" %>
+          </a>
+          <a id="clipboard" href="#">
+            <%= image_tag "icon_link.svg", alt: "alttext" %>
+          </a>
+        </div>
+      </div>
+      <%=raw @blog_post.content %>
+    </article>
+    <aside>
+      <h2>Altro in #HomingCdD</h2>
+      <% @suggested_posts.each do |post| %>
+        <%= link_to blog_post_path(post), class: "event-card-container" do %>
+          <div class="event-card-category-label">Rubrica</div>
+          <div class="event-card-img-container" style="background-image: url('<%= cl_image_path post.cover if post.cover %>');">
+          </div>
+          <div class="event-card-content-container">
+            <h3 class="event-card-title"><%= post.title.truncate(100) %></h3>
+            <p class="event-card-subtitle"><%= post.subtitle.truncate(140) %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </aside>
+  </div>
+</main>
