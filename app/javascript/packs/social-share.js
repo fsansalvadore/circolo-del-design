@@ -30,7 +30,7 @@ const SocialShare = () => {
 
       wa.addEventListener('click', (e) => {
         e.preventDefault();
-        const wa_shareUrl = "whatsapp://send?text=" + current_url;
+        const wa_shareUrl = "https://wa.me/?text=" + current_url;
         const window_size = "width=565,height=569";
         window.open(wa_shareUrl, "", "menubar_no,resizeable=yes,scrollbar=yes," + window_size);
         return false;

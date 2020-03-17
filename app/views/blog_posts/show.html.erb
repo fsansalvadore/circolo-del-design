@@ -1,6 +1,7 @@
-<% content_for :meta_title, "Programma — What's On — Circolo del Design" %>
-<% content_for :meta_description, "I prossimi appuntamenti al Circolo del Design." %>
-<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, eventi, mostre, workshop, progetti, partner, programma, appuntamenti, mostre in corso" %>
+<% content_for :meta_title, "#{@blog_post.title} — " %>
+<% content_for :meta_description, "#{@blog_post.subtitle}" %>
+<% content_for :meta_keywords, "#{@blog_post.keywords unless @blog_post.keywords.empty?} " %>
+<% content_for :meta_image, "#{@blog_post.cover}" %>
 
 <header id="top" class="page-header-container blog">
   <div class="w-container large">
