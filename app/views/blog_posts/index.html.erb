@@ -1,0 +1,39 @@
+<% content_for :meta_title, "Programma — What's On — Circolo del Design" %>
+<% content_for :meta_description, "I prossimi appuntamenti al Circolo del Design." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, eventi, mostre, workshop, progetti, partner, programma, appuntamenti, mostre in corso" %>
+
+<header id="top" class="page-header-container blog">
+  <div class="w-container large">
+    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On /</div>
+    <h1 class="page-header-title">#HomingCdD</h1>
+    <div class="page-header-subtitle">Lorem ipsum dolor sit amet rubrica vitamina ipsum.</div>
+  </div>
+</header>
+<div class="blog_nav_container">
+  <nav class="w-container large">
+    <%= link_to "Tutte le rubriche", whats_on_HomingCdD_path %>
+    <%= link_to "Rubrica A", whats_on_HomingCdD_path %>
+    <%= link_to "Rubrica B", whats_on_HomingCdD_path %>
+  </nav>
+</div>
+<main class="page-postheader blog">
+  <div class="calendar-main-container w-container">
+    <div class="blog_grid">
+      <% if @blog_posts && !@blog_posts.empty? %>
+        <% @blog_posts.each do |post| %>
+          <%= link_to blog_post_path(post), class: "event-card-container" do %>
+            <div class="event-card-category-label">Rubrica</div>
+            <div class="event-card-img-container" style="background-image: url('<%= cl_image_path post.cover %>');">
+            </div>
+            <div class="event-card-content-container">
+              <h3 class="event-card-title"><%= post.title.truncate(100) %></h3>
+              <p class="event-card-subtitle"><%= post.subtitle.truncate(140) %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        </p>Non ci sono post al momento.<p>
+      <% end %>
+    </div>
+  </div>
+</main>
