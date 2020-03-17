@@ -4,6 +4,9 @@ header.blog {
 }
 
 main.blog {
+  margin-top: 1px;
+  padding-top: 30px;
+
   .w-container {
     max-width: 900px;
     display: flex;
@@ -141,6 +144,31 @@ article.blog {
 
     .blog_img.full {
       grid-column: span 2;
+    }
+  }
+}
+
+.blog_nav_container {
+  position: absolute;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background: #fff;
+  z-index: 999;
+
+  &.fixed {
+    position: fixed;
+  }
+
+  .w-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
     }
   }
 }

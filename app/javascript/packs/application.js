@@ -7,6 +7,7 @@ import { flashFade } from '../packs/flash-fade';
 import { SimpleParallax } from '../packs/simple-parallax';
 import { FacesFadeIn } from '../packs/faces';
 import { SocialShare } from '../packs/social-share';
+import { BlogNav } from '../packs/blog-nav';
 
 cookies();
 webflowJS();
@@ -17,4 +18,4 @@ flashFade();
 SimpleParallax();
 FacesFadeIn();
 SocialShare();
-
+BlogNav();
