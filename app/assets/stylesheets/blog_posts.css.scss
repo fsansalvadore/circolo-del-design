@@ -5,7 +5,7 @@ header.blog {
 
 main.blog {
   margin-top: 1px;
-  padding-top: 30px;
+  // padding-top: 30px;
 
   .w-container {
     max-width: 900px;
@@ -122,6 +122,10 @@ article.blog {
   font-size: 21px;
   line-height: 158%;
 
+  p span, p strong, p em, p u {
+    background-color: transparent !important;
+  }
+
   .post_images_container {
     display: grid;
     grid-gap: 10px;
@@ -144,6 +148,17 @@ article.blog {
 
     .blog_img.full {
       grid-column: span 2;
+    }
+  }
+
+  .blog_post_videos_container {
+    padding-bottom: 40px;
+
+    .post_video-description {
+      font-size: 15px;
+      line-height: 160%;
+      font-weight: 400;
+      // margin-top: 20px;
     }
   }
 }
