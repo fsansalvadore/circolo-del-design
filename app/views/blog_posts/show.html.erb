@@ -31,8 +31,24 @@
           </a>
         </div>
       </div>
-      <%=raw @blog_post.content %>
-
+      <% unless @blog_post.content.empty? || @blog_post.content == "<p><br></p>" %>
+        <%=raw @blog_post.content %>
+      <% end %>
+      <% unless @blog_post.content.empty? || @blog_post.content == "<p><br></p>" && !@blog_post_videos.empty? %>
+        <div class="m-bottom-50"></div>
+      <% end %>
+      <% unless @blog_post_videos.empty? %>
+        <div class="blog_post_videos_container">
+          <% @blog_post_videos.each do |post_video| %>
+            <div style="padding:56.25% 0 0 0;position:relative;" class="blog_post_video">
+              <iframe src="https://player.vimeo.com/video/<%= post_video.vimeo_id %>?title=0&byline=0&portrait=0" class="video-full-w" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+              </iframe>
+            </div>
+            <p class="post_video-description"><%= post_video.description unless post_video.description.empty? %></p>
+          <% end %>
+          <script src="https://player.vimeo.com/api/player.js"></script>
+        </div>
+      <% end %>
       <% if @blog_post.slug == "arflex-from-60s-to-80s" %>
 
       <div class="post_images_container">
@@ -62,7 +78,6 @@
         </figure>
       </div>
       <% end %>
-
     </article>
     <% unless @suggested_posts.empty? %>
       <aside>

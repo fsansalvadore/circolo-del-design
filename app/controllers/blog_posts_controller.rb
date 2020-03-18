@@ -7,6 +7,7 @@ class BlogPostsController < ApplicationController
   end
 
   def show
+    @blog_post_videos = BlogPostVideo.all.filter{|video| video.blog_post_id = @blog_post}
     @suggested_posts = BlogPost.where(published: true).where.not(id: @blog_post.id).limit(3)
   end
 

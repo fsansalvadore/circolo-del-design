@@ -1,11 +1,11 @@
 class BlogPost < ApplicationRecord
-  validates :title, :subtitle, :content, presence: true
+  validates :title, :subtitle, presence: true
   validates :priority, numericality: { only_integer: true }
-  # belongs_to :blog_category
+  has_many :blog_post_videos
+  accepts_nested_attributes_for :blog_post_videos, allow_destroy: true
 
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  # has_one_attached :photo
   mount_uploader :cover, EventImageUploader
 end

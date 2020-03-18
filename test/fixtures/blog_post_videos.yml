@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vimeo_id: MyString
+  description: MyText
+  blog_post: one
+
+two:
+  vimeo_id: MyString
+  description: MyText
+  blog_post: two
