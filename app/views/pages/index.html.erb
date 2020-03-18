@@ -19,8 +19,18 @@
             </div>
           </div>
         </a>
-        <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/whats-on/programma/" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
+        <!-- <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/whats-on/programma/" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
           <div class="text-block-3">Guarda il Programma</div>
+          <div class="arrow-right">
+            <div class="arrow-point-right">
+              <div style="width:0PX" class="div-block-8"></div>
+              <div class="div-block-3"></div>
+              <div class="div-block-3 arrow-point-lower"></div>
+            </div>
+          </div>
+        </a> -->
+        <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/whats-on/HomingCdD/" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
+          <div class="text-block-3">Leggi #HomingCdD</div>
           <div class="arrow-right">
             <div class="arrow-point-right">
               <div style="width:0PX" class="div-block-8"></div>
@@ -41,28 +51,21 @@
         </a>
       </div>
 
-      <% if !@events.empty? %>
+      <% if !@blog_posts.empty? %>
       <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-carousel">
         <div class="carousel-slider-a w-clearfix swiper-container">
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-wrapper">
-            <% @events.each do |event| %>
-              <% unless event.priority == 5 %>
-                <%= link_to event_path(event), class: "carousel-a-slide w-inline-block swiper-slide" do %>
-                <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url('<%= cl_image_path event.image %>')"></div>
-                <% separator = event.sotto_categoria && !event.sotto_categoria.empty? ? " / " : ""  %>
-                <div class="carousel-category-label <%= event.categoria.downcase %>"><%= event.categoria %><%= separator %><%= event.sotto_categoria.upcase if event.sotto_categoria %></div>
+            <% @blog_posts.each do |blog_post| %>
+              <% unless blog_post.priority == 5 %>
+                <%= link_to blog_post_path(blog_post), class: "carousel-a-slide w-inline-block swiper-slide" do %>
+                <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url('<%= cl_image_path blog_post.cover %>')"></div>
+                <div class="carousel-category-label design">Ottagono: from 60s to 80s</div>
                 <div class="carousel-a-text-block">
-                  <div class="slider-date">
-                    <div class="div-block-40"></div>
-                    <%  inizio = event.data_inizio
-                        fine = event.data_fine
-                        dash = event.data_inizio != event.data_fine ? " - " : ""
-                    %>
-                    <div class="slide-a-date-text"><%= tag.time l(inizio, format: :medium2), datetime: inizio %><%= dash %><%= event.data_inizio != event.data_fine ? (tag.time l(fine, format: :medium2), datetime: fine) : "" %><br></div>
-                  </div>
-                  <div class="slider-a-title"><%= event.titolo %></div>
+                  <h3 class="slider-a-title"><%= blog_post.title %></h3>
+                  <!-- <h2 class="event-card-title"><%= blog_post.title.truncate(100) %></h2> -->
+                  <p class="event-card-subtitle"><%= blog_post.subtitle.truncate(140) %></p>
                 </div>
                 <% end %>
               <% end %>
@@ -80,8 +83,8 @@
       <div id="w-node-d14ac47ef320-f805d136" data-w-id="e10972fb-b623-d4d9-87d9-d14ac47ef320" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
         <h2 class="listheading">What’s On</h2>
         <div class="link-list">
-          <%= link_to whats_on_programma_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4">Programma</div>
+          <%= link_to whats_on_HomingCdD_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
+            <div class="text-block-4">#HomingCdD</div>
             <div class="arrow-right">
               <div class="arrow-point-right">
                 <div style="width:0PX" class="div-block-8"></div>

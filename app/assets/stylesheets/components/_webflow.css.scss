@@ -3968,6 +3968,11 @@ h2 {
   text-decoration: none;
 }
 
+.carousel-a-slide .event-card-subtitle {
+  font-size: 20px;
+  line-height: 140%;
+}
+
 .carousel-a-slide:hover .slider-a-title {
   text-decoration: underline;
 }
@@ -5791,6 +5796,10 @@ div {
     -webkit-transform-origin: 50% 33%;
     transform-origin: 50% 33%;
     content: "";
+  }
+
+  .carousel-a-slide .event-card-subtitle {
+    font-size: 15px;
   }
 }
 

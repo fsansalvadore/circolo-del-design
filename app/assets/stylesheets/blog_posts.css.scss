@@ -125,7 +125,7 @@ article.blog {
   .post_images_container {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: [col] 50% [col] 50%;
+    grid-template-columns: 1fr 1fr;
     margin-top: 50px;
 
     figure {
@@ -325,6 +325,12 @@ article.blog {
 
   article.blog .post_images_container figure {
     margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  article.blog .post_images_container {
+    grid-template-columns: 1fr;
   }
 }
 

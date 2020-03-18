@@ -9,31 +9,6 @@
     <div class="page-header-subtitle">Interviste, video, rubriche e approfondimenti legati alla cultura del progetto.</div>
   </div>
 </header>
-<% rubriche = [
-    {nome: "WPAC: Welcome to the post-analog condition"},
-    {nome: "Ottagono: from 60s to 80s"},
-    {nome: "CdDiary Special"},
-    {nome: "Urca Urca Tirulero"},
-    {nome: "Clip Tips"},
-    {nome: "Home is..."}
-  ] %>
-<div class="blog_nav_container">
-  <a href="#" id="blog_nav_btn" class="blog_nav_btn">
-    <span></span>
-  </a>
-  <nav id="blog_nav_links" class="w-container large">
-    <%#= link_to "Tutte le rubriche", whats_on_HomingCdD_path %>
-    <% rubriche.each do |item| %>
-      <%= link_to item[:nome], whats_on_HomingCdD_path %>
-    <% end %>
-  </nav>
-  <nav id="blog_nav_links_ghost">
-    <%#= link_to "Tutte le rubriche", whats_on_HomingCdD_path %>
-    <% rubriche.each do |item| %>
-      <%= link_to item[:nome], whats_on_HomingCdD_path %>
-    <% end %>
-  </nav>
-</div>
 <main class="page-postheader blog">
   <div class="calendar-main-container w-container">
     <div class="blog_grid">
