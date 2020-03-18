@@ -51,32 +51,16 @@
       <% end %>
       <% if @blog_post.slug == "arflex-from-60s-to-80s" %>
 
-      <div class="post_images_container">
-        <figure class="blog_img half">
-          <%= image_tag "homingCdD-1/01.jpg", alt: "Arflex, 1966." %>
-          <figcaption>Arflex, 1966.</figcaption>
-        </figure>
-        <figure class="blog_img half">
-          <%= image_tag "homingCdD-1/02.jpg", alt: "Arflex, 1969." %>
-          <figcaption>Arflex, 1969.</figcaption>
-        </figure>
-        <figure class="blog_img half">
-          <%= image_tag "homingCdD-1/03.jpg", alt: "Arflex, 1972." %>
-          <figcaption>Arflex, 1972.</figcaption>
-        </figure>
-        <figure class="blog_img half">
-          <%= image_tag "homingCdD-1/04.jpg", alt: "Arflex, 1978." %>
-          <figcaption>Arflex, 1978.</figcaption>
-        </figure>
-        <figure class="blog_img half">
-          <%= image_tag "homingCdD-1/05.jpg", alt: "Arflex, 1982." %>
-          <figcaption>Arflex, 1982.</figcaption>
-        </figure>
-        <figure class="blog_img half">
-          <%= image_tag "homingCdD-1/06.jpg", alt: "Arflex, 1988." %>
-          <figcaption>Arflex, 1988.</figcaption>
-        </figure>
-      </div>
+      <% unless @blog_post_images.empty? %>
+        <div class="post_images_container">
+          <% @blog_post_images.each do |post_img| %>
+            <figure class="blog_img <%= post_img.width unless post_img.width.empty? %>">
+              <%= cl_image_tag(post_img.image) %>
+              <figcaption><%= post_img.description unless post_img.description.empty? %></figcaption>
+            </figure>
+          <% end %>
+        </div>
+      <% end %>
       <% end %>
     </article>
     <% unless @suggested_posts.empty? %>
