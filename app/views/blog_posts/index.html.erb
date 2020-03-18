@@ -16,7 +16,7 @@
       <% if @blog_posts && !@blog_posts.empty? %>
         <% @blog_posts.each do |post| %>
           <%= link_to blog_post_path(post), class: "event-card-container" do %>
-            <div class="event-card-category-label">Ottagono: from 60s to 80s</div>
+            <div class="event-card-category-label"><%= post.rubrica unless post.rubrica.empty? %></div>
             <div class="event-card-img-container" style="background-image: url('<%= cl_image_path post.cover %>');">
             </div>
             <div class="event-card-content-container">
