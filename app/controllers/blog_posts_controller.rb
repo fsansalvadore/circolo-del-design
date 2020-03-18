@@ -3,7 +3,8 @@ class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show]
 
   def index
-    @blog_posts = BlogPost.where(published: true)
+    @homing_cover = BlogPost.where(priority: 1).first
+    @blog_posts = BlogPost.where(published: true).where.not(priority: 1)
   end
 
   def show

@@ -108,6 +108,7 @@ ActiveAdmin.register BlogPost do
   filter :published
 
   form do |f|
+    f.actions
     f.semantic_errors *f.object.errors.keys
     f.inputs 'BlogPost' do
       f.input :rubrica, as: :select, :collection => BlogCategory.where(published: true).map{|c| c.nome}, prompt: "Seleziona una rubrica"
