@@ -11,7 +11,7 @@ class BlogPostsController < ApplicationController
     @blog_post_videos = BlogPostVideo.all.filter{|video| video.blog_post_id == @blog_post.id}
     @blog_post_images = BlogPostImage.all.filter{|img| img.blog_post_id == @blog_post.id}
 
-    @suggested_posts = BlogPost.where(published: true).where.not(id: @blog_post.id).limit(3)
+    @suggested_posts = BlogPost.where("published = true AND priority != 1").where.not(id: @blog_post.id).limit(3)
   end
 
   private

@@ -47,7 +47,7 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-wrapper">
             <%= link_to whats_on_HomingCdD_path, class: "carousel-a-slide w-inline-block swiper-slide" do %>
-              <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 5%, #000), url(<%= cl_image_path @homing_cover.cover %>)"></div>
+              <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000), url(<%= cl_image_path @homing_cover.cover %>)"></div>
               <!-- <div class="carousel-category-label design">Rubriche</div> -->
               <div class="carousel-a-text-block">
                 <h3 class="slider-a-title"><%= @homing_cover.title %></h3>

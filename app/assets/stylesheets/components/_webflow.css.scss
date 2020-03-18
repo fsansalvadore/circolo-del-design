@@ -3973,6 +3973,14 @@ h2 {
   line-height: 140%;
 }
 
+.carousel-a-text-block p {
+  font-size: 20px;
+  line-height: 140%;
+  * {
+    color: #fff !important;
+  }
+}
+
 .carousel-a-slide:hover .slider-a-title {
   text-decoration: underline;
 }
@@ -5800,6 +5808,11 @@ div {
 
   .carousel-a-slide .event-card-subtitle {
     font-size: 15px;
+  }
+
+  .carousel-a-text-block p {
+    font-size: 15px;
+    line-height: 120%;
   }
 }
 
