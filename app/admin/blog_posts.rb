@@ -1,6 +1,9 @@
 ActiveAdmin.register BlogPost do
+  menu parent: 'Blog', label: 'Post'
 
-  permit_params :title, :subtitle, :cover, :keywords, :content, :publish_date, :published, :priority, :slug
+  permit_params :rubrica ,:title, :subtitle, :cover, :keywords, :content, :publish_date, :published, :priority, :slug,
+                  blog_categories_attributes: [:id, :nome]
+
   config.comments = false
 
   # scope :pubblicati, ->{where(published: true)}
@@ -52,7 +55,7 @@ ActiveAdmin.register BlogPost do
     column "Titolo" do |blog_post|
       link_to blog_post.title, admin_blog_post_path(blog_post)
     end
-    column :blog_column
+    column :rubrica
     column :priority
     column :published
     column "Pubblica" do |blog_post|
@@ -79,7 +82,7 @@ ActiveAdmin.register BlogPost do
       row :subtitle
       row :slug
       row :keywords
-      row :blog_column
+      row :rubrica
       row :cover do |i|
         image_tag(cl_image_path(blog_post.cover), class: "image-preview")
       end
@@ -97,6 +100,8 @@ ActiveAdmin.register BlogPost do
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs 'BlogPost' do
+      f.input :rubrica, as: :select, :collection => BlogCategory.where(published: true).map{|c| c.nome}, prompt: "Seleziona una rubrica"
+
       f.input :title, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
       f.input :subtitle, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
       f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"

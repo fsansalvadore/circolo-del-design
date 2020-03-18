@@ -32,6 +32,9 @@
         </div>
       </div>
       <%=raw @blog_post.content %>
+
+      <% if @blog_post.slug == "arflex-from-60s-to-80s" %>
+
       <div class="post_images_container">
         <figure class="blog_img half">
           <%= image_tag "homingCdD-1/01.jpg", alt: "Arflex, 1966." %>
@@ -58,6 +61,10 @@
           <figcaption>Arflex, 1988.</figcaption>
         </figure>
       </div>
+      <% else %>
+      no
+      <% end %>
+
     </article>
     <% unless @suggested_posts.empty? %>
       <aside>

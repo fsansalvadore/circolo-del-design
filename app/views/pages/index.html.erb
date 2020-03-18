@@ -19,16 +19,6 @@
             </div>
           </div>
         </a>
-        <!-- <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/whats-on/programma/" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-          <div class="text-block-3">Guarda il Programma</div>
-          <div class="arrow-right">
-            <div class="arrow-point-right">
-              <div style="width:0PX" class="div-block-8"></div>
-              <div class="div-block-3"></div>
-              <div class="div-block-3 arrow-point-lower"></div>
-            </div>
-          </div>
-        </a> -->
         <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/whats-on/HomingCdD/" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
           <div class="text-block-3">Leggi #HomingCdD</div>
           <div class="arrow-right">
@@ -51,30 +41,23 @@
         </a>
       </div>
 
-      <% if !@blog_posts.empty? %>
       <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-carousel">
         <div class="carousel-slider-a w-clearfix swiper-container">
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-wrapper">
-            <% @blog_posts.each do |blog_post| %>
-              <% unless blog_post.priority == 5 %>
-                <%= link_to blog_post_path(blog_post), class: "carousel-a-slide w-inline-block swiper-slide" do %>
-                <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url('<%= cl_image_path blog_post.cover %>')"></div>
-                <div class="carousel-category-label design">Ottagono: from 60s to 80s</div>
-                <div class="carousel-a-text-block">
-                  <h3 class="slider-a-title"><%= blog_post.title %></h3>
-                  <!-- <h2 class="event-card-title"><%= blog_post.title.truncate(100) %></h2> -->
-                  <p class="event-card-subtitle"><%= blog_post.subtitle.truncate(140) %></p>
-                </div>
-                <% end %>
-              <% end %>
+            <%= link_to whats_on_HomingCdD_path, class: "carousel-a-slide w-inline-block swiper-slide" do %>
+              <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url(<%= asset_path 'HomingCdD.jpg' %>)"></div>
+              <!-- <div class="carousel-category-label design">Ottagono: from 60s to 80s</div> -->
+              <div class="carousel-a-text-block">
+                <h3 class="slider-a-title">#HomingCdD</h3>
+                <p class="event-card-subtitle">Interviste, video, rubriche e approfondimenti legati alla cultura del progetto.</p>
+              </div>
             <% end %>
           </div>
           <div class="swiper-pagination"></div>
         </div>
       </div>
-      <% end %>
 
     </div>
   </div>
@@ -227,19 +210,20 @@ window.onload = function () {
 
   var mySwiper = new Swiper ('.swiper-container', {
       slidesPerView: 1,
-      loop: true,
+      loop: false,
+      // loop: true,
       spaceBetween: 30,
       keyboard: {
         enabled: true,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
       }
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   clickable: true,
+      // },
+      // navigation: {
+      //   nextEl: '.swiper-button-next',
+      //   prevEl: '.swiper-button-prev',
+      // }
   });
 
 };

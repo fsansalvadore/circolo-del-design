@@ -1,6 +1,7 @@
 class BlogPost < ApplicationRecord
   validates :title, :subtitle, :content, presence: true
   validates :priority, numericality: { only_integer: true }
+  # belongs_to :blog_category
 
   extend FriendlyId
   friendly_id :title, use: :slugged

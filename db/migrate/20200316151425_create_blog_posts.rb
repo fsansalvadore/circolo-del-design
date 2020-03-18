@@ -9,7 +9,7 @@ class CreateBlogPosts < ActiveRecord::Migration[5.2]
       t.datetime :publish_date
       t.boolean :published, default: false
       t.integer :priority
-      t.references :blog_columns, foreign_key: true
+      t.references :blog_categories, foreign_key: true
 
       t.timestamps
     end
