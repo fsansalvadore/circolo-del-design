@@ -142,6 +142,10 @@ article.blog {
       margin-top: 10px;
     }
 
+    .blog_img {
+      grid-column: span 2;
+    }
+
     .blog_img.half {
       grid-column: span 1;
     }

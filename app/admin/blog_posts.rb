@@ -11,7 +11,8 @@ ActiveAdmin.register BlogPost do
                 :published,
                 :priority,
                 :slug,
-                blog_post_videos_attributes: [:id, :vimeo_id, :description, :_destroy]
+                blog_post_videos_attributes: [:id, :vimeo_id, :description, :_destroy],
+                blog_post_images_attributes: [:id, :image, :description, :width, :_destroy]
 
   config.comments = false
 
@@ -117,9 +118,18 @@ ActiveAdmin.register BlogPost do
       f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
       f.input :publish_date, as: :datepicker, hint: "Puoi programmare quando il post verrà pubblicato."
       f.input :content, as: :quill_editor, hint: "Facoltativo"
-      f.has_many :blog_post_videos, allow_destroy: true do |n_f|
-        n_f.input :vimeo_id
-        n_f.input :description
+      f.inputs do
+        f.has_many :blog_post_videos, allow_destroy: true do |n_f|
+          n_f.input :vimeo_id
+          n_f.input :description
+        end
+      end
+      f.inputs do
+        f.has_many :blog_post_images, allow_destroy: true do |n_f|
+          n_f.input :image, as: :file, :image_preview => true
+          n_f.input :description
+          n_f.input :width, as: :select, collection: [["50%", "half"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
+        end
       end
       f.input :published
       f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna Priorità", 5]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per Data d'inizio nel caso di stessa priorità. I post con priorità 5 non compaiono in Home Page."
