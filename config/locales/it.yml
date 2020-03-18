@@ -8,10 +8,10 @@ it:
         delete_event: 'Elimina Evento' # delete action item
   activerecord:
     models:
-      blog_categories:
+      blog_category:
         one: Rubrica
         other: Rubriche
-      blog_posts:
+      blog_post:
         one: Post
         other: Post
       face:
