@@ -5,11 +5,11 @@ class CreateBlogPosts < ActiveRecord::Migration[5.2]
       t.string :subtitle
       t.string :cover
       t.string :keywords
+      t.string :rubrica
       t.text :content
       t.datetime :publish_date
       t.boolean :published, default: false
-      t.integer :priority
-      t.references :blog_categories, foreign_key: true
+      t.integer :priority, default: 5
 
       t.timestamps
     end
