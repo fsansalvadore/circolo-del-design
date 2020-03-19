@@ -165,6 +165,16 @@ article.blog {
       // margin-top: 20px;
     }
   }
+
+  .ig_container {
+    position: flex;
+    align-items: center;
+    width: 100%;
+
+    iframe {
+      margin: 0 auto !important;
+    }
+  }
 }
 
 .blog_nav_container {
