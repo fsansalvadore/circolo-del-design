@@ -4018,6 +4018,7 @@ h2 {
   position: absolute;
   left: 40px;
   bottom: 40px;
+  right: 40px;
   color: #fff;
   padding-right: 12px;
 }
@@ -4932,7 +4933,8 @@ div {
     margin-right: 60px;
   }
   .section-a-1 {
-    margin-bottom: 90px;
+    margin-bottom: 50px;
+    // margin-bottom: 90px;
   }
   .section-a-3 {
     margin-bottom: 70px;
@@ -5050,7 +5052,7 @@ div {
   }
   .carousel-slider-a {
     width: calc(200% + 12px);
-    height: 420px;
+    height: 480px;
   }
   .carousel-a-slide {
     width: calc(50% - 14px);
@@ -5545,11 +5547,11 @@ div {
   .hp-carousel {
     top: 40px;
     overflow: visible;
-    height: 330px;
+    height: 470px;
   }
   .carousel-slider-a {
     width: calc(200% + 12px);
-    height: 220px;
+    height: 420px;
   }
   .carousel-a-slide {
     width: calc(50% - 14px);
@@ -5806,13 +5808,13 @@ div {
     content: "";
   }
 
-  .carousel-a-slide .event-card-subtitle {
-    font-size: 15px;
+  .carousel-a-slide .event-card-subtitle p {
+    font-size: 15px !important;
   }
 
   .carousel-a-text-block p {
     font-size: 15px;
-    line-height: 120%;
+    line-height: 140%;
   }
 }
 
