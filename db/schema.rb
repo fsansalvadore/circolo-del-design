@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_132718) do
+ActiveRecord::Schema.define(version: 2020_03_19_163830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2020_03_19_132718) do
     t.bigint "blog_post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "section_title"
+    t.string "rich_text_small"
     t.index ["blog_post_id"], name: "index_blog_post_sections_on_blog_post_id"
   end
 
@@ -108,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_132718) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.text "intro"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 

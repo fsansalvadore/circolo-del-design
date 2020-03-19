@@ -8,7 +8,9 @@ class BlogPostsController < ApplicationController
   end
 
   def show
-    @blog_post_sections = BlogPostSection.where(visible: true).filter{|section| section.blog_post_id == @blog_post.id}
+    @blog_post_sections = BlogPostSection.where("visible = true AND blog_post_id = ?", @blog_post.id )
+                                          .order(:position)
+
     @suggested_posts = BlogPost.where("published = true AND priority != 1").where.not(id: @blog_post.id).limit(3)
   end
 
