@@ -6,6 +6,11 @@
 <header id="top" class="page-header-container blog">
   <div class="w-container large">
     <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On / <%= link_to "#HomingCdD", whats_on_HomingCdD_path %></div>
+    <% unless @blog_post.intro.nil? || @blog_post.intro == "<p><br></p>" %>
+      <div class="blog_post_intro">
+        <%=raw @blog_post.intro %>
+      </div>
+    <% end %>
     <h1 class="page-header-title"><%= @blog_post.title %></h1>
     <div class="page-header-subtitle"><%= @blog_post.subtitle if @blog_post.subtitle %></div>
   </div>
@@ -39,7 +44,16 @@
 
         <!-- Rich text -->
         <% unless section.rich_text.empty? || section.rich_text == "<p><br></p>" %>
-          <%=raw section.rich_text %>
+          <div class="rich_text_container">
+            <%=raw section.rich_text %>
+          </div>
+        <% end %>
+
+        <!-- Rich text small -->
+        <% unless section.rich_text_small.empty? || section.rich_text_small == "<p><br></p>" %>
+          <div class="rich_text_container small">
+            <%=raw section.rich_text_small %>
+          </div>
         <% end %>
 
         <!-- Video -->
@@ -56,12 +70,10 @@
 
         <!-- Image -->
         <% unless section.image.blank? %>
-          <div class="post_images_container">
             <figure class="blog_img <%= section.image_width unless section.image_width.empty? %>">
               <%= cl_image_tag(section.image) %>
               <figcaption><%= section.image_description unless section.image_description.empty? %></figcaption>
             </figure>
-          </div>
         <% end %>
 
         <!-- Instagram -->

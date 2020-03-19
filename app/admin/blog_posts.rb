@@ -2,6 +2,7 @@ ActiveAdmin.register BlogPost do
   menu parent: 'Blog', label: 'Post'
 
   permit_params :rubrica,
+                :intro,
                 :title,
                 :subtitle,
                 :cover,
@@ -13,13 +14,16 @@ ActiveAdmin.register BlogPost do
                 :slug,
                 blog_post_sections_attributes: [
                   :id,
+                  :section_title,
                   :rich_text,
+                  :rich_text_small,
                   :image,
                   :image_description,
                   :image_width,
                   :vimeo_link,
                   :vimeo_description,
                   :instagram_link,
+                  :position,
                   :visible,
                   :_destroy
                 ]
@@ -95,6 +99,7 @@ ActiveAdmin.register BlogPost do
 
   show title: :title do
     attributes_table do
+      row (:intro) { |blog_post| raw(blog_post.intro) }
       row :title
       row :subtitle
       row :slug
@@ -114,24 +119,28 @@ ActiveAdmin.register BlogPost do
   form do |f|
     f.actions
     f.semantic_errors *f.object.errors.keys
-    f.inputs 'BlogPost' do
+    f.inputs 'Post' do
       f.input :rubrica, as: :select, :collection => BlogCategory.where(published: true).map{|c| c.nome}, prompt: "Seleziona una rubrica"
 
+      f.input :intro, as: :quill_editor, placeholder: 'Intro', hint: "Comparirà prima del titolo."
       f.input :title, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
       f.input :subtitle, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
       f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"
       f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
 
-      f.inputs do
+      f.inputs "Sezione — Ogni sezione corrisponde a una tipologia di contenuto diverso: testo / video / immagine / post instagram" do
         f.has_many :blog_post_sections, allow_destroy: true do |n_f|
-          n_f.input :rich_text, as: :quill_editor
-          n_f.input :vimeo_link
-          n_f.input :vimeo_description
+          n_f.input :section_title, hint: "Questo campo serve per identificare la sezione e poterla riodrinare nella pagina riassuntiva del post."
+          n_f.input :rich_text, as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
+          n_f.input :rich_text_small, as: :quill_editor, hint: "Inserisci qui un blocco di testo breve."
+          n_f.input :vimeo_link, hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789"
+          n_f.input :vimeo_description, hint: "Inserisci qui una descrizione di accompagnamento al video."
           n_f.input :image, as: :file, :image_preview => true
-          n_f.input :image_description
+          n_f.input :image_description, hint: "Inserisci qui una descrizione di accompagnamento al video."
           n_f.input :image_width, as: :select, collection: [["50%", "half"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
-          n_f.input :instagram_link
-          n_f.input :visible
+          n_f.input :instagram_link, hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
+          n_f.input :position
+          n_f.input :visible, hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
         end
       end
 
@@ -140,4 +149,5 @@ ActiveAdmin.register BlogPost do
     end
     f.actions
   end
+
 end
