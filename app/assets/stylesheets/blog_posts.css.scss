@@ -388,8 +388,9 @@ article.blog {
 }
 
 @media screen and (max-width: 600px) {
-  article.blog .post_images_container {
-    grid-template-columns: 1fr;
+  article.blog .blog_img.half {
+    width: 100%;
+    margin: 0 0 20px 0;
   }
 }
 
