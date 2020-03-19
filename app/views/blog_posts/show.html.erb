@@ -49,8 +49,6 @@
           <script src="https://player.vimeo.com/api/player.js"></script>
         </div>
       <% end %>
-      <% if @blog_post.slug == "arflex-from-60s-to-80s" %>
-
       <% unless @blog_post_images.empty? %>
         <div class="post_images_container">
           <% @blog_post_images.each do |post_img| %>
@@ -60,7 +58,6 @@
             </figure>
           <% end %>
         </div>
-      <% end %>
       <% end %>
     </article>
     <% unless @suggested_posts.empty? %>
