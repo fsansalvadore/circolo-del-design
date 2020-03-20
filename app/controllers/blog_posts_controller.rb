@@ -4,7 +4,7 @@ class BlogPostsController < ApplicationController
 
   def index
     @homing_cover = BlogPost.where("priority = 1 AND published = true").first
-    @blog_posts = BlogPost.where(published: true).where.not(priority: 1).order(updated_at: :desc)
+    @blog_posts = BlogPost.where(published: true).order(updated_at: :desc)
   end
 
   def show

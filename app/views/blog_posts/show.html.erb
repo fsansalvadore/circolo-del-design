@@ -1,8 +1,7 @@
 <% content_for :meta_title, "#{@blog_post.title} — " %>
-<% content_for :meta_description, "#{raw @blog_post.subtitle}" %>
+<% content_for :meta_description, "#{strip_tags(@blog_post.subtitle)}" %>
 <% content_for :meta_keywords, "#{@blog_post.keywords unless @blog_post.keywords.empty?} " %>
 <% content_for :meta_image, "#{@blog_post.cover}" %>
-
 <header id="top" class="page-header-container blog">
   <div class="w-container large">
     <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On / <%= link_to "#HomingCdD", whats_on_HomingCdD_path %></div>
@@ -15,8 +14,6 @@
     <div class="page-header-subtitle"><%=raw @blog_post.subtitle if @blog_post.subtitle %></div>
   </div>
 </header>
-<div >
-</div>
 <main class="page-postheader blog">
   <div class="calendar-main-container w-container">
     <article class="blog">
