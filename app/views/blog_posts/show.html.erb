@@ -1,5 +1,5 @@
 <% content_for :meta_title, "#{@blog_post.title} — " %>
-<% content_for :meta_description, "#{@blog_post.subtitle}" %>
+<% content_for :meta_description, "#{raw @blog_post.subtitle}" %>
 <% content_for :meta_keywords, "#{@blog_post.keywords unless @blog_post.keywords.empty?} " %>
 <% content_for :meta_image, "#{@blog_post.cover}" %>
 

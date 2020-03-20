@@ -20,7 +20,7 @@
           </div>
         </a>
         <a data-w-id="ae9cec70-83ef-cef6-706b-ca4cf8552415" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" href="/whats-on/HomingCdD" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-          <div class="text-block-3">Leggi <%= @homing_cover.title unless @homing_cover.title.empty? %></div>
+          <div class="text-block-3">Leggi #HomingCdD</div>
           <div class="arrow-right">
             <div class="arrow-point-right">
               <div style="width:0PX" class="div-block-8"></div>
@@ -48,11 +48,18 @@
           <div class="swiper-wrapper">
             <%= link_to whats_on_HomingCdD_path, class: "carousel-a-slide w-inline-block swiper-slide" do %>
               <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000), url(<%= cl_image_path @homing_cover.cover %>)"></div>
-              <!-- <div class="carousel-category-label design">Rubriche</div> -->
+              <% unless @homing_cover.rubrica.nil? %>
+                <div class="carousel-category-label design"><%= @homing_cover.rubrica %></div>
+              <% end %>
               <div class="carousel-a-text-block">
                 <h3 class="slider-a-title"><%= @homing_cover.title %></h3>
                 <p class="event-card-subtitle">
-                  <%=raw @homing_cover.content %>
+                  <% unless @homing_cover.content.nil? %>
+                    <%=raw @homing_cover.content %>
+                  <% end %>
+                  <% unless @homing_cover.subtitle.nil? %>
+                    <%=raw @homing_cover.subtitle %>
+                  <% end %>
                 </p>
               </div>
             <% end %>
@@ -69,7 +76,7 @@
         <h2 class="listheading">What’s On</h2>
         <div class="link-list">
           <%= link_to whats_on_HomingCdD_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4"><%= @homing_cover.title %></div>
+            <div class="text-block-4">#HomingCdD</div>
             <div class="arrow-right">
               <div class="arrow-point-right">
                 <div style="width:0PX" class="div-block-8"></div>
