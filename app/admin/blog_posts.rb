@@ -2,7 +2,7 @@ ActiveAdmin.register BlogPost do
   menu parent: 'Blog', label: 'Post'
 
   permit_params :rubrica,
-                # :intro,
+                :intro,
                 :title,
                 # :title_integration,
                 :subtitle,
@@ -138,7 +138,7 @@ ActiveAdmin.register BlogPost do
     f.inputs 'Post' do
       f.input :rubrica, as: :select, :collection => BlogCategory.where(published: true).map{|c| c.nome}, prompt: "Seleziona una rubrica"
 
-      # f.input :intro, as: :quill_editor, placeholder: 'Intro', hint: "Comparirà prima del titolo."
+      f.input :intro, as: :quill_editor, placeholder: 'Intro', hint: "Comparirà prima del titolo."
       f.input :title, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
       # f.input :title_integration, placeholder: 'Integrazione Titolo', hint: "Verrà aggiunto al Meta Title e nell'indirizzo URL della pagina. (Facoltativo — Preferibilmente max 20 caratteri)"
       f.input :subtitle, as: :quill_editor, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
