@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_163830) do
+ActiveRecord::Schema.define(version: 2020_03_20_131032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_163830) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string "title"
-    t.string "subtitle"
+    t.text "subtitle"
     t.string "cover"
     t.string "keywords"
     t.string "rubrica"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_163830) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.text "intro"
+    t.string "title_integration"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 
