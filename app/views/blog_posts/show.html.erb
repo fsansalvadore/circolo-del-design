@@ -6,11 +6,6 @@
 <header id="top" class="page-header-container blog">
   <div class="w-container large">
     <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On / <%= link_to "#HomingCdD", whats_on_HomingCdD_path %></div>
-    <% unless @blog_post.intro.nil? || @blog_post.intro == "<p><br></p>" %>
-      <div class="blog_post_intro">
-        <%=raw @blog_post.intro %>
-      </div>
-    <% end %>
     <h1 class="page-header-title">
       <% if !@blog_post.rubrica.empty? && @blog_post.rubrica == "WPAC: Welcome to the post-analog condition" %>
         <div class="WPAC_title">WELCOME TO THE POST-ANALOG CONDITION*</div>
