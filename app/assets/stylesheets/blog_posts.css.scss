@@ -21,6 +21,7 @@ header.blog {
   .page-header-subtitle {
     line-height: 140%;
     margin-top: 20px;
+    font-size: 20px;
     p {
       margin: 0;
     }
@@ -148,6 +149,9 @@ article.blog {
   font-size: 21px;
   line-height: 158%;
 
+  p {
+    margin-bottom: 20px;
+  }
   p span, p strong, p em, p u {
     background-color: transparent !important;
   }
@@ -423,6 +427,10 @@ article.blog {
     &.small {
       margin-top: 0;
     }
+  }
+
+  header.blog .page-header-subtitle {
+    font-size: 18px;
   }
 }
 
