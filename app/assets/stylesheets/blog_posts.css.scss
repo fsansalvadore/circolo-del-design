@@ -5,6 +5,26 @@ header.blog {
     text-align: left;
     margin: 20px 0 40px 0;
   }
+
+  h1 {
+    line-height: 110%;
+    margin-top: 20px;
+  }
+
+  h1 .WPAC_title {
+    text-transform: uppercase;
+    color: #e2344f;
+    font-size: 0.7em;
+    line-height: 90%;
+  }
+
+  .page-header-subtitle {
+    line-height: 140%;
+    margin-top: 20px;
+    p {
+      margin: 0;
+    }
+  }
 }
 
 main.blog {
@@ -18,6 +38,8 @@ main.blog {
   .event-card-category-label {
     background: #F6E400;
     color: #000;
+    line-height: 120%;
+    max-width: 70%;
   }
 
   .event-card-container {
@@ -138,6 +160,10 @@ article.blog {
   .rich_text_container {
     width: 100%;
     display: block;
+
+    &.small {
+      margin-top: 90px;
+    }
 
     &.small * {
       font-size: 16px;
@@ -391,6 +417,12 @@ article.blog {
   article.blog .blog_img.half {
     width: 100%;
     margin: 0 0 20px 0;
+  }
+
+  article.blog .rich_text_container {
+    &.small {
+      margin-top: 0;
+    }
   }
 }
 

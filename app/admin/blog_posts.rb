@@ -2,11 +2,15 @@ ActiveAdmin.register BlogPost do
   menu parent: 'Blog', label: 'Post'
 
   permit_params :rubrica,
-                :intro,
+                # :intro,
                 :title,
+                # :title_integration,
                 :subtitle,
                 :cover,
                 :keywords,
+                :lang,
+                :lang_link_eng,
+                :lang_link_ita,
                 :content,
                 :publish_date,
                 :published,
@@ -77,7 +81,18 @@ ActiveAdmin.register BlogPost do
       link_to blog_post.title, admin_blog_post_path(blog_post)
     end
     column :rubrica
-    column :priority
+    column "Lingua" do |blog_post|
+      case blog_post.lang
+      when 1
+        # "Italiano"
+        image_tag("lang_ita.svg", class: "admin_lang_icon")
+      when 2
+        # "Inglese"
+        image_tag("lang_eng.svg", class: "admin_lang_icon")
+      else
+        "-"
+      end
+    end
     column :published
     column "Pubblica" do |blog_post|
       if !blog_post.published
@@ -101,7 +116,8 @@ ActiveAdmin.register BlogPost do
     attributes_table do
       row (:intro) { |blog_post| raw(blog_post.intro) }
       row :title
-      row :subtitle
+      row (:subtitle) { |blog_post| raw(blog_post.subtitle) }
+      row :lang
       row :slug
       row :keywords
       row :rubrica
@@ -122,11 +138,16 @@ ActiveAdmin.register BlogPost do
     f.inputs 'Post' do
       f.input :rubrica, as: :select, :collection => BlogCategory.where(published: true).map{|c| c.nome}, prompt: "Seleziona una rubrica"
 
-      f.input :intro, as: :quill_editor, placeholder: 'Intro', hint: "Comparirà prima del titolo."
+      # f.input :intro, as: :quill_editor, placeholder: 'Intro', hint: "Comparirà prima del titolo."
       f.input :title, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
-      f.input :subtitle, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
+      # f.input :title_integration, placeholder: 'Integrazione Titolo', hint: "Verrà aggiunto al Meta Title e nell'indirizzo URL della pagina. (Facoltativo — Preferibilmente max 20 caratteri)"
+      f.input :subtitle, as: :quill_editor, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
       f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"
       f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
+      # f.input :lang_link_eng, placeholder: "Link post in inglese", hint: "Per creare la traduzione di un post duplica il post italiano e incolla qui l'url del nuovo post."
+      f.input :lang, as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
+      # f.input :lang_link_eng, as: :select, collection: proc{ BlogPost.where.not(id: BlogPost.friendly.find_by_slug(params[:id]).id).filter {|post| ["#{post.title} - #{post.lang}", blog_post_path(post)]}}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
+      f.input :lang_link_eng, as: :select, collection: BlogPost.where.not(id: BlogPost.friendly.find_by_slug(params[:id]).id).map {|post| ["#{post.title} - #{post.lang == 1 ? "ITA" : "ENG"}", blog_post_path(post)]}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
 
       f.inputs "Sezione — Ogni sezione corrisponde a una tipologia di contenuto diverso: testo / video / immagine / post instagram" do
         f.has_many :blog_post_sections, allow_destroy: true do |n_f|

@@ -11,8 +11,13 @@
         <%=raw @blog_post.intro %>
       </div>
     <% end %>
-    <h1 class="page-header-title"><%= @blog_post.title %></h1>
-    <div class="page-header-subtitle"><%= @blog_post.subtitle if @blog_post.subtitle %></div>
+    <h1 class="page-header-title">
+      <% if !@blog_post.rubrica.empty? && @blog_post.rubrica == "WPAC: Welcome to the post-analog condition" %>
+        <div class="WPAC_title">WELCOME TO THE POST-ANALOG CONDITION*</div>
+      <% end %>
+      <%= @blog_post.title.gsub("Welcome to the post-analog condition*", "") %>
+    </h1>
+    <div class="page-header-subtitle"><%=raw @blog_post.subtitle if @blog_post.subtitle %></div>
   </div>
 </header>
 <div >
@@ -34,6 +39,19 @@
           <a id="clipboard" href="#">
             <%= image_tag "icon_link.svg", alt: "alttext" %>
           </a>
+          <% unless @blog_post.lang_link_eng.nil? %>
+
+            <% if @blog_post.lang == 1 %>
+              <%= link_to @blog_post.lang_link_eng, id: "translated" do %>
+                <%= image_tag "lang_eng.svg", alt: "alttext" %>
+              <% end %>
+            <% else %>
+              <%= link_to @blog_post.lang_link_eng, id: "translated" do %>
+                <%= image_tag "lang_ita.svg", alt: "alttext" %>
+              <% end %>
+            <% end %>
+
+          <% end %>
         </div>
       </div>
 
