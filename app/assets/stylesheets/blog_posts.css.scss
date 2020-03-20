@@ -38,6 +38,8 @@ main.blog {
   .event-card-category-label {
     background: #F6E400;
     color: #000;
+    line-height: 120%;
+    max-width: 70%;
   }
 
   .event-card-container {
@@ -419,7 +421,7 @@ article.blog {
 
   article.blog .rich_text_container {
     &.small {
-      margin-top: 20px;
+      margin-top: 0;
     }
   }
 }
