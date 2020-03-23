@@ -57,6 +57,7 @@
           <div class="rich_text_container">
             <%=raw section.rich_text %>
           </div>
+        <div class="m-bottom-50"></div>
         <% end %>
 
         <!-- Rich text small -->
@@ -64,6 +65,7 @@
           <div class="rich_text_container small">
             <%=raw section.rich_text_small %>
           </div>
+        <div class="m-bottom-50"></div>
         <% end %>
 
         <!-- Video -->
@@ -84,6 +86,7 @@
               <%= cl_image_tag(section.image) %>
               <figcaption><%= section.image_description unless section.image_description.empty? %></figcaption>
             </figure>
+        <!-- <div class="m-bottom-50"></div> -->
         <% end %>
 
         <!-- Instagram -->
@@ -138,11 +141,11 @@
             </blockquote>
             <script async src="//www.instagram.com/embed.js"></script>
           </div>
+        <div class="m-bottom-50"></div>
+
 
           <!-- Intagram end -->
         <% end %>
-
-        <div class="m-bottom-50"></div>
         <!-- End section loop -->
       <% end %>
     </article>
