@@ -115,6 +115,7 @@ ActiveAdmin.register BlogPost do
   show title: :title do
     attributes_table do
       row :slug
+      row :rubrica
       row :title
       row (:subtitle) { |blog_post| raw(blog_post.subtitle) }
       row :meta_title
@@ -132,7 +133,6 @@ ActiveAdmin.register BlogPost do
           "-"
         end
       end
-      row :rubrica
       row :cover do |i|
         image_tag(cl_image_path(blog_post.cover), class: "image-preview")
       end
