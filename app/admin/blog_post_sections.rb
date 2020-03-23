@@ -1,7 +1,7 @@
 ActiveAdmin.register BlogPostSection do
   belongs_to :blog_post
 
-  config.sort_order = 'position_asc'
+  # config.sort_order = 'position_asc'
 
   index do
     selectable_column
