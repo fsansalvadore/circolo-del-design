@@ -146,8 +146,8 @@ ActiveAdmin.register BlogPost do
       f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
       # f.input :lang_link_eng, placeholder: "Link post in inglese", hint: "Per creare la traduzione di un post duplica il post italiano e incolla qui l'url del nuovo post."
       f.input :lang, as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
-      # f.input :lang_link_eng, as: :select, collection: proc{ BlogPost.where.not(id: BlogPost.friendly.find_by_slug(params[:id]).id).filter {|post| ["#{post.title} - #{post.lang}", blog_post_path(post)]}}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
       f.input :lang_link_eng, as: :select, collection: BlogPost.where.not(id: BlogPost.friendly.find_by_slug(params[:id]).id).map {|post| ["#{post.title} - #{post.lang == 1 ? "ITA" : "ENG"}", blog_post_path(post)]}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
+      f.input :priority, as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
 
       f.inputs "Sezione — Ogni sezione corrisponde a una tipologia di contenuto diverso: testo / video / immagine / post instagram" do
         f.has_many :blog_post_sections, allow_destroy: true do |n_f|
@@ -166,7 +166,6 @@ ActiveAdmin.register BlogPost do
       end
 
       f.input :published
-      f.input :priority, as: :select, collection: [["1 — In Home page", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna Priorità", 5]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per Data d'inizio nel caso di stessa priorità. I post con priorità 5 non compaiono in Home Page."
     end
     f.actions
   end
