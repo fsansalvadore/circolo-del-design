@@ -1,5 +1,5 @@
 <% content_for :meta_title, "#{@blog_post.title} — " %>
-<% content_for :meta_description, "#{strip_tags(@blog_post.subtitle)}" %>
+<% content_for :meta_description, "#{@blog_post.meta_description unless @blog_post.meta_description.empty?}" %>
 <% content_for :meta_keywords, "#{@blog_post.keywords unless @blog_post.keywords.empty?} " %>
 <% content_for :meta_image, "#{@blog_post.cover}" %>
 <header id="top" class="page-header-container blog">
