@@ -31,13 +31,13 @@
           <a id="clipboard" href="#">
             <%= image_tag "icon_link.svg", alt: "alttext" %>
           </a>
-          <% unless @blog_post.lang_link_eng.nil? %>
+          <% unless @blog_post.lang_link_eng.nil? || @blog_post.lang_link_eng.empty? %>
 
             <% if @blog_post.lang == 1 %>
               <%= link_to @blog_post.lang_link_eng, id: "translated" do %>
                 <%= image_tag "lang_eng.svg", alt: "alttext" %>
               <% end %>
-            <% else %>
+            <% elsif @blog_post.lang == 2 %>
               <%= link_to @blog_post.lang_link_eng, id: "translated" do %>
                 <%= image_tag "lang_ita.svg", alt: "alttext" %>
               <% end %>
