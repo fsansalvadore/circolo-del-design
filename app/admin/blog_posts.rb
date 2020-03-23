@@ -6,6 +6,8 @@ ActiveAdmin.register BlogPost do
                 :title,
                 # :title_integration,
                 :subtitle,
+                :meta_title,
+                :meta_description,
                 :cover,
                 :keywords,
                 :lang,
@@ -114,12 +116,24 @@ ActiveAdmin.register BlogPost do
 
   show title: :title do
     attributes_table do
-      row (:intro) { |blog_post| raw(blog_post.intro) }
+      row :slug
       row :title
       row (:subtitle) { |blog_post| raw(blog_post.subtitle) }
-      row :lang
-      row :slug
+      row :meta_title
+      row :meta_description
       row :keywords
+      row "Lingua" do |blog_post|
+      case blog_post.lang
+        when 1
+          # "Italiano"
+          image_tag("lang_ita.svg", class: "admin_lang_icon")
+        when 2
+          # "Inglese"
+          image_tag("lang_eng.svg", class: "admin_lang_icon")
+        else
+          "-"
+        end
+      end
       row :rubrica
       row :cover do |i|
         image_tag(cl_image_path(blog_post.cover), class: "image-preview")
@@ -138,18 +152,20 @@ ActiveAdmin.register BlogPost do
     f.inputs 'Post' do
       f.input :rubrica, as: :select, :collection => BlogCategory.where(published: true).map{|c| c.nome}, prompt: "Seleziona una rubrica"
 
-      f.input :intro, as: :quill_editor, placeholder: 'Intro', hint: "Comparirà prima del titolo."
+      # f.input :intro, as: :quill_editor, placeholder: 'Intro', hint: "Comparirà prima del titolo."
       f.input :title, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
       # f.input :title_integration, placeholder: 'Integrazione Titolo', hint: "Verrà aggiunto al Meta Title e nell'indirizzo URL della pagina. (Facoltativo — Preferibilmente max 20 caratteri)"
-      f.input :subtitle, as: :quill_editor, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
+      f.input :subtitle, as: :quill_editor, placeholder: 'Sottotitolo', hint: "Obbligatorio — Max 140 caratteri"
       f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"
+      f.input :meta_title, placeholder: 'Meta Title', hint: "Aggiungi un meta title al post."
+      f.input :meta_description, placeholder: 'Meta Description', hint: "Aggiungi una meta description al post."
       f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
       # f.input :lang_link_eng, placeholder: "Link post in inglese", hint: "Per creare la traduzione di un post duplica il post italiano e incolla qui l'url del nuovo post."
       f.input :lang, as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
-      f.input :lang_link_eng, as: :select, collection: BlogPost.where.not(id: BlogPost.friendly.find_by_slug(params[:id]).id).map {|post| ["#{post.title} - #{post.lang == 1 ? "ITA" : "ENG"}", blog_post_path(post)]}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
+      f.input :lang_link_eng, as: :select, collection: BlogPost.all.map {|post| ["#{post.title} - #{post.lang == 1 ? "ITA" : "ENG"}", blog_post_path(post)]}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
       f.input :priority, as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
 
-      f.inputs "Sezione — Ogni sezione corrisponde a una tipologia di contenuto diverso: testo / video / immagine / post instagram" do
+      f.inputs "Sezioni — Ogni sezione corrisponde a una tipologia di contenuto diverso: testo / video / immagine / post instagram" do
         f.has_many :blog_post_sections, allow_destroy: true do |n_f|
           n_f.input :section_title, hint: "Questo campo serve per identificare la sezione e poterla riodrinare nella pagina riassuntiva del post."
           n_f.input :rich_text, as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."

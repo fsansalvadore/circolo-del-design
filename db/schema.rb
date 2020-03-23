@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_143928) do
+ActiveRecord::Schema.define(version: 2020_03_23_095111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,8 @@ ActiveRecord::Schema.define(version: 2020_03_20_143928) do
     t.string "lang_link_eng"
     t.string "lang_link_ita"
     t.integer "lang", default: 1
+    t.string "meta_title"
+    t.string "meta_description"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 
