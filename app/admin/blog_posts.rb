@@ -134,7 +134,9 @@ ActiveAdmin.register BlogPost do
         end
       end
       row :cover do |i|
-        image_tag(cl_image_path(blog_post.cover), class: "image-preview")
+        if !blog_post.cover
+          image_tag(cl_image_path(blog_post.cover), class: "image-preview")
+        end
       end
       row :published
     end

@@ -1,5 +1,5 @@
 class BlogPost < ApplicationRecord
-  validates :title, :subtitle, presence: true
+  validates :title, :subtitle, :cover, presence: true
   validates :priority, numericality: { only_integer: true }
   has_many :blog_post_videos, dependent: :destroy
   has_many :blog_post_images, dependent: :destroy
