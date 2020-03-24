@@ -13,24 +13,29 @@ ActiveAdmin.register_page "Dashboard" do
     #
 
     columns do
-      column do
-        panel "Eventi" do
-          if Event.all.length > 0
-            Event.all.order(:created_at).each do |event|
-              div link_to(event.titolo, admin_event_path(event))
+      column span: 2 do
+        panel "Eventi Pubblicati: #{Event.where(published: true) ? Event.where(published: true).count : 'Nessuno'}" do
+          if Event.where("published = true").length > 0
+            table_for Event.where("published = true") do |event|
+              column "Titolo" do |event_link|
+                link_to event_link.titolo, admin_event_path(event_link)
+              end
+              column "Data di inizio", :data_inizio
+              column "Categoria", :categoria
             end
           else
-            para "Non ci sono eventi."
+            h4 "Non ci sono eventi pubblicati."
           end
         end
       end
-      column do
-        panel "Post" do
-          if BlogPost.all.length > 0
-            table_for BlogPost.where.not("priority = 6") do |blog_post|
+      column span: 2 do
+        panel "Post Pubblicati: #{BlogPost.where(published: true) ? BlogPost.where(published: true).count : 'Nessuno'}" do
+          if BlogPost.where(published: true).length > 0
+            table_for BlogPost.where("published = true AND priority != 6") do |blog_post|
               column "Titolo" do |blog_post_link|
                 link_to blog_post_link.title, admin_blog_post_path(blog_post_link)
               end
+              column "Rubrica", :rubrica
               column "Lingua" do |blog_post_lang|
                 case blog_post_lang.lang
                 when 1
@@ -46,18 +51,18 @@ ActiveAdmin.register_page "Dashboard" do
               # div link_to(blog_post.title, admin_blog_post_path(blog_post))
             end
           else
-            para "Non ci sono post."
+            h4 "Non ci sono post pubblicati."
           end
         end
       end
-      column do
-        panel "Team Members" do
-          if TeamMember.all.length > 0
-            TeamMember.all.order(:order).each do |member|
+      column span: 1 do
+        panel "Team Members: #{TeamMember.where(published: true) ? TeamMember.where(published: true).count : '0'}" do
+          if TeamMember.where(published: true).length > 0
+            TeamMember.where(published: true).order(:order).each do |member|
               div link_to("#{member.nome} #{member.cognome}", admin_team_member_path(member))
             end
           else
-            para "Non ci sono membri del team."
+            h4 "Non ci sono membri del team pubblicati."
           end
         end
       end
