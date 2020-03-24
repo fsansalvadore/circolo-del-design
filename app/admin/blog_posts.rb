@@ -180,23 +180,34 @@ ActiveAdmin.register BlogPost do
   form do |f|
     f.actions
     f.semantic_errors *f.object.errors.keys
-    f.inputs 'Post' do
-      f.input :rubrica, as: :select, :collection => BlogCategory.where(published: true).map{|c| c.nome}, prompt: "Seleziona una rubrica"
+      tabs do
+        tab :post do
+          f.inputs 'Informazioni del Post' do
+            f.input :rubrica, as: :select, :collection => BlogCategory.where(published: true).map{|c| c.nome}, prompt: "Seleziona una rubrica"
+            f.input :priority, label: "Priorità", as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
+            f.input :published, label: "Pubblicato"
 
-      f.input :title, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
-      f.input :subtitle, as: :quill_editor, placeholder: 'Sottotitolo', hint: "Obbligatorio — Max 140 caratteri"
-      f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"
-      f.input :meta_title, placeholder: 'Meta Title', hint: "Aggiungi un meta title al post."
-      f.input :meta_description, placeholder: 'Meta Description', hint: "Aggiungi una meta description al post."
-      f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
-      f.input :lang, as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
-      f.input :lang_link_eng, as: :select, collection: BlogPost.all.map {|post| ["#{post.title} - #{post.lang == 1 ? "ITA" : "ENG"}", blog_post_path(post)]}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
-      f.input :priority, as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
-      f.input :published
-
+            f.input :title, label: "Titolo", placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
+            f.input :subtitle, label: "Sottotitolo", as: :quill_editor, placeholder: 'Sottotitolo', hint: "Obbligatorio — Max 140 caratteri"
+            f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"
+          end
+        end
+        tab :meta do
+          f.inputs 'Meta Data' do
+            f.input :meta_title, label: "Meta Title", placeholder: 'Meta Title', hint: "Aggiungi un meta title al post."
+            f.input :meta_description, label: "Meta Description", placeholder: 'Meta Description', hint: "Aggiungi una meta description al post."
+            f.input :keywords, label: "Meta Keywords", placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
+          end
+        end
+        tab :lingua do
+          f.inputs 'Impostazioni Lingua' do
+            f.input :lang, label: "Lingua Post", as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
+            f.input :lang_link_eng, label: "Link alla traduzione", as: :select, collection: BlogPost.all.map {|post| ["#{post.title} - #{post.lang == 1 ? "ITA" : "ENG"}", blog_post_path(post)]}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
+          end
+        end
       f.inputs "Sezioni — Ogni sezione corrisponde a una tipologia di contenuto diverso: testo / video / immagine / post instagram" do
         f.has_many :blog_post_sections, heading: 'Sezioni del Post', allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
-          n_f.input :section_title, label: "Titolo Sezione", hint: "Questo campo serve per identificare la sezione e poterla riodrinare nella pagina riassuntiva del post."
+          n_f.input :section_title, label: "Titolo Sezione", hint: "Facoltativo: Dare un titolo alla sezione può servire ad identificarla più facilmente."
           n_f.input :visible, label: "Visibilità Sezione", hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
 
           # Nested inside section
@@ -219,8 +230,8 @@ ActiveAdmin.register BlogPost do
           #   p_ig.input :link
           # end
 
-          n_f.input :rich_text, label: "Testo Lungo", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
-          n_f.input :rich_text_small, label: "Testo Breve", as: :quill_editor, hint: "Inserisci qui un blocco di testo breve."
+          n_f.input :rich_text, label: "Testo Lungo", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo. Standard."
+          n_f.input :rich_text_small, label: "Testo Breve", as: :quill_editor, hint: "Inserisci qui un blocco di testo breve. Verrà visualizzato con un corpo testo e interlinea minori."
           n_f.input :vimeo_link, label: "Codice Video — Vimeo", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789"
           n_f.input :vimeo_description, label: "Caption video", hint: "Inserisci qui una descrizione di accompagnamento al video."
           n_f.input :image, label: "Immagine", as: :file, :image_preview => true
