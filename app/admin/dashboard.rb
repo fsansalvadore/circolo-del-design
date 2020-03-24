@@ -58,8 +58,11 @@ ActiveAdmin.register_page "Dashboard" do
       column span: 1 do
         panel "Team Members: #{TeamMember.where(published: true) ? TeamMember.where(published: true).count : '0'}" do
           if TeamMember.where(published: true).length > 0
-            TeamMember.where(published: true).order(:order).each do |member|
-              div link_to("#{member.nome} #{member.cognome}", admin_team_member_path(member))
+            table_for TeamMember.where(published: true).order(:order) do |member|
+              column "Nome" do |member_link|
+                link_to("#{member_link.nome} #{member_link.cognome}", admin_team_member_path(member_link))
+              end
+              column "Ruolo", :ruolo
             end
           else
             h4 "Non ci sono membri del team pubblicati."
