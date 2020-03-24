@@ -63,3 +63,145 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   margin-top: 12px;
 }
+
+body.active_admin form .quill-editor .ql-editor {
+    max-height: 200px;
+}
+
+body.active_admin form .quill-editor .ql-editor p {
+  margin-bottom: 0;
+}
+
+form fieldset > ol > li fieldset.inputs ol,
+div#post fieldset ol {
+    float: left;
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+div#post fieldset ol > li label {
+  width: 140px;
+}
+div#post fieldset ol > li input[type=text],
+div#post fieldset ol > li div.quill-editor {
+  width: calc(100% - 170px);
+}
+
+div#post fieldset ol li:nth-of-type(1),
+div#post fieldset ol li:nth-of-type(2),
+div#post fieldset ol li:nth-of-type(3) {
+  grid-column-start: span 2;
+}
+
+div#post fieldset ol li:nth-of-type(4),
+div#post fieldset ol li:nth-of-type(5),
+div#post fieldset ol li:nth-of-type(6) {
+  grid-column-start: span 6;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(1) {
+  grid-column-start: span 4;
+  background-color: #ffed00;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(2) {
+  grid-column-start: span 2;
+  background-color: #ffed00;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(2) p.inline-hints {
+  margin: 25px 0 0 0;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10) {
+  grid-column-start: span 6;
+}
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11) {
+  grid-column-start: span 6;
+  background-color: #f1e5e6;
+  border-bottom: none;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(3) {
+  grid-column-start: span 4;
+}
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(5),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(6) {
+  grid-column-start: span 3;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(4),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(7),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(8),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(9) {
+  grid-column-start: span 2;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(2),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(4),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(6),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(9),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11) {
+  box-shadow: inset -4px 0px 10px -10px #000;
+}
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(3) {
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+form fieldset > ol > li.boolean label {
+  padding: 0;
+  width: 100%;
+}
+
+form fieldset ol > li {
+  /*padding: 10px 120px 10px 10px;*/
+  padding: 20px 10px;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields {
+  padding: 0 90px 0 0;
+  margin: 20px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+form .has_many_container .handle {
+  padding: 100px 4px;
+  border-radius: 6px;
+  top: 50%;
+  box-shadow: 0 0px 35px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);
+  border: 1px solid #000 !important;
+  right: 20px;
+  width: auto !important;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to top, rgba(150, 137, 60, 0.1) 0%, rgba(150, 137, 60, 0) 50%, rgba(150, 137, 60, 0.1) 100%);
+}
+
+form .has_many_container .handle::before,
+form .has_many_container .handle::after {
+  content: '';
+  position: absolute;
+  height: 5px;
+  width: 5px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  border-left: 1px solid #000;
+  border-top: 1px solid #000;
+}
+form .has_many_container .handle::before {
+  transform: rotate(45deg);
+  top: 40px;
+}
+form .has_many_container .handle::after {
+  transform: rotate(-135deg);
+  bottom: 40px;
+}
