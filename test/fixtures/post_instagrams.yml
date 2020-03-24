@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link: MyString
+  blog_post_section: one
+
+two:
+  link: MyString
+  blog_post_section: two

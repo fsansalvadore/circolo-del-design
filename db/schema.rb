@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_095111) do
+ActiveRecord::Schema.define(version: 2020_03_24_141803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,9 @@ ActiveRecord::Schema.define(version: 2020_03_23_095111) do
     t.bigint "blog_post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "blog_post_section_id"
     t.index ["blog_post_id"], name: "index_blog_post_images_on_blog_post_id"
+    t.index ["blog_post_section_id"], name: "index_blog_post_images_on_blog_post_section_id"
   end
 
   create_table "blog_post_sections", force: :cascade do |t|
@@ -94,7 +96,9 @@ ActiveRecord::Schema.define(version: 2020_03_23_095111) do
     t.bigint "blog_post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "blog_post_section_id"
     t.index ["blog_post_id"], name: "index_blog_post_videos_on_blog_post_id"
+    t.index ["blog_post_section_id"], name: "index_blog_post_videos_on_blog_post_section_id"
   end
 
   create_table "blog_posts", force: :cascade do |t|
@@ -171,6 +175,39 @@ ActiveRecord::Schema.define(version: 2020_03_23_095111) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "post_instagrams", force: :cascade do |t|
+    t.string "link"
+    t.boolean "visible"
+    t.bigint "blog_post_section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "blog_post_id"
+    t.index ["blog_post_id"], name: "index_post_instagrams_on_blog_post_id"
+    t.index ["blog_post_section_id"], name: "index_post_instagrams_on_blog_post_section_id"
+  end
+
+  create_table "post_text_longs", force: :cascade do |t|
+    t.text "content"
+    t.boolean "visible"
+    t.bigint "blog_post_section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "blog_post_id"
+    t.index ["blog_post_id"], name: "index_post_text_longs_on_blog_post_id"
+    t.index ["blog_post_section_id"], name: "index_post_text_longs_on_blog_post_section_id"
+  end
+
+  create_table "post_text_shorts", force: :cascade do |t|
+    t.text "content"
+    t.boolean "visible"
+    t.bigint "blog_post_section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "blog_post_id"
+    t.index ["blog_post_id"], name: "index_post_text_shorts_on_blog_post_id"
+    t.index ["blog_post_section_id"], name: "index_post_text_shorts_on_blog_post_section_id"
+  end
+
   create_table "team_members", force: :cascade do |t|
     t.string "nome"
     t.string "cognome"
@@ -197,7 +234,15 @@ ActiveRecord::Schema.define(version: 2020_03_23_095111) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blog_post_images", "blog_post_sections"
   add_foreign_key "blog_post_images", "blog_posts"
   add_foreign_key "blog_post_sections", "blog_posts"
+  add_foreign_key "blog_post_videos", "blog_post_sections"
   add_foreign_key "blog_post_videos", "blog_posts"
+  add_foreign_key "post_instagrams", "blog_post_sections"
+  add_foreign_key "post_instagrams", "blog_posts"
+  add_foreign_key "post_text_longs", "blog_post_sections"
+  add_foreign_key "post_text_longs", "blog_posts"
+  add_foreign_key "post_text_shorts", "blog_post_sections"
+  add_foreign_key "post_text_shorts", "blog_posts"
 end

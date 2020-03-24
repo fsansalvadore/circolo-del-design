@@ -16,6 +16,37 @@ ActiveAdmin.register BlogPost do
                 :published,
                 :priority,
                 :slug,
+                blog_post_images_attributes: [
+                  :id,
+                  :image,
+                  :image_description,
+                  :image_width,
+                  :_destroy
+                ],
+                blog_post_videos_attributes: [
+                  :id,
+                  :vimeo_link,
+                  :vimeo_description,
+                  :_destroy
+                ],
+                post_instagrams_attributes: [
+                  :id,
+                  :link,
+                  :visible,
+                  :_destroy
+                ],
+                post_text_longs_attributes: [
+                  :id,
+                  :content,
+                  :visible,
+                  :_destroy
+                ],
+                post_text_shorts_attributes: [
+                  :id,
+                  :content,
+                  :visible,
+                  :_destroy
+                ],
                 blog_post_sections_attributes: [
                   :id,
                   :section_title,
@@ -164,20 +195,48 @@ ActiveAdmin.register BlogPost do
       f.input :published
 
       f.inputs "Sezioni — Ogni sezione corrisponde a una tipologia di contenuto diverso: testo / video / immagine / post instagram" do
-        f.has_many :blog_post_sections, allow_destroy: true do |n_f|
-          n_f.input :section_title, hint: "Questo campo serve per identificare la sezione e poterla riodrinare nella pagina riassuntiva del post."
-          n_f.input :rich_text, as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
-          n_f.input :rich_text_small, as: :quill_editor, hint: "Inserisci qui un blocco di testo breve."
-          n_f.input :vimeo_link, hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789"
-          n_f.input :vimeo_description, hint: "Inserisci qui una descrizione di accompagnamento al video."
-          n_f.input :image, as: :file, :image_preview => true
-          n_f.input :image_description, hint: "Inserisci qui una descrizione di accompagnamento al video."
-          n_f.input :image_width, as: :select, collection: [["50%", "half"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
-          n_f.input :instagram_link, hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
-          n_f.input :position
-          n_f.input :visible, hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
+        f.has_many :blog_post_sections, heading: 'Sezioni del Post', allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
+          n_f.input :section_title, label: "Titolo Sezione", hint: "Questo campo serve per identificare la sezione e poterla riodrinare nella pagina riassuntiva del post."
+          n_f.input :visible, label: "Visibilità Sezione", hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
+
+          # Nested inside section
+          # n_f.has_many :post_text_longs, allow_destroy: true do |pt_long|
+          #   pt_long.input :content, as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
+          # end
+          # n_f.has_many :post_text_shorts, allow_destroy: true do |pt_short|
+          #   pt_short.input :content, as: :quill_editor, hint: "Inserisci qui un blocco di testo breve."
+          # end
+          # n_f.has_many :blog_post_videos, allow_destroy: true do |bp_video|
+          #   bp_video.input :vimeo_id, hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789"
+          #   bp_video.input :description, hint: "Inserisci qui una descrizione di accompagnamento al video."
+          # end
+          # n_f.has_many :blog_post_images, allow_destroy: true do |bp_img|
+          #   bp_img.input :image, as: :file, :image_preview => true
+          #   bp_img.input :description, hint: "Inserisci qui una descrizione di accompagnamento al video."
+          #   bp_img.input :width, as: :select, collection: [["50%", "half"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
+          # end
+          # n_f.has_many :post_instagrams, allow_destroy: true do |p_ig|
+          #   p_ig.input :link
+          # end
+
+          n_f.input :rich_text, label: "Testo Lungo", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
+          n_f.input :rich_text_small, label: "Testo Breve", as: :quill_editor, hint: "Inserisci qui un blocco di testo breve."
+          n_f.input :vimeo_link, label: "Codice Video — Vimeo", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789"
+          n_f.input :vimeo_description, label: "Caption video", hint: "Inserisci qui una descrizione di accompagnamento al video."
+          n_f.input :image, label: "Immagine", as: :file, :image_preview => true
+          n_f.input :image_description, label: "Caption Immagine", hint: "Inserisci qui una descrizione di accompagnamento al video."
+          n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["50%", "half"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
+          n_f.input :instagram_link, label: "Codice Post — Instagram", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
+            # n_f.input :position
         end
+
       end
+
+      # f.inputs "Immagine" do
+      #   f.has_many :blog_post_images, allow_destroy: true do |p_img|
+      #     p_img.input :image, as: :file, :image_preview => true
+      #   end
+      # end
 
     end
     f.actions
