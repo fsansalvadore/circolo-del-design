@@ -27,12 +27,12 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Post" do
           if BlogPost.all.length > 0
-            table_for BlogPost.all.where("priority != 6").order(:created_at) do |blog_post|
+            table_for BlogPost.where.not("priority = 6") do |blog_post|
               column "Titolo" do |blog_post_link|
-                link_to blog_post_link.title, admin_blog_post_path(blog_post)
+                link_to blog_post_link.title, admin_blog_post_path(blog_post_link)
               end
-              column "Lingua" do |blog_post|
-                case blog_post.lang
+              column "Lingua" do |blog_post_lang|
+                case blog_post_lang.lang
                 when 1
                   # "Italiano"
                   image_tag("lang_ita.svg", class: "admin_lang_icon")
