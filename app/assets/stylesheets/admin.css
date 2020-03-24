@@ -8,6 +8,11 @@
   color: #fff !important;
 }
 
+.panel_contents a,
+.admin_lang_icon {
+  margin: 4px 0 !important;
+}
+
 #title_bar {
   background-image: none;
   background-color: #ffed00 !important;

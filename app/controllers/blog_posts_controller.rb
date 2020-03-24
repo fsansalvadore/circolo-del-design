@@ -4,7 +4,7 @@ class BlogPostsController < ApplicationController
 
   def index
     # @slider_cover = BlogPost.find("priority = 6 AND published = true")
-    @blog_posts = BlogPost.where("published = true AND priority != 6").order(updated_at: :desc)
+    @blog_posts = BlogPost.where("published = true AND priority != 6").order(created_at: :desc)
   end
 
   def show

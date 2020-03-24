@@ -11,13 +11,8 @@ ActiveAdmin.register_page "Dashboard" do
 
     # Here is an example of a simple dashboard with columns and panels.
     #
-    columns do
-      column do
-        panel "Benvenuti" do
-          para "Dal pannello Admin puoi gestire tutto ciò che riguarda gli Eventi e i Membri del Team."
-        end
-      end
 
+    columns do
       column do
         panel "Eventi" do
           if Event.all.length > 0
@@ -29,7 +24,32 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
-
+      column do
+        panel "Post" do
+          if BlogPost.all.length > 0
+            table_for BlogPost.all.where("priority != 6").order(:created_at) do |blog_post|
+              column "Titolo" do |blog_post_link|
+                link_to blog_post_link.title, admin_blog_post_path(blog_post)
+              end
+              column "Lingua" do |blog_post|
+                case blog_post.lang
+                when 1
+                  # "Italiano"
+                  image_tag("lang_ita.svg", class: "admin_lang_icon")
+                when 2
+                  # "Inglese"
+                  image_tag("lang_eng.svg", class: "admin_lang_icon")
+                else
+                  "-"
+                end
+              end
+              # div link_to(blog_post.title, admin_blog_post_path(blog_post))
+            end
+          else
+            para "Non ci sono post."
+          end
+        end
+      end
       column do
         panel "Team Members" do
           if TeamMember.all.length > 0
