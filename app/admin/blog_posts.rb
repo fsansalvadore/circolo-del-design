@@ -193,9 +193,9 @@ ActiveAdmin.register BlogPost do
             f.input :priority, label: "Priorità", as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
             f.input :published, label: "Pubblicato"
 
-            f.input :title, label: "Titolo", placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
+            f.input :title, label: "Titolo", placeholder: 'Titolo', hint: "Obbligatorio. Suggerimento: per i post della rubrica WPAC, impostare il titolo con il formato 'Welcome to the post-analog condition* Nome' per rispettarne il format."
             f.input :subtitle, label: "Sottotitolo", as: :quill_editor, placeholder: 'Sottotitolo', hint: "Obbligatorio — Max 140 caratteri"
-            f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"
+            f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio. Verrà utilizzata come meta_img del post."
           end
         end
         tab :meta do
@@ -208,10 +208,10 @@ ActiveAdmin.register BlogPost do
         tab :lingua do
           f.inputs 'Impostazioni Lingua' do
             f.input :lang, label: "Lingua Post", as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
-            f.input :lang_link_eng, label: "Link alla traduzione", as: :select, collection: BlogPost.all.map {|post| ["#{post.title} - #{post.lang == 1 ? "ITA" : "ENG"}", blog_post_path(post)]}, prompt: "Seleziona il post di cui è la traduzione.", hint: "Se questa è la traduzione inglese di un post, seleziona il post italiano da questa lista."
+            f.input :lang_link_eng, label: "Link alla traduzione", as: :select, collection: BlogPost.all.map {|post| ["#{post.title} - #{post.lang == 1 ? "ITA" : "ENG"}", blog_post_path(post)]}, prompt: "Seleziona la traduzione corrispondente.", hint: "Seleziona dalla lista la traduzione corrispondente a questo post."
           end
         end
-      f.inputs "Sezioni — Ogni sezione corrisponde a una tipologia di contenuto diverso: testo / video / immagine / post instagram" do
+      f.inputs "Sezioni — Ogni sezione corrisponde a una tipologia di contenuto diverso: Testo / Video / Immagine / Post Instagram" do
         f.has_many :blog_post_sections, heading: 'Sezioni del Post', allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
           n_f.input :section_title, label: "Titolo Sezione", hint: "Facoltativo: Dare un titolo alla sezione può servire ad identificarla più facilmente."
           n_f.input :visible, label: "Visibilità Sezione", hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
@@ -236,7 +236,7 @@ ActiveAdmin.register BlogPost do
           #   p_ig.input :link
           # end
 
-          n_f.input :rich_text, label: "Testo Lungo", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo. Standard."
+          n_f.input :rich_text, label: "Testo Lungo", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
           n_f.input :rich_text_small, label: "Testo Breve", as: :quill_editor, hint: "Inserisci qui un blocco di testo breve. Verrà visualizzato con un corpo testo e interlinea minori."
           n_f.input :vimeo_link, label: "Codice Video — Vimeo", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789"
           n_f.input :vimeo_description, label: "Caption video", hint: "Inserisci qui una descrizione di accompagnamento al video."
