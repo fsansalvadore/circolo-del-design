@@ -138,8 +138,14 @@ ActiveAdmin.register BlogPost do
   end
 
   member_action :clone, method: :get do
+    @blog_sections = BlogPostSection.where(blog_post_id: resource.id)
     @blog_post = resource.dup
     @blog_post.save!
+    @blog_sections.each do |section|
+      dup_section = section.dup
+      dup_section.blog_post_id = @blog_post.id
+      dup_section.save!
+    end
     redirect_to admin_blog_posts_path
   end
 
