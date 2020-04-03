@@ -12,7 +12,6 @@
 <main class="page-postheader">
   <div class="calendar-main-container w-container large">
     <div class="faces-grid">
-      <% 4.times do %>
       <% if @faces %>
         <% @faces.each do |face| %>
           <%= link_to face_path(face), class: "faces-container" do %>
@@ -26,7 +25,6 @@
             <div class="face-img" style="background-image: url('<%= cl_image_path face.image %>');"></div>
           <% end %>
         <% end %>
-      <% end %>
       <% end %>
     </div>
   </div>
