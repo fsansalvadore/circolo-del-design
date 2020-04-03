@@ -45,6 +45,20 @@
   background-color: teal;
 }
 
+.cart_img_container {
+  position: relative;
+
+  .event-card-category-label {
+    bottom: 0;
+  }
+}
+
+.event-card-container:first-child {
+  .event-card-category-label {
+    bottom: auto;
+  }
+}
+
 .event-card-category-label {
   position: absolute;
   font-size: 12px;
