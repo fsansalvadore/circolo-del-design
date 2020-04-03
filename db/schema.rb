@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_141803) do
+ActiveRecord::Schema.define(version: 2020_04_03_092403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,10 @@ ActiveRecord::Schema.define(version: 2020_03_24_141803) do
     t.boolean "published", default: true
     t.string "image"
     t.string "ruolo"
+    t.string "slug"
+    t.text "description"
+    t.string "link"
+    t.index ["slug"], name: "index_faces_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

@@ -1,0 +1,42 @@
+<% content_for :meta_title, "I volti del 2019 — What's On — Circolo del Design" %>
+<% content_for :meta_description, "I designer e gli imprenditori che hanno portato le loro esperienze." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, designer, aziende" %>
+
+<div id="top" class="page-header-container faces">
+  <div class="calendar-main-container w-container large">
+    <aside class="event-article-details">
+      <div class="face-img" style="background-image: url('<%= cl_image_path @face.image %>');"></div>
+    </aside>
+    <div class="event-article-content">
+      <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On / <%= link_to "I Volti del 2019", whats_on_i_volti_2019_path %> /</div>
+      <h1 class="page-header-title"><%= @face.nome unless @face.nome.empty? %> <%= @face.cognome %></h1>
+      <div class="page-header-subtitle"><%= @face.ruolo %> <%= raw " — <span>#{@face.azienda}</span>" unless @face.azienda.empty? %></div>
+    </div>
+  </div>
+</div>
+<main id="face_article" class="page-postheader faces">
+  <div class="calendar-main-container w-container large">
+    <aside class="event-article-details">
+    </aside>
+    <article class="event-article-content">
+      <div>
+        <% unless @face.link.empty? %>
+          <%= link_to @face.link, {
+            :target => "_blank",
+            :class => "btn btn-link-arrow btn-active-yellow"
+          } do %>
+            <div class="text-block-3">Visita il sito</div>
+            <div class="arrow-right">
+              <div class="arrow-point-right">
+                <div class="div-block-8"></div>
+                <div class="div-block-3"></div>
+                <div class="div-block-3 arrow-point-lower"></div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <%=raw @face.description %>
+      </div>
+    </article>
+  </div>
+</main>

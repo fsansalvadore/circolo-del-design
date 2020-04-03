@@ -4922,6 +4922,10 @@ div {
 .page-header-subtitle {
   font-size: 18px;
   line-height: 110%;
+
+  span {
+    font-weight: bold;
+  }
 }
 
 .article-section-title {

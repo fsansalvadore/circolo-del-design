@@ -1,3 +1,16 @@
+div.faces .calendar-main-container {
+  padding: 0;
+  position: relative;
+
+  .face-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+}
+
+
+
 .faces-grid {
   width: 100%;
   display: grid;
@@ -18,6 +31,10 @@
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.faces-container:hover * {
+  text-decoration: underline;
 }
 
 .face-in {
@@ -66,6 +83,15 @@
   background-position: center;
 }
 
+#face_article p span {
+  background-color: transparent !important;
+}
+
+#face_article article a {
+  margin-top: 0;
+  min-width: 250px;
+}
+
 // .face-img {
 //   position: absolute;
 //   left: 0;
@@ -98,10 +124,100 @@
   .faces-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  .faces {
+    aside.event-article-details {
+      display: flex;
+      justify-content: center;
+    }
+    .face-img {
+      position: relative;
+    }
+    .calendar-main-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .event-article-content {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    article.event-article-content {
+      width: 100%;
+      text-align: left;
+      margin-top: 0;
+    }
+  }
 }
 
 @media (max-width: 767px) {
   .faces-grid {
+    display: block;
+    width: 100%;
     grid-template-columns: 1fr 1fr;
+  }
+
+  #face_article article a {
+    width: 100%;
+
+    .div-block-8 {
+      width: 30px;
+    }
+  }
+
+  a.faces-container {
+    position: relative;
+    border-radius: 50%;
+    overflow: visible;
+    display: flex;
+    width: 45%;
+    margin: 0 2.5% 40px 2.5%;
+    height: width;
+    float: left;
+    flex-direction: column-reverse;
+    opacity: 1;
+    background: none;
+    transform: none;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    text-decoration: none !important;
+
+    .face-img {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+
+    * {
+      text-decoration: none !important;
+    }
+  }
+
+  .face-info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    z-index: 10;
+  }
+
+  .face-info-text {
+    will-change: opacity, transform;
+    opacity: 1;
+    padding: 0 15px;
+    transform: none;
+    transition: all 0.5s ease;
+
+    h4, p {
+      margin-bottom: 5px;
+      text-decoration: none !important;
+    }
+  }
+
+  .faces-container:hover .face-info {
+    background-color: transparent;
   }
 }

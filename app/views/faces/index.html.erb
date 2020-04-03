@@ -12,9 +12,10 @@
 <main class="page-postheader">
   <div class="calendar-main-container w-container large">
     <div class="faces-grid">
+      <% 4.times do %>
       <% if @faces %>
         <% @faces.each do |face| %>
-          <div class="faces-container">
+          <%= link_to face_path(face), class: "faces-container" do %>
             <div class="face-info">
               <div class="face-info-text">
                 <h4><%= face.nome if face.nome %> <%= face.cognome if face.cognome %></h4>
@@ -23,8 +24,9 @@
               </div>
             </div>
             <div class="face-img" style="background-image: url('<%= cl_image_path face.image %>');"></div>
-          </div>
+          <% end %>
         <% end %>
+      <% end %>
       <% end %>
     </div>
   </div>
