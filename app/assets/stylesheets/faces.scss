@@ -9,8 +9,6 @@ div.faces .calendar-main-container {
   }
 }
 
-
-
 .faces-grid {
   width: 100%;
   display: grid;
@@ -173,7 +171,8 @@ div.faces .calendar-main-container {
     display: flex;
     width: 45%;
     margin: 0 2.5% 40px 2.5%;
-    height: width;
+    height: 280px;
+    justify-content: flex-end;
     float: left;
     flex-direction: column-reverse;
     opacity: 1;
