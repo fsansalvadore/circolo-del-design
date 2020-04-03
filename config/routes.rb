@@ -26,15 +26,15 @@ Rails.application.routes.draw do
 
   delete 'events/programma/:slug', to: 'events#destroy'
 
-  get    'whats-on/i-volti-2019', to: 'faces#index'
+  get    'whats-on/i-volti-2019',       to: 'faces#index'
+  get    'whats-on/i-volti-2019/:slug', to: 'faces#show', as: :face
 
   get '/privacy_cookie_policy' => 'pages#privacy_cookie_policy'
   get '/contatti' => 'pages#contacts'
 
   # blog
-  get    'whats-on/HomingCdD', to: 'blog_posts#index'
-  get    'whats-on/HomingCdD/:slug', to: 'blog_posts#show', as: :blog_post
-
+  get    'whats-on/HomingCdD',        to: 'blog_posts#index'
+  get    'whats-on/HomingCdD/:slug',  to: 'blog_posts#show', as: :blog_post
 
   # about
   get '/about-us/il-circolo' => 'pages#about_circolo'
