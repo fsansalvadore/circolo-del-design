@@ -14,7 +14,9 @@
   <div class="calendar-main-container w-container">
     <div class="blog_grid">
       <% if @blog_posts && !@blog_posts.empty? %>
+        <!-- Start loop -->
         <% @blog_posts.each do |post| %>
+          <!-- post -->
           <%= link_to blog_post_path(post), class: "event-card-container" do %>
             <div class="cart_img_container">
               <div class="event-card-category-label"><%= post.rubrica unless post.rubrica.empty? %></div>
@@ -25,7 +27,9 @@
               <p class="event-card-subtitle"><%=raw post.subtitle.truncate(200) unless post.subtitle.empty? %></p>
             </div>
           <% end %>
+          <!-- end post -->
         <% end %>
+        <!-- End loop -->
       <% else %>
         </p>Non ci sono post al momento.<p>
       <% end %>
