@@ -79,6 +79,12 @@ main.blog {
         font-size: 33px;
       }
     }
+
+    .cart_img_container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
   }
   .event-card-container:nth-of-type(2) {
     flex: 1;
