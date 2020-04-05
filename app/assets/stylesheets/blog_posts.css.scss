@@ -73,7 +73,10 @@ main.blog {
       position: absolute;
       z-index: 10;
       bottom: 0;
-      color: #fff;
+
+      * {
+        color: #fff;
+      }
 
       h3 {
         font-size: 33px;
