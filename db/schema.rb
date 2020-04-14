@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_092403) do
+ActiveRecord::Schema.define(version: 2020_04_14_184245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,58 @@ ActiveRecord::Schema.define(version: 2020_04_03_092403) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "article_sections", force: :cascade do |t|
+    t.string "title"
+    t.boolean "visible", default: true
+    t.text "rich_text"
+    t.text "rich_text_small"
+    t.string "image"
+    t.string "image_description"
+    t.string "image_width"
+    t.integer "video_provider", default: 0
+    t.string "video_link"
+    t.string "video_description"
+    t.string "instagram_link"
+    t.string "twitter_link"
+    t.string "soundcloud_link"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
+    t.index ["article_id"], name: "index_article_sections_on_article_id"
+  end
+
+  create_table "article_themes", force: :cascade do |t|
+    t.string "nome"
+    t.integer "priorità"
+    t.integer "position"
+    t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "subtitle"
+    t.string "cover"
+    t.string "meta_keywords"
+    t.string "meta_title"
+    t.text "meta_description"
+    t.string "media_type"
+    t.string "translation_link"
+    t.integer "lang", default: 1
+    t.text "content"
+    t.text "intro"
+    t.datetime "publish_date"
+    t.boolean "published", default: false
+    t.integer "priority", default: 5
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.integer "position"
+    t.index ["slug"], name: "index_articles_on_slug", unique: true
   end
 
   create_table "blog_categories", force: :cascade do |t|
@@ -238,6 +290,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_092403) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "article_sections", "articles"
   add_foreign_key "blog_post_images", "blog_post_sections"
   add_foreign_key "blog_post_images", "blog_posts"
   add_foreign_key "blog_post_sections", "blog_posts"
