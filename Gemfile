@@ -46,6 +46,7 @@ gem 'activeadmin_quill_editor'
 gem 'responsive_active_admin'
 gem 'acts_as_list'
 gem "activeadmin_sortable_table"
+gem 'activeadmin_addons'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'carrierwave'
 gem 'cloudinary'
@@ -53,6 +54,7 @@ gem 'rails-i18n'
 gem 'mail_form'
 gem 'sendgrid-ruby'
 gem 'friendly_id', '~> 5.2.4'
+gem 'acts-as-taggable-on', '~> 6.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -13,6 +13,7 @@ ActiveAdmin.register Article do
                 :publish_date,
                 :published,
                 :slug,
+                tag_list: [],
                 article_sections_attributes: [
                   :id,
                   :title,
@@ -50,7 +51,7 @@ ActiveAdmin.register Article do
     redirect_to admin_article_path(article)
   end
 
-  action_item :publish, only: :show do
+  action_item only: :show do
     link_to "Anteprima live", wpac_article_path(article)
   end
 
@@ -91,15 +92,15 @@ ActiveAdmin.register Article do
         "-"
       end
     end
-    column :publish_date
-    column :published
-    column "Pubblica" do |article|
-      if !article.published
-        link_to "Pubblica", publish_admin_article_path(article), method: :put
-      else
-        link_to "Metti offline", unpublish_admin_article_path(article), method: :put
-      end
-    end
+    column "Data di Publicazione", :publish_date
+    toggle_bool_column "Pubblicato", :published
+    # column "Pubblica" do |article|
+    #   if !article.published
+    #     link_to "Pubblica", publish_admin_article_path(article), method: :put
+    #   else
+    #     link_to "Metti offline", unpublish_admin_article_path(article), method: :put
+    #   end
+    # end
     actions defaults: true do |article|
       link_to 'Duplica', clone_admin_article_path(article)
     end
@@ -120,6 +121,9 @@ ActiveAdmin.register Article do
   show title: :title do
     attributes_table do
       row :slug
+      row :tag_list do |tag|
+        tag
+      end
       row :title
       row (:subtitle) { |article| raw(article.subtitle) }
       row :meta_title
@@ -147,7 +151,7 @@ ActiveAdmin.register Article do
   end
 
   filter :title
-  filter :blog_column
+  filter :base_tags
   filter :published
 
   form do |f|
@@ -156,7 +160,7 @@ ActiveAdmin.register Article do
       tabs do
         tab :article do
           f.inputs "Informazioni dell'Articolo" do
-            # f.input :rubrica, as: :select, :collection => ArticleTheme.where(published: true).map{|c| c.nome}, prompt: "Seleziona uno o più temi"
+            f.input :tag_list, label: "Temi", as: :check_boxes, collection: ArticleTheme.where(published: true).map {|theme| theme.nome}, hint: "Seleziona uno o più temi dalla lista."
             f.input :priority, label: "Priorità", as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
             f.input :published, label: "Pubblicato"
 
@@ -190,7 +194,7 @@ ActiveAdmin.register Article do
           n_f.input :video_description, label: "Caption Video", hint: "Inserisci qui una descrizione di accompagnamento al video."
           n_f.input :image, label: "Immagine", as: :file, :image_preview => true
           n_f.input :image_description, label: "Caption Immagine", hint: "Inserisci qui una descrizione di accompagnamento al video."
-          n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["50%", "half"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
+          n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["20% - 1/5", "1-5"],["25% - 1/4", "1-4"],["33% - 1/3", "1-3"],["50% - 1/2", "half"],["66% - 2/3", "2-3"], ["75% - 3/4", "3-4"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
           n_f.input :instagram_link, label: "Codice Post — Instagram", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
           n_f.input :soundcloud_link, label: "Codice SoundCloud", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: "
         end
