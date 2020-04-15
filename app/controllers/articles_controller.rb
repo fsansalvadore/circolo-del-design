@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
 
   def index
+    render :layout => 'wpac'
   end
 
   def media
