@@ -1,5 +1,6 @@
 $wpac-light: #F29FC5;
 $wpac-dark: #E0354C;
+$wpac-darker: #881524;
 $white: #fff;
 $black: #000;
 
@@ -49,6 +50,36 @@ $mobile: 479px;
 div.wpac_base {
   header.navbar-inner-page {
     background-color: $wpac-light;
+  }
+
+  header.page-header-container.wpac {
+    border-bottom: 2px solid $wpac-dark;
+    background-color: $wpac-light;
+    div.w-container {
+      text-align: center;
+
+      h1 {
+
+      }
+
+      p.subheader {
+        color: $wpac-darker;
+      }
+    }
+  }
+
+  .nothing_found_message {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: span 6;
+
+    p {
+      text-align: center;
+      font-size: 20px;
+      color: $white;
+    }
   }
   // Home Page
   div.wpac_home {
@@ -340,8 +371,205 @@ div.wpac_base {
     }
   }
   // Index Pages
+  .wpac_index {
+    header {
+      div.w-container {
+        a {
+          span {
+            display: inline;
+            width: 0;
+          }
 
+          p {
+            text-transform: uppercase;
+            font-size: 18px;
+            color: $wpac-dark;
+            font-weight: bold;
+            line-height: 100%;
+            transition: color 0.2s ease;
+          }
+
+          &:hover {
+            p {
+              color: $wpac-darker;
+            }
+
+            svg path {
+              fill: $wpac-darker;
+            }
+          }
+        }
+        h1 {
+          color: $wpac-dark;
+          font-size: 45px;
+          line-height: 100%;
+          text-transform: uppercase;
+
+          @include lg {
+            font-size: 70px;
+          }
+        }
+
+        p.subheader {
+
+        }
+      }
+    }
+
+    .articles-grid-container {
+      background: $black;
+
+      div.w-container {
+        .articles-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+          grid-gap: 20px;
+          padding: 30px 14px;
+
+          @include md-sm {
+            grid-template-columns: 1fr 1fr 1fr;
+          }
+
+          @include lg {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+          }
+
+          a.article_thumb_link {
+            width: 100%;
+            margin: 20px 0;
+            position: relative;
+
+            div.article_thumb_box {
+              position: relative;
+              background-color: #222;
+              background-position: center;
+              background-size: cover;
+
+              &::before {
+                // for apsect ratio
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+              }
+              .article_thumb_media {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                z-index: 10;
+                width: 35px;
+                height: 35px;
+                background: $wpac-dark;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+
+                img.thumb_icon {
+                  max-width: 23px;
+                  max-height: 23px;
+                }
+              }
+
+              &:hover {
+                .article_thumb_overlay {
+                  opacity: 0.9;
+
+                  .overlay_arrow {
+                    transform: translateY(0);
+                  }
+                }
+              }
+              .article_thumb_overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                transition: opacity 0.2s ease;
+                background: $wpac-light;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .overlay_arrow {
+                  transition: transform 0.5s ease;
+                  transform: translateY(10px);
+                }
+              }
+            }
+
+            h3 {
+              color: $wpac-dark;
+              font-size: 18px;
+              line-height: 120%;
+              margin: 10px 0 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
 
   // Show Page
 
+  // Support Banner
+  .wpac_support_banner {
+    width: 100%;
+    padding: 40px 14px;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.75)),
+      linear-gradient(rgba(242, 159, 197, 0.5)),
+      asset-url('CircoloDelDesign_contacts.jpg');
+    background-size: cover;
+    background-position: center;
+
+    .support_content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      @include md-lg {
+        flex-direction: row;
+      }
+
+      .wpac_support_box {
+        padding: 30px;
+        background-color: $wpac-dark;
+        color: $white;
+        margin: 14px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        @include md-lg {
+          width: 50%;
+        }
+
+        .heart_icon {
+          margin-right: 14px;
+        }
+
+        p {
+          font-size: 20px;
+          line-height: 140%;
+
+          strong {
+            font-weight: 600;
+          }
+
+          span {
+            font-size: 16px;
+          }
+        }
+      }
+
+      a.btn {
+        margin: 14px;
+      }
+    }
+  }
 }

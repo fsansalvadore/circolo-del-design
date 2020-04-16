@@ -4,7 +4,7 @@
 <% content_for :meta_image, "HomingCdD.jpg" %>
 <div class="wpac_home">
   <!-- <div class="noise_overlay"></div> -->
-  <header id="top" class="page-header-container">
+  <header id="top" class="page-header-container wpac">
     <div class="w-container large">
       <h1 class="page-header-title"><span>Welcome to the</span>Post-Analog Condition*</h1>
     </div>
@@ -22,54 +22,20 @@
     </div>
     <div class="themes-container">
       <ul>
-        <li>
-          <a href="">
-            <div class="theme_content_anim">
-              <h2>C Generation</h2>
-              <span>
-                <svg width="27" height="19" viewBox="0 0 27 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0141 8.25508L15.7593 3.00023L17.8806 0.878906L26.3709 9.36919L16.5098 18.9948L14.3884 16.8734L20.0068 11.2551H0V8.25508H21.0141Z" fill="white"/>
-                </svg>
-              </span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <div class="theme_content_anim">
-              <h2>Idealia</h2>
-              <span>
-                <svg width="27" height="19" viewBox="0 0 27 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0141 8.25508L15.7593 3.00023L17.8806 0.878906L26.3709 9.36919L16.5098 18.9948L14.3884 16.8734L20.0068 11.2551H0V8.25508H21.0141Z" fill="white"/>
-                </svg>
-              </span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <div class="theme_content_anim">
-              <h2>Land of Homes</h2>
-              <span>
-                <svg width="27" height="19" viewBox="0 0 27 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0141 8.25508L15.7593 3.00023L17.8806 0.878906L26.3709 9.36919L16.5098 18.9948L14.3884 16.8734L20.0068 11.2551H0V8.25508H21.0141Z" fill="white"/>
-                </svg>
-              </span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <div class="theme_content_anim">
-              <h2>Ex Crisis</h2>
-              <span>
-                <svg width="27" height="19" viewBox="0 0 27 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0141 8.25508L15.7593 3.00023L17.8806 0.878906L26.3709 9.36919L16.5098 18.9948L14.3884 16.8734L20.0068 11.2551H0V8.25508H21.0141Z" fill="white"/>
-                </svg>
-              </span>
-            </div>
-          </a>
-        </li>
+        <% @tags.each do |tag| %>
+          <li>
+            <%= link_to articles_tag_path(tag.name.downcase.gsub(" ", "-")) do %>
+              <div class="theme_content_anim">
+                <h2><%= tag.name.upcase %></h2>
+                <span>
+                  <svg width="27" height="19" viewBox="0 0 27 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0141 8.25508L15.7593 3.00023L17.8806 0.878906L26.3709 9.36919L16.5098 18.9948L14.3884 16.8734L20.0068 11.2551H0V8.25508H21.0141Z" fill="white"/>
+                  </svg>
+                </span>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
     <div class="abstract">
@@ -85,31 +51,31 @@
     <div class="media_boxes">
       <a href="#" class="media_box">
         <div class="media_box_content">
-          <%= image_tag "Interview.png", alt: "Icona interste" %>
+          <%= image_tag "interviste.svg", alt: "Icona interviste" %>
           <p>Interviste</p>
         </div>
       </a>
       <a href="#" class="media_box">
         <div class="media_box_content">
-          <%= image_tag "Audio.png", alt: "Icona audio" %>
+          <%= image_tag "voci.svg", alt: "Icona voci" %>
           <p>Voci</p>
         </div>
       </a>
       <a href="#" class="media_box">
         <div class="media_box_content">
-          <%= image_tag "Time.png", alt: "Icona orologio" %>
+          <%= image_tag "progetti.svg", alt: "Icona progetti" %>
           <p>Progetti</p>
         </div>
       </a>
       <a href="#" class="media_box">
         <div class="media_box_content">
-          <%= image_tag "Book.png", alt: "Icona libri" %>
+          <%= image_tag "libri.svg", alt: "Icona libri" %>
           <p>Libri</p>
         </div>
       </a>
       <a href="#" class="media_box">
         <div class="media_box_content">
-          <%= image_tag "Video.png", alt: "Icona video" %>
+          <%= image_tag "video.svg", alt: "Icona video" %>
           <p>Video</p>
         </div>
       </a>

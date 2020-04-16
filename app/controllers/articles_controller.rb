@@ -1,17 +1,23 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:wpac, :index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :media, :tag, :show]
   before_action :set_article, only: [:show]
 
   def index
+    @tags = ActsAsTaggableOn::Tag.all.each do |tag|
+      tag.name
+    end
     render :layout => 'wpac'
   end
 
   def media
-    @articles = Article.where("published = true AND priority != 6").order(created_at: :desc)
+    @articles = Article.where("media_type = ? AND published = true AND priority != 6", params[:media_type]).order(created_at: :desc)
+    render :layout => 'wpac'
   end
 
   def tag
-    @articles = Article.where("published = true AND priority != 6").order(created_at: :desc)
+    @tag = params[:tag].gsub("-", " ").capitalize
+    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where(published: true).order(created_at: :desc)
+    render :layout => 'wpac'
   end
 
   def show

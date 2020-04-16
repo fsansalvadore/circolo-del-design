@@ -25,7 +25,7 @@ class BlogPostImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process resize_to_limit: [1400, 1000]
+  process resize_to_limit: [1400, 1000]
   # process scale: [1400, 1000]
   #
   # def scale(width, height)
