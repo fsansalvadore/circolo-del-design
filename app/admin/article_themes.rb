@@ -1,7 +1,7 @@
 ActiveAdmin.register ArticleTheme do
   menu parent: 'WPAC', label: 'Temi', priority: 1
 
-  permit_params :nome, :published
+  permit_params :nome, :abstract, :published
   config.comments = false
 
   # scope :pubblicati, ->{where(published: true)}
@@ -18,14 +18,6 @@ ActiveAdmin.register ArticleTheme do
     article_theme = ArticleTheme.find(params[:id])
     article_theme.update(published: false)
     redirect_to admin_article_theme_path(article_theme)
-  end
-
-  action_item :publish, only: :show do
-    link_to "Pubblica", publish_admin_article_theme_path(article_theme), method: :put if !article_theme.published
-  end
-
-  action_item :unpublish, only: :show do
-    link_to "Metti offline", unpublish_admin_article_theme_path(article_theme), method: :put if article_theme.published
   end
 
   member_action :publish, method: :put do
@@ -45,14 +37,7 @@ ActiveAdmin.register ArticleTheme do
     column "Nome Tema" do |article_theme|
       link_to article_theme.nome, admin_article_theme_path(article_theme)
     end
-    column :published
-    column "Pubblica" do |article_theme|
-      if !article_theme.published
-        link_to "Pubblica", publish_admin_article_theme_path(article_theme), method: :put
-      else
-        link_to "Metti offline", unpublish_admin_article_theme_path(article_theme), method: :put
-      end
-    end
+    toggle_bool_column :published
     actions defaults: true do |article_theme|
       link_to 'Duplica', clone_admin_article_theme_path(article_theme)
     end
@@ -67,6 +52,7 @@ ActiveAdmin.register ArticleTheme do
   show title: :nome do
     attributes_table do
       row :nome
+      row (:abstract) { |tema| raw(tema.abstract) }
       row :published
     end
   end
@@ -75,6 +61,7 @@ ActiveAdmin.register ArticleTheme do
     f.semantic_errors *f.object.errors.keys
     f.inputs 'ArticleTheme' do
       f.input :nome, placeholder: 'Nome Tema', hint: "Inserisci il nome del tema. (Obbligatorio — Preferibilmente max 20 caratteri)"
+      f.input :abstract, as: :quill_editor, placeholder: 'Aggiungi una descrizione', hint: "Inserisci il nome del tema. (Obbligatorio — Preferibilmente max 20 caratteri)"
       f.input :published, hint: "Puoi tenere alcuni temi in bozza per nasconderli momentaneamente dal menu."
     end
     f.actions

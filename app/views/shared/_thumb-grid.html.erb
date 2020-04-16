@@ -1,0 +1,30 @@
+<div class="articles-grid">
+  <% unless articles.empty? %>
+    <% 8.times do %>
+      <% articles.each do |article| %>
+        <%= link_to wpac_article_path(article), class: "article_thumb_link" do %>
+        <% defaultBg = "CircoloDelDesign_1200x630.png" %>
+          <div class="article_thumb_box" style="background-image: url('<%= article.cover.file.nil? ? defaultBg : (cl_image_path article.cover) %>');">
+            <% if icon %>
+              <div class="article_thumb_media">
+                <%= image_tag "#{article.media_type.downcase}.svg", class: "thumb_icon", alt: "#{article.media_type}" %>
+              </div>
+            <% end %>
+            <div class="article_thumb_overlay">
+              <div class="overlay_arrow">
+                <svg width="40" height="22" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.5 8V6H22L18 2L19 0L26 7L19 14L18 12L22 8H0.5Z" fill="#C10720"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <h3><%= article.title %></h3>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="nothing_found_message">
+      <p>Nessun contenuto trovato.</p>
+    </div>
+  <% end %>
+</div>

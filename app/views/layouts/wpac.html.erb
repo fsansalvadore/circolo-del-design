@@ -16,8 +16,8 @@
   </head>
 
   <body>
+    <%= render partial: 'shared/menu-static', locals: {varClass: "wpac"} %>
     <div class="wpac_base">
-    <%= render 'shared/menu-static' %>
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

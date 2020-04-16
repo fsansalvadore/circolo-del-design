@@ -1,6 +1,6 @@
 ActiveAdmin.register Article do
 
-  menu parent: 'WPAC', label: 'Articolo'
+  menu parent: 'WPAC', label: 'Articoli'
 
   permit_params :title,
                 :subtitle,
@@ -81,6 +81,8 @@ ActiveAdmin.register Article do
     column "Titolo" do |article|
       link_to article.title, admin_article_path(article)
     end
+    column "Media", :media_type
+    list_column :tag_list, class: "admin_tag"
     column "Lingua" do |article|
       case article.lang
       when 1
@@ -93,16 +95,7 @@ ActiveAdmin.register Article do
         "-"
       end
     end
-    list_column :tag_list, class: "admin_tag"
-    column "Data di Publicazione", :publish_date
     toggle_bool_column "Pubblicato", :published
-    # column "Pubblica" do |article|
-    #   if !article.published
-    #     link_to "Pubblica", publish_admin_article_path(article), method: :put
-    #   else
-    #     link_to "Metti offline", unpublish_admin_article_path(article), method: :put
-    #   end
-    # end
     actions defaults: true do |article|
       link_to 'Duplica', clone_admin_article_path(article)
     end
@@ -125,6 +118,7 @@ ActiveAdmin.register Article do
       column do
         attributes_table do
           row :slug
+          row :media_type
           list_row :tag_list, class: "admin_tag"
           row :title
           row (:subtitle) { |article| raw(article.subtitle) }
@@ -149,18 +143,14 @@ ActiveAdmin.register Article do
         end
       end
       column do
-        panel "Pubblicazione" do
-          attributes_table_for article do
-            row :publish_date
-            row :published
-          end
+        attributes_table :title => "Pubblicazione" do
+          row :publish_date
+          row :published
         end
-        panel "SEO" do
-          attributes_table_for article do
-            row :meta_title
-            row :meta_description
-            row :meta_keywords
-          end
+        attributes_table :title => "SEO" do
+          row :meta_title
+          row :meta_description
+          row :meta_keywords
         end
       end
     end
@@ -168,6 +158,7 @@ ActiveAdmin.register Article do
 
   filter :title
   filter :base_tags
+  filter :media_type
   filter :published
 
   form do |f|

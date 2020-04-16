@@ -3,27 +3,30 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
 
   def index
-    @tags = ActsAsTaggableOn::Tag.all.each do |tag|
-      tag.name
-    end
-    render :layout => 'wpac'
-  end
-
-  def media
-    @articles = Article.where("media_type = ? AND published = true AND priority != 6", params[:media_type]).order(created_at: :desc)
+    # @tags = ActsAsTaggableOn::Tag.all.each do |tag|
+    @tags = ArticleTheme.where(published: true)
     render :layout => 'wpac'
   end
 
   def tag
-    @tag = params[:tag].gsub("-", " ").capitalize
-    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where(published: true).order(created_at: :desc)
+    @tag = params[:tag].gsub("-", " ").downcase
+    @tagItem = ArticleTheme.find {|theme| theme.nome.downcase == @tag}
+    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where(published: true).order(created_at: :desc).filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
+    @now = Time.now
+    render :layout => 'wpac'
+  end
+
+  def media
+    @media = params[:media_type].gsub("-", " ").downcase
+    @articles = Article.where("media_type = ? AND published = true AND priority != 6", @media.capitalize).order(created_at: :desc)
     render :layout => 'wpac'
   end
 
   def show
     @article_sections = ArticleSection.where("visible = true AND article_id = ?", @article.id)
-
-    @related_articles = Article.where("published = true AND priority BETWEEN 1 AND 5").where.not(id: @article.id).order(created_at: :desc)
+    @tags = @article.tag_list
+    @related_articles = @article.find_related_tags.where(published: true).order(created_at: :desc).filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
+    render :layout => 'wpac'
   end
 
   private
