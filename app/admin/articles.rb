@@ -205,7 +205,7 @@ ActiveAdmin.register Article do
           n_f.input :image_description, label: "Caption Immagine", hint: "Inserisci qui una descrizione di accompagnamento al video."
           n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["20% - 1/5", "1-5"],["25% - 1/4", "1-4"],["33% - 1/3", "1-3"],["50% - 1/2", "half"],["66% - 2/3", "2-3"], ["75% - 3/4", "3-4"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
           n_f.input :instagram_link, label: "Codice Post — Instagram", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
-          n_f.input :soundcloud_link, label: "Codice SoundCloud", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: "
+          n_f.input :soundcloud_link, label: "Codice SoundCloud", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: 123456879"
         end
 
       end

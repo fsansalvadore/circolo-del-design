@@ -72,10 +72,13 @@ div.wpac_base {
       }
 
       div.subheader {
+        font-size: 18px;
+        line-height: 140%;
 
         * {
-          color: $wpac-darker !important;
+          color: $black !important;
           background-color: transparent !important;
+          margin: 0;
         }
       }
     }
@@ -210,19 +213,66 @@ div.wpac_base {
           background-image: linear-gradient(rgba(242, 159, 197, $bg-noise-transparency)), asset-url('pink_noise.gif');
           background-size: $bg-noise-size;
 
-          .wpac-circle-anim {
+          .wpac_circle.y {
             position: absolute;
             width: 150px;
             height: 150px;
-            background: $wpac-dark;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            left: 40%;
-            top: 40%;
+            will-change: top;
+            left: -100px;
+            top: -100px;
 
             @include lg {
               width: 240px;
               height: 240px;
+            }
+
+            .circle.x {
+              background: $wpac-dark;
+              border-radius: 50%;
+              width: 100%;
+              height: 100%;
+              will-change: transform;
+            }
+          }
+          // Circle animation
+          .wpac_circle.y {
+            animation: y 4s linear infinite alternate;
+          }
+
+          .circle.x {
+            animation: x 9s linear infinite alternate;
+          }
+
+          @keyframes x {
+            100% {
+              transform: translateX(100vw);
+            }
+          }
+
+          @keyframes y {
+            100% {
+              top: calc(100% - 100px);
+            }
+          }
+          @include lg {
+            .wpac_circle.y {
+              animation: y 20s linear infinite alternate;
+            }
+
+            .circle.x {
+              animation: x 7s linear infinite alternate;
+            }
+
+            @keyframes y {
+              100% {
+                top: calc(100% - 100px);
+              }
+            }
+
+            @keyframes x {
+              100% {
+                transform: translateX(20vw);
+              }
             }
           }
         }
@@ -576,6 +626,17 @@ div.wpac_base {
     align-items: center;
     flex-direction: column;
   }
+
+  article.blog {
+    section {
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .tag_list {
@@ -624,6 +685,7 @@ div.wpac_base {
 }
 
 .articles-grid {
+    // min-height: 300px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -644,6 +706,13 @@ div.wpac_base {
       width: 100%;
       margin: 20px 0;
       position: relative;
+
+      .soundcloud_logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
 
       div.article_thumb_box {
         position: relative;
@@ -678,7 +747,7 @@ div.wpac_base {
 
         &:hover {
           .article_thumb_overlay {
-            opacity: 0.9;
+            opacity: 0.95;
 
             .overlay_arrow {
               transform: translateY(0);
