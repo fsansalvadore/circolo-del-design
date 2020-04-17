@@ -1,4 +1,5 @@
 ActiveAdmin.register TeamMember do
+  menu label: "Team"
   include ActiveAdmin::SortableTable # creates the controller action which handles the sorting
   config.sort_order = 'position_asc'
 

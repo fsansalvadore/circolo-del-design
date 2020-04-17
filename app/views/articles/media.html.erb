@@ -1,0 +1,32 @@
+<% content_for :meta_description, "Interviste, video, rubriche e approfondimenti legati alla cultura del progetto." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, Coronavirus, Covid-19, Welcome to the Post-Analog Condition" %>
+<% content_for :meta_image, "HomingCdD.jpg" %>
+<div class="wpac_index dark">
+  <!-- <div class="noise_overlay"></div> -->
+  <header id="top" class="page-header-container wpac">
+    <div class="w-container large">
+      <%= link_to wpac_path, class: "breadcrumb-text" do %>
+        <p><span>
+          <svg width="24" height="12" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26 8V6H4.5L8.5 2L7.5 0L0.5 7L7.5 14L8.5 12L4.5 8H26Z" fill="#E0354C"/>
+          </svg>
+        </span>Welcome to the Post-Analog Condition</p>
+      <% end %>
+      <h1 class="page-header-title"><%= @media %></h1>
+      <div class="article_thumb_media">
+        <%= image_tag "#{@media}.svg", class: "thumb_icon", alt: "#{@media}" %>
+      </div>
+    </div>
+  </header>
+  <div class="articles-grid-container">
+    <div class="w-container large">
+
+        <%= render partial: "shared/thumb-grid", locals: {
+          articles: @articles,
+          icon: false
+        } %>
+
+    </div>
+  </div>
+  <%= render "shared/support-banner" %>
+</div>

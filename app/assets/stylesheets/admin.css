@@ -8,8 +8,7 @@
   color: #fff !important;
 }
 
-.panel_contents a,
-.admin_lang_icon {
+.panel_contents a {
   margin: 4px 0 !important;
 }
 
@@ -25,6 +24,26 @@
 
 h1, h2, h3, h4, h5, h6 {
     color: #000 !important;
+}
+
+table.index_table td.admin_tag {
+  padding: 12px 0 0 0;
+}
+
+.admin_tag ul {
+  padding: 0;
+}
+
+.admin_tag li {
+  list-style: none;
+  font-weight: bold;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  border: 2px solid black;
+  padding: 2px 4px;
+  border-radius: 20px;
+  display: inline;
+  margin-right: 4px;
 }
 
 .breadcrumb a,
@@ -78,6 +97,7 @@ body.active_admin form .quill-editor .ql-editor p {
 }
 
 form fieldset > ol > li fieldset.inputs ol,
+#article > fieldset > ol,
 div#post fieldset ol {
     float: left;
     width: 100%;
@@ -86,29 +106,39 @@ div#post fieldset ol {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-/*div#post fieldset > ol > li p.inline-hints {
-  margin: 0.5em 0 0 calc(0% + 140px);
-}*/
-
+#article > fieldset > ol > li:nth-of-type(1) label,
 form fieldset > ol > li p.inline-hints {
-  margin: 0.5em 0 0 calc(0% + 100px);
+  margin: 0.5em 0 0 100px;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(2) p.inline-hints,
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(3) p.inline-hints,
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(4) p.inline-hints,
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(5) p.inline-hints,
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(6) p.inline-hints,
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(7) p.inline-hints,
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(9) p.inline-hints,
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10) p.inline-hints
+ {
+  margin: 0.5em 0 0 0;
 }
 
 form fieldset ol > li label {
   width: 100px;
 }
-form fieldset ol > li input[type=text],
-form fieldset ol > li div.quill-editor {
+
+#article fieldset ol > li input[type=text],
+#article fieldset ol > li div.quill-editor {
   width: calc(100% - 140px);
 }
 
-/*div#post fieldset ol > li label {
-  width: 100px;
+body.active_admin form fieldset ol > li.has_many_container .has_many_fields ol .quill-editor {
+  width: 100%;
 }
-div#post fieldset ol > li input[type=text],
-div#post fieldset ol > li div.quill-editor {
-  width: calc(100% - 140px);
-}*/
+
+body.active_admin form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(3) .quill-editor .ql-editor {
+  min-height: 174px;
+}
 
 div#post fieldset ol li:nth-of-type(1),
 div#post fieldset ol li:nth-of-type(2),
@@ -116,6 +146,10 @@ div#post fieldset ol li:nth-of-type(3) {
   grid-column-start: span 2;
 }
 
+#article fieldset > ol li:nth-of-type(5),
+#article fieldset > ol li:nth-of-type(6),
+#article fieldset > ol li:nth-of-type(7),
+#article fieldset > ol li:nth-of-type(8),
 div#post fieldset ol li:nth-of-type(4),
 div#post fieldset ol li:nth-of-type(5),
 div#post fieldset ol li:nth-of-type(6) {
@@ -136,10 +170,7 @@ form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(2) p
   margin: 25px 0 0 0;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10) {
-  grid-column-start: span 6;
-}
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(13) {
   grid-column-start: span 6;
   background-color: #f1e5e6;
   border-bottom: none;
@@ -148,32 +179,55 @@ form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11) 
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(3) {
   grid-column-start: span 4;
 }
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(5),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(6) {
-  grid-column-start: span 3;
-}
 
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(5),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(6),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(4),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(7),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(8),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(9) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(9),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10) {
   grid-column-start: span 2;
+}
+
+#article > fieldset > ol li:nth-of-type(4) label {
+  width: 100%;
+}
+#article > fieldset > ol li:nth-of-type(4) p.inline-hints {
+  margin: 0.5em 0 0 0;
+}
+#article > fieldset > ol li:nth-of-type(4) p.inline-errors {
+  margin: 0.5em 0 0 0;
+}
+
+#article > fieldset > ol li:nth-of-type(1),
+#article > fieldset > ol li:nth-of-type(2),
+#article > fieldset > ol li:nth-of-type(3),
+#article > fieldset > ol li:nth-of-type(4),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(12) {
+  grid-column-start: span 3;
 }
 
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(2),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(4),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(6),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(9),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(7),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(12),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(13) {
   box-shadow: inset -4px 0px 10px -10px #000;
 }
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(3) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(3),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11) {
   border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 form fieldset ol > li.has_many_container .has_many_fields ol li {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+form fieldset > ol > li.check_boxes fieldset ol {
+  padding: 0 0 0 100px;
 }
 
 form fieldset > ol > li.boolean label {

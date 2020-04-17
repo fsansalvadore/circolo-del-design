@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_092403) do
+ActiveRecord::Schema.define(version: 2020_04_16_142204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,59 @@ ActiveRecord::Schema.define(version: 2020_04_03_092403) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "article_sections", force: :cascade do |t|
+    t.string "title"
+    t.boolean "visible", default: true
+    t.text "rich_text"
+    t.text "rich_text_small"
+    t.string "image"
+    t.string "image_description"
+    t.string "image_width"
+    t.integer "video_provider", default: 0
+    t.string "video_link"
+    t.string "video_description"
+    t.string "instagram_link"
+    t.string "twitter_link"
+    t.string "soundcloud_link"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
+    t.index ["article_id"], name: "index_article_sections_on_article_id"
+  end
+
+  create_table "article_themes", force: :cascade do |t|
+    t.string "nome"
+    t.integer "priorità"
+    t.integer "position"
+    t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "abstract"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "subtitle"
+    t.string "cover"
+    t.string "meta_keywords"
+    t.string "meta_title"
+    t.text "meta_description"
+    t.string "media_type"
+    t.string "translation_link"
+    t.integer "lang", default: 1
+    t.text "content"
+    t.text "intro"
+    t.datetime "publish_date"
+    t.boolean "published", default: false
+    t.integer "priority", default: 5
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.integer "position"
+    t.index ["slug"], name: "index_articles_on_slug", unique: true
   end
 
   create_table "blog_categories", force: :cascade do |t|
@@ -212,6 +265,33 @@ ActiveRecord::Schema.define(version: 2020_04_03_092403) do
     t.index ["blog_post_section_id"], name: "index_post_text_shorts_on_blog_post_section_id"
   end
 
+  create_table "taggings", id: :serial, force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.string "tagger_type"
+    t.integer "tagger_id"
+    t.string "context", limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "taggings_taggable_context_idx"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+  end
+
+  create_table "tags", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
   create_table "team_members", force: :cascade do |t|
     t.string "nome"
     t.string "cognome"
@@ -238,6 +318,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_092403) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "article_sections", "articles"
   add_foreign_key "blog_post_images", "blog_post_sections"
   add_foreign_key "blog_post_images", "blog_posts"
   add_foreign_key "blog_post_sections", "blog_posts"
@@ -249,4 +330,5 @@ ActiveRecord::Schema.define(version: 2020_04_03_092403) do
   add_foreign_key "post_text_longs", "blog_posts"
   add_foreign_key "post_text_shorts", "blog_post_sections"
   add_foreign_key "post_text_shorts", "blog_posts"
+  add_foreign_key "taggings", "tags"
 end
