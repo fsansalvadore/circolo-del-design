@@ -28,27 +28,15 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
-      column span: 2 do
-        panel "Post Pubblicati: #{BlogPost.where(published: true) ? BlogPost.where(published: true).count : 'Nessuno'}" do
-          if BlogPost.where(published: true).length > 0
-            table_for BlogPost.where("published = true AND priority != 6") do |blog_post|
-              column "Titolo" do |blog_post_link|
-                link_to blog_post_link.title, admin_blog_post_path(blog_post_link)
+      column span: 3 do
+        panel "Articoli WPAC: #{Article.where(published: true) ? Article.where(published: true).count : 'Nessuno'}" do
+          if Article.where(published: true).length > 0
+            table_for Article.where("published = true AND priority != 6") do |article|
+              column "Titolo" do |article_link|
+                link_to article_link.title, admin_article_path(article_link)
               end
-              column "Rubrica", :rubrica
-              column "Lingua" do |blog_post_lang|
-                case blog_post_lang.lang
-                when 1
-                  # "Italiano"
-                  image_tag("lang_ita.svg", class: "admin_lang_icon")
-                when 2
-                  # "Inglese"
-                  image_tag("lang_eng.svg", class: "admin_lang_icon")
-                else
-                  "-"
-                end
-              end
-              # div link_to(blog_post.title, admin_blog_post_path(blog_post))
+              column "Media", :media_type
+              list_column "Temi", :tag_list, class: "admin_tag"
             end
           else
             h4 "Non ci sono post pubblicati."

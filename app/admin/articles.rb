@@ -82,7 +82,7 @@ ActiveAdmin.register Article do
       link_to article.title, admin_article_path(article)
     end
     column "Media", :media_type
-    list_column :tag_list, class: "admin_tag"
+    list_column "Temi", :tag_list, class: "admin_tag"
     column "Lingua" do |article|
       case article.lang
       when 1
