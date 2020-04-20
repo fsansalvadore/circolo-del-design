@@ -152,6 +152,10 @@ main.blog {
   }
 }
 
+.article_soundcloud_container {
+  margin-bottom: 40px;
+}
+
 article.blog {
   position: relative;
   width: 100%;
@@ -231,7 +235,21 @@ article.blog {
 
   .blog_post_videos_container {
     padding-bottom: 40px;
+    .yt {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+    }
 
+    .yt_video {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
     .post_video-description {
       font-size: 15px;
       line-height: 160%;

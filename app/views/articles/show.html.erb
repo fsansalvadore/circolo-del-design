@@ -81,14 +81,24 @@
           <% end %>
 
           <!-- Video -->
-          <% unless section.video_link.empty? %>
-            <section class="article_videos_container">
-              <div style="padding:56.25% 0 0 0;position:relative;" class="article_video">
-                <iframe src="https://player.vimeo.com/video/<%= section.video_link %>?title=0&byline=0&portrait=0" class="video-full-w" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-                </iframe>
-              </div>
-              <p class="post_video-description"><%= section.video_description unless section.video_description.empty? %></p>
-              <script src="https://player.vimeo.com/api/player.js"></script>
+          <% if section.video_provider == 1 || section.video_provider == 2 %>
+            <section class="blog_post_videos_container">
+              <% case section.video_provider
+                when 1
+               %>
+                <div style="padding:56.25% 0 0 0;position:relative;" class="post_video">
+                  <iframe src="https://player.vimeo.com/video/<%= section.video_link %>?title=0&byline=0&portrait=0" class="video-full-w" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                  </iframe>
+                </div>
+                <p class="post_video-description"><%= section.video_description unless section.video_description.empty? %></p>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+              <% when 2 %>
+                <div class="post_video yt">
+                  <iframe class="yt_video" width="560" height="315" src="https://www.youtube.com/embed/<%= section.video_link %>" frameborder="0" allowfullscreen>
+                  </iframe>
+                </div>
+                <p class="post_video-description"><%= section.video_description unless section.video_description.empty? %></p>
+              <% end %>
             </section>
           <% end %>
 
