@@ -137,6 +137,8 @@ div.wpac_base {
     }
 
     div.wpac-home-container {
+      margin-bottom: 0;
+
       div.wpac-visual-container {
         position: relative;
         margin-left: 0;
@@ -283,12 +285,17 @@ div.wpac_base {
 
         ul {
           padding: 0;
+          margin: 0;
 
           li {
             width: 100%;
             border-bottom: 2px solid $wpac-dark;
             list-style: none;
             margin: 0;
+
+            &:last-of-type {
+              border-bottom: none;
+            }
 
             a {
               display: flex;
@@ -297,9 +304,15 @@ div.wpac_base {
               margin-left: 0;
               margin-right: 0;
               text-decoration: none;
-              text-transform: uppercase;
+              // text-transform: uppercase;
               font-size: 30px;
               padding: 14px;
+
+              &:hover {
+                h2 {
+                  text-decoration: underline;
+                }
+              }
 
               @include lg {
                 padding: 14px 40px;
@@ -314,6 +327,30 @@ div.wpac_base {
                 align-items: center;
                 justify-content: space-between;
 
+                .theme_content_text {
+                  padding: 8px 0;
+                  margin-right: 24px;
+
+                  h2 {
+                    font-size: 40px;
+                  }
+
+                  .theme_content_abstract {
+                    margin-top: 10px;
+                    font-size: 14px;
+                    line-height: 130%;
+
+                    * {
+                      color: $black !important;
+                      background-color: transparent !important;
+                    }
+
+                    p:last-of-type {
+                      margin-bottom: 0;
+                    }
+                  }
+                }
+
                 p {}
                 span {}
               }
@@ -321,11 +358,16 @@ div.wpac_base {
           }
         }
       }
+    }
 
+    div.wpac_abstract_container {
+        width: 100%;
+        border-top: 2px solid $wpac-dark;
+        padding: 60px 0 0 0;
       div.abstract {
+        column-count: 2;
         padding: 14px;
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0 auto;
         font-size: 18px;
         line-height: 1.6;
         text-align: justify;
@@ -333,8 +375,8 @@ div.wpac_base {
 
         @include lg {
           padding: 50px 40px;
-          margin-left: 40%;
-          margin-right: 10%;
+          // margin-left: 40%;
+          // margin-right: 10%;
         }
         p {
           margin-bottom: 20px;
@@ -351,7 +393,6 @@ div.wpac_base {
 
     div.media-container {
       width: 100%;
-      border-top: 2px solid $wpac-dark;
       padding: 60px 0;
       text-align: center;
       display: flex;
@@ -433,9 +474,10 @@ div.wpac_base {
         max-width: 900px;
         padding: 0 14px;
         margin: 0;
-        font-size: 16px;
+        opacity: 0.8;
+        font-size: 14px;
         line-height: 1.4;
-        font-weight: 600;
+        font-weight: 400;
       }
     }
   }
@@ -483,8 +525,11 @@ div.wpac_base {
           }
         }
 
-        p.subheader {
-
+        .subheader {
+          p:last-of-type {
+            margin-top: 14px;
+            font-size: 0.9rem;
+          }
         }
       }
 
@@ -545,7 +590,7 @@ div.wpac_base {
       }
 
       .wpac_support_box {
-        padding: 30px;
+        padding: 25px;
         background-color: $wpac-dark;
         color: $white;
         margin: 14px;
@@ -559,12 +604,14 @@ div.wpac_base {
         }
 
         @include md-lg {
-          width: 50%;
+          align-items: center;
+          flex-direction: row;
+          width: 75%;
         }
 
         p {
           font-size: 16px;
-          line-height: 140%;
+          line-height: 130%;
 
           strong {
             font-weight: 600;
@@ -586,10 +633,15 @@ div.wpac_base {
           text-transform: uppercase;
           display: flex;
           align-items: center;
-          align-self: flex-end;
+          // align-self: flex-end;
           flex-direction: row;
           transition: all 0.3s ease;
           transform: translateY(0);
+          margin-left: 0;
+
+          @include md-lg {
+            margin-left: 50px;
+          }
 
           &:hover {
             transform: translateY(-2px);
