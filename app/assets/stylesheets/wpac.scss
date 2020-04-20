@@ -261,10 +261,14 @@ div.wpac_base {
               padding: 14px;
 
               h2 {
-                font-size: 40px;
+                font-size: 26px;
                 display: flex;
                 align-items: center;
                 color: $wpac-dark;
+
+                @include lg {
+                  font-size: 40px;
+                }
 
                 .theme_title_anim {
                   overflow: hidden;
