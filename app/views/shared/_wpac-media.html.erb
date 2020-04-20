@@ -1,0 +1,35 @@
+<div class="media-container">
+    <h3>Media</h3>
+    <div class="media_boxes">
+      <%= link_to articles_media_path("interviste"), class: "media_box" do %>
+        <div class="media_box_content">
+          <%= image_tag "interviste.svg", alt: "Icona interviste" %>
+          <p>Interviste</p>
+        </div>
+      <% end %>
+      <%= link_to articles_media_path("voci"), class: "media_box" do %>
+        <div class="media_box_content">
+          <%= image_tag "voci.svg", alt: "Icona voci" %>
+          <p>Voci</p>
+        </div>
+      <% end %>
+      <%= link_to articles_media_path("progetti"), class: "media_box" do %>
+        <div class="media_box_content">
+          <%= image_tag "progetti.svg", alt: "Icona progetti" %>
+          <p>Progetti</p>
+        </div>
+      <% end %>
+      <%= link_to articles_media_path("libri"), class: "media_box" do %>
+        <div class="media_box_content">
+          <%= image_tag "libri.svg", alt: "Icona libri" %>
+          <p>Libri</p>
+        </div>
+      <% end %>
+      <%= link_to articles_media_path("video"), class: "media_box" do %>
+        <div class="media_box_content">
+          <%= image_tag "video.svg", alt: "Icona video" %>
+          <p>Video</p>
+        </div>
+      <% end %>
+    </div>
+  </div>

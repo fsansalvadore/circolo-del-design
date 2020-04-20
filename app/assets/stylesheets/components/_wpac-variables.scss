@@ -1,0 +1,50 @@
+$wpac-light: #F29FC5;
+$wpac-dark: #E0354C;
+$wpac-darker: #881524;
+$white: #fff;
+$black: #000;
+
+$bg-noise-size: 120px;
+$bg-noise-transparency: 0.4;
+
+// Breakpoints
+$desktop: 1100px;
+$desktop-sm: 991px;
+$tablet: 768px;
+$tablet-portrait: 600px;
+$mobile: 479px;
+
+// Small devices
+@mixin sm {
+   @media (min-width: #{$mobile}) {
+       @content;
+   }
+}
+
+// Medium-small devices
+@mixin md-sm {
+   @media (min-width: #{$tablet-portrait}) {
+       @content;
+   }
+}
+
+// Medium-large devices
+@mixin md-lg {
+   @media (min-width: #{$tablet}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg {
+   @media (min-width: #{$desktop-sm}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$desktop}) {
+       @content;
+   }
+}

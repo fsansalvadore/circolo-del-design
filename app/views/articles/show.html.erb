@@ -16,10 +16,15 @@
       <h1 class="page-header-title">
         <%= @article.title %>
       </h1>
-      <div class="subheader"><%=raw @article.subtitle if @article.subtitle %></div>
-      <div class="article_thumb_media">
+      <% if @article.subtitle %>
+        <div class="subheader"><%=raw @article.subtitle %></div>
+      <% end %>
+      <% if @article.publish_date && @article.publish_date != "" %>
+        <div class="article_publish_date"><%= @article.publish_date.strftime("— %d %b, %Y —") %></div>
+      <% end %>
+      <%= link_to articles_media_path(@article.media_type.downcase), class: "article_thumb_media" do %>
         <%= image_tag "#{@article.media_type.downcase}.svg", class: "thumb_icon", alt: "#{@article.media_type}" %>
-      </div>
+      <% end %>
     </div>
   </header>
   <main class="page-postheader blog wpac">
@@ -166,7 +171,6 @@
             </section>
           <div class="m-bottom-50"></div>
 
-
             <!-- Intagram end -->
           <% end %>
           <!-- End section loop -->
@@ -195,6 +199,14 @@
           <% end %>
         </aside>
       <% end %>
+      <%= render "shared/wpac-media" %>
     </div>
   </main>
 </div>
+<script>
+    lightbox.option({
+      'resizeDuration': 100,
+      'imageFadeDuration': 100,
+      'fadeDuration': 100
+    })
+</script>
