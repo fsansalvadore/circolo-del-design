@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
     @article_sections = ArticleSection.where("visible = true AND article_id = ?", @article.id).order(:position)
     @tags = @article.tag_list
     @related_articles = @article.find_related_tags.where(published: true).order(created_at: :desc).filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
-    render :layout => 'wpac'
+    render :layout => 'wpac-show'
   end
 
   private
