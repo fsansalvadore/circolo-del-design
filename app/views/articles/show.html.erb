@@ -104,7 +104,7 @@
                   title: section.image_description.empty? ? "" : section.image_description
                 } do %>
                 <figure>
-                  <%= cl_image_tag(section.image) %>
+                  <%= cl_image_tag(section.image, :alt=> "#{section.image_description.empty? ? '' : section.image_description}") %>
                   <figcaption><%= section.image_description unless section.image_description.empty? %></figcaption>
                 </figure>
               <% end %>
