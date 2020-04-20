@@ -428,6 +428,12 @@ div.wpac_base {
   .wpac_index {
     &.dark {
       background: $black;
+
+      .subheader {
+        p:last-of-type {
+          font-size: 0.9rem;
+        }
+      }
     }
 
     header {
