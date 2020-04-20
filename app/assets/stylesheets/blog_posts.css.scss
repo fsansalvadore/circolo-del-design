@@ -240,7 +240,8 @@ article.blog {
   }
 
   .ig_container {
-    position: flex;
+    display: flex;
+    justify-content: center;
     align-items: center;
     width: 100%;
 
