@@ -32,7 +32,7 @@ ActiveAdmin.register BlogPostSection do
                   :visible,
                   :_destroy
                 ]
-  # config.sort_order = 'position_asc'
+  config.sort_order = 'position_asc'
 
   # index do
   #   selectable_column
