@@ -24,6 +24,7 @@ ActiveAdmin.register Article do
                   :image,
                   :image_description,
                   :image_width,
+                  :image_set,
                   :video_provider,
                   :video_link,
                   :video_description,
@@ -203,7 +204,8 @@ ActiveAdmin.register Article do
           n_f.input :video_description, label: "Caption Video", hint: "Inserisci qui una descrizione di accompagnamento al video."
           n_f.input :image, label: "Immagine", as: :file, :image_preview => true
           n_f.input :image_description, label: "Caption Immagine", hint: "Inserisci qui una descrizione di accompagnamento al video."
-          n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["20% - 1/5", "1-5"],["25% - 1/4", "1-4"],["33% - 1/3", "1-3"],["50% - 1/2", "half"],["66% - 2/3", "2-3"], ["75% - 3/4", "3-4"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
+          n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["20% - 1/5", "one_fifth"],["25% - 1/4", "one_fourth"],["33% - 1/3", "one_third"],["50% - 1/2", "half"],["66% - 2/3", "two_thirds"], ["75% - 3/4", "three_fourths"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
+          n_f.input :image_set, label: "Nome gruppo di immagini", as: :select, collection: [["Gruppo 1", "c1"],["Gruppo 2", "c2"]], prompt: "Seleziona gruppo di appartenenza", hint: "Associa le immagini in gruppi per includerle nello stesso carosello."
           n_f.input :instagram_link, label: "Codice Post — Instagram", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
           n_f.input :soundcloud_link, label: "Codice SoundCloud", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: 123456879"
         end

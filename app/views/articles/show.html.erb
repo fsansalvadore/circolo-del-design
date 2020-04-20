@@ -97,10 +97,17 @@
           <!-- Image -->
           <% unless section.image.blank? %>
             <section>
-              <figure class="blog_img <%= section.image_width unless section.image_width.empty? %>">
-                <%= cl_image_tag(section.image) %>
-                <figcaption><%= section.image_description unless section.image_description.empty? %></figcaption>
-              </figure>
+              <%= link_to cl_image_path(section.image),
+                class: "blog_img lightbox #{section.image_width unless section.image_width.empty?}",
+                data: {
+                  lightbox: section.image_set.empty? ? "" : section.image_set,
+                  title: section.image_description.empty? ? "" : section.image_description
+                } do %>
+                <figure>
+                  <%= cl_image_tag(section.image, :alt=> "#{section.image_description.empty? ? '' : section.image_description}") %>
+                  <figcaption><%= section.image_description unless section.image_description.empty? %></figcaption>
+                </figure>
+              <% end %>
             </section>
           <!-- <div class="m-bottom-50"></div> -->
           <% end %>
