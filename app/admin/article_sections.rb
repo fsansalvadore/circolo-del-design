@@ -1,7 +1,7 @@
 ActiveAdmin.register ArticleSection do
   belongs_to :article
 
-  config.sort_order = 'position'
+  config.sort_order = 'position_asc'
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
