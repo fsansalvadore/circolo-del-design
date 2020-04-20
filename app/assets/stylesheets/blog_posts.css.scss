@@ -228,11 +228,11 @@ article.blog {
     .blog_img.full {
       width: 100%;
       margin: 0 0 30px 0;
+      // grid-column: span 2;
 
       figcaption {
         text-align: center;
       }
-      // grid-column: span 2;
     }
   // }
   }
@@ -544,5 +544,21 @@ article.blog {
     width: 100%;
     margin: 0 0 30px 0;
     // grid-column: span 2;
+  }
+
+  &.one_fifth,
+  &.one_fourth,
+  &.one_third,
+  &.two_thirds,
+  &.three_fourths,
+  &.half {
+    figcaption {
+      text-align: left;
+    }
+  }
+
+  pointer-events: none;
+  .l_active {
+    pointer-events: auto !important;
   }
 }
