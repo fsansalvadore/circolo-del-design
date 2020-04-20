@@ -29,6 +29,7 @@ ActiveAdmin.register Article do
                   :video_link,
                   :video_description,
                   :instagram_link,
+                  :audio_provider,
                   :soundcloud_link,
                   :position,
                   :_destroy
@@ -207,7 +208,8 @@ ActiveAdmin.register Article do
           n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["20% - 1/5", "one_fifth"],["25% - 1/4", "one_fourth"],["33% - 1/3", "one_third"],["50% - 1/2", "half"],["66% - 2/3", "two_thirds"], ["75% - 3/4", "three_fourths"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
           n_f.input :image_set, label: "Nome gruppo di immagini", as: :select, collection: [["Gruppo 1", "c1"],["Gruppo 2", "c2"]], prompt: "Seleziona gruppo di appartenenza", hint: "Associa le immagini in gruppi per includerle nello stesso carosello."
           n_f.input :instagram_link, label: "Codice Post — Instagram", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
-          n_f.input :soundcloud_link, label: "Codice SoundCloud", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: 123456879"
+          n_f.input :audio_provider, label: "Sorgente Audio", as: :select, collection: [["Nessuno", 0], ["SoundCloud", 1], ["MixCloud", 2], ["Spotify", 3]], prompt: "Seleziona sorgente audio", hint: "Indica se il video proviene da SoundCloud, MixCloud o Spotify."
+          n_f.input :soundcloud_link, label: "Codice Audio", hint: "Inserire il codice URI identificativo della traccia. Solitamente si trova sotto Share > Embed"
         end
 
       end
