@@ -170,7 +170,7 @@ form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(2) p
   margin: 25px 0 0 0;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(13) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(14) {
   grid-column-start: span 6;
   background-color: #f1e5e6;
   border-bottom: none;
@@ -185,9 +185,13 @@ form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(6),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(4),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(7),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(8),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(9),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(9) {
   grid-column-start: span 2;
+}
+
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11) {
+  grid-column-start: span 1;
 }
 
 #article > fieldset > ol li:nth-of-type(4) label {
@@ -204,21 +208,21 @@ form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10) 
 #article > fieldset > ol li:nth-of-type(2),
 #article > fieldset > ol li:nth-of-type(3),
 #article > fieldset > ol li:nth-of-type(4),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(12) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(12),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(13) {
   grid-column-start: span 3;
 }
 
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(2),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(4),
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(7),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(10),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(12),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(13) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(13),
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(14) {
   box-shadow: inset -4px 0px 10px -10px #000;
 }
 form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(3),
-form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(11) {
+form fieldset ol > li.has_many_container .has_many_fields ol li:nth-of-type(12) {
   border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
 

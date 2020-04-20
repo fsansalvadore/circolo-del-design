@@ -55,6 +55,7 @@ gem 'mail_form'
 gem 'sendgrid-ruby'
 gem 'friendly_id', '~> 5.2.4'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'lightbox2-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
