@@ -431,7 +431,10 @@ div.wpac_base {
     }
 
     header {
+      position: relative;
+
       div.w-container {
+        position: relative;
         a {
           span {
             display: inline;
@@ -475,7 +478,6 @@ div.wpac_base {
           }
         }
       }
-
       .article_thumb_media {
         position: absolute;
         right: 0;
