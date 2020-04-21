@@ -198,7 +198,7 @@ ActiveAdmin.register Article do
         tab :lingua do
           f.inputs 'Impostazioni Lingua' do
             f.input :lang, label: "Lingua Post", as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
-            f.input :translation_link, label: "Link alla traduzione", as: :select, collection: Article.where.not(slug: params[:id]).map {|article| ["#{article.title} - #{article.lang == 1 ? "ITA" : "ENG"}", wpac_article_path(article)]}, prompt: "Seleziona la traduzione corrispondente.", hint: "Seleziona dalla lista la traduzione corrispondente a questo post."
+            f.input :translation_link, label: "Link alla traduzione", as: :select, collection: Article.all.map {|article| ["#{article.title} - #{article.lang == 1 ? "ITA" : "ENG"}", wpac_article_path(article)]}, prompt: "Seleziona la traduzione corrispondente.", hint: "Seleziona dalla lista la traduzione corrispondente a questo post."
           end
         end
       f.inputs "Sezioni — Ogni sezione corrisponde a una tipologia di contenuto diverso: Testo / Video / Immagine / Post Instagram / SoundCloud" do
