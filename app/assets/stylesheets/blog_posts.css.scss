@@ -558,7 +558,7 @@ article.blog {
   }
 
   pointer-events: none;
-  .l_active {
+  &.l_active {
     pointer-events: auto !important;
   }
 }
