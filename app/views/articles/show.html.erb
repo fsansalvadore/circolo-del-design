@@ -102,7 +102,7 @@
           <% end %>
 
           <!-- Audio -->
-          <% if section.audio_provider == 1..3 %>
+          <% if (1..3).include?(section.audio_provider) %>
             <% case section.audio_provider
                   when 1
                  %>
@@ -135,7 +135,7 @@
                   lightbox_active = ""
                 end
               %>
-              <%= link_to cl_image_path(section.image), image_data_set.merge(class: "blog_img lightbox #{section.image_width unless section.image_width.empty?}") do %>
+              <%= link_to cl_image_path(section.image), image_data_set.merge(class: "blog_img lightbox #{section.image_width unless section.image_width.empty?} #{lightbox_active}") do %>
                 <figure>
                   <%= cl_image_tag(section.image, :alt=> "#{section.image_description.empty? ? '' : section.image_description}") %>
                   <figcaption><%= section.image_description unless section.image_description.empty? %></figcaption>
@@ -195,6 +195,7 @@
                     </a>
                  </div>
               </blockquote>
+              <script async defer src="//www.instagram.com/embed.js">window.instgrm.Embeds.process()</script>
             </section>
           <div class="m-bottom-50"></div>
 
