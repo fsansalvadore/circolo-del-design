@@ -5,6 +5,8 @@ ActiveAdmin.register Article do
   permit_params :title,
                 :subtitle,
                 :cover,
+                :project_title,
+                :project_studio,
                 :media_type,
                 :meta_keywords,
                 :meta_title,
@@ -178,6 +180,12 @@ ActiveAdmin.register Article do
             f.input :title, label: "Titolo", placeholder: 'Titolo', hint: "Obbligatorio."
             f.input :subtitle, label: "Sottotitolo", as: :quill_editor, placeholder: 'Sottotitolo', hint: "Obbligatorio — Max 140 caratteri"
             f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio."
+          end
+        end
+        tab :progetto do
+          f.inputs 'Dettagli progetto' do
+            f.input :project_studio, label: "Nome Studio", placeholder: 'Nome dello studio', hint: "Compare soltanto nei progetti."
+            f.input :project_title, label: "Titolo Progetto", as: :quill_editor, placeholder: 'Titolo del progetto', hint: "Compare soltanto nei progetti e sarà visibile sull'immagine di anteprima dell'articolo."
           end
         end
         tab :meta do
