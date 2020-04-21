@@ -507,30 +507,31 @@ article.blog {
     display: inline-flex;
     flex-direction: column;
   }
+  @include md-lg {
+    &.one_fifth {
+      width: 18%;
+    }
 
-  &.one_fifth {
-    width: 18%;
-  }
+    &.one_fourth {
+      width: 23%;
+    }
 
-  &.one_fourth {
-    width: 23%;
-  }
+    &.one_third {
+      width: 31%;
+    }
 
-  &.one_third {
-    width: 31%;
-  }
+    &.two_thirds {
+      width: 64%;
+    }
 
-  &.two_thirds {
-    width: 64%;
-  }
+    &.three_fourths {
+      width: 73%;
+    }
 
-  &.three_fourths {
-    width: 73%;
-  }
-
-  &.half {
-    width: 48%;
-    // grid-column: span 1;
+    &.half {
+      width: 48%;
+      // grid-column: span 1;
+    }
   }
 
   &.full {
