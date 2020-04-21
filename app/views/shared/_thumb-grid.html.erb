@@ -18,7 +18,7 @@
               <%= image_tag "#{article.media_type.downcase}.svg", class: "thumb_icon", alt: "#{article.media_type}" %>
             </div>
           <% end %>
-          <div class="article_thumb_overlay <%= 'studio' if article.project_studio && !article.project_studio.empty?  %>">
+          <div class="article_thumb_overlay <%= 'studio' if article.project_studio && !article.project_studio.empty? %>">
             <% if article.project_studio && !article.project_studio.empty? %>
               <div class="project_title_overlay">
                 <%=raw article.project_title %>
