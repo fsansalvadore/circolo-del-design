@@ -494,7 +494,7 @@ article.blog {
 }
 
 .wpac article.blog .lightbox {
-  margin: 1%;
+
   align-items: flex-start;
   display: inline-block;
   float: left;
@@ -508,6 +508,7 @@ article.blog {
     flex-direction: column;
   }
   @include md-lg {
+    margin: 1%;
     &.one_fifth {
       width: 18%;
     }

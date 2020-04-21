@@ -169,7 +169,7 @@ ActiveAdmin.register Article do
     f.actions
     f.semantic_errors *f.object.errors.keys
       tabs do
-        tab :articolo do
+        tab :article do
           f.inputs "Informazioni dell'Articolo" do
             f.input :published, label: "Pubblicato"
             f.input :publish_date, as: :date_time_picker, label: "Data di Pubblicazione"
