@@ -557,6 +557,15 @@ article.blog {
     }
   }
 
+  figcaption {
+    pointer-events: auto !important;
+
+    * {
+      width: 100%;
+      background: inherit;
+    }
+  }
+
   pointer-events: none;
   &.l_active {
     pointer-events: auto !important;
