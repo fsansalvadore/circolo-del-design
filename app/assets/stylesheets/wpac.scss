@@ -676,6 +676,26 @@ div.wpac_base {
   height: 100%;
 }
 
+.carousel-a-slide .tag_list {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+
+  @include md-sm {
+    left: 40px;
+    top: 40px;
+  }
+
+  li {
+    border: 2px solid $white;
+    background: $white;
+
+    a {
+      color: $black;
+    }
+  }
+}
+
 .tag_list {
   padding: 0;
   display: flex;

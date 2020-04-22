@@ -19,8 +19,8 @@
             </div>
           </div>
         </a>
-        <a data-w-id="ae9cec70-83ef-cef6-706b-ca4cf8552415" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" href="/whats-on/HomingCdD" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-          <div class="text-block-3">Leggi #HomingCdD</div>
+        <a data-w-id="ae9cec70-83ef-cef6-706b-ca4cf8552415" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" href="/whats-on/HomingCdD" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow wpac">
+          <div class="text-block-3">Welcome to the post-analog condition*</div>
           <div class="arrow-right">
             <div class="arrow-point-right">
               <div style="width:0PX" class="div-block-8"></div>
@@ -49,9 +49,6 @@
             <% if !@slider_cover.nil? %>
               <%= link_to whats_on_HomingCdD_path, class: "carousel-a-slide w-inline-block swiper-slide" do %>
                 <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000), url(<%= cl_image_path @slider_cover.cover %>)"></div>
-                <% unless @slider_cover.rubrica.nil? || @slider_cover.rubrica == "" %>
-                  <div class="carousel-category-label design"><%= @slider_cover.rubrica %></div>
-                <% end %>
                 <div class="carousel-a-text-block">
                   <% unless @slider_cover.title.nil?  %>
                     <h3 class="slider-a-title"><%= @slider_cover.title %></h3>
@@ -67,22 +64,28 @@
                 </div>
               <% end %>
             <% end %>
-            <% if !@blog_posts.empty? %>
-            <% @blog_posts.each do |blog_post| %>
-              <% unless blog_post.priority == 5 %>
-                <%= link_to blog_post_path(blog_post), class: "carousel-a-slide w-inline-block swiper-slide" do %>
-                  <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000), url(<%= cl_image_path blog_post.cover %>)"></div>
-                  <% unless blog_post.rubrica.nil? %>
-                    <div class="carousel-category-label design"><%= blog_post.rubrica %></div>
+            <% if !@articles.empty? %>
+            <% @articles.each do |article| %>
+              <% unless article.priority == 5 %>
+                <%= link_to wpac_article_path(article), class: "carousel-a-slide w-inline-block swiper-slide" do %>
+                  <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000), url(<%= cl_image_path article.cover unless !article.cover || article.cover.file.nil? %>), linear-gradient(180deg, #F29FC5 0%, #F29FC5)"></div>
+                  <% unless article.tag_list.nil? %>
+                    <div class="tag_list">
+                      <ul>
+                        <% article.tag_list.each do |tag| %>
+                          <li>
+                            <%= tag %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
                   <% end %>
                   <div class="carousel-a-text-block">
-                    <h3 class="slider-a-title"><%= blog_post.title %></h3>
+                    <h3 class="slider-a-title"><%= article.title %></h3>
                     <p class="event-card-subtitle">
-                      <% unless blog_post.content.nil? %>
-                        <%=raw blog_post.content %>
-                      <% end %>
-                      <% unless blog_post.subtitle.nil? %>
-                        <%=raw blog_post.subtitle %>
+
+                      <% unless article.subtitle.nil? %>
+                        <%=raw article.subtitle %>
                       <% end %>
                     </p>
                   </div>
