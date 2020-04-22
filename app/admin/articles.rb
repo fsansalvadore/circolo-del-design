@@ -15,6 +15,7 @@ ActiveAdmin.register Article do
                 :translation_link,
                 :publish_date,
                 :published,
+                :priority,
                 :slug,
                 tag_list: [],
                 article_sections_attributes: [
