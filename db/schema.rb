@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_125326) do
+ActiveRecord::Schema.define(version: 2020_04_23_105025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_125326) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "abstract"
+    t.string "subtitle"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -319,6 +320,28 @@ ActiveRecord::Schema.define(version: 2020_04_21_125326) do
     t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "wpac_sections", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.string "cover_image"
+    t.string "cover_video"
+    t.integer "cover_filter_opacity"
+    t.integer "cover_type"
+    t.string "meta_title"
+    t.text "meta_description"
+    t.string "meta_image"
+    t.text "intro_paragraph"
+    t.text "long_paragraph"
+    t.text "wpac_outro"
+    t.string "support_banner_title"
+    t.text "support_banner_text"
+    t.string "support_banner_cta"
+    t.boolean "support_banner_heart"
+    t.string "support_banner_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -9,7 +9,7 @@
           <svg width="24" height="12" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M26 8V6H4.5L8.5 2L7.5 0L0.5 7L7.5 14L8.5 12L4.5 8H26Z" fill="#E0354C"/>
           </svg>
-        </span>Welcome to the Post-Analog Condition</p>
+        </span><%= @wpac.title %></p>
       <% end %>
       <h1 class="page-header-title"><%= @tagItem.nome %></h1>
       <div class="subheader"><%=raw @tagItem.abstract unless @tagItem.abstract.empty? || !@tagItem.abstract %></div>

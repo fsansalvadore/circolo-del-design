@@ -16,10 +16,6 @@ div.wpac_base {
     div.w-container {
       text-align: center;
 
-      h1 {
-
-      }
-
       div.subheader {
         font-size: 18px;
         line-height: 140%;
@@ -52,35 +48,53 @@ div.wpac_base {
     background-size: $bg-noise-size;
     width: 100%;
     background-color: $wpac-light;
-    div.noise_overlay {
+    canvas#canvas {
       position: absolute;
-      z-index: 0;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.8;
+      opacity: 0.12;
       pointer-events: none;
-      background: url('pink_noise.gif') repeat;
     }
     header.page-header-container {
+      position: relative;
       border-bottom: 2px solid $wpac-dark;
+      min-height: 400px;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
 
       div.subheader {
-        font-size: 1.5rem !important;
+        font-size: 1rem !important;
+        background-color: $wpac-dark;
+        width: auto;
+        display: inline-block;;
+        padding: 6px 10px;
+        color: $white;
       }
 
       @include lg {
         padding-bottom: 60px;
+
+        div.subheader {
+          font-size: 1.2rem !important;
+        }
       }
       div.w-container {
         text-align: center;
         h1 {
           color: $wpac-dark;
-          font-size: 45px;
+          font-size: 25px;
           line-height: 100%;
           text-transform: uppercase;
 
           @include lg {
-            font-size: 70px;
+            font-size: 40px;
           }
 
           span {
@@ -94,6 +108,7 @@ div.wpac_base {
     }
 
     div.wpac-home-container {
+      position: relative;
       margin-bottom: 0;
 
       div.wpac-visual-container {
@@ -261,7 +276,6 @@ div.wpac_base {
               margin-left: 0;
               margin-right: 0;
               text-decoration: none;
-              // text-transform: uppercase;
               font-size: 30px;
               padding: 14px;
 
@@ -284,7 +298,6 @@ div.wpac_base {
                   }
                   div:last-child {
                     position: absolute;
-                    // margin-top: 4px;
                   }
                 }
                 span {
@@ -298,8 +311,6 @@ div.wpac_base {
 
               &:hover {
                 h2 {
-                  // text-decoration: underline;
-
                   .theme_title_anim div {
                     transform: translateY(-100%);
                   }
@@ -328,7 +339,7 @@ div.wpac_base {
 
                   .theme_content_abstract {
                     margin-top: 10px;
-                    font-size: 14px;
+                    font-size: 20px;
                     line-height: 130%;
 
                     * {
@@ -341,9 +352,6 @@ div.wpac_base {
                     }
                   }
                 }
-
-                p {}
-                span {}
               }
             }
           }
@@ -353,24 +361,27 @@ div.wpac_base {
 
     div.wpac_abstract_container {
         width: 100%;
-        border-top: 2px solid $wpac-dark;
-        padding: 20px 0 0 0;
+        padding: 20px 0;
+
+        &.bt_red {
+          border-top: 2px solid $wpac-dark;
+        }
 
         @include lg {
-          padding: 60px 0 0 0;
+          padding: 60px 0;
         }
       div.abstract {
-        column-count: 2;
+        // column-count: 2;
         padding: 14px;
         margin: 0 auto;
         font-size: 18px;
         line-height: 1.6;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 20px;
+        @include lg {
+                padding: 14px 40px;
+                margin-left: 40%;
+                margin-right: 10%;
+              }
 
-        // text-align: justify;
-        // text-justify: inter-word;
         .ab_column {
           // grid-column-start: 2;
 
@@ -385,10 +396,13 @@ div.wpac_base {
           }
         }
         @include lg {
-          grid-template-columns: 2fr 3fr;
-          padding: 50px 40px;
+          // grid-template-columns: 2fr 3fr;
+          // padding: 50px 40px;
           // margin-left: 40%;
           // margin-right: 10%;
+          .ab_column {
+            // grid-column-start: 2;
+          }
         }
         p {
           margin-bottom: 20px;
@@ -491,7 +505,6 @@ div.wpac_base {
         .subheader {
           p:last-of-type {
             margin-top: 4px;
-            // font-size: 0.9rem;
           }
         }
       }
@@ -516,19 +529,7 @@ div.wpac_base {
         }
       }
     }
-
-    .articles-grid-container {
-
-      div.w-container {
-
-      }
-    }
   }
-
-  // Thumb Grid
-
-
-  // Show Page
 
   // Support Banner
   .wpac_support_banner {
@@ -574,6 +575,7 @@ div.wpac_base {
         p {
           font-size: 16px;
           line-height: 130%;
+          margin: 0;
 
           strong {
             font-weight: 600;
@@ -595,7 +597,6 @@ div.wpac_base {
           text-transform: uppercase;
           display: flex;
           align-items: center;
-          // align-self: flex-end;
           flex-direction: row;
           transition: all 0.3s ease;
           transform: translateY(0);
@@ -648,7 +649,6 @@ div.wpac_base {
   article.blog {
     section {
       margin-top: 10px;
-      // margin-bottom: 40px;
     }
 
     section:last-of-type {
@@ -722,7 +722,6 @@ div.wpac_base {
 }
 
 .articles-grid {
-    // min-height: 300px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));

@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :media, :tag, :show]
   before_action :set_article, only: [:show]
+  before_action :set_wpac_generic, only: [:index, :tag, :media, :show]
 
   def index
-    # @tags = ActsAsTaggableOn::Tag.all.each do |tag|
-    @tags = ArticleTheme.where(published: true)
+    @themes = ArticleTheme.where(published: true)
     render :layout => 'wpac'
   end
 
@@ -33,5 +33,9 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.friendly.find_by_slug(params[:slug])
+  end
+
+  def set_wpac_generic
+    @wpac = WpacSection.all.first
   end
 end

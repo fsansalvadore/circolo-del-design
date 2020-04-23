@@ -8,6 +8,7 @@ import { SimpleParallax } from '../packs/simple-parallax';
 import { FacesFadeIn } from '../packs/faces';
 import { SocialShare } from '../packs/social-share';
 import { BlogNav } from '../packs/blog-nav';
+import { Noise } from '../packs/noise';
 
 cookies();
 webflowJS();
@@ -19,3 +20,4 @@ SimpleParallax();
 FacesFadeIn();
 SocialShare();
 BlogNav();
+Noise();
