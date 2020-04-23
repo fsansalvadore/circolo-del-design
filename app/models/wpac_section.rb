@@ -4,4 +4,6 @@ class WpacSection < ApplicationRecord
     :less_than_or_equal_to => 100,
     :greater_than_or_equal_to => 0,
     :only_integer => true
+
+  mount_uploader :cover_image, WpacSectionImageUploader
 end
