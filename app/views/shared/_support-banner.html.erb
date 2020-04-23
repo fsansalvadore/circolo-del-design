@@ -2,12 +2,10 @@
   <div class="support_content w-container large">
     <div class="wpac_support_box">
       <div class="support_text">
-        <h4>SHOW US YOUR LOVE!</h4>
-        <p>Online e offline, ogni giorno progettiamo contenuti che sappiano ispirarci e lo facciamo collaborando con professionisti, studenti e visionari appassionati e curiosi.</p>
-        <p>Continueremo a farlo anche grazie a tutte quelle persone che hanno scelto di sostenere il Circolo del Design attraverso le loro donazioni.<br>
-        Proprio <strong>qui</strong>, proprio <strong>adesso</strong>.</p>
+        <h4><%= @wpac.support_banner_title %></h4>
+        <%=raw @wpac.support_banner_text %>
       </div>
-      <%= link_to "https://tag.satispay.com/CircolodelDesign", {
+      <%= link_to @wpac.support_banner_link, {
         class: "btn_white",
         target: :_blank
       } do %>
@@ -16,7 +14,7 @@
             <path d="M27.9888 1.93945C24.6479 -0.992367 19.716 -0.503732 16.6932 2.75384L15.4205 3.89399L14.3068 2.75384C11.284 -0.503732 6.35213 -0.992367 3.01118 1.93945C-0.807064 5.19701 -0.966157 11.2235 2.3748 14.8068L15.4205 28L28.6252 14.8068C31.9662 11.0606 31.8071 5.19701 27.9888 1.93945Z" fill="#E0354C"/>
           </svg>
         </div>
-        <p>Sostienici</p>
+        <p><%= @wpac.support_banner_cta %></p>
       <% end %>
     </div>
   </div>

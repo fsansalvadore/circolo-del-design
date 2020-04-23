@@ -165,7 +165,7 @@ ActiveAdmin.register Article do
   filter :media_type
   filter :published
 
-  form do |f|
+  form :html => { :enctype => "multipart/form-data" } do |f|
     f.actions
     f.semantic_errors *f.object.errors.keys
       tabs do

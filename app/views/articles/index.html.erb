@@ -1,12 +1,12 @@
-<% content_for :meta_title, "Welcome to the Post-Analog Condition — What's On — Circolo del Design" %>
-<% content_for :meta_description, "Interviste, video, rubriche e approfondimenti legati alla cultura del progetto." %>
+<% content_for :meta_title, "Welcome to the Post-Analog Condition — What's On — Circolo del Design di Torino" %>
+<% content_for :meta_description, "Ispirazioni e progetti per un nuovo tempo." %>
 <% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, Coronavirus, Covid-19, Welcome to the Post-Analog Condition" %>
 <%# content_for :meta_image, "HomingCdD.jpg" %>
 <div class="wpac_home">
   <header id="top" class="page-header-container wpac" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('https://res.cloudinary.com/dueboq0he/image/upload/v1587398308/circolo-del-design/xyti7cq2w2i6leh06kvl.jpg'<%#= cl_image_path @wpac_home.cover %>);">
     <div class="w-container large">
-      <h1 class="page-header-title">Welcome to the Post-Analog Condition*</h1>
-      <div class="subheader">Ispirazioni e progetti per un nuovo tempo.</div>
+      <h1 class="page-header-title"><%= @wpac.title %></h1>
+      <div class="subheader"><%= @wpac.subtitle %></div>
     </div>
     <canvas id="canvas"></canvas>
   </header>
@@ -58,7 +58,7 @@
   <div class="wpac_abstract_container bt_red">
     <div class="abstract">
       <div class="ab_column highlight">
-        <p><strong><i>Welcome to the post-analog condition*</i> è un archivio digitale che il Circolo del Design costruisce in tempo reale per innescare e stimolare una riflessione condivisa in relazione alla pandemia causata dal Covid-19 in tutto il mondo.</strong></p>
+        <%=raw @wpac.intro_paragraph %>
       </div>
     </div>
   </div>
@@ -66,18 +66,12 @@
   <div class="wpac_abstract_container">
     <div class="abstract">
       <div class="ab_column">
-        <p>Pensatori, autori, progettisti e curatori contribuiscono con contenuti di varia tipologia alla mappatura di un fenomeno che traccia dei segni indelebili nei mutamenti già accelerati della società contemporanea.</p>
-        <p>Al mondo del progetto è delegata parte di una osservazione critica sulla rimodulazione dei processi culturali, industriali e sociali, da conciliare con le criticità di un sistema economico globalizzato che mostra ora più che mai i suoi nervi scoperti.</p>
-        <p>Allo stesso tempo sono in discussione meccanismi relazionali e produttivi già attraversati da crepe profonde, così come lo sono i meccanismi geopolitici in cui spazio e risorse si possono analizzare solamente con approcci riflessivi che richiedono un cambio di paradigma.</p>
-        <p><i>Welcome to the post-analog condition*</i> è un progetto speciale del Circolo del Design di Torino con la collaborazione di Elisabetta Donati de Conti.</p>
+        <%=raw @wpac.long_paragraph %>
       </div>
     </div>
   </div>
   <div class="wpac-home-outro">
-    <p>* “welcome to the post-analog condition” è una citazione dal libro The Age of Earthquakes. A Guide to the Extreme Present, un saggio grafico e
-visivo sulla società contemporanea che Shumon Basar, Douglas Coupland e Hans Ulrich Obrist hanno pubblicato seguendo l’esempio di The
-Medium is the Massage, scritto 50 anni prima da Marshall McLuhan sull’influenza della tecnologia sulla cultura. Un libro visionario che fa luce
-sull’ “estremo presente” plasmato da internet, mentre il pianeta e la società chiedono aiuto.</p>
+    <%=raw @wpac.wpac_outro %>
   </div>
 </div>
 <%= render "shared/support-banner" %>
