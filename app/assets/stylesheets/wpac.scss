@@ -16,10 +16,6 @@ div.wpac_base {
     div.w-container {
       text-align: center;
 
-      h1 {
-
-      }
-
       div.subheader {
         font-size: 18px;
         line-height: 140%;
@@ -52,19 +48,22 @@ div.wpac_base {
     background-size: $bg-noise-size;
     width: 100%;
     background-color: $wpac-light;
-    div.noise_overlay {
+    canvas#canvas {
       position: absolute;
-      z-index: 0;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.8;
+      opacity: 0.12;
       pointer-events: none;
-      background: url('pink_noise.gif') repeat;
     }
     header.page-header-container {
+      position: relative;
       border-bottom: 2px solid $wpac-dark;
       min-height: 400px;
-      height: 55vh;
+      height: 60vh;
       display: flex;
       align-items: center;
       background-size: cover;
@@ -109,6 +108,7 @@ div.wpac_base {
     }
 
     div.wpac-home-container {
+      position: relative;
       margin-bottom: 0;
 
       div.wpac-visual-container {
@@ -276,7 +276,6 @@ div.wpac_base {
               margin-left: 0;
               margin-right: 0;
               text-decoration: none;
-              // text-transform: uppercase;
               font-size: 30px;
               padding: 14px;
 
@@ -299,7 +298,6 @@ div.wpac_base {
                   }
                   div:last-child {
                     position: absolute;
-                    // margin-top: 4px;
                   }
                 }
                 span {
@@ -313,8 +311,6 @@ div.wpac_base {
 
               &:hover {
                 h2 {
-                  // text-decoration: underline;
-
                   .theme_title_anim div {
                     transform: translateY(-100%);
                   }
@@ -356,9 +352,6 @@ div.wpac_base {
                     }
                   }
                 }
-
-                p {}
-                span {}
               }
             }
           }
@@ -512,7 +505,6 @@ div.wpac_base {
         .subheader {
           p:last-of-type {
             margin-top: 4px;
-            // font-size: 0.9rem;
           }
         }
       }
@@ -537,19 +529,7 @@ div.wpac_base {
         }
       }
     }
-
-    .articles-grid-container {
-
-      div.w-container {
-
-      }
-    }
   }
-
-  // Thumb Grid
-
-
-  // Show Page
 
   // Support Banner
   .wpac_support_banner {
@@ -616,7 +596,6 @@ div.wpac_base {
           text-transform: uppercase;
           display: flex;
           align-items: center;
-          // align-self: flex-end;
           flex-direction: row;
           transition: all 0.3s ease;
           transform: translateY(0);
@@ -669,7 +648,6 @@ div.wpac_base {
   article.blog {
     section {
       margin-top: 10px;
-      // margin-bottom: 40px;
     }
 
     section:last-of-type {
@@ -743,7 +721,6 @@ div.wpac_base {
 }
 
 .articles-grid {
-    // min-height: 300px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
