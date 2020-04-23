@@ -56,22 +56,28 @@
     </div>
   </div>
   <div class="wpac_abstract_container bt_red">
-    <div class="abstract">
-      <div class="ab_column highlight">
-        <%=raw @wpac.intro_paragraph %>
+    <% unless @wpac.intro_paragraph.empty? %>
+      <div class="abstract">
+        <div class="ab_column highlight">
+          <%=raw @wpac.intro_paragraph %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
   <%= render partial: "shared/wpac-media", locals: {title: false} %>
-  <div class="wpac_abstract_container">
-    <div class="abstract">
-      <div class="ab_column">
-        <%=raw @wpac.long_paragraph %>
+  <% unless @wpac.long_paragraph.empty? %>
+    <div class="wpac_abstract_container">
+      <div class="abstract">
+        <div class="ab_column">
+          <%=raw @wpac.long_paragraph %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="wpac-home-outro">
-    <%=raw @wpac.wpac_outro %>
-  </div>
+  <% end %>
+  <% unless @wpac.wpac_outro.empty? %>
+    <div class="wpac-home-outro">
+      <%=raw @wpac.wpac_outro %>
+    </div>
+  <% end %>
 </div>
 <%= render "shared/support-banner" %>
