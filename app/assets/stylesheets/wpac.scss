@@ -63,24 +63,39 @@ div.wpac_base {
     }
     header.page-header-container {
       border-bottom: 2px solid $wpac-dark;
+      min-height: 400px;
+      height: 55vh;
+      display: flex;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
 
       div.subheader {
-        font-size: 1.5rem !important;
+        font-size: 1rem !important;
+        background-color: $wpac-dark;
+        width: auto;
+        display: inline-block;;
+        padding: 6px 10px;
+        color: $white;
       }
 
       @include lg {
         padding-bottom: 60px;
+
+        div.subheader {
+          font-size: 1.2rem !important;
+        }
       }
       div.w-container {
         text-align: center;
         h1 {
           color: $wpac-dark;
-          font-size: 45px;
+          font-size: 25px;
           line-height: 100%;
           text-transform: uppercase;
 
           @include lg {
-            font-size: 70px;
+            font-size: 40px;
           }
 
           span {
@@ -328,7 +343,7 @@ div.wpac_base {
 
                   .theme_content_abstract {
                     margin-top: 10px;
-                    font-size: 14px;
+                    font-size: 20px;
                     line-height: 130%;
 
                     * {
@@ -353,24 +368,27 @@ div.wpac_base {
 
     div.wpac_abstract_container {
         width: 100%;
-        border-top: 2px solid $wpac-dark;
-        padding: 20px 0 0 0;
+        padding: 20px 0;
+
+        &.bt_red {
+          border-top: 2px solid $wpac-dark;
+        }
 
         @include lg {
-          padding: 60px 0 0 0;
+          padding: 60px 0;
         }
       div.abstract {
-        column-count: 2;
+        // column-count: 2;
         padding: 14px;
         margin: 0 auto;
         font-size: 18px;
         line-height: 1.6;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 20px;
+        @include lg {
+                padding: 14px 40px;
+                margin-left: 40%;
+                margin-right: 10%;
+              }
 
-        // text-align: justify;
-        // text-justify: inter-word;
         .ab_column {
           // grid-column-start: 2;
 
@@ -385,10 +403,13 @@ div.wpac_base {
           }
         }
         @include lg {
-          grid-template-columns: 2fr 3fr;
-          padding: 50px 40px;
+          // grid-template-columns: 2fr 3fr;
+          // padding: 50px 40px;
           // margin-left: 40%;
           // margin-right: 10%;
+          .ab_column {
+            // grid-column-start: 2;
+          }
         }
         p {
           margin-bottom: 20px;

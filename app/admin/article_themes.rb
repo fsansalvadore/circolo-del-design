@@ -1,7 +1,7 @@
 ActiveAdmin.register ArticleTheme do
   menu parent: 'WPAC', label: 'Temi', priority: 1
 
-  permit_params :nome, :abstract, :published
+  permit_params :nome, :subtitle, :abstract, :published
   config.comments = false
 
   # scope :pubblicati, ->{where(published: true)}
@@ -52,6 +52,7 @@ ActiveAdmin.register ArticleTheme do
   show title: :nome do
     attributes_table do
       row :nome
+      row :subtitle
       row (:abstract) { |tema| raw(tema.abstract) }
       row :published
     end
@@ -61,6 +62,7 @@ ActiveAdmin.register ArticleTheme do
     f.semantic_errors *f.object.errors.keys
     f.inputs 'ArticleTheme' do
       f.input :nome, placeholder: 'Nome Tema', hint: "Inserisci il nome del tema. (Obbligatorio — Preferibilmente max 20 caratteri)"
+      f.input :subtitle, placeholder: 'Sottotitolo', hint: "Inserisci il nome del tema. (Obbligatorio — Preferibilmente max 20 caratteri)"
       f.input :abstract, as: :quill_editor, placeholder: 'Aggiungi una descrizione', hint: "Inserisci il nome del tema. (Obbligatorio — Preferibilmente max 20 caratteri)"
       f.input :published, hint: "Puoi tenere alcuni temi in bozza per nasconderli momentaneamente dal menu."
     end

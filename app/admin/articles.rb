@@ -174,7 +174,7 @@ ActiveAdmin.register Article do
             f.input :published, label: "Pubblicato"
             f.input :publish_date, as: :date_time_picker, label: "Data di Pubblicazione"
             f.input :tag_list, label: "Temi", as: :check_boxes, collection: ArticleTheme.where(published: true).map {|theme| theme.nome}
-            f.input :media_type, label: "Tipologia di Media", as: :select, collection: [["Interviste", "Interviste"], ["Voci", "Voci"], ["Progetti", "Progetti"], ["Libri", "Libri"], ["Video", "Video"]], prompt: "Seleziona una tipologia"
+            f.input :media_type, label: "Tipologia di Media", as: :select, collection: [["Interviste", "Interviste"], ["Audio", "Audio"], ["Progetti", "Progetti"], ["Libri", "Libri"], ["Video", "Video"]], prompt: "Seleziona una tipologia"
             f.input :priority, label: "Priorità", as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
 
             f.input :title, label: "Titolo", placeholder: 'Titolo', hint: "Obbligatorio."

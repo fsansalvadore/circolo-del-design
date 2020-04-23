@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     # @tags = ActsAsTaggableOn::Tag.all.each do |tag|
-    @tags = ArticleTheme.where(published: true)
+    @themes = ArticleTheme.where(published: true)
     render :layout => 'wpac'
   end
 
