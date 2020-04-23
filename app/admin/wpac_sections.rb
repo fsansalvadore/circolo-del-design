@@ -73,10 +73,10 @@ ActiveAdmin.register WpacSection do
       end
       tab :cover do
         f.inputs 'Cover' do
-          f.input :cover_type, label: "Tipologia Cover", as: :select, collection: [["Immagine", 1], ["Video", 2]], prompt: "Seleziona un'opzione"
+          # f.input :cover_type, label: "Tipologia Cover", as: :select, collection: [["Immagine", 1], ["Video", 2]], prompt: "Seleziona un'opzione"
           # f.input :cover_filter_opacity, label: "Intensità filtro", :as => :range, :min => 0, :max => 100, :step => 5, :input_html => { :class => "special" }
           f.input :cover_image, as: :file, :image_preview => true
-          f.input :cover_video, label: "Url video YouTube"
+          # f.input :cover_video, label: "Url video YouTube"
         end
       end
       tab :donazioni do
