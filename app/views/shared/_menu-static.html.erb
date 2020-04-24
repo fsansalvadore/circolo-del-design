@@ -5,7 +5,7 @@
   } do %>
     <%= image_tag "LOGO_CdD.svg", alt: "Circolo del Design", width:"151", class:"image" %>
   <% end %>
-  <% unless !@wpac.subtitle || @wpac.subtitle.empty? %>
+  <% unless !@wpac || @wpac.subtitle.empty? %>
     <div class="wpac_subtitle"><%= @wpac.subtitle %></div>
   <% end %>
   <div role="navigation" data-w-id="e1ce827e-4e2b-205f-0506-831e049377c6" class="nav-menu-a w-nav-menu">
