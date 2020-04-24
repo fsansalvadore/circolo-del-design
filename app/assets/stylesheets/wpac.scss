@@ -6,6 +6,24 @@ header.navbar-inner-page.wpac {
   overflow: visible;
 }
 
+.wpac_subtitle {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  font-size: 20px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+
+  @include lg {
+    display: block;
+  }
+}
+
 div.wpac_base {
 
   header.page-header-container.wpac {
@@ -63,7 +81,9 @@ div.wpac_base {
       position: relative;
       border-bottom: 2px solid $wpac-dark;
       min-height: 400px;
-      height: 60vh;
+      margin-top: 100px;
+      padding: 0;
+      height: 65vh;
       display: flex;
       align-items: center;
       background-size: cover;
@@ -79,7 +99,8 @@ div.wpac_base {
       }
 
       @include lg {
-        padding-bottom: 60px;
+        // padding-bottom: 60px;
+        margin-top: 110px;
 
         div.subheader {
           font-size: 1.2rem !important;
