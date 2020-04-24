@@ -24,6 +24,29 @@ header.navbar-inner-page.wpac {
   }
 }
 
+div.subheader {
+  font-size: 1rem;
+  background-color: $wpac-dark;
+  width: auto;
+  display: inline-block;;
+  padding: 6px 10px;
+  color: $white;
+
+  &.fw_top {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    padding: 20px;
+    font-size: 1rem;
+    text-align: center;
+
+    @include md-lg {
+      margin-top: 110px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
 div.wpac_base {
 
   header.page-header-container.wpac {
@@ -81,7 +104,6 @@ div.wpac_base {
       position: relative;
       border-bottom: 2px solid $wpac-dark;
       min-height: 400px;
-      margin-top: 100px;
       padding: 0;
       height: 65vh;
       display: flex;
@@ -89,23 +111,6 @@ div.wpac_base {
       background-size: cover;
       background-position: center;
 
-      div.subheader {
-        font-size: 1rem !important;
-        background-color: $wpac-dark;
-        width: auto;
-        display: inline-block;;
-        padding: 6px 10px;
-        color: $white;
-      }
-
-      @include lg {
-        // padding-bottom: 60px;
-        margin-top: 110px;
-
-        div.subheader {
-          font-size: 1.2rem !important;
-        }
-      }
       div.w-container {
         text-align: center;
         h1 {

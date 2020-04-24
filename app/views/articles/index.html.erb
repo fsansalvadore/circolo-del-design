@@ -3,10 +3,10 @@
 <% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, Coronavirus, Covid-19, Welcome to the Post-Analog Condition" %>
 <%# content_for :meta_image, "HomingCdD.jpg" %>
 <div class="wpac_home">
+  <div class="subheader fw_top"><%= @wpac.subtitle %></div>
   <header id="top" class="page-header-container wpac" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(<%= cl_image_path @wpac.cover_image %>);">
     <div class="w-container large">
       <h1 class="page-header-title"><%= @wpac.title %></h1>
-      <!-- <div class="subheader"><%= @wpac.subtitle %></div> -->
     </div>
     <canvas id="canvas"></canvas>
   </header>
