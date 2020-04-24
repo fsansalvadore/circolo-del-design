@@ -24,30 +24,6 @@ header.navbar-inner-page.wpac {
   }
 }
 
-div.subheader {
-  font-size: 1rem;
-  background-color: $wpac-dark;
-  width: auto;
-  display: inline-block;;
-  padding: 6px 10px;
-  color: $white;
-
-  &.fw_top {
-    position: relative;
-    width: 100%;
-    margin-top: 100px;
-    padding: 20px;
-    font-size: 1rem;
-    text-align: center;
-    background-image: linear-gradient(rgba(224, 53, 76, $bg-noise-transparency)), asset-url('wpac_noise_dark.gif');
-
-    @include md-lg {
-      margin-top: 110px;
-      font-size: 1.2rem;
-    }
-  }
-}
-
 div.wpac_base {
 
   header.page-header-container.wpac {
@@ -90,6 +66,30 @@ div.wpac_base {
     background-size: $bg-noise-size;
     width: 100%;
     background-color: $wpac-light;
+
+    div.subheader {
+      font-size: 1rem;
+      background-color: $wpac-dark;
+      width: auto;
+      display: inline-block;;
+      padding: 6px 10px;
+      color: $white;
+
+      &.fw_top {
+        position: relative;
+        width: 100%;
+        margin-top: 100px;
+        padding: 20px;
+        font-size: 1rem;
+        text-align: center;
+        background-image: linear-gradient(rgba(224, 53, 76, $bg-noise-transparency)), asset-url('wpac_noise_dark.gif');
+
+        @include md-lg {
+          margin-top: 110px;
+          font-size: 1.2rem;
+        }
+      }
+    }
     canvas#canvas {
       position: absolute;
       left: 0;
