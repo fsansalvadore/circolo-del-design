@@ -4,11 +4,12 @@
 <%# content_for :meta_image, "HomingCdD.jpg" %>
 <div class="wpac_home">
   <div class="subheader fw_top"><%= @wpac.subtitle %></div>
-  <header id="top" class="page-header-container wpac" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(<%= cl_image_path @wpac.cover_image %>);">
+  <header id="top" class="page-header-container wpac">
     <div class="w-container large">
       <h1 class="page-header-title"><%= @wpac.title %></h1>
     </div>
     <canvas id="canvas"></canvas>
+    <div class="wpac_banner_img glitch-img" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(<%= cl_image_path @wpac.cover_image %>);"></div>
   </header>
   <div class="wpac-home-container">
     <div class="wpac-visual-container" id="wpac_visual_container">
