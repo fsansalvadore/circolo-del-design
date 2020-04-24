@@ -107,11 +107,15 @@ div.wpac_base {
       position: relative;
       border-bottom: 2px solid $wpac-dark;
       min-height: 400px;
-      max-height: 800px;
+      max-height: 400px;
       padding: 0;
       height: 65vh;
       display: flex;
       align-items: center;
+
+      @include md-lg {
+        max-height: 600px;
+      }
 
       .wpac_banner_img {
         position: absolute;
