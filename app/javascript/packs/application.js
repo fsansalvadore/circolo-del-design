@@ -9,6 +9,8 @@ import { FacesFadeIn } from '../packs/faces';
 import { SocialShare } from '../packs/social-share';
 import { BlogNav } from '../packs/blog-nav';
 import { Noise } from '../packs/noise';
+import { mgGlitch } from '../packs/mgGlitch.min';
+import { GlitchJs } from '../packs/glitch';
 
 cookies();
 webflowJS();
@@ -21,3 +23,6 @@ FacesFadeIn();
 SocialShare();
 BlogNav();
 Noise();
+mgGlitch();
+GlitchJs();
+
