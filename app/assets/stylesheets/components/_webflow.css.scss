@@ -4952,6 +4952,32 @@ figcaption {
       }
     }
   }
+
+  .breadcrumb-text.c {
+    p {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 32px !important;
+        height: 32px;
+        margin-right: 10px;
+        border: 2px solid $wpac-dark;
+        border-radius: 50%;
+        margin-bottom: 6px;
+      }
+    }
+
+    &:hover {
+      p span {
+        border: 2px solid $wpac-darker;
+      }
+    }
+  }
 }
 
 .breadcrumb-text {
