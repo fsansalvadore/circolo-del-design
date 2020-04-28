@@ -4896,6 +4896,62 @@ figcaption {
       color: #fff;
     }
   }
+
+  .breadcrumb-text.a {
+    opacity: 1;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid $wpac-dark;
+    width: auto;
+    padding: 5px 5px 2px 5px;
+    margin-bottom: 10px;
+    transition: background 0.1s ease;
+
+    &:hover {
+      color: $white !important;
+      background: $wpac-dark;
+
+      svg path {
+        fill: $white !important;
+      }
+      * {
+        color: $white !important;
+      }
+    }
+
+    p {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      height: 20px;
+    }
+  }
+
+  .breadcrumb-text.b {
+    p {
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+
+      span {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 32px !important;
+        height: 32px;
+        margin-right: 10px;
+        border: 2px solid $wpac-dark;
+        border-radius: 50%;
+        margin-bottom: 6px;
+      }
+    }
+
+    &:hover {
+      p span {
+        border: 2px solid $wpac-darker;
+      }
+    }
+  }
 }
 
 .breadcrumb-text {
