@@ -5,13 +5,10 @@
 <div class="wpac_index">
 
   <header id="top" class="page-header-container wpac">
+    <%= render "shared/back-btn" %>
     <div class="w-container large">
-      <%= link_to wpac_path, class: "breadcrumb-text c" do %>
-        <p><span>
-          <svg width="24" height="12" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M26 8V6H4.5L8.5 2L7.5 0L0.5 7L7.5 14L8.5 12L4.5 8H26Z" fill="#E0354C"/>
-          </svg>
-        </span><%= @wpac.title %></p>
+      <%= link_to wpac_path, class: "breadcrumb-text" do %>
+        <p><%= @wpac.title %></p>
       <% end %>
       <% if @article.project_studio && !@article.project_studio.empty? %>
         <h1 class="page-header-title studio">
