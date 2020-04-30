@@ -6,6 +6,35 @@ header.navbar-inner-page.wpac {
   overflow: visible;
 }
 
+.back_arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  top: 111px;
+  padding: 1px 16px;
+  border: 2px solid $wpac-dark;
+  display: inline-block;
+  background: $wpac-dark;
+  transition: padding 0.2s ease;
+
+  @include md-sm {
+    left: calc(70px + 2%);
+  }
+
+  svg {
+    transition: transform 0.1s ease;
+  }
+
+  svg path {
+    fill: $white;
+  }
+
+  &:hover svg {
+    transform: translate3d(-10px, 0, 0);
+  }
+}
+
 .wpac_subtitle {
   position: absolute;
   top: 40px;
