@@ -38,7 +38,7 @@ ActiveAdmin.register Article do
                 ]
 
   config.comments = false
-  config.sort_order = 'created_at_asc'
+  config.sort_order = 'created_at_desc'
 
   controller do
     defaults :finder => :find_by_slug
@@ -155,6 +155,10 @@ ActiveAdmin.register Article do
           row :meta_title
           row :meta_description
           row :meta_keywords
+        end
+        attributes_table :title => "Attività" do
+          row("Data creazione") {|a| a.created_at}
+          row("Ultima modifica") {|a| a.updated_at}
         end
       end
     end
