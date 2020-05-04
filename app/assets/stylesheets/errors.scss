@@ -1,0 +1,15 @@
+.error-page-container {
+  min-height: 50vh;
+  padding: 200px 0;
+
+  .error-bottom-shape a {
+    margin-top: 50px;
+    padding: 10px 20px;
+  }
+
+  .error_code {
+    font-style: italic;
+    opacity: 0.3;
+    font-size: 12px;
+  }
+}
