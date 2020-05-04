@@ -1,17 +1,17 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :media, :tag, :show]
   before_action :set_article, only: [:show]
+  before_action :set_wpac_generic, only: [:index, :tag, :media, :show]
 
   def index
-    # @tags = ActsAsTaggableOn::Tag.all.each do |tag|
-    @tags = ArticleTheme.where(published: true)
+    @themes = ArticleTheme.where(published: true)
     render :layout => 'wpac'
   end
 
   def tag
     @tag = params[:tag].gsub("-", " ").downcase
     @tagItem = ArticleTheme.find {|theme| theme.nome.downcase == @tag}
-    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where(published: true).order(created_at: :desc).filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
+    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where(published: true).order(publish_date: :desc).filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
     @now = Time.now
     render :layout => 'wpac'
   end
@@ -33,5 +33,9 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.friendly.find_by_slug(params[:slug])
+  end
+
+  def set_wpac_generic
+    @wpac = WpacSection.all.first
   end
 end

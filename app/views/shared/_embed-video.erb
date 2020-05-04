@@ -1,0 +1,17 @@
+<div class="videoWrapper noClick banner glitch-img">
+  <video id="videoHP" poster="<%= wpac.cover_video_poster %>" autoplay="autoplay" playsinline loop style="pointer-events: none;">
+    <source src="<%= wpac.cover_video %>" type="video/mp4">
+    Il tuo browser non supporta i video tag in HTML5.
+  </video>
+</div>
+<script>
+  var autoPlayVideo = document.getElementById("videoHP");
+  if(autoPlayVideo) {
+    autoPlayVideo.oncanplaythrough = function() {
+      autoPlayVideo.muted = true;
+      autoPlayVideo.play();
+      autoPlayVideo.pause();
+      autoPlayVideo.play();
+    }
+  }
+</script>
