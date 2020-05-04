@@ -21,3 +21,8 @@ module CircoloDelDesign
     # the framework and any gems in your application.
   end
 end
+
+config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+  moved_permanently "https://circolodeldesign.herokuapp.com/", "https://www.circolodeldesign.it/"
+  moved_permanently "https://www.circolodeldesign.it/whats-on/HomingCdD", "https://www.circolodeldesign.it/whats-on/WPAC"
+end
