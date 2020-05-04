@@ -60,6 +60,18 @@ figcaption {
   // background-color: #333;
 }
 
+hr.mb {
+  margin-bottom: 30px;
+}
+
+a.team-member-container {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 @media (max-width: 991px) {
   .grid-container {
     grid-template-columns: 1fr 1fr;
