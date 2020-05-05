@@ -223,7 +223,6 @@ GEM
     rack (2.1.1)
     rack-proxy (0.6.5)
       rack
-    rack-rewrite (1.5.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.1)
@@ -381,7 +380,6 @@ DEPENDENCIES
   mail_form
   pg (>= 0.18, < 2.0)
   puma (~> 3.12)
-  rack-rewrite (~> 1.5.0)
   rails (~> 5.2.4, >= 5.2.4.1)
   rails-i18n
   responsive_active_admin

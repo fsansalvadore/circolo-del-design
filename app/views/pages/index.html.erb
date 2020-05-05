@@ -43,8 +43,6 @@
 
       <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-carousel">
         <div class="carousel-slider-a w-clearfix swiper-container">
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
           <div class="swiper-wrapper">
             <% if !@slider_cover.nil? %>
               <%= link_to wpac_path, class: "carousel-a-slide w-inline-block swiper-slide" do %>
@@ -64,44 +62,12 @@
                 </div>
               <% end %>
             <% end %>
-            <% if !@articles.empty? %>
-            <% @articles.each do |article| %>
-              <% unless article.priority == 5 %>
-                <%= link_to wpac_article_path(article), class: "carousel-a-slide w-inline-block swiper-slide" do %>
-                  <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000), url(<%= cl_image_path article.cover unless !article.cover || article.cover.file.nil? %>), linear-gradient(180deg, #F29FC5 0%, #F29FC5)"></div>
-                  <% unless article.tag_list.nil? %>
-                    <div class="tag_list">
-                      <ul>
-                        <% article.tag_list.each do |tag| %>
-                          <li>
-                            <%= tag %>
-                          </li>
-                        <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
-                  <div class="carousel-a-text-block">
-                    <h3 class="slider-a-title"><%= article.title %></h3>
-                    <p class="event-card-subtitle">
-
-                      <% unless article.subtitle.nil? %>
-                        <%=raw article.subtitle %>
-                      <% end %>
-                    </p>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
       </div>
-      <% end %>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
       </div>
-
     </div>
   </div>
   <div class="section-a-3">
@@ -253,8 +219,7 @@ window.onload = function () {
 
   var mySwiper = new Swiper ('.swiper-container', {
       slidesPerView: 1,
-      // loop: false,
-      loop: true,
+      loop: false,
       spaceBetween: 30,
       keyboard: {
         enabled: true,
