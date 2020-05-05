@@ -1893,6 +1893,10 @@ h2 {
 
 .btn-active-yellow {
   background-color: #ffed00;
+
+  &.wpac {
+    background-color: $wpac-dark;
+  }
 }
 .btn-active-red {
   background-color: #e1354b;

@@ -40,6 +40,10 @@
   margin-right: auto;
 }
 
+hr.mb {
+  margin-bottom: 30px;
+}
+
 figcaption {
   text-align: left;
 
@@ -58,6 +62,18 @@ figcaption {
   width: 100%;
   height: auto;
   // background-color: #333;
+}
+
+hr.mb {
+  margin-bottom: 30px;
+}
+
+a.team-member-container {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 @media (max-width: 991px) {
