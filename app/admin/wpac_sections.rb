@@ -18,7 +18,11 @@ ActiveAdmin.register WpacSection do
                 :support_banner_text,
                 :support_banner_cta,
                 :support_banner_heart,
-                :support_banner_link
+                :support_banner_link,
+                :preview_visibility,
+                :preview_img,
+                :preview_title,
+                :preview_subtitle
 
   config.comments = false
   actions :all, :except => [:destroy]
@@ -88,6 +92,14 @@ ActiveAdmin.register WpacSection do
           f.input :support_banner_cta, label: "Testo CTA", placeholder: 'Inserisci una cta'
           f.input :support_banner_heart, label: "Icona"
           f.input :support_banner_link, label: "Link di atterraggio", placeholder: 'Inserisci un link'
+        end
+      end
+      tab :anteprima do
+        f.inputs 'Cover' do
+          f.input :preview_visibility, label: "Visibile"
+          f.input :preview_img, as: :file, label: "Immagine", :image_preview => true
+          f.input :preview_title, label: "Titolo"
+          f.input :preview_subtitle, label: "Sottotitolo", as: :quill_editor
         end
       end
   end
