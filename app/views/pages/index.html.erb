@@ -49,14 +49,11 @@
                 <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000), url(<%= cl_image_path @slider_cover.cover %>)"></div>
                 <div class="carousel-a-text-block">
                   <% unless @slider_cover.title.nil?  %>
-                    <h3 class="slider-a-title"><%= @slider_cover.title %></h3>
+                    <h3 class="slider-a-title"><%= @wpac.title %></h3>
                   <% end %>
                   <p class="event-card-subtitle">
-                    <% unless @slider_cover.content.nil? %>
-                      <%=raw @slider_cover.content %>
-                    <% end %>
-                    <% unless @slider_cover.subtitle.nil? %>
-                      <%=raw @slider_cover.subtitle %>
+                    <% unless @wpac.subtitle.nil? %>
+                      <%=raw @wpac.subtitle %>
                     <% end %>
                   </p>
                 </div>

@@ -33,8 +33,8 @@ Rails.application.routes.draw do
   get '/contatti' => 'pages#contacts'
 
   # blog
-  get    'whats-on/HomingCdD',        to: 'blog_posts#index'
-  get    'whats-on/HomingCdD/:slug',  to: 'blog_posts#show', as: :blog_post
+  get    'whats-on/HomingCdD',        to: redirect('whats-on/WPAC', status: 302)
+  get    'whats-on/HomingCdD/:slug',  to: redirect('whats-on/WPAC/:slug', status: 302)
 
   # WPAC
   get    'whats-on/WPAC',                   to: 'articles#index', as: :wpac
