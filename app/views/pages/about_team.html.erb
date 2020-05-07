@@ -19,7 +19,7 @@
         <% end %>
       </div>
     </aside>
-    <article class="event-article-content line big-content">
+    <article class="event-article-content line big-content team">
       <div class="grid-container">
         <% if @members && !@members.empty? %>
           <% @members.each do |member| %>
@@ -31,6 +31,15 @@
               </figcaption>
             </figure>
           <% end %>
+        <% end %>
+      </div>
+      <hr class="mb">
+      <div class="grid-container">
+        <%= link_to "https://www.saglietti.it/", target: "_blank", class: "team-member-container" do %>
+          <figcaption>
+            <h3>Maurizio Bazzano</h3>
+            <p>Presidente</p>
+          </figcaption>
         <% end %>
       </div>
       <hr class="mb">
