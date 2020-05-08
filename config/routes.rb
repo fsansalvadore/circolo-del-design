@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   # blog
   get    'whats-on/HomingCdD',        to: redirect('whats-on/WPAC', status: 302)
-  get    'whats-on/HomingCdD/:slug',  to: redirect('whats-on/WPAC', status: 302)
+  get    'whats-on/HomingCdD/:slug',  to: 'blog_posts#show', as: :blog_post
 
   # WPAC
   get    'whats-on/WPAC',                   to: 'articles#index', as: :wpac
