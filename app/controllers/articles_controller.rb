@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   def tag
     @tag = params[:tag].gsub("-", " ").downcase
     @tagItem = ArticleTheme.find {|theme| theme.nome.downcase == @tag}
-    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where(published: true).order(publish_date: :desc).filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
+    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where("published = true AND priority != 6").order(publish_date: :desc).filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
     @now = Time.now
     render :layout => 'wpac'
   end
