@@ -3,8 +3,8 @@
 require_relative 'config/environment'
 require 'rack/rewrite'
 
+run Rails.application
+
 use Rack::Rewrite do
   moved_permanently "https://www.circolodeldesign.it/whats-on/HomingCdD/welcome-to-the-post-analog-condition-joseph-grima", "https://www.circolodeldesign.it/whats-on/WPAC/joseph-grima"
 end
-
-run Rails.application
