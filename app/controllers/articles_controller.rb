@@ -11,14 +11,14 @@ class ArticlesController < ApplicationController
   def tag
     @tag = params[:tag].gsub("-", " ").downcase
     @tagItem = ArticleTheme.find {|theme| theme.nome.downcase == @tag}
-    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where("published = true AND priority != 6").order(publish_date: :desc).filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
+    @articles = Article.tagged_with(params[:tag].gsub("-", " ").capitalize).where("published = true AND priority != 6").shuffle.filter {|a| a.publish_date.nil? || a.publish_date.strftime("%Y-%jT%T%:z") <= Time.now.strftime("%Y-%jT%T%:z")}
     @now = Time.now
     render :layout => 'wpac'
   end
 
   def media
     @media = params[:media_type].gsub("-", " ").downcase
-    @articles = Article.where("media_type = ? AND published = true AND priority != 6", @media.capitalize).order(created_at: :desc)
+    @articles = Article.where("media_type = ? AND published = true AND priority != 6", @media.capitalize).shuffle
     render :layout => 'wpac'
   end
 
