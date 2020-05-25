@@ -40,9 +40,11 @@
   margin-right: auto;
 }
 
-hr.mb {
-  margin: 30px 0;
-}
+// hr.mb {
+//   margin: 30px 0;
+//   background: transparent;
+//   color: transparent;
+// }
 
 .team figcaption p {
   margin: 0;
@@ -68,8 +70,14 @@ figcaption {
   // background-color: #333;
 }
 
-hr.mb {
-  margin-bottom: 30px;
+// hr.mb {
+//   margin-bottom: 30px;
+// }
+
+.grid-container.banner {
+  background-color: #ffed00;
+  padding: 30px 20px;
+  margin: 70px 0;
 }
 
 a.team-member-container {
