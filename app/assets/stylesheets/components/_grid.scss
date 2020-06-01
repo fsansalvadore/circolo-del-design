@@ -40,12 +40,6 @@
   margin-right: auto;
 }
 
-// hr.mb {
-//   margin: 30px 0;
-//   background: transparent;
-//   color: transparent;
-// }
-
 .team figcaption p {
   margin: 0;
 }
@@ -67,12 +61,7 @@ figcaption {
 .team-member-img {
   width: 100%;
   height: auto;
-  // background-color: #333;
 }
-
-// hr.mb {
-//   margin-bottom: 30px;
-// }
 
 .grid-container.banner {
   background-color: #ffed00;
@@ -95,9 +84,6 @@ a.team-member-container {
   .grid-3x {
     grid-template-columns: 1fr 1fr;
   }
-  // .team-member-img {
-  //   height: 60vw;
-  // }
 }
 @media (max-width: 767px) {
   .grid-2x {
