@@ -4352,6 +4352,10 @@ h2 {
   flex: 0 0 auto;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .footer-bottom-center {
   min-width: 25%;
   -webkit-box-flex: 0;
@@ -4382,7 +4386,7 @@ h2 {
 }
 
 .footer-sostenitore-img {
-  height: 50px;
+  height: 60px;
   margin-right: 18px;
   margin-left: 18px;
   opacity: 0.5;
@@ -5224,7 +5228,7 @@ figcaption {
     font-size: 10px;
   }
   .footer-sostenitore-img {
-    height: 40px;
+    height: 52px;
   }
 }
 
