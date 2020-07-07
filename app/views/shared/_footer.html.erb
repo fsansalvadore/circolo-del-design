@@ -87,15 +87,27 @@
         <% end %>
       </div>
       <div class="footer-divider"></div>
+      <div class="footer-sostenitori-container">
+        <div>
+        <p>Sponsor</p>
+        <%= link_to "https://www.gruppoiren.it/", target: "_blank", class: "w-inline-block" do %>
+          <%= image_tag "partner/iren_bianco.png", alt: "Iren", class: "footer-sostenitore-img" %>
+        <% end %>
+        <%= link_to "https://www.realemutua.it/", target: "_blank", class: "w-inline-block" do %>
+          <%= image_tag "partner/Marchio-Reale-Mutua-BIANCO.png", alt: "Reale-Mutua", class: "footer-sostenitore-img" %>
+        <% end %>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
       <div class="footer-bottom">
-      <div class="footer-bottom-center">
-        <a href="#top" class="footer-bottom-item">Back to top</a>
-      </div>
-      <div class="footer-bottom-right">
-        <%= link_to 'Privacy & Cookie Policy', privacy_cookie_policy_path, class: "footer-bottom-item footer-link-spacing" %>
-        <a href="https://www.saglietti.it/" target="_blank" class="footer-bottom-item footer-link-spacing">Design</a>
-        <a href="https://www.fsansalvadore.com/" target="_blank" class="footer-bottom-item footer-link-spacing">Webdesign</a>
-      </div>
+        <div class="footer-bottom-center">
+          <a href="#top" class="footer-bottom-item">Back to top</a>
+        </div>
+        <div class="footer-bottom-right">
+          <%= link_to 'Privacy & Cookie Policy', privacy_cookie_policy_path, class: "footer-bottom-item footer-link-spacing" %>
+          <a href="https://www.saglietti.it/" target="_blank" class="footer-bottom-item footer-link-spacing">Design</a>
+          <a href="https://www.fsansalvadore.com/" target="_blank" class="footer-bottom-item footer-link-spacing">Webdesign</a>
+        </div>
       </div>
     </div>
   </footer>
