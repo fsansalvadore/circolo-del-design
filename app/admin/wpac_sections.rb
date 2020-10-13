@@ -80,7 +80,13 @@ ActiveAdmin.register WpacSection do
         f.inputs 'Cover' do
           f.input :cover_type, label: "Tipologia Cover", as: :select, collection: [["Immagine", 1], ["Video", 2]], prompt: "Seleziona un'opzione"
           # f.input :cover_filter_opacity, label: "Intensità filtro", :as => :range, :min => 0, :max => 100, :step => 5, :input_html => { :class => "special" }
-          f.input :cover_image, as: :file, :image_preview => true
+          # f.input :cover_image, as: :file, :image_preview => true
+          f.input :cover_image,
+                label: 'Immagine',
+                as: :file,
+                :hint => f.object.cover_image.attached? \
+                ? "<div class='nested-image-preview'>#{cl_image_tag(f.object.cover_image.key)}<p>#{f.object.cover_image.filename}</p></div>".html_safe
+                : content_tag(:span, "Peso max: 500Kb. Altezza: min 200px / Max 2000px. Larghezza: min 200px / Max 3000px")
           f.input :cover_video, label: "Url video Cloudinary"
           f.input :cover_video_poster, label: "Url immagine/gif sostitutiva Cloudinary"
         end
