@@ -1,7 +1,7 @@
 development:
-  cloud_name: "dueboq0he"
-  api_key: "548793432417296"
-  api_secret: "pR6jFIVXUFs9idF_5yMykO2iv6E"
+  cloud_name: "circolo-del-design"
+  api_key: "615358677584253"
+  api_secret: "aWgunriz-cKjYXN-2VRDjQrPbAQ"
 
 production:
   cloud_name: "dueboq0he"
