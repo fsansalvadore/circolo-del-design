@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_090212) do
+ActiveRecord::Schema.define(version: 2020_10_26_214446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -268,6 +268,26 @@ ActiveRecord::Schema.define(version: 2020_05_07_090212) do
     t.bigint "blog_post_id"
     t.index ["blog_post_id"], name: "index_post_text_shorts_on_blog_post_id"
     t.index ["blog_post_section_id"], name: "index_post_text_shorts_on_blog_post_section_id"
+  end
+
+  create_table "special_projects", force: :cascade do |t|
+    t.string "title"
+    t.boolean "intro_media_type"
+    t.string "intro_image"
+    t.string "intro_video"
+    t.string "intro_video_provider"
+    t.text "content"
+    t.string "link_cta"
+    t.string "link_url"
+    t.date "year"
+    t.string "cover"
+    t.string "meta_keywords"
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "published"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  year: 2020-10-26
+  cover: MyString
+  meta_keywords: MyString
+  meta_title: MyString
+  meta_description: MyString
+  slug: MyString
+
+two:
+  title: MyString
+  year: 2020-10-26
+  cover: MyString
+  meta_keywords: MyString
+  meta_title: MyString
+  meta_description: MyString
+  slug: MyString
