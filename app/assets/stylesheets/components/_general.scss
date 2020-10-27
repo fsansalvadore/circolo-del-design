@@ -201,3 +201,42 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+// Progetti Speciali
+
+.sp-back-container {
+  position: relative;
+  margin-top: 111px;
+  width: 100%;
+  padding: 1rem;
+  color: #fff;
+  background: #e1354b;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  
+  span {
+    transition: all 0.15s ease;
+    position: relative;
+    display: inline-block;
+  }
+
+  &:hover {
+    span {
+      transform: translateX(-3px);
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.sp-header {
+  padding: 60px 0;
+}
+
+.sp-content-container {
+  padding: 60px 10vw 60px 20px;
+}

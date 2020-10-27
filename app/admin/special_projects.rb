@@ -10,7 +10,7 @@ ActiveAdmin.register SpecialProject do
                 :intro_image,
                 :intro_video,
                 :intro_video_provider,
-                :intro_media_type,
+                :intro_media_select,
                 :link_cta,
                 :link_url,
                 :year
@@ -64,7 +64,6 @@ ActiveAdmin.register SpecialProject do
     column "Titolo" do |special_project|
       link_to special_project.title, admin_special_project_path(special_project)
     end
-    column :categoria
     column "Anno", :year, :sortable => :year
     column :published
     column "Pubblica" do |special_project|
@@ -110,17 +109,30 @@ ActiveAdmin.register SpecialProject do
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
-    f.inputs 'Progetto Speciale' do
-      f.input :title, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
-      f.input :meta_keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
-      f.input :meta_title, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
-      f.input :meta_description, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
-      f.input :year, as: :date_time_picker, hint: "Obbligatorio"
+    tabs do
+      tab :progetto do
+        f.inputs 'Progetto Speciale' do
+          f.input :published
+          f.input :title, placeholder: 'Titolo', label: "Titolo progetto", hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
+          f.input :year, as: :date_time_picker, label: "Anno", hint: "Inserire una qualsiasi data nell'anno desiderato."
+          f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"
+        end
+      end
+      tab :meta do
+        f.inputs 'Meta' do
+          f.input :meta_keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
+          f.input :meta_title, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
+          f.input :meta_description, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
+        end
+      end
+    end
+    f.inputs 'Contenuto' do
+      f.input :intro_media_select, label: "Tipologia intro", as: :select, collection: [["Nessuno", 0], ["Immagine", 1], ["Video", 2]], prompt: "Seleziona intro", hint: "Seleziona la tipologia di intro."
+      f.input :intro_image, as: :file, :image_preview => true, hint: "Compare come intro se selezionato in 'Tipologia intro'"
+      f.input :intro_video, placeholder: 'Url Vimeo', hint: "Inserire l'intero indirizzo url del video. Compare come intro se selezionato in 'Tipologia intro'"
       f.input :content, as: :quill_editor, hint: "Obbligatorio"
-      f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"
       f.input :link_url, placeholder: '"Scopri di più"', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       # f.input :link_cta, placeholder: '"Scopri di più"', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
-      f.input :published
     end
     f.actions
   end  

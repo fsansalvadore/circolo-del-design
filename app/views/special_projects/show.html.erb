@@ -1,125 +1,79 @@
-<% content_for :meta_title, "Circolo Del Design — #{@event.titolo}" %>
-<% content_for :meta_description, @event.sottotitolo %>
-<% content_for :meta_image, cl_image_path(@event.image) %>
-<% content_for :meta_keywords, @event.keywords if @event.keywords %>
+<% content_for :meta_title, "Circolo Del Design — #{@special_project.title}" %>
+<% content_for :meta_description, @special_project.meta_description %>
+<%# content_for :meta_image, cl_image_path(@special_project.cover) %>
+<% content_for :meta_keywords, @special_project.meta_keywords if @special_project.meta_keywords %>
 
-<div data-w-id="d9606d54-5066-d045-659c-1c2fc8596509" class="event-popup-details-container">
-  <div class="event-popup-content-container w-container large">
-    <h1 class="event-popup-title"><%= @event.titolo %></h1>
-    <div class="event-popup-right-info">
-      <%  inizio = @event.data_inizio
-          fine = @event.data_fine
-          dash = @event.data_inizio != @event.data_fine ? " - " : ""
-      %>
-      <div><%= tag.time l(inizio, format: :short), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :short), datetime: fine) : "" %></div>
-      <div class="div-block-43 popup"></div>
-      <div class="event-focus-bar-price"><%= @event.prezzo %></div>
-    </div>
-  </div>
-</div>
+<%= link_to progetti_speciali_path, class: "sp-back-container" do %>
+  <p><span>&#8592;</span> Guarda tutti i Progetti Speciali</p>
+<% end %>
 <header id="top" class="event-header-container">
-  <div class="event-header-top-info">
-    <div class="container-5 w-container large">
+  <div class="sp-header">
+    <div class="container-5 w-container">
       <div class="event-header-info-text">
         <div class="breadcrumb-text">
-          <%= link_to "Home", root_path %> / What's On / <%= link_to "Programma", whats_on_programma_path %>
+          <%= link_to "Home", root_path %> / <%= link_to "Progetti Speciali", progetti_speciali_path %> /
         </div>
-        <h1 class="event-header-title"><%= @event.titolo %></h1>
-        <div class="event-header-subtitle"><%= @event.sottotitolo if @event.sottotitolo %></div>
-        <div class="event-header-label-container">
-          <% separator = @event.sotto_categoria && !@event.sotto_categoria.empty? ? " / " : ""  %>
-          <div class="event-label <%= @event.categoria.split(' ').first.downcase %>"><%= @event.categoria %><%= separator %><%= @event.sotto_categoria.upcase if @event.sotto_categoria %></div>
-        </div>
+        <h1 class="event-header-title"><%= @special_project.title %></h1>
       </div>
-      <div class="event-header-main-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
-    </div>
-    <div class="event-header-bg-img" style="background-image: url('<%= cl_image_path @event.image %>')"></div>
-  </div>
-  <div id="event-focus-bar" class="event-header-focus-bar">
-    <div class="event-header-focus-bar-content w-container large">
-      <%= image_tag "calendar-icon.svg", alt: "calendar", class: "image-3"%>
-      <div class="event-focus-bar-date"><%= tag.time l(inizio, format: :medium), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :medium), datetime: fine) : "" %></div>
-      <div class="div-block-43"></div>
-      <div class="event-focus-bar-price"><%= @event.prezzo %></div>
     </div>
   </div>
 </header>
 <div class="page-postheader" id="main-content">
-  <main class="event-article-container w-container large">
-    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
-      <div class="event-aside-line"></div>
-      <ul class="event-aside-list w-list-unstyled">
-        <li class="event-aside-list-item">
-          <div class="event-aside-list-label">Data e ora</div>
-          <div class="event-aside-list-text"><%= tag.time l(inizio, format: :long), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :long), datetime: fine) : "" %>
-            <br>
-            <% if !@event.orario.empty? %>
-              <%= @event.orario %>
+  <main class="sp-content-container container-5 w-container">
+    <article class="blog">
+        <div class="social_share_container">
+          <div class="social_share_group sticky">
+            <a id="facebook" href="#">
+              <%= image_tag "icon_facebook.svg", alt: "alttext" %>
+            </a>
+            <a id="twitter" href="#">
+              <%= image_tag "icon_twitter.svg", alt: "alttext" %>
+            </a>
+            <a id="whatsapp" href="#">
+              <%= image_tag "icon_whatsapp.svg", alt: "alttext" %>
+            </a>
+            <a id="clipboard" href="#">
+              <%= image_tag "icon_link.svg", alt: "alttext" %>
+            </a>
+          </div>
+        </div>
+
+        <div class="project_content event-article-content big-content">
+            <% case @special_project.intro_media_select 
+               when 0
+            %>
+            <div></div>
+            <% when 1 %>
+              <% if @special_project.intro_image.present? %>
+                <%= cl_image_tag @special_project.intro_image, alt: @special_project.title, class: "full-w-img m-bottom-50" %>
+              <% end %>
+            <% when 2 %>
+              <% unless !@special_project.intro_video || @special_project.intro_video.empty? %>
+                <div style="padding:56.25% 0 0 0;position:relative;" class="m-bottom-50"><iframe src="<%=@special_project.intro_video%>" class="video-full-w" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+              <% end %>
             <% end %>
-          </div>
-        </li>
-        <% if @event.curator && !@event.curator.empty? %>
-          <li class="event-aside-list-item">
-            <div class="event-aside-list-label">A cura di</div>
-            <div class="event-aside-list-text"><%= @event.curator %></div>
-          </li>
-        <% end %>
-        <li class="event-aside-list-item">
-          <div class="event-aside-list-label">Prezzo</div>
-          <div class="event-aside-list-text">
-            <% if @event.prezzo.capitalize == "Gratuito per i soci" %>
-            Gratuito per i soci //<br>tesseramento Circolo del Design studenti €5, intero 8€
-            <% else %>
-              <%= @event.prezzo.capitalize %>
+            <% unless !@special_project.content || @special_project.content.empty? %>
+              <div>
+                <%=raw @special_project.content %>
+              </div>
             <% end %>
-          </div>
-        </li>
-        <li class="event-aside-list-item">
-          <div class="event-aside-list-label">Luogo</div>
-          <div class="event-aside-list-text">
-            <% if @event.luogo.empty? %>
-              Via San Francesco da Paola 17<br>10123 Torino TO Italia
-            <% else %>
-              <%= @event.luogo %>
+            <% if @special_project.link_url && !@special_project.link_url.empty? %>
+              <%= link_to @special_project.link_url, target: "_blank", class: "btn btn-link-arrow m-bottom-0 btn-active-yellow" do %>
+                <div class="text-block-3">Scopri di più</div>
+                <div class="arrow-right">
+                  <div class="arrow-point-right">
+                    <div class="div-block-8"></div>
+                    <div class="div-block-3"></div>
+                    <div class="div-block-3 arrow-point-lower"></div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
-          </div>
-        </li>
-        <% if !@event.durata.empty? %>
-        <li class="event-aside-list-item">
-          <div class="event-aside-list-label">Durata</div>
-          <div class="event-aside-list-text"><%= @event.durata %></div>
-        </li>
-        <% end %>
-        <% if !@event.posti.empty? %>
-        <li class="event-aside-list-item">
-          <div class="event-aside-list-label">N° posti</div>
-          <div class="event-aside-list-text"><%= @event.posti %></div>
-        </li>
-        <% end %>
-        <% if !@event.target.empty? %>
-        <li class="event-aside-list-item">
-          <div class="event-aside-list-label">Pubblico</div>
-          <div class="event-aside-list-text"><%= @event.target %></div>
-        </li>
-        <% end %>
-        <% if !@event.link.empty? %>
-        <a data-w-id="fc471873-720f-cc09-a5c1-695dae3ac255" href="<%= @event.link %>" target="_blank" class="btn-link-arrow event-aside m-top-30 w-inline-block btn-active-yellow">
-          <div class="text-block-3">Registrati</div>
-          <div class="arrow-right">
-            <div class="arrow-point-right">
-              <div class="div-block-8"></div>
-              <div class="div-block-3"></div>
-              <div class="div-block-3 arrow-point-lower"></div>
-            </div>
-          </div>
-        </a>
-        <% end %>
-      </ul>
-    </aside>
-    <article class="event-article-content line">
-      <div>
-        <%=raw @event.descrizione %>
-      </div>
-    </article>
+
+            <div class="m-bottom-50"></div>
+        
+        </div>
+
+      </article >
   </main>
 </div>

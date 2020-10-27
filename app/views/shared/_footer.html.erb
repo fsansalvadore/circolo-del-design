@@ -31,11 +31,12 @@
           <div class="footer-sitemap-block">
             <div data-w-id="029f16f5-d0c9-3d36-9620-7667132adcf7" class="footer-sitemap-list-title-no-hover">Progetti Speciali</div>
             <div class="footer-sitemap-list-wrapper">
-              <%= link_to "Introduzione", progetti_speciali_introduzione_path, class: "footer-sitemap-list-item", alt: "Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti Speciali con l’ambizione di incidere concretamente su ambiti specifici." %>
-              <%= link_to "Ask To Design", progetti_speciali_ask_to_design_path, class: "footer-sitemap-list-item", alt: "Ask to Design vuole alimentare la cultura del progetto nel mondo della produzione e promuovere l’incontro tra le realtà aziendali e i progettisti." %>
-              <%= link_to "Welcome to the Post-Analog Condition*", wpac_path, class: "footer-sitemap-list-item", alt: "Ispirazioni e progetti per un nuovo tempo." %>
-              <%= link_to "Video Torino Creative City UNESCO", progetti_speciali_video_torino_creative_city_unesco_path, class: "footer-sitemap-list-item", alt: "Il video Torino Creative City, prodotto dal Circolo del Design, è stato presentato in anteprima a Fabriano in occasione dell’Assemblea mondiale delle città creative Unesco." %>
-              <%= link_to "Interaction 20", progetti_speciali_interaction_20_path, class: "footer-sitemap-list-item", alt: "La Camera di commercio di Torino e il Circolo del Design realizzano due pacchetti di tour all’interno della programmazione di Interaction 20, il congresso biennale organizzato dall’Interaction Design Association che approda per la prima volta in Italia." %>
+              <%= link_to "Tutti i progetti", progetti_speciali_path, class: "footer-sitemap-list-item", alt: "Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti Speciali con l’ambizione di incidere concretamente su ambiti specifici." %>
+              <% unless SpecialProject.where("published = true").empty? %>
+                <% SpecialProject.where("published = true").limit(5).order(year: :desc).each do |special_project| %>
+                  <%= link_to special_project.title, special_project_path(special_project), class: "footer-sitemap-list-item", alt: special_project.title %>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <div class="footer-sitemap-block">

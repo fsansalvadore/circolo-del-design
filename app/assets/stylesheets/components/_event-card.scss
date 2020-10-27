@@ -5,10 +5,13 @@
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
   border-radius: 1px;
   color: #000;
-  display: inline-table;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   will-change: box-shadow, transform;
   text-decoration: none;
+
+  &.special-projects-card {
+    width: 24%;
+  }
 
   &:hover {
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
@@ -42,7 +45,7 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  background-color: teal;
+  background-color: #e1354b;
 }
 
 .cart_img_container {
@@ -130,7 +133,7 @@
 }
 
 @media screen and (max-width: 991px) {
-  .event-card-container {
+  .event-card-container, .event-card-container.special-projects-card {
     width: 47.5%;
   }
 }

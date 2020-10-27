@@ -2,52 +2,28 @@
 <% content_for :meta_description, "Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti Speciali con l’ambizione di incidere concretamente su ambiti specifici." %>
 <% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, progetti speciali, istituzioni, aziende, professionisti" %>
 
-<header id="top" class="page-header-container">
-  <div class="w-container large">
-    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / Progetti Speciali /</div>
-    <h1 class="page-header-title">Progetti Speciali</h1>
-    <div class="page-header-subtitle">Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti Speciali con l’ambizione di incidere concretamente su ambiti specifici.</div>
-  </div>
-</header>
+<%= render 'shared/projects-header' %>
 <main class="page-postheader">
   <div class="calendar-main-container w-container large">
-    <div class="calendar-content-left">
-      <div class="calendar-filters-container">
-        <%= form_tag progetti_speciali_path, method: :get, class: "events-search-form m-bottom-30" do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "event-form-control",
-            placeholder: "Cerca tra i progetti"
-          %>
-          <%= button_tag :submit, {class: "search-btn"} do %>
-            <div class="search icon"></div>
-          <% end %>
-        <% end %>
-        <!-- Categories select -->
-        <%= form_tag progetti_speciali_path, method: :get, class: "category-search-form m-bottom-30" do %>
-          <%= select_tag("year", options_for_select([["2020", "2020"], ["2019", "2019"], ["2018", "2018"]], @yearSelect),
-            prompt: "Tutti gli anni",
-            class: "category-select",
-            onclick: "$('.category-select').change(function() {
-                        $('form.category-search-form').submit();
-                      });",
-            ) %>
-        <% end %>
-      </div>
+    <div class="special-projects-container">
+      <!-- filtri -->
       <div class="calendar-cards-container">
         <% if !@special_projects.empty? %>
         <p class="result-message"><%= @special_projects.all.count %> risultat<%= @special_projects.all.count == 1 ? "o" : "i" %></p>
         <% @special_projects.each do |special_project| %>
-          <%= link_to special_project_path(special_project), class: "event-card-container" do %>
-          <% unless !special_project.cover || !special_project.cover.nil? %>
+          <%= link_to special_project_path(special_project), class: "event-card-container special-projects-card" do %>
+          <% if special_project.cover && special_project.cover.present? %>
             <div class="event-card-img-container" style="background-image: url('<%= cl_image_path special_project.cover %>');"></div>
+          <% else %>
+            <div class="event-card-img-container"></div>
           <% end %>
             <div class="event-card-content-container">
               <h3 class="event-card-title"><%= special_project.title.truncate(100) %></h3>
-              <div class="event-card-date-container">
-                <%= image_tag "calendar-icon.svg", alt: "calendar", class: "image-3"%>
-                <p><%= special_project.year.year() %></p>
-              </div>
+              <% if special_project.year || !special_project.year.nil? %>
+                <div class="">
+                  <p><%= special_project.year.year() %></p>
+                </div>
+              <% end %>
             </div>
           <% end %>
         <% end %>

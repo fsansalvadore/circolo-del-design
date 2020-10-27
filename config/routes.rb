@@ -55,9 +55,9 @@ Rails.application.routes.draw do
 
   # progetti speciali
   get '/progetti-speciali/introduzione'                       => 'projects#index'
-  get '/progetti-speciali/ask-to-design'                      => 'projects#ask_to_design'
-  get '/progetti-speciali/video-torino-creative-city_unesco'  => 'projects#video_torino_creative_city_unesco'
-  get '/progetti-speciali/interaction-20'                     => 'projects#interaction_20'
+  # get '/progetti-speciali/ask-to-design'                      => 'projects#ask_to_design'
+  # get '/progetti-speciali/video-torino-creative-city_unesco'  => 'projects#video_torino_creative_city_unesco'
+  # get '/progetti-speciali/interaction-20'                     => 'projects#interaction_20'
   
   get '/progetti-speciali'                                    => 'special_projects#index', as: :progetti_speciali
   get '/progetti-speciali/:slug'                              => 'special_projects#show',  as: :special_project

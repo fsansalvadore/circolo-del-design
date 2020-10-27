@@ -3,7 +3,7 @@ class SpecialProjectsController < ApplicationController
     before_action :set_special_project, only: [:show, :edit, :update, :destroy]
 
     def index
-        @special_projects = SpecialProject.where("published = ?", true)
+        @special_projects = SpecialProject.where("published = ?", true).order(year: :desc)
         if params[:query].present?
         sql_query = " \
             special_projects.titolo ILIKE :query \
@@ -13,7 +13,7 @@ class SpecialProjectsController < ApplicationController
         "
         @special_projects = @special_projects.where(sql_query, query: "%#{params[:query]}%")
         elsif params[:year].present?
-        @special_projects = SpecialProject.where("extract(year from year) = ?", params[:year]).where(published: true).order(:year)
+        @special_projects = SpecialProject.where("extract(year from year) = ?", params[:year]).where(published: true).sort_by{ |e| [e.year, e.title] }
         @yearSelect = params[:year]
         else
         @special_projects = @special_projects.order(:year)

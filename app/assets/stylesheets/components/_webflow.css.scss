@@ -4739,6 +4739,10 @@ div,
   font-size: 18px;
   line-height: 160%;
   padding-left: 30px;
+
+  &.project_content {
+    width: 100%;
+  }
 }
 
 .line::before {
@@ -5012,7 +5016,7 @@ figcaption {
 
 .page-header-subtitle {
   font-size: 18px;
-  line-height: 110%;
+  line-height: 130%;
 
   span {
     font-weight: bold;
@@ -5162,7 +5166,7 @@ figcaption {
     // margin-right: 12px;
     // margin-left: 12px;
   }
-  .event-article-container {
+  .event-article-container, .sp-content-container {
     padding-top: 40px;
   }
   .event-article-content {
@@ -5710,7 +5714,7 @@ figcaption {
   .div-block-43.popup {
     display: none;
   }
-  .event-article-container {
+  .event-article-container, .sp-content-container {
     padding-top: 10px;
   }
   .event-aside-line {
