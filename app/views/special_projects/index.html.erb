@@ -9,7 +9,7 @@
       <!-- filtri -->
       <div class="calendar-cards-container">
         <% if !@special_projects.empty? %>
-        <p class="result-message"><%= @special_projects.all.count %> risultat<%= @special_projects.all.count == 1 ? "o" : "i" %></p>
+        <!-- risultati -->
         <% @special_projects.each do |special_project| %>
           <%= link_to special_project_path(special_project), class: "event-card-container special-projects-card" do %>
           <% if special_project.cover && special_project.cover.present? %>
