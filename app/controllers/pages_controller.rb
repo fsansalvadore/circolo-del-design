@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 
   def index
     @events = Event.where('data_fine >= ? OR data_inizio >= ?', DateTime.now, DateTime.now + 20).where("published = true").limit(5).sort_by{ |e| [e.priority, e.data_inizio] }
-    # @special_projects = SpecialProject.where("published = true").limit(5).order(year: :desc)
+    @special_projects = SpecialProject.where("published = true").limit(5).order(year: :desc)
     # @blog_posts = BlogPost.where("published = true AND priority BETWEEN 1 AND 4").limit(5).sort_by{ |e| [e.priority, e.created_at] }
     # @articles = Article.where("published = true AND priority BETWEEN 1 AND 4").limit(5).sort_by{ |e| [e.priority, e.created_at] }
     # @slider_cover = Article.where("priority = 6 AND published = true").first
