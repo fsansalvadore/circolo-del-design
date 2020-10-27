@@ -139,7 +139,7 @@
 }
 
 @media screen and (max-width: 479px) {
-  .event-card-container {
+  .event-card-container, .event-card-container.special-projects-card {
     width: 100%;
     margin: 10px 0;
   }
