@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   #get '/servizi/store' => 'pages#servizi_store'
 
   # progetti speciali
-  get '/progetti-speciali/introduzione'                       => 'projects#index'
+  # get '/progetti-speciali/introduzione'                       => 'projects#index'
   # get '/progetti-speciali/ask-to-design'                      => 'projects#ask_to_design'
   # get '/progetti-speciali/video-torino-creative-city_unesco'  => 'projects#video_torino_creative_city_unesco'
   # get '/progetti-speciali/interaction-20'                     => 'projects#interaction_20'
