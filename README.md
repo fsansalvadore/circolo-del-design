@@ -1,5 +1,3 @@
-
-* ...
 # circolo-del-design
 
 The club is a pillar of the Italian design scene. This website lets them communicate with the public and promote their cultural offer.
