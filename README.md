@@ -4,7 +4,7 @@ The club is a pillar of the Italian design scene. This website lets them communi
 
 [Live Preview](https://www.circolodeldesign.it/)
 
-![Circolo del Design Preview](https://www.fsansalvadore.com/assets/CircoloDelDesign-Preview.gif)
+
 
 ## Technologies
 - Ruby on Rails
