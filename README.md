@@ -1,25 +1,17 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...
 # circolo-del-design
+
+The club is a pillar of the Italian design scene. This website lets them communicate with the public and promote their cultural offer.
+
+[Live Preview](https://www.circolodeldesign.it/)
+
+![Circolo del Design Preview](https://www.fsansalvadore.com/assets/CircoloDelDesign-Preview.gif)
+
+## Technologies
+- Ruby on Rails
+- PostgreSQL
+- HTML5
+- SCSS
+- Heroku
+- Cloudinary
