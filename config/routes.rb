@@ -59,10 +59,14 @@ Rails.application.routes.draw do
   # get '/progetti-speciali/video-torino-creative-city_unesco'  => 'projects#video_torino_creative_city_unesco'
   # get '/progetti-speciali/interaction-20'                     => 'projects#interaction_20'
   
-  get '/progetti-speciali'                                    => 'special_projects#index', as: :progetti_speciali
-  get '/progetti-speciali/:slug'                              => 'special_projects#show',  as: :special_project
+  get '/progetti-di-impatto'                                    => 'special_projects#index', as: :progetti_speciali
+  get '/progetti-di-impatto/:slug'                              => 'special_projects#show',  as: :special_project
 
-  # membership
+  # Redirect from old "Progetti Speciali" to "Progetti d'impatto"
+  get '/progetti-speciali',           to: redirect('/progetti-di-impatto', status: 302)
+  get '/progetti-speciali/:slug',     to: redirect('/progetti-di-impatto/%{slug}', status: 302)
+  
+  # Membership
   get '/membership' => 'pages#membership'
 
   get '/sitemap'    => 'sitemaps#index'

@@ -4,14 +4,14 @@
 <% content_for :meta_keywords, @special_project.meta_keywords if @special_project.meta_keywords %>
 
 <%= link_to progetti_speciali_path, class: "sp-back-container" do %>
-  <p><span>&#8592;</span> Guarda tutti i Progetti Speciali</p>
+  <p><span>&#8592;</span> Guarda tutti i Progetti d'Impatto</p>
 <% end %>
 <header id="top" class="event-header-container">
   <div class="sp-header">
     <div class="container-5 w-container">
       <div class="event-header-info-text">
         <div class="breadcrumb-text">
-          <%= link_to "Home", root_path %> / <%= link_to "Progetti Speciali", progetti_speciali_path %> /
+          <%= link_to "Home", root_path %> / <%= link_to "Progetti d'Impatto", progetti_speciali_path %> /
         </div>
         <h1 class="event-header-title"><%= @special_project.title %></h1>
       </div>

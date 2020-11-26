@@ -29,9 +29,9 @@
             </div>
           </div>
           <div class="footer-sitemap-block">
-            <div data-w-id="029f16f5-d0c9-3d36-9620-7667132adcf7" class="footer-sitemap-list-title-no-hover">Progetti Speciali</div>
+            <div data-w-id="029f16f5-d0c9-3d36-9620-7667132adcf7" class="footer-sitemap-list-title-no-hover">Progetti d'impatto</div>
             <div class="footer-sitemap-list-wrapper">
-              <%= link_to "Tutti i progetti", progetti_speciali_path, class: "footer-sitemap-list-item", alt: "Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti Speciali con l’ambizione di incidere concretamente su ambiti specifici." %>
+              <%= link_to "Tutti i progetti", progetti_speciali_path, class: "footer-sitemap-list-item", alt: "Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti d'impatto con l’ambizione di incidere concretamente su ambiti specifici." %>
               <% unless SpecialProject.where("published = true").empty? %>
                 <% SpecialProject.where("published = true").limit(5).order(year: :desc).each do |special_project| %>
                   <%= link_to special_project.title, special_project_path(special_project), class: "footer-sitemap-list-item", alt: special_project.title %>
