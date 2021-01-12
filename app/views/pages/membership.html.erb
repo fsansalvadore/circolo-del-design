@@ -24,8 +24,15 @@ Under26:<br>€5,00</strong></h3>
     <article class="event-article-content line membership">
       <div class="cognito">
         <script src="https://www.cognitoforms.com/s/iaqB_HW58EWhdQrYdJXiSA"></script>
-        <script>Cognito.load("forms", { id: "1" });</script>
+        <script>
+          Cognito.load("forms", { id: "1" });
+
+          setTimeout(() => {
+            document.querySelector("#loading").remove()
+          }, 2000)
+        </script>
       </div>
+      <div id="loading">Caricamento...</div>
     </article>
     <div>
   </div>

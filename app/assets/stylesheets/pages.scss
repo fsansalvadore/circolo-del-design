@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 article.membership {
+    position: relative;
+
     .cognito .c-forms-heading .c-forms-form-title {
         padding-top: 0 !important;
     }
@@ -14,18 +16,19 @@ article.membership {
             line-height: 1.4rem;
         }
     
-        &::after {
-            content: "Caricamento...";
-            position: absolute;
-            margin: 0 auto;
-            left: 0;
-            right: 0;
-            top: 0;
-            z-index: -99;
-        }
-
+        
         .c-forms-form {
             background: #fbfbfb;
         }
+    }
+    #loading {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: -99;
     }
 }
