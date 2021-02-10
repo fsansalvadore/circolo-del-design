@@ -9,7 +9,7 @@
     <div class="container-2 w-container">
       <div data-w-id="d8e1098b-6db6-d8a3-7748-351c9f63a7ad">
         <h1 data-w-id="c0cc82b3-28b6-e009-e4ea-8c05523a3355" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="h1-a">
-          <%= @page.heading.empty? ? "Design as a multitude" : raw @page.heading %>
+          <%= raw @page.heading unless @page.heading %>
         </h1>
         <div data-w-id="6666dabb-4ad3-644b-af0f-4068709a7f08" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-block-2">
           <%= raw @page.subheading unless @page.subheading.empty? %> %>
