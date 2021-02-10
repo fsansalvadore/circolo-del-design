@@ -3,6 +3,7 @@ ActiveAdmin.register PageHome do
 
   permit_params :meta_title,
                 :meta_description,
+                :meta_keywords,
                 :meta_image,
                 :splash_presence,
                 :splash_title,
@@ -71,7 +72,7 @@ ActiveAdmin.register PageHome do
           f.inputs 'Meta Data' do
             f.input :meta_title, label: "Meta Title", placeholder: 'Meta Title'
             f.input :meta_description, label: "Meta Description", placeholder: 'Meta Description'
-            f.input :meta_keywords, label: "Meta Description", placeholder: 'Meta Description'
+            f.input :meta_keywords, label: "Meta Keywords", placeholder: 'Meta Keywords'
             f.input :meta_image, as: :file, label: "Meta Image", :image_preview => true
           end
         end
@@ -79,7 +80,7 @@ ActiveAdmin.register PageHome do
           f.inputs 'Splash Page' do
             f.input :splash_presence, label: "Mostra"
             f.input :splash_bg_img, as: :file, label: "Immagine di sfondo", hint: "jpg, png, gif", :image_preview => true
-            f.input :splash_title, label: "Durata in millisecondi della Splash Page. 0 per tempo infinito.", as: :quill_editor
+            f.input :splash_title, label: "Titolo / Testo", as: :quill_editor
             # f.input :splash_duration, label: "Durata in millisecondi della Splash Page. 0 per tempo infinito."
             # f.input :splash_delay, label: "Tempo di ritardo in ingresso in millisecondi."
           end
