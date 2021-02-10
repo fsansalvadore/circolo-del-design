@@ -19,6 +19,7 @@ class PagesController < ApplicationController
     # @articles = Article.where("published = true AND priority BETWEEN 1 AND 4").limit(5).sort_by{ |e| [e.priority, e.created_at] }
     # @slider_cover = Article.where("priority = 6 AND published = true").first
     @wpac = WpacSection.all.first
+    @page = PageHome.all.first
     # @slider_cover = BlogPost.where("priority = 6 AND published = true").first
     render :layout => 'home'
   end
