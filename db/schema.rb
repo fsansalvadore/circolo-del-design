@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_102024) do
+ActiveRecord::Schema.define(version: 2021_02_10_143200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -235,6 +235,35 @@ ActiveRecord::Schema.define(version: 2020_10_27_102024) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "page_homes", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.boolean "splash_presence"
+    t.integer "splash_delay"
+    t.integer "splash_duration"
+    t.string "splash_title"
+    t.string "splash_bg_img"
+    t.string "title"
+    t.text "subtitle"
+    t.boolean "carousel_presence"
+    t.text "paragraph_1"
+    t.boolean "arrow_presence"
+    t.string "arrow_icon"
+    t.boolean "cta_section_presence"
+    t.string "cta_section_link_text"
+    t.string "cta_section_link_url"
+    t.boolean "newsletter_box_presence"
+    t.text "newsletter_box_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "paragraph_2"
+    t.string "cta_section_title"
+    t.string "heading"
+    t.text "subheading"
   end
 
   create_table "post_instagrams", force: :cascade do |t|

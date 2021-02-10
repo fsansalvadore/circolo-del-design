@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  splash_presence: false
+  splash_delay: 1
+  splash_duration: 1
+  splash_title: MyString
+  splash_bg_img: MyString
+  title: MyString
+  subtitle: MyText
+  carousel_presence: false
+  paragraph_1: MyText
+  arrow_presence: false
+  arrow_icon: MyString
+  cta_section_presence: false
+  cta_section_link_text: MyString
+  cta_section_link_url: MyString
+  newsletter_box_presence: false
+  newsletter_box_text: MyText
+
+two:
+  splash_presence: false
+  splash_delay: 1
+  splash_duration: 1
+  splash_title: MyString
+  splash_bg_img: MyString
+  title: MyString
+  subtitle: MyText
+  carousel_presence: false
+  paragraph_1: MyText
+  arrow_presence: false
+  arrow_icon: MyString
+  cta_section_presence: false
+  cta_section_link_text: MyString
+  cta_section_link_url: MyString
+  newsletter_box_presence: false
+  newsletter_box_text: MyText
