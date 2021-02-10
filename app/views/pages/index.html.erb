@@ -9,10 +9,10 @@
     <div class="container-2 w-container">
       <div data-w-id="d8e1098b-6db6-d8a3-7748-351c9f63a7ad">
         <h1 data-w-id="c0cc82b3-28b6-e009-e4ea-8c05523a3355" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="h1-a">
-          <%= raw @page.heading unless @page.heading %>
+          <%= raw @page.heading unless @page.heading.empty? %>
         </h1>
         <div data-w-id="6666dabb-4ad3-644b-af0f-4068709a7f08" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-block-2">
-          <%= raw @page.subheading unless @page.subheading.empty? %> %>
+          <%= raw @page.subheading unless @page.subheading.empty? %>
         </div>
         <a data-w-id="ae9cec70-83ef-cef6-706b-ca4cf8552415" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" href="/about-us/il-circolo" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
           <div class="text-block-3">Scopri il Circolo</div>
@@ -200,7 +200,7 @@
   <% if @page.cta_section_presence %>
     <div class="section-a-4">
       <div data-w-id="06b735b0-7464-0951-2c74-2b5b408766d3" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="w-container">
-        <h1 class="heading-2"><%= @page.cta_section_title %></h1>
+        <h1 class="heading-2"><%= raw @page.cta_section_title unless @page.cta_section_title.empty? %></h1>
         <%= link_to contatti_path, { 'data-w-id' => "49d24f3c-3fc7-fe3e-e94c-6d04e8879a08", class: "link-list-item contattaci-link w-inline-block" } do %>
           <div class="text-block-4">Contattaci</div>
           <div class="arrow-right">
@@ -218,7 +218,7 @@
     <div class="section-a-5">
       <div data-w-id="2a2317fe-8174-c278-1e7e-1e04f2cce1cb" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="container-4 w-container">
         <div class="text-block-5">
-          <%= raw @page.newsletter_box_text unless @page.newsletter_box_text %>
+          <%= raw @page.newsletter_box_text unless @page.newsletter_box_text.empty? %>
         </div>
         <div class="form-block w-form">
           <form action="https://circolodesign.us12.list-manage.com/subscribe/post?u=921774d7b58b28e02d4b2bf62&amp;id=2cbdda2499" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate>
