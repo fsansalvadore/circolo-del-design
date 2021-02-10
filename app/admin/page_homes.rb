@@ -28,6 +28,12 @@ ActiveAdmin.register PageHome do
   config.comments = false
   actions :all, :except => [:destroy]
   
+  controller do
+    def index
+      redirect_to admin_page_home_path(PageHome.all.first)
+    end
+  end
+
   show title: :title do
     columns do
       column do
