@@ -10,7 +10,7 @@
     overflow: hidden;
     cursor: pointer;
     transition: opacity 0.4s ease;
-    
+
     .splash-container,
     .splash-content {
         position: relative;
@@ -30,8 +30,8 @@
         position: absolute;
         width: auto;
         height: auto;
-        max-width: 90%;
-        max-height: 90%;
+        max-width: 100%;
+        max-height: 100%;
     }
 
     .splash-bg-img {
