@@ -1,9 +1,9 @@
 const Splash = () => {
-  document.getElementById("splash").addEventListener("click", () => {
-    console.log(this)
-    console.log(this.classList)
+  document.getElementById("splash").addEventListener("click", (e) => {
+    e.target.classList.add("splash-out");
+
     setTimeout(() => {
-      this.remove();
+      e.target.remove();
     }, 1000);
   });
 }
