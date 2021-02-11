@@ -1,6 +1,7 @@
 const Splash = () => {
   document.getElementById("splash").addEventListener("click", () => {
-    this.classList.add("splash-out");
+    console.log(this)
+    console.log(this.classList)
     setTimeout(() => {
       this.remove();
     }, 1000);
