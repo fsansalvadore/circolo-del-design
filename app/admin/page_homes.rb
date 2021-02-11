@@ -8,6 +8,7 @@ ActiveAdmin.register PageHome do
                 :splash_presence,
                 :splash_title,
                 :splash_bg_img,
+                :splash_content_img,
                 :splash_delay,
                 :splash_duration,
                 :title,
@@ -58,6 +59,20 @@ ActiveAdmin.register PageHome do
           row :meta_description
           row :meta_keywords
         end
+        attributes_table :title => "Splash Page" do
+          row :splash_presence
+          row :splash_content_img do |home|
+            if home.splash_content_img && !home.splash_content_img.file.nil?
+              image_tag(cl_image_path(home.splash_content_img), class: "image-preview")
+            end
+          end
+          row :splash_bg_img do |home|
+            if home.splash_bg_img && !home.splash_bg_img.file.nil?
+              image_tag(cl_image_path(home.splash_bg_img), class: "image-preview")
+            end
+          end
+          row (:splash_title) { |home| raw(home.splash_title) }
+        end
       end
     end
   end
@@ -85,8 +100,9 @@ ActiveAdmin.register PageHome do
         tab :splash_page do
           f.inputs 'Splash Page' do
             f.input :splash_presence, label: "Mostra"
+            f.input :splash_content_img, as: :file, label: "Immagine in primo piano", hint: "jpg, png, gif", :image_preview => true
             f.input :splash_bg_img, as: :file, label: "Immagine di sfondo", hint: "jpg, png, gif", :image_preview => true
-            f.input :splash_title, label: "Titolo / Testo", as: :quill_editor
+            f.input :splash_title, label: "Titolo / Testo", hint: "Da scegliere in alternativa all'immagine in primo piano.", as: :quill_editor
             # f.input :splash_duration, label: "Durata in millisecondi della Splash Page. 0 per tempo infinito."
             # f.input :splash_delay, label: "Tempo di ritardo in ingresso in millisecondi."
           end

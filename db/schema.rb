@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_143200) do
+ActiveRecord::Schema.define(version: 2021_02_11_075139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -264,6 +264,8 @@ ActiveRecord::Schema.define(version: 2021_02_10_143200) do
     t.string "cta_section_title"
     t.string "heading"
     t.text "subheading"
+    t.string "content_img"
+    t.string "splash_content_img"
   end
 
   create_table "post_instagrams", force: :cascade do |t|

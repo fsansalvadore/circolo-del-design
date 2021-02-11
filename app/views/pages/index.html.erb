@@ -2,6 +2,21 @@
 <% content_for :meta_keywords, @page.meta_description unless @page.meta_description.empty? %>
 <% content_for :meta_keywords,!@page.meta_keywords.empty? ? @page.meta_keywords : "Circolo Del Design, Circolo, Torino, Design, eventi, mostre, workshop, progetti, partner, programma, aziende, studenti" %>
 
+<% if @page.splash_presence %>
+  <div id="splash" class="splash-container">
+    <div class="splash-content">
+      <% unless @page.splash_title.empty? %>
+        <h1 class="splash-title"><%= raw @page.splash_title unless @page.splash_title.empty? %></h1>
+      <% end %>
+      <% unless @page.splash_content_img.file.nil? %>
+        <%= cl_image_tag @page.splash_content_img, alt: "Circolo del Design", class: "splash-content-img" %>
+      <% end %>
+    </div>
+    <% unless @page.splash_bg_img.file.nil? %>
+      <figure class="splash-bg-img" style="background-image: url('<%= cl_image_path @page.splash_bg_img %>');"></figure>
+    <% end %>
+  </div>
+<% end %>
 <div data-w-id="34e7298b-a2ba-bc6d-2dee-977128477157" style="opacity:1" class="loader-a-container">
   <%= image_tag "LOGO_CdD_anim_1sec.gif", alt: "Circolo Del Design loarder", class: "loader-a-gif" %>
 </div>
