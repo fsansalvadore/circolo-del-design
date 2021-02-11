@@ -1,9 +1,10 @@
 const Splash = () => {
-  const splash = document.querySelector("#splash");
-  splash.addEventListener("click", (s) => {
-    console.log("removed: " + s)
-    s.remove();
-  })
+  document.getElementById("splash").addEventListener("click", () => {
+    this.classList.add("splash-out");
+    setTimeout(() => {
+      this.remove();
+    }, 1000);
+  });
 }
 
 export { Splash };

@@ -9,7 +9,8 @@
     bottom: 0;
     overflow: hidden;
     cursor: pointer;
-
+    transition: opacity 0.4s ease;
+    
     .splash-container,
     .splash-content {
         position: relative;
@@ -41,5 +42,9 @@
         bottom: 0;
         background-position: center;
         background-size: cover;
+    }
+
+    &.splash-out {
+        opacity: 0;
     }
 }
