@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_075139) do
+ActiveRecord::Schema.define(version: 2021_02_18_134906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,20 @@ ActiveRecord::Schema.define(version: 2021_02_11_075139) do
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 
+  create_table "card_categories", force: :cascade do |t|
+    t.string "title"
+    t.string "primary_color"
+    t.string "secondary_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "titolo"
     t.string "sottotitolo"
@@ -237,6 +251,44 @@ ActiveRecord::Schema.define(version: 2021_02_11_075139) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "global_settings", force: :cascade do |t|
+    t.string "site_title"
+    t.string "favicon"
+    t.string "facebook_url"
+    t.string "youtube_url"
+    t.string "instagram_url"
+    t.string "linkedin_url"
+    t.string "meta_image"
+    t.string "meta_description"
+    t.string "main_email"
+    t.string "main_tel"
+    t.string "opening_hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "home_page_cards", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.string "image"
+    t.string "image_alt"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "link"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "link"
+    t.string "label"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "page_homes", force: :cascade do |t|
     t.string "meta_title"
     t.string "meta_description"
@@ -266,6 +318,16 @@ ActiveRecord::Schema.define(version: 2021_02_11_075139) do
     t.text "subheading"
     t.string "content_img"
     t.string "splash_content_img"
+    t.string "hero_image"
+    t.integer "hero_color_mode"
+    t.string "hero_marquee_words"
+    t.boolean "hero_marquee_presence"
+    t.boolean "social_presence"
+    t.boolean "banner_presence"
+    t.string "banner_img_desktop"
+    t.string "banner_img_mobile"
+    t.string "banner_link"
+    t.boolean "banner_target"
   end
 
   create_table "post_instagrams", force: :cascade do |t|

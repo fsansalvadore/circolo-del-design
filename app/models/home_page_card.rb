@@ -1,0 +1,2 @@
+class HomePageCard < ApplicationRecord
+end

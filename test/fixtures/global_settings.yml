@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site_title: MyString
+  favicon: MyString
+  facebook_url: MyString
+  youtube_url: MyString
+  instagram_url: MyString
+  linkedin_url: MyString
+  meta_image: MyString
+  meta_description: MyString
+  main_email: MyString
+  main_tel: MyString
+  opening_hours: MyString
+
+two:
+  site_title: MyString
+  favicon: MyString
+  facebook_url: MyString
+  youtube_url: MyString
+  instagram_url: MyString
+  linkedin_url: MyString
+  meta_image: MyString
+  meta_description: MyString
+  main_email: MyString
+  main_tel: MyString
+  opening_hours: MyString

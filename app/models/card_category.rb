@@ -1,0 +1,2 @@
+class CardCategory < ApplicationRecord
+end
