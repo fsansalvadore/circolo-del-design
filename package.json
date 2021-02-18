@@ -9,6 +9,12 @@
     "simple-parallax-js": "^5.2.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.10.1"
+    "@babel/core": "^7.12.16",
+    "@babel/helper-compilation-targets": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "gulp-babel": "^8.0.0",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-manifest-plugin": "^3.0.0",
+    "webpack-nano": "^1.1.1"
   }
 }
