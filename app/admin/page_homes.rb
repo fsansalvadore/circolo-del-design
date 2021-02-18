@@ -25,6 +25,16 @@ ActiveAdmin.register PageHome do
                 :cta_section_link_url,
                 :newsletter_box_presence,
                 :newsletter_box_text
+                :hero_image
+                :hero_color_mode
+                :hero_marquee_words
+                :hero_marquee_presence
+                :social_presence
+                :banner_presence
+                :banner_img_desktop
+                :banner_img_mobile
+                :banner_link
+                :banner_target
 
   config.comments = false
   actions :all, :except => [:destroy]
@@ -107,6 +117,12 @@ ActiveAdmin.register PageHome do
             # f.input :splash_delay, label: "Tempo di ritardo in ingresso in millisecondi."
           end
         end
+    end
+    f.inputs 'Cover' do
+      f.input :hero_image, as: :file, label: "Immagine di sfondo", hint: "jpg, png, gif animata", :image_preview => true
+      f.input :hero_color_mode, label: "Colore testo", as: :select, collection: [["Nero", 1], ["Bianco", 2]], prompt: "Seleziona la modalità colore del testo", hint: "Il testo può essere bianco o nero."
+      f.input :hero_marquee_words, label: "Lista parole", hint: "Ogni parola deve essere separata da una virgola."
+      f.input :hero_marquee_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner scorrevole"
     end
     f.inputs 'Paragrafi' do
       f.input :paragraph_1, placeholder: 'Paragrafo 1', as: :quill_editor
