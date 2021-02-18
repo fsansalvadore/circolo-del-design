@@ -18,7 +18,6 @@ webflowJS();
 Menu();
 Popup();
 Toggle();
-Splash();
 flashFade();
 SimpleParallax();
 FacesFadeIn();
@@ -27,4 +26,5 @@ BlogNav();
 Noise();
 mgGlitch();
 GlitchJs();
+Splash();
 
