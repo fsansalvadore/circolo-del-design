@@ -24,17 +24,32 @@ ActiveAdmin.register PageHome do
                 :cta_section_link_text,
                 :cta_section_link_url,
                 :newsletter_box_presence,
-                :newsletter_box_text
-                :hero_image
-                :hero_color_mode
-                :hero_marquee_words
-                :hero_marquee_presence
-                :social_presence
-                :banner_presence
-                :banner_img_desktop
-                :banner_img_mobile
-                :banner_link
-                :banner_target
+                :newsletter_box_text,
+                :hero_image,
+                :hero_color_mode,
+                :hero_marquee_words,
+                :hero_marquee_presence,
+                :social_presence,
+                :banner_presence,
+                :banner_img_desktop,
+                :banner_img_mobile,
+                :banner_link,
+                :banner_target,
+                home_page_cards_attributes: [
+                  :id,
+                  :title,
+                  :subtitle,
+                  :image,
+                  :image_alt,
+                  :start_date,
+                  :end_date,
+                  :link,
+                  :link_target,
+                  :content_category,
+                  :eventy_type_category,
+                  :position,
+                  :_destroy
+                ]
 
   config.comments = false
   actions :all, :except => [:destroy]
@@ -123,6 +138,18 @@ ActiveAdmin.register PageHome do
       f.input :hero_color_mode, label: "Colore testo", as: :select, collection: [["Nero", 1], ["Bianco", 2]], prompt: "Seleziona la modalità colore del testo", hint: "Il testo può essere bianco o nero."
       f.input :hero_marquee_words, label: "Lista parole", hint: "Ogni parola deve essere separata da una virgola."
       f.input :hero_marquee_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner scorrevole"
+    end
+    f.inputs "Griglia" do
+      f.has_many :home_page_cards, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
+        n_f.input :title, label: "Titolo"
+        n_f.input :content_category, label: "Categoria", as: :select, collection: [["Programma Culturale", 0], ["Progetti d'Impatto", 1], ["Servizi", 2]], prompt: "Seleziona una categoria"
+        n_f.input :subtitle, label: "Sottotitolo"
+        n_f.input :eventy_type_category, label: "Tipologia", as: :select, collection: ["Nessuna", 'Design Insights', 'Mostra', 'Experience', "Progetti d'Impatto", 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
+        n_f.input :image, label: "Immagine", as: :file, :image_preview => true
+        n_f.input :image_alt, label: "Testo alternativo dell'immagine", hint: "Questo testo serve nel caso non venga caricata l'immagine o per gli screen readers."
+        n_f.input :link, label: "Link di atterraggio", hint: "Inserire l'url completo"
+        n_f.input :link_target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+      end
     end
     f.inputs 'Paragrafi' do
       f.input :paragraph_1, placeholder: 'Paragrafo 1', as: :quill_editor

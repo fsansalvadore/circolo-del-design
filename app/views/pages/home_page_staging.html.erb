@@ -20,91 +20,116 @@
 <div data-w-id="34e7298b-a2ba-bc6d-2dee-977128477157" style="opacity:1" class="loader-a-container">
   <%= image_tag "LOGO_CdD_anim_1sec.gif", alt: "Circolo Del Design loarder", class: "loader-a-gif" %>
 </div>
-  <div id="top" class="section-a-1">
-    <div class="container-2 w-container">
-      <div data-w-id="d8e1098b-6db6-d8a3-7748-351c9f63a7ad">
-        <h1 data-w-id="c0cc82b3-28b6-e009-e4ea-8c05523a3355" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="h1-a">
-          <%= raw @page.heading unless @page.heading.empty? %>
-        </h1>
-        <div data-w-id="6666dabb-4ad3-644b-af0f-4068709a7f08" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-block-2">
-          <%= raw @page.subheading unless @page.subheading.empty? %>
+<% _coverStyle = @page.hero_image.blank? ? "" : "background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('#{ cl_image_path @page.hero_image }')" %>
+<div id="hero" class="hero-container" style="<%= _coverStyle %>" >
+  <div class="heading-container">
+    <h1 class="h1-a"><%= raw @page.heading unless @page.heading.empty? %></h1>
+  </div>
+  <% if @page.hero_marquee_presence %>
+    <div class="marquee-container">
+      <marquee behavior="ALTERNATE" direction="left" >
+        <% 3.times do %>
+          <% @page.hero_marquee_words.split(",").each do |word| %>
+            <span><%= word.strip %></span>
+          <% end %>
+        <% end %>
+      </marquee>
+    </div>
+  <% end %>
+</div>
+  <div id="top" class="content-container">
+    <div class="container-2 w-container homepage-nav">
+      <div data-w-id="d8e1098b-6db6-d8a3-7748-351c9f63a7ad" class="links-container">
+        <div class="links">
+          <a data-w-id="ae9cec70-83ef-cef6-706b-ca4cf8552415" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" href="/about-us/il-circolo" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
+            <div class="text-block-3">Scopri il Circolo</div>
+            <div class="arrow-right">
+              <div class="arrow-point-right">
+                <div style="width:0PX" class="div-block-8"></div>
+                <div class="div-block-3"></div>
+                <div class="div-block-3 arrow-point-lower"></div>
+              </div>
+            </div>
+          </a>
+          <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/progetti-di-impatto" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
+            <div class="text-block-3">Progetti d'Impatto</div>
+            <div class="arrow-right">
+              <div class="arrow-point-right">
+                <div style="width:0PX" class="div-block-8"></div>
+                <div class="div-block-3"></div>
+                <div class="div-block-3 arrow-point-lower"></div>
+              </div>
+            </div>
+          </a>
+          <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/whats-on/programma/" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
+            <div class="text-block-3">Guarda il Programma</div>
+            <div class="arrow-right">
+              <div class="arrow-point-right">
+                <div style="width:0PX" class="div-block-8"></div>
+                <div class="div-block-3"></div>
+                <div class="div-block-3 arrow-point-lower"></div>
+              </div>
+            </div>
+          </a>
         </div>
-        <a data-w-id="ae9cec70-83ef-cef6-706b-ca4cf8552415" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" href="/about-us/il-circolo" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-          <div class="text-block-3">Scopri il Circolo</div>
-          <div class="arrow-right">
-            <div class="arrow-point-right">
-              <div style="width:0PX" class="div-block-8"></div>
-              <div class="div-block-3"></div>
-              <div class="div-block-3 arrow-point-lower"></div>
-            </div>
-          </div>
-        </a>
-        <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/progetti-di-impatto" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-          <div class="text-block-3">Progetti d'Impatto</div>
-          <div class="arrow-right">
-            <div class="arrow-point-right">
-              <div style="width:0PX" class="div-block-8"></div>
-              <div class="div-block-3"></div>
-              <div class="div-block-3 arrow-point-lower"></div>
-            </div>
-          </div>
-        </a>
-        <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/whats-on/programma/" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-          <div class="text-block-3">Guarda il Programma</div>
-          <div class="arrow-right">
-            <div class="arrow-point-right">
-              <div style="width:0PX" class="div-block-8"></div>
-              <div class="div-block-3"></div>
-              <div class="div-block-3 arrow-point-lower"></div>
-            </div>
-          </div>
-        </a>
+        <div class="socials" data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
+          <%= link_to "https://www.youtube.com/channel/UCBYouoahfNG1qy-g4GIBQYg", target: "_blank" do %>
+            <%= image_tag "icon_youtube.svg", alt: "Circolo del Design - Youtube" %>
+          <% end %>
+          <%= link_to "https://www.facebook.com/circolodeldesign/", target: "_blank" do %>
+            <%= image_tag "icon_facebook2.svg", alt: "Circolo del Design - Facebook" %>
+          <% end %>
+          <%= link_to "https://www.instagram.com/circolodeldesign/", target: "_blank" do %>
+            <%= image_tag "icon_instagram.svg", alt: "Circolo del Design - Instagram" %>
+          <% end %>
+          <%= link_to "https://www.linkedin.com/company/circolo-del-design/", target: "_blank" do %>
+            <%= image_tag "icon_linkedin.svg", alt: "Circolo del Design - LinkedIn" %>
+          <% end %>
+        </div>
       </div>
 
-      <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-carousel">
-        <div class="carousel-slider-a w-clearfix swiper-container">
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-wrapper">
-            <% if @wpac.preview_visibility %>
-              <%= link_to wpac_path, class: "carousel-a-slide w-inline-block swiper-slide" do %>
-                <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000), url(<%= cl_image_path @wpac.preview_img %>)"></div>
-                <div class="carousel-a-text-block">
-                  <% unless @wpac.preview_title.nil?  %>
-                    <h3 class="slider-a-title"><%= @wpac.preview_title %></h3>
-                  <% end %>
-                  <p class="event-card-subtitle">
-                    <% unless @wpac.preview_subtitle.nil? %>
-                      <%=raw @wpac.preview_subtitle %>
-                    <% end %>
-                  </p>
-                </div>
-              <% end %>
-            <% end %>
-            <% if !@events.empty? %>
-              <% @events.each do |event| %>
-                <% unless event.priority == 5 %>
-                  <%= link_to event_path(event), class: "carousel-a-slide w-inline-block swiper-slide" do %>
-                  <div class="carousel-slide-img" style="background-image: linear-gradient(180deg, transparent 25%, #000), url('<%= cl_image_path event.image %>')"></div>
-                  <% separator = event.sotto_categoria && !event.sotto_categoria.empty? ? " / " : ""  %>
-                  <div class="carousel-category-label <%= event.categoria.downcase %>"><%= event.categoria %><%= separator %><%= event.sotto_categoria.upcase if event.sotto_categoria %></div>
-                  <div class="carousel-a-text-block">
-                    <div class="slider-date">
-                      <div class="div-block-40"></div>
-                      <%  inizio = event.data_inizio
-                          fine = event.data_fine
-                          dash = event.data_inizio != event.data_fine ? " - " : ""
-                      %>
-                      <div class="slide-a-date-text"><%= tag.time l(inizio, format: :medium2), datetime: inizio %><%= dash %><%= event.data_inizio != event.data_fine ? (tag.time l(fine, format: :medium2), datetime: fine) : "" %><br></div>
+      <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-grid">
+        <div class="hp-cards-grid">
+          <% unless @cards.empty? %>
+            <% @cards.each do |card| %>
+              <% 
+              _color = case card.content_category 
+                      when 0
+                      "var(--cdd-orange)"
+                      when 1
+                      "var(--cdd-blue)"
+                      when 2
+                      "var(--cdd-green)"
+                      else
+                      "var(--cdd-orange)"
+                    end
+              _category = case card.content_category 
+                      when 0
+                      "Programma Culturale"
+                      when 1
+                      "Progetti d'Impatto"
+                      when 2
+                      "Servizi"
+                      else
+                      "Programma Culturale"
+                    end
+              %>
+                <%= link_to card.link, class: "hp-card-container", target: card.link_target ? "_blank" : "" do %>
+                  <div class="card-img" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path card.image %>')">
+                    <div class="card-labels">
+                      <div class="primary-label" style="background: <%= _color %>;"><%= _category %></div>
+                      <% unless !card.eventy_type_category || card.eventy_type_category === "Nessuna" %>
+                        <div class="secondary-label"><%= card.eventy_type_category %></div>
+                      <% end %>
                     </div>
-                    <div class="slider-a-title"><%= event.titolo %></div>
                   </div>
-                  <% end %>
+                  <div class="info-box" style="background: <%= _color %>;">
+                    <h3><%= card.title unless !card.title || card.title.empty? %></h3>
+                    <p><%= card.subtitle unless !card.subtitle || card.subtitle.empty? %></p>
+                  </div>
                 <% end %>
-              <% end %>
             <% end %>
-          </div>
-          <div class="swiper-pagination"></div>
+          <% end %>
         </div>
       </div>
           </div>
@@ -112,13 +137,23 @@
       </div>
     </div>
   </div>
-  <div class="section-a-3">
+  <div class="section-a-3 round">
     <div class="container-3 w-container">
       <div id="w-node-d14ac47ef320-f805d136" data-w-id="e10972fb-b623-d4d9-87d9-d14ac47ef320" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-        <h2 class="listheading">What’s On</h2>
+        <h2 class="listheading">Programma culturale</h2>
         <div class="link-list">
           <%= link_to whats_on_programma_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4">Programma</div>
+            <div class="text-block-4">What’s On</div>
+            <div class="arrow-right">
+              <div class="arrow-point-right">
+                <div style="width:0PX" class="div-block-8"></div>
+                <div class="div-block-3"></div>
+                <div class="div-block-3 arrow-point-lower"></div>
+              </div>
+            </div>
+          <% end %>
+          <%= link_to whats_on_programma_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
+            <div class="text-block-4">Progetti Culturali</div>
             <div class="arrow-right">
               <div class="arrow-point-right">
                 <div style="width:0PX" class="div-block-8"></div>
@@ -128,7 +163,7 @@
             </div>
           <% end %>
           <%= link_to whats_on_i_volti_2019_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4">I Volti del 2019</div>
+            <div class="text-block-4">WPAC</div>
             <div class="arrow-right">
               <div class="arrow-point-right">
                 <div style="width:0PX" class="div-block-8"></div>

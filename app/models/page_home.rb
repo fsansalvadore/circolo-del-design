@@ -1,4 +1,6 @@
 class PageHome < ApplicationRecord
+    has_many :home_page_cards,     dependent: :destroy
+    accepts_nested_attributes_for :home_page_cards,  allow_destroy: true
 
     mount_uploader :meta_image, ImageUploader
     mount_uploader :splash_bg_img, ImageUploader

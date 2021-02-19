@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_221605) do
+ActiveRecord::Schema.define(version: 2021_02_19_140945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -278,6 +278,11 @@ ActiveRecord::Schema.define(version: 2021_02_18_221605) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.integer "content_category", default: 0
+    t.string "eventy_type_category"
+    t.boolean "link_target"
+    t.index ["page_home_id"], name: "index_home_page_cards_on_page_home_id"
   end
 
   create_table "links", force: :cascade do |t|
@@ -470,6 +475,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_221605) do
   add_foreign_key "blog_post_sections", "blog_posts"
   add_foreign_key "blog_post_videos", "blog_post_sections"
   add_foreign_key "blog_post_videos", "blog_posts"
+  add_foreign_key "home_page_cards", "page_homes"
   add_foreign_key "post_instagrams", "blog_post_sections"
   add_foreign_key "post_instagrams", "blog_posts"
   add_foreign_key "post_text_longs", "blog_post_sections"
