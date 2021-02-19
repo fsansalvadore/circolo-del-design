@@ -113,9 +113,14 @@
                       else
                       "Programma Culturale"
                     end
+                # if card.image
+                #   cardImage = cl_image_path card.image
+                # else
+                #   cardImage = image_url("./app/assets/images/CircoloDelDesign_1200x630.png")
+                # end
               %>
                 <%= link_to card.link, class: "hp-card-container", target: card.link_target ? "_blank" : "" do %>
-                  <div class="card-img" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path card.image %>')">
+                  <div class="card-img" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path card.image unless card.image.blank? %>')">
                     <div class="card-labels">
                       <div class="primary-label" style="background: <%= _color %>;"><%= _category %></div>
                       <% unless !card.eventy_type_category || card.eventy_type_category === "Nessuna" %>
