@@ -13,6 +13,10 @@
     background-position: center;
     color: var(--hero-text-color);
 
+    @media (max-width: 768px) {
+        height: 380px;
+    }
+
     .heading-container {
         width: 100%;
         max-width: var(--max-width-container);
@@ -117,6 +121,13 @@
             h3 {
                 margin-top: 0;
                 font-family: inherit;
+            }
+
+            p {
+                font-size: 16px;
+                @media (max-width: 768px) {
+                    font-size: 19px;
+                }
             }
         }
     }
