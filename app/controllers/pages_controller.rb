@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [
     :index,
+    :home_page_staging,
     :privacy_cookie_policy,
     :contacts,
     :about_circolo,
