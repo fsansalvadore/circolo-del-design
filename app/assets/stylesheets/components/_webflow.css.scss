@@ -1859,6 +1859,13 @@ h2 {
   margin-bottom: 60px;
 }
 
+@media (max-width: 768px) {
+  .homepage-nav {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
 .links-container {
   display: flex;
   justify-content: space-between;
