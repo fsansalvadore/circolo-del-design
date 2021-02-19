@@ -102,9 +102,13 @@
             padding: 10px;
             color: #fff;
             background: var(--cdd-yellow);
+            font-family: heimat-sans, sans-serif;
+            height: 120px;
+            max-height: 120px;
 
             h3 {
                 margin-top: 0;
+                font-family: inherit;
             }
         }
     }
