@@ -1862,8 +1862,14 @@ h2 {
   display: flex;
   justify-content: space-between;
 
-  .links {
+  @media (max-width: 991px) {
+    flex-direction: column;
+    
+    .links {
+      margin-bottom: 30px;
+    }
   }
+
 
   .socials {
     display: flex;
