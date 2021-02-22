@@ -1,22 +1,9 @@
 ActiveAdmin.register Event do
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
+  menu parent: 'Whats On', label: 'Eventi'
+
   permit_params :titolo, :sottotitolo, :slug, :keywords, :data_inizio, :data_fine, :orario, :curator, :prezzo, :descrizione, :photo, :image, :categoria, :sotto_categoria, :luogo, :durata, :posti, :target, :link, :published, :featured, :priority
   config.comments = false
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:titolo, :sottotitolo, :data_inizio, :data_fine, :orario, :prezzo, :descrizione, :immagine, :categoria, :luogo, :durata, :posti, :target, :link, :published, :featured]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
 
-  # scope :pubblicati, ->{where(published: true)}
-  # scope :bozze, ->{where(published: false)}
   config.sort_order = 'created_at_asc'
 
   controller do

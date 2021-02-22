@@ -8,6 +8,10 @@
   color: #fff !important;
 }
 
+#header ul.tabs > li ul {
+  background-color: #222;
+}
+
 .panel_contents a {
   margin: 4px 0 !important;
 }

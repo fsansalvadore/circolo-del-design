@@ -1,0 +1,135 @@
+#hero {
+    position: relative;
+    margin-top: 111px;
+    font-family: heimat-sans, sans-serif;
+    height: 466px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    background: #fff;
+    background-size: cover;
+    background-position: center;
+    color: var(--hero-text-color);
+
+    @media (max-width: 768px) {
+        height: 380px;
+    }
+
+    .heading-container {
+        width: 100%;
+        max-width: var(--max-width-container);
+        display: flex;
+        align-items: center;
+        flex: 1;
+        padding: 20px;
+
+        h1 {
+            color: inherit;
+            font-family: heimat-sans, sans-serif;
+        }
+    }
+
+    .marquee-container {
+        height: 75px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-top: 4px solid #fff;
+
+        marquee {
+            text-transform: uppercase;
+            font-size: 2.5rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            
+            span {
+                margin: 0 30px;
+            }
+        }
+    }
+}
+
+.hp-cards-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    .hp-card-container {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: translate3d(0, -5px, 0);
+        }
+        text-decoration: none;
+        * {
+            list-style: none;
+        }
+
+        .card-img {
+            height: 220px;
+            padding: 10px;
+            background: #ddd;
+            background-position: center;
+            background-size: cover;
+
+            .card-labels {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                .primary-label,
+                .secondary-label {
+                    padding: 8px;
+                    text-transform: uppercase;
+                    font-size: 0.8rem;
+                    line-height: 100%;
+                    font-weight: 800;
+                }
+
+                .primary-label {
+                    background-color: blue;
+                    color: #fff;
+                }
+
+                .secondary-label {
+                    background-color: #fff;
+                }
+            }
+        }
+        .info-box {
+            padding: 10px;
+            color: #fff;
+            background: var(--cdd-yellow);
+            font-family: heimat-sans, sans-serif;
+            height: 120px;
+            max-height: 120px;
+
+            h3 {
+                margin-top: 0;
+                font-size: 25px;
+                font-family: inherit;
+            }
+
+            p {
+                font-size: 18px;
+                @media (max-width: 768px) {
+                    font-size: 19px;
+                }
+            }
+        }
+    }
+}

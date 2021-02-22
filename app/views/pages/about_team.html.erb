@@ -20,7 +20,7 @@
       </div>
     </aside>
     <article class="event-article-content line big-content team">
-      <div class="grid-container">
+      <div class="grid-container m-bottom-50">
         <% if @members && !@members.empty? %>
           <% @members.each do |member| %>
             <figure class="team-member-container">
@@ -33,19 +33,12 @@
           <% end %>
         <% end %>
       </div>
-      <div class="grid-container banner">
-        <%= link_to "https://www.linkedin.com/in/maurizio-bazzano-376257/", target:"_blank", class:"team-member-container" do %>
-          <figcaption>
-            <h3>Maurizio Bazzano</h3>
-            <p>Presidente</p>
-          </figcaption>
-        <% end %>
-      </div>
+      <hr class="m-bottom-50">
       <h2>Collaborano con noi</h2>
       <div class="grid-container">
-        <%= link_to "https://www.saglietti.it/", target: "_blank", class: "team-member-container" do %>
+        <%= link_to "http://fionda.eu/", target: "_blank", class: "team-member-container" do %>
           <figcaption>
-            <h3>Saglietti</h3>
+            <h3>Fionda</h3>
             <p>Comunicazione</p>
           </figcaption>
         <% end %>
