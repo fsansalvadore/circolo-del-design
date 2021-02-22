@@ -32,6 +32,21 @@
         height: auto;
         max-width: 100%;
         max-height: 100%;
+        display: block;
+
+        &.mobile {
+            display: none;
+            width: 100%;
+        }
+        
+        @media screen and (max-width: 768px) {
+            &.desktop {
+                display: none;
+            }
+            &.mobile {
+                display: block;
+            }
+        }
     }
 
     .splash-bg-img {
@@ -42,6 +57,21 @@
         bottom: 0;
         background-position: center;
         background-size: cover;
+        display: block;
+
+        &.mobile {
+            display: none;
+            width: 100%;
+        }
+        
+        @media screen and (max-width: 768px) {
+            &.desktop {
+                display: none;
+            }
+            &.mobile {
+                display: block;
+            }
+        }
     }
 
     &.splash-out {

@@ -8,7 +8,9 @@ ActiveAdmin.register PageHome do
                 :splash_presence,
                 :splash_title,
                 :splash_bg_img,
+                :splash_bg_img_mobile,
                 :splash_content_img,
+                :splash_content_img_mobile,
                 :splash_delay,
                 :splash_duration,
                 :title,
@@ -29,6 +31,9 @@ ActiveAdmin.register PageHome do
                 :hero_color_mode,
                 :hero_marquee_words,
                 :hero_marquee_presence,
+                :column_1_title,
+                :column_2_title,
+                :column_3_title,
                 :social_presence,
                 :banner_presence,
                 :banner_img_desktop,
@@ -47,6 +52,33 @@ ActiveAdmin.register PageHome do
                   :link_target,
                   :content_category,
                   :eventy_type_category,
+                  :position,
+                  :_destroy
+                ],
+                home_page_column_one_links_attributes: [
+                  :id,
+                  :link,
+                  :label,
+                  :target,
+                  :link_style,
+                  :position,
+                  :_destroy
+                ],
+                home_page_column_two_links_attributes: [
+                  :id,
+                  :link,
+                  :label,
+                  :target,
+                  :link_style,
+                  :position,
+                  :_destroy
+                ],
+                home_page_column_three_links_attributes: [
+                  :id,
+                  :link,
+                  :label,
+                  :target,
+                  :link_style,
                   :position,
                   :_destroy
                 ]
@@ -91,15 +123,32 @@ ActiveAdmin.register PageHome do
               image_tag(cl_image_path(home.splash_content_img), class: "image-preview")
             end
           end
+          row :splash_content_img_mobile do |home|
+            if home.splash_content_img_mobile && !home.splash_content_img_mobile.file.nil?
+              image_tag(cl_image_path(home.splash_content_img_mobile), class: "image-preview")
+            end
+          end
           row :splash_bg_img do |home|
             if home.splash_bg_img && !home.splash_bg_img.file.nil?
               image_tag(cl_image_path(home.splash_bg_img), class: "image-preview")
+            end
+          end
+          row :splash_bg_img_mobile do |home|
+            if home.splash_bg_img_mobile && !home.splash_bg_img_mobile.file.nil?
+              image_tag(cl_image_path(home.splash_bg_img_mobile), class: "image-preview")
             end
           end
           row (:splash_title) { |home| raw(home.splash_title) }
         end
       end
     end
+  end
+
+  # enable image deletion
+  member_action :delete_image, method: :delete do
+    @img = Cloudinary::CarrierWave.find(params[:id])
+    @img.purge_later
+    redirect_back(fallback_location: edit_admin_workshop_path)
   end
   
   form do |f|
@@ -125,11 +174,12 @@ ActiveAdmin.register PageHome do
         tab :splash_page do
           f.inputs 'Splash Page' do
             f.input :splash_presence, label: "Mostra"
-            f.input :splash_content_img, as: :file, label: "Immagine in primo piano", hint: "jpg, png, gif", :image_preview => true
-            f.input :splash_bg_img, as: :file, label: "Immagine di sfondo", hint: "jpg, png, gif", :image_preview => true
+            f.input :splash_content_img, as: :file, label: "Immagine in primo piano - Desktop", hint: "jpg, png, gif", :image_preview => true
+            f.input :splash_content_img_mobile, as: :file, label: "Immagine in primo piano - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px.", :image_preview => true
+            f.input :splash_bg_img, as: :file, label: "Immagine di sfondo - Desktop", hint: "jpg, png, gif", :image_preview => true
+            f.input :splash_bg_img_mobile, as: :file, label: "Immagine di sfondo - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px.", :image_preview => true
+            f.input :remove_splash_bg_img_mobile, as: :boolean, label: "Rimuovi Immagine di sfondo - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px."
             f.input :splash_title, label: "Titolo / Testo", hint: "Da scegliere in alternativa all'immagine in primo piano.", as: :quill_editor
-            # f.input :splash_duration, label: "Durata in millisecondi della Splash Page. 0 per tempo infinito."
-            # f.input :splash_delay, label: "Tempo di ritardo in ingresso in millisecondi."
           end
         end
     end
@@ -144,11 +194,42 @@ ActiveAdmin.register PageHome do
         n_f.input :title, label: "Titolo"
         n_f.input :content_category, label: "Categoria", as: :select, collection: [["Programma Culturale", 0], ["Progetti d'Impatto", 1], ["Servizi", 2]], prompt: "Seleziona una categoria"
         n_f.input :subtitle, label: "Sottotitolo"
-        n_f.input :eventy_type_category, label: "Tipologia", as: :select, collection: ["Nessuna", 'Design Insights', 'Mostra', 'Experience', "Progetti d'Impatto", 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
+        n_f.input :eventy_type_category, label: "Tipologia", as: :select, collection: ["Nessuna", 'Design Insights', 'Mostra', 'Experience', "Progetti d'Impatto", 'Podcast', 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
         n_f.input :image, label: "Immagine", as: :file, :image_preview => true
         n_f.input :image_alt, label: "Testo alternativo dell'immagine", hint: "Questo testo serve nel caso non venga caricata l'immagine o per gli screen readers."
         n_f.input :link, label: "Link di atterraggio", hint: "Inserire l'url completo"
         n_f.input :link_target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+      end
+    end
+    f.inputs "Collegamenti" do
+      columns do
+        column do
+          f.input :column_1_title, label: "Titolo colonna 1"
+          f.has_many :home_page_column_one_links, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
+            n_f.input :link, label: "Link", hint: "Inserire l'url completo di destinazione."
+            n_f.input :label, label: "Testo del tasto"
+            # n_f.input :link_style, label: "Tipologia", as: :select, collection: ["Nessuna", 'Design Insights', 'Mostra', 'Experience', "Progetti d'Impatto", 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
+            n_f.input :target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+          end
+        end
+        column do
+          f.input :column_2_title, label: "Titolo colonna 2"
+          f.has_many :home_page_column_two_links, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
+            n_f.input :link, label: "Link", hint: "Inserire l'url completo di destinazione."
+            n_f.input :label, label: "Testo del tasto"
+            # n_f.input :link_style, label: "Tipologia", as: :select, collection: ["Nessuna", 'Design Insights', 'Mostra', 'Experience', "Progetti d'Impatto", 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
+            n_f.input :target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+          end
+        end
+        column do
+          f.input :column_3_title, label: "Titolo colonna 3"
+          f.has_many :home_page_column_three_links, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
+            n_f.input :link, label: "Link", hint: "Inserire l'url completo di destinazione."
+            n_f.input :label, label: "Testo del tasto"
+            # n_f.input :link_style, label: "Tipologia", as: :select, collection: ["Nessuna", 'Design Insights', 'Mostra', 'Experience', "Progetti d'Impatto", 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
+            n_f.input :target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+          end
+        end
       end
     end
     f.inputs 'Paragrafi' do
