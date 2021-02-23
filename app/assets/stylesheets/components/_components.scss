@@ -510,6 +510,13 @@ textarea.w-select {
   margin-right: auto;
   max-width: var(--max-width-container);
 }
+
+.w-container.w-900 {
+  max-width: 900px;
+}
+.w-container.w-1000 {
+  max-width: 1000px;
+}
 .w-container.large {
   max-width: 1200px;
 }

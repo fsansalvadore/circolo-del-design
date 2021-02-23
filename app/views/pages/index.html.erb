@@ -9,11 +9,17 @@
         <h1 class="splash-title"><%= raw @page.splash_title unless @page.splash_title.empty? %></h1>
       <% end %>
       <% unless @page.splash_content_img.file.nil? %>
-        <%= cl_image_tag @page.splash_content_img, alt: "Circolo del Design", class: "splash-content-img" %>
+        <%= cl_image_tag @page.splash_content_img, alt: "Circolo del Design", class: "splash-content-img #{"desktop" unless @page.splash_content_img_mobile.file.nil?}" %>
+      <% end %>
+      <% unless @page.splash_content_img_mobile.file.nil? %>
+        <%= cl_image_tag @page.splash_content_img_mobile, alt: "Circolo del Design", class: "splash-content-img mobile" %>
       <% end %>
     </div>
     <% unless @page.splash_bg_img.file.nil? %>
-      <figure class="splash-bg-img" style="background-image: url('<%= cl_image_path @page.splash_bg_img %>');"></figure>
+      <figure class="splash-bg-img <%= "desktop" unless @page.splash_bg_img_mobile.file.nil? %>" style="background-image: url('<%= cl_image_path @page.splash_bg_img %>');"></figure>
+    <% end %>
+    <% unless @page.splash_bg_img_mobile.file.nil? %>
+      <figure class="splash-bg-img mobile" style="background-image: url('<%= cl_image_path @page.splash_bg_img_mobile %>');"></figure>
     <% end %>
   </div>
 <% end %>

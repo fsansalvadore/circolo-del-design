@@ -9,11 +9,17 @@
         <h1 class="splash-title"><%= raw @page.splash_title unless @page.splash_title.empty? %></h1>
       <% end %>
       <% unless @page.splash_content_img.file.nil? %>
-        <%= cl_image_tag @page.splash_content_img, alt: "Circolo del Design", class: "splash-content-img" %>
+        <%= cl_image_tag @page.splash_content_img, alt: "Circolo del Design", class: "splash-content-img #{"desktop" unless @page.splash_content_img_mobile.file.nil?}" %>
+      <% end %>
+      <% unless @page.splash_content_img_mobile.file.nil? %>
+        <%= cl_image_tag @page.splash_content_img_mobile, alt: "Circolo del Design", class: "splash-content-img mobile" %>
       <% end %>
     </div>
     <% unless @page.splash_bg_img.file.nil? %>
-      <figure class="splash-bg-img" style="background-image: url('<%= cl_image_path @page.splash_bg_img %>');"></figure>
+      <figure class="splash-bg-img <%= "desktop" unless @page.splash_bg_img_mobile.file.nil? %>" style="background-image: url('<%= cl_image_path @page.splash_bg_img %>');"></figure>
+    <% end %>
+    <% unless @page.splash_bg_img_mobile.file.nil? %>
+      <figure class="splash-bg-img mobile" style="background-image: url('<%= cl_image_path @page.splash_bg_img_mobile %>');"></figure>
     <% end %>
   </div>
 <% end %>
@@ -73,9 +79,6 @@
           </a>
         </div>
         <div class="socials" data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-          <%= link_to "https://www.youtube.com/channel/UCBYouoahfNG1qy-g4GIBQYg", target: "_blank" do %>
-            <%= image_tag "icon_youtube.svg", alt: "Circolo del Design - Youtube" %>
-          <% end %>
           <%= link_to "https://www.facebook.com/circolodeldesign/", target: "_blank" do %>
             <%= image_tag "icon_facebook2.svg", alt: "Circolo del Design - Facebook" %>
           <% end %>
@@ -84,6 +87,9 @@
           <% end %>
           <%= link_to "https://www.linkedin.com/company/circolo-del-design/", target: "_blank" do %>
             <%= image_tag "icon_linkedin.svg", alt: "Circolo del Design - LinkedIn" %>
+          <% end %>
+          <%= link_to "https://www.youtube.com/channel/UCBYouoahfNG1qy-g4GIBQYg", target: "_blank" do %>
+            <%= image_tag "icon_youtube.svg", alt: "Circolo del Design - Youtube" %>
           <% end %>
         </div>
       </div>
@@ -139,60 +145,33 @@
   </div>
 
   <div class="section-a-3 round">
-    <div class="container-3 w-container">
+    <div class="container-3 w-container w-1000">
       <div id="w-node-d14ac47ef320-f805d136" data-w-id="e10972fb-b623-d4d9-87d9-d14ac47ef320" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-        <h2 class="listheading">Programma culturale</h2>
+        <h2 class="listheading"><%= @page.column_1_title unless @page.column_1_title.blank? %></h2>
         <div class="link-list">
-          <%= link_to whats_on_programma_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4">What’s On</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
-              </div>
-            </div>
-          <% end %>
-          <%= link_to whats_on_programma_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4">Progetti Culturali</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
-              </div>
-            </div>
-          <% end %>
-
-          <%= link_to wpac_path, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4">WPAC</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
-              </div>
-            </div>
+          <% unless @col_1_links.empty? %>
+            <% @col_1_links.each do |link| %>
+              <%= link_to link.link, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
+                <div class="text-block-4"><%= link.label unless link.label.blank? %></div>
+                <div class="arrow-right">
+                  <div class="arrow-point-right">
+                    <div style="width:0PX" class="div-block-8"></div>
+                    <div class="div-block-3"></div>
+                    <div class="div-block-3 arrow-point-lower"></div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
       <div id="w-node-ce1275bf203b-f805d136" data-w-id="33cbe8e8-7b19-dfec-b687-ce1275bf203b" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-        <h2 class="listheading">Progetti d'Impatto</h2>
+        <h2 class="listheading"><%= @page.column_2_title unless @page.column_2_title.blank? %></h2>
         <div class="link-list">
-          <%= link_to progetti_speciali_path, {'data-w-id' => "99a5d35a-aca4-4863-6d1a-5575a67a95df", class: "link-list-item w-inline-block"} do %>
-            <div class="text-block-4">Tutti i Progetti</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
-              </div>
-            </div>
-          <% end %>
-          <% unless @special_projects.empty? %>
-            <% @special_projects.each do |special_project| %>
-              <%= link_to special_project_path(special_project), { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
-                <div class="text-block-4"><%= special_project.title %></div>
+          <% unless @col_2_links.empty? %>
+            <% @col_2_links.each do |link| %>
+              <%= link_to link.link, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
+                <div class="text-block-4"><%= link.label unless link.label.blank? %></div>
                 <div class="arrow-right">
                   <div class="arrow-point-right">
                     <div style="width:0PX" class="div-block-8"></div>
@@ -206,27 +185,21 @@
         </div>
       </div>
       <div id="w-node-028f971a699b-f805d136" data-w-id="2da7f5ea-f4fc-e9eb-fc88-028f971a699b" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-        <h2 class="listheading">Servizi</h2>
+        <h2 class="listheading"><%= @page.column_3_title unless @page.column_3_title.blank? %></h2>
         <div class="link-list">
-          <%= link_to servizi_spazi_path, { 'data-w-id' => "99a5d35a-aca4-4863-6d1a-5575a67a95df", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4">Spazi</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
-              </div>
-            </div>
-          <% end %>
-          <%= link_to servizi_biblioteca_path, { 'data-w-id' => "99a5d35a-aca4-4863-6d1a-5575a67a95e7", class: "link-list-item w-inline-block" } do %>
-            <div class="text-block-4">Biblioteca</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
-              </div>
-            </div>
+          <% unless @col_3_links.empty? %>
+            <% @col_3_links.each do |link| %>
+              <%= link_to link.link, { 'data-w-id' => "905914b2-15bd-dfe4-9102-c9196694257c", class: "link-list-item w-inline-block" } do %>
+                <div class="text-block-4"><%= link.label unless link.label.blank? %></div>
+                <div class="arrow-right">
+                  <div class="arrow-point-right">
+                    <div style="width:0PX" class="div-block-8"></div>
+                    <div class="div-block-3"></div>
+                    <div class="div-block-3 arrow-point-lower"></div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>

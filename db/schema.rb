@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_140945) do
+ActiveRecord::Schema.define(version: 2021_02_22_165203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -285,6 +285,42 @@ ActiveRecord::Schema.define(version: 2021_02_19_140945) do
     t.index ["page_home_id"], name: "index_home_page_cards_on_page_home_id"
   end
 
+  create_table "home_page_column_one_links", force: :cascade do |t|
+    t.string "link"
+    t.string "label"
+    t.boolean "target"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.index ["page_home_id"], name: "index_home_page_column_one_links_on_page_home_id"
+  end
+
+  create_table "home_page_column_three_links", force: :cascade do |t|
+    t.string "link"
+    t.string "label"
+    t.boolean "target"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.index ["page_home_id"], name: "index_home_page_column_three_links_on_page_home_id"
+  end
+
+  create_table "home_page_column_two_links", force: :cascade do |t|
+    t.string "link"
+    t.string "label"
+    t.boolean "target"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.index ["page_home_id"], name: "index_home_page_column_two_links_on_page_home_id"
+  end
+
   create_table "links", force: :cascade do |t|
     t.string "link"
     t.string "label"
@@ -292,6 +328,7 @@ ActiveRecord::Schema.define(version: 2021_02_19_140945) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "target"
   end
 
   create_table "page_homes", force: :cascade do |t|
@@ -333,6 +370,11 @@ ActiveRecord::Schema.define(version: 2021_02_19_140945) do
     t.string "banner_img_mobile"
     t.string "banner_link"
     t.boolean "banner_target"
+    t.string "splash_content_img_mobile"
+    t.string "splash_bg_img_mobile"
+    t.string "column_1_title"
+    t.string "column_2_title"
+    t.string "column_3_title"
   end
 
   create_table "post_instagrams", force: :cascade do |t|
@@ -476,6 +518,9 @@ ActiveRecord::Schema.define(version: 2021_02_19_140945) do
   add_foreign_key "blog_post_videos", "blog_post_sections"
   add_foreign_key "blog_post_videos", "blog_posts"
   add_foreign_key "home_page_cards", "page_homes"
+  add_foreign_key "home_page_column_one_links", "page_homes"
+  add_foreign_key "home_page_column_three_links", "page_homes"
+  add_foreign_key "home_page_column_two_links", "page_homes"
   add_foreign_key "post_instagrams", "blog_post_sections"
   add_foreign_key "post_instagrams", "blog_posts"
   add_foreign_key "post_text_longs", "blog_post_sections"
