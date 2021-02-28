@@ -1,5 +1,5 @@
 <% content_for :meta_title, !@page.meta_title.empty? ? @page.meta_title : "Circolo del Design — Home Page — Torino" %>
-<% content_for :meta_keywords, @page.meta_description unless @page.meta_description.empty? %>
+<% content_for :meta_description, @page.meta_description unless @page.meta_description.empty? %>
 <% content_for :meta_keywords,!@page.meta_keywords.empty? ? @page.meta_keywords : "Circolo Del Design, Circolo, Torino, Design, eventi, mostre, workshop, progetti, partner, programma, aziende, studenti" %>
 
 <% if @page.splash_presence %>

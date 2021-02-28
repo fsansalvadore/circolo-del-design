@@ -1,11 +1,12 @@
 const Splash = () => {
-  if(document.querySelector("#splash.splash-container")) {
-    document.querySelector("#splash.splash-container").addEventListener("click", (e) => {
-      document.querySelector("#splash.splash-container").classList.add("splash-out");
-      console.log('document.querySelector("#splash.splash-container")', document.querySelector("#splash.splash-container"))
+  if(document.querySelector("#splash")) {
+    const splash = document.querySelector("#splash")
+    splash.addEventListener("click", (e) => {
+      splash.classList.add("splash-out");
+      console.log('splash', splash)
   
       setTimeout(() => {
-        document.querySelector("#splash.splash-container").remove();
+        splash.remove();
       }, 1000);
     });
   }

@@ -27,4 +27,3 @@ Noise();
 mgGlitch();
 GlitchJs();
 Splash();
-
