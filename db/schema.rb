@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_165203) do
+ActiveRecord::Schema.define(version: 2021_02_28_072548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -265,6 +265,10 @@ ActiveRecord::Schema.define(version: 2021_02_22_165203) do
     t.string "opening_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "title"
+    t.string "meta_title"
+    t.string "meta_keywords"
   end
 
   create_table "home_page_cards", force: :cascade do |t|
@@ -375,6 +379,9 @@ ActiveRecord::Schema.define(version: 2021_02_22_165203) do
     t.string "column_1_title"
     t.string "column_2_title"
     t.string "column_3_title"
+    t.boolean "info_section_presence"
+    t.boolean "info_section_schedule_presence"
+    t.boolean "info_section_address_presence"
   end
 
   create_table "post_instagrams", force: :cascade do |t|

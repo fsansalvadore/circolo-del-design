@@ -40,6 +40,9 @@ ActiveAdmin.register PageHome do
                 :banner_img_mobile,
                 :banner_link,
                 :banner_target,
+                :info_section_presence,
+                :info_section_schedule_presence,
+                :info_section_address_presence,
                 home_page_cards_attributes: [
                   :id,
                   :title,
@@ -235,6 +238,11 @@ ActiveAdmin.register PageHome do
     f.inputs 'Paragrafi' do
       f.input :paragraph_1, placeholder: 'Paragrafo 1', as: :quill_editor
       f.input :paragraph_2, placeholder: 'Paragrafo 2', as: :quill_editor
+    end
+    f.inputs 'Sezione Call to Action' do
+      f.input :info_section_presence, placeholder: 'Mostra sezione info'
+      f.input :info_section_schedule_presence, placeholder: 'Mostra orario'
+      f.input :info_section_address_presence, placeholder: 'Mostra indirizzo'
     end
     f.inputs 'Sezione Call to Action' do
       f.input :cta_section_presence, placeholder: 'Mostra'
