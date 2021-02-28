@@ -74,23 +74,27 @@
   color: #fff;
 
   &.mostra {
-    background-color: #F49FC6;
+    // background-color: #F49FC6;
+    background-color: var(--cdd-orange);
   }
 
   &.talk {
-    background-color: #81539c;
+    // background-color: #81539c;
+    background-color: var(--cdd-orange);
   }
 
   &.workshop {
-    background-color: #2581c4;
+    // background-color: #2581c4;
+    background-color: var(--cdd-orange);
   }
 
   &.progetti {
-    background-color: #e1354b;
+    // background-color: #e1354b;
+    background-color: var(--cdd-blue);
   }
 
   &.evento {
-    background-color: #000;
+    background-color: var(--cdd-orange);
   }
 }
 
@@ -123,13 +127,20 @@
 }
 
 .section-label-container {
+  font-family: heimat-sans, sans-serif;
   padding: 6px 2px;
   border-bottom: 1px solid #000;
   font-weight: bold;
+  font-size: 1.5rem;
 
   &.pink {
     background-color: #F49FC6;
   }
+}
+
+.bg-orange {
+  background-color: var(--cdd-orange);
+  color: white;
 }
 
 @media screen and (max-width: 991px) {
