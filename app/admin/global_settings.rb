@@ -20,11 +20,11 @@ ActiveAdmin.register GlobalSetting do
   config.comments = false
   actions :all, :except => [:destroy]
   
-  # controller do
-  #   def index
-  #     redirect_to admin_global_setting_path(GlobalSetting.all.first)
-  #   end
-  # end
+  controller do
+    def index
+      redirect_to admin_global_setting_path(GlobalSetting.all.first)
+    end
+  end
 
   # enable image deletion
   # member_action :delete_image, method: :delete do
