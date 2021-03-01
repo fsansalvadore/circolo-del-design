@@ -1707,7 +1707,7 @@ body {
 h2 {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 32px;
+  font-size: 30px;
   line-height: 32px;
   font-weight: 700;
 }
@@ -1882,13 +1882,13 @@ h2 {
   .socials {
     display: flex;
     justify-content: space-between;
-    width: 250px;
+    width: 210px;
 
     a {
-      width: 50px;
-      max-width: 50px;
-      height: 50px;
-      max-height: 50px;
+      width: 45px;
+      max-width: 45px;
+      height: 45px;
+      max-height: 45px;
       background: var(--cdd-yellow);
       border-radius: 50%;
       display: flex;
@@ -1928,8 +1928,8 @@ h2 {
   display: inline-block;
   width: auto;
   margin-bottom: 20px;
-  margin-right: 10px;
-  padding: 15px 10px;
+  margin-right: 6px;
+  padding: 12px 8px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1940,7 +1940,7 @@ h2 {
   align-items: center;
   // background-color: transparent;
   // color: #000;
-  font-size: 17px;
+  font-size: 16px;
   text-decoration: none;
 
   &.progetti {
@@ -2624,7 +2624,7 @@ h2 {
 .menu-main-link {
   display: inline-block;
   margin-bottom: 0px;
-  font-size: 32px;
+  font-size: 26px;
   line-height: 32px;
   font-weight: 700;
   text-decoration: none;
@@ -4725,19 +4725,23 @@ div,
 }
 
 .event-label.workshop {
-  background-color: #2581c4;
+  // background-color: #2581c4;
+  background-color: var(--cdd-orange);
 }
 
 .event-label.talk {
-  background-color: #81539c;
+  // background-color: #81539c;
+  background-color: var(--cdd-orange);
 }
 
 .event-label.mostra {
-  background-color: #f49fc6;
+  // background-color: #f49fc6;
+  background-color: var(--cdd-orange);
 }
 
 .event-label.progetti {
-  background-color: #e1354b !important;
+  // background-color: #e1354b !important;
+  background-color: var(--cdd-blue) !important;
 }
 
 .progetti {
@@ -5162,6 +5166,10 @@ figcaption {
   .section-a-3 {
     margin-bottom: 70px;
   }
+  .btn-link-arrow {
+    margin-top: 14px;
+    font-size: 17px;
+  }
   .link-list-item {
     font-size: 18px;
   }
@@ -5222,7 +5230,7 @@ figcaption {
     margin-right: 3%;
   }
   .menu-main-link {
-    font-size: 26px;
+    font-size: 21px;
   }
   .menu-circle-bg {
     right: 81px;
@@ -5394,10 +5402,6 @@ figcaption {
     margin-bottom: 17px;
     line-height: 32px;
   }
-  .btn-link-arrow {
-    margin-top: 14px;
-    font-size: 17px;
-  }
   .centered-big-text {
     padding-right: 12px;
     padding-left: 12px;
@@ -5444,7 +5448,7 @@ figcaption {
     padding-top: 30px;
   }
   .menu-main-link {
-    line-height: 26px;
+    line-height: 21px;
   }
   .menu-lang-link {
     font-size: 16px;

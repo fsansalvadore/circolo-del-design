@@ -9,8 +9,8 @@
           <a href="mailto:info@circolodeldesign.it?subject=Email%20da%20sito" target="_blank" class="footer-info-mail">info@circolodeldesign.it</a>
           <a href="tel:+393713242750" class="footer-info-mail">+39 371 324 2750</a>
           <a href="https://www.facebook.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social">Facebook</a>
+          <a href="https://www.instagram.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social">Instagram</a>
           <a href="https://www.linkedin.com/company/circolo-del-design/" target="_blank" class="footer-cdd-info-social">Linkedin</a>
-          <a href="https://www.instagram.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social last">Instagram</a>
           <a href="https://www.youtube.com/channel/UCBYouoahfNG1qy-g4GIBQYg" target="_blank" class="footer-cdd-info-social last">YouTube</a>
         </div>
         <nav class="w-layout-grid footer-sitemap-grid">
@@ -25,8 +25,13 @@
           <div class="footer-sitemap-block">
             <div data-w-id="fa246212-cee5-efd1-2237-f330bc55c245" class="footer-sitemap-list-title-no-hover">Programma Culturale</div>
             <div class="footer-sitemap-list-wrapper">
-              <%= link_to "Programma", whats_on_programma_path, class: "footer-sitemap-list-item", alt: "Scopri tutti gli eventi del Circolo del Design." %>
-              <%= link_to "I Volti del 2019", whats_on_i_volti_2019_path, class: "footer-sitemap-list-item", alt: "Alcuni dei protagonisti che hanno portato la loro esperienza e i loro racconti al Circolo del Design." %>
+              <%= link_to "Calendario", whats_on_programma_path, class: "footer-sitemap-list-item", alt: "Scopri tutti gli eventi del Circolo del Design." %>
+              <%= link_to "Tutti i Progetti Culturali", cultural_projects_path, class: "footer-sitemap-list-item", alt: "Scopri tutti gli progetti culturali del Circolo del Design." %>
+              <% unless CulturalProject.where("published = true").empty? %>
+                <% CulturalProject.where("published = true").limit(5).order(start_date: :desc).each do |cultural_project| %>
+                  <%= link_to cultural_project.title, cultural_project_path(cultural_project), class: "footer-sitemap-list-item", alt: cultural_project.title %>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <div class="footer-sitemap-block">
@@ -43,6 +48,7 @@
           <div class="footer-sitemap-block">
             <div data-w-id="c5c01c71-4db2-1d45-e766-41bcb549dfaa" class="footer-sitemap-list-title-no-hover">Servizi</div>
             <div class="footer-sitemap-list-wrapper">
+              <%= link_to "Become a Member", membership_path, class: "footer-sitemap-list-item", alt: "Diventa socio del Circolo del Design di Torino." %>
               <%= link_to "Spazi", servizi_spazi_path, class: "footer-sitemap-list-item", alt: "Il Circolo del Design dà la possibilità di affittare alcuni dei suoi spazi per eventi dedicati ad un pubblico specifico ristretto e per eventi aperti al pubblico." %>
               <%= link_to "Biblioteca", servizi_biblioteca_path, class: "footer-sitemap-list-item", alt: "La Biblioteca del Circolo sostiene la ricerca e la creatività di professionisti e studenti del settore e fornisce occasioni di approfondimento a curiosi e appassionati." %>
             </div>
@@ -51,9 +57,6 @@
             <%= link_to contatti_path, class: "footer-sitemap-list-title", alt: "Il Circolo del Design è aperto al dialogo, contattaci." do %>
               Contatti
             <% end %>
-          </div>
-          <div class="footer-sitemap-block">
-            <%= link_to "Become a Member", membership_path, class: "footer-sitemap-list-title", alt: "L’ingresso al Circolo del Design è riservato ai soci." %>
           </div>
         </nav>
       </div>
@@ -108,8 +111,6 @@
         <div class="footer-bottom-right">
           <%= link_to 'Operazione Trasparenza', asset_path("TDW-2019_operazione_trasparenza-DL_4_AGOSTO_2017-N_124.pdf"), target: "_blank", class: "footer-bottom-item footer-link-spacing" %>
           <%= link_to 'Privacy & Cookie Policy', privacy_cookie_policy_path, class: "footer-bottom-item footer-link-spacing" %>
-          <a href="https://www.saglietti.it/" target="_blank" class="footer-bottom-item footer-link-spacing">Design</a>
-          <a href="https://www.fsansalvadore.com/" target="_blank" class="footer-bottom-item footer-link-spacing">Webdesign</a>
         </div>
       </div>
     </div>

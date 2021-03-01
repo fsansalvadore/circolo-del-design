@@ -6,3 +6,16 @@
     --cdd-orange: #F0511C;
     --cdd-green: #05BF42;
 }
+
+.bg-orange {
+    background-color: var(--cdd-orange);
+    color: white;
+}
+.bg-blue {
+    background-color: var(--cdd-blue);
+    color: white;
+}
+.bg-green {
+    background-color: var(--cdd-green);
+    color: white;
+}

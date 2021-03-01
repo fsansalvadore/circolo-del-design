@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_072548) do
+ActiveRecord::Schema.define(version: 2021_03_01_070609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,29 @@ ActiveRecord::Schema.define(version: 2021_02_28_072548) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cultural_projects", force: :cascade do |t|
+    t.string "title"
+    t.integer "intro_media_type"
+    t.string "intro_image"
+    t.string "intro_video"
+    t.string "intro_video_provider"
+    t.text "content"
+    t.string "link_cta"
+    t.string "link_url"
+    t.date "start_date"
+    t.string "end_date"
+    t.string "cover"
+    t.string "meta_title"
+    t.string "meta_keywords"
+    t.string "meta_description"
+    t.integer "intro_media_select"
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_cultural_projects_on_slug", unique: true
+  end
+
   create_table "event_categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -323,6 +346,18 @@ ActiveRecord::Schema.define(version: 2021_02_28_072548) do
     t.datetime "updated_at", null: false
     t.bigint "page_home_id"
     t.index ["page_home_id"], name: "index_home_page_column_two_links_on_page_home_id"
+  end
+
+  create_table "home_page_links", force: :cascade do |t|
+    t.string "url"
+    t.string "label"
+    t.boolean "target"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.index ["page_home_id"], name: "index_home_page_links_on_page_home_id"
   end
 
   create_table "links", force: :cascade do |t|
@@ -528,6 +563,7 @@ ActiveRecord::Schema.define(version: 2021_02_28_072548) do
   add_foreign_key "home_page_column_one_links", "page_homes"
   add_foreign_key "home_page_column_three_links", "page_homes"
   add_foreign_key "home_page_column_two_links", "page_homes"
+  add_foreign_key "home_page_links", "page_homes"
   add_foreign_key "post_instagrams", "blog_post_sections"
   add_foreign_key "post_instagrams", "blog_posts"
   add_foreign_key "post_text_longs", "blog_post_sections"

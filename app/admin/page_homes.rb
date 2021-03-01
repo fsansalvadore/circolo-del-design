@@ -84,6 +84,15 @@ ActiveAdmin.register PageHome do
                   :link_style,
                   :position,
                   :_destroy
+                ],
+                home_page_links_attributes: [
+                  :id,
+                  :url,
+                  :label,
+                  :target,
+                  :link_style,
+                  :position,
+                  :_destroy
                 ]
 
   config.comments = false
@@ -191,6 +200,13 @@ ActiveAdmin.register PageHome do
       f.input :hero_color_mode, label: "Colore testo", as: :select, collection: [["Nero", 1], ["Bianco", 2]], prompt: "Seleziona la modalità colore del testo", hint: "Il testo può essere bianco o nero."
       f.input :hero_marquee_words, label: "Lista parole", hint: "Ogni parola deve essere separata da una virgola."
       f.input :hero_marquee_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner scorrevole"
+    end
+    f.inputs "Link Principali" do
+      f.has_many :home_page_links, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
+        n_f.input :url, label: "Url", hint: "Inserire l'url completo di destinazione."
+        n_f.input :label, label: "Testo del tasto"
+        n_f.input :target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+      end
     end
     f.inputs "Griglia" do
       f.has_many :home_page_cards, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|

@@ -64,6 +64,9 @@ Rails.application.routes.draw do
   
   get '/progetti-di-impatto'                                    => 'special_projects#index', as: :progetti_speciali
   get '/progetti-di-impatto/:slug'                              => 'special_projects#show',  as: :special_project
+  
+  get '/progetti-culturali'                                    => 'cultural_projects#index', as: :cultural_projects
+  get '/progetti-culturali/:slug'                              => 'cultural_projects#show',  as: :cultural_project
 
   # Redirect from old "Progetti Speciali" to "Progetti d'impatto"
   get '/progetti-speciali',           to: redirect('/progetti-di-impatto', status: 302)

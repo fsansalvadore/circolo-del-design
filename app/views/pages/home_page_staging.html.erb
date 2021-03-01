@@ -47,36 +47,20 @@
     <div class="container-2 w-container homepage-nav">
       <div data-w-id="d8e1098b-6db6-d8a3-7748-351c9f63a7ad" class="links-container">
         <div class="links">
-          <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/whats-on/programma/" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-            <div class="text-block-3">Programma Culturale</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
+        <% unless @page.home_page_links.blank? %>
+          <% @page.home_page_links.each do |link| %>
+            <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="<%= link.url unless link.url.blank? %>" target="<%= "_blank" if link.target %>" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
+              <div class="text-block-3"><%= link.label unless link.label.blank? %></div>
+              <div class="arrow-right">
+                <div class="arrow-point-right">
+                  <div style="width:0PX" class="div-block-8"></div>
+                  <div class="div-block-3"></div>
+                  <div class="div-block-3 arrow-point-lower"></div>
+                </div>
               </div>
-            </div>
-          </a>
-          <a data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/progetti-di-impatto" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-            <div class="text-block-3">Progetti d'Impatto</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
-              </div>
-            </div>
-          </a>
-          <a data-w-id="ae9cec70-83ef-cef6-706b-ca4cf8552415" style="-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" href="/about-us/il-circolo" class="btn-link-arrow m-bottom-0 w-inline-block btn-active-yellow">
-            <div class="text-block-3">Scopri il Circolo</div>
-            <div class="arrow-right">
-              <div class="arrow-point-right">
-                <div style="width:0PX" class="div-block-8"></div>
-                <div class="div-block-3"></div>
-                <div class="div-block-3 arrow-point-lower"></div>
-              </div>
-            </div>
-          </a>
+            </a>
+          <% end %>
+        <% end %>
         </div>
         <div class="socials" data-w-id="6faf41c9-ac6a-c5b8-11d0-1039f3f69b2f" style="opacity:0;-webkit-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
           <%= link_to "https://www.facebook.com/circolodeldesign/", target: "_blank" do %>

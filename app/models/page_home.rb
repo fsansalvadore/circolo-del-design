@@ -1,11 +1,11 @@
 class PageHome < ApplicationRecord
     has_many :home_page_cards,      dependent: :destroy
-    has_many :links,                dependent: :destroy
+    has_many :home_page_links,                dependent: :destroy
     has_many :home_page_column_one_links,                dependent: :destroy
     has_many :home_page_column_two_links,                dependent: :destroy
     has_many :home_page_column_three_links,                dependent: :destroy
     accepts_nested_attributes_for :home_page_cards, allow_destroy: true
-    accepts_nested_attributes_for :links,           allow_destroy: true
+    accepts_nested_attributes_for :home_page_links,           allow_destroy: true
     accepts_nested_attributes_for :home_page_column_one_links,           allow_destroy: true
     accepts_nested_attributes_for :home_page_column_two_links,           allow_destroy: true
     accepts_nested_attributes_for :home_page_column_three_links,           allow_destroy: true

@@ -1,0 +1,79 @@
+<% content_for :meta_title, "Circolo Del Design — #{@cultural_project.title}" %>
+<% content_for :meta_description, @cultural_project.meta_description %>
+<%# content_for :meta_image, cl_image_path(@cultural_project.cover) %>
+<% content_for :meta_keywords, @cultural_project.meta_keywords if @cultural_project.meta_keywords %>
+
+<%= link_to cultural_projects_path, class: "sp-back-container" do %>
+  <p><span>&#8592;</span> Guarda tutti i Progetti Culturali</p>
+<% end %>
+<header id="top" class="event-header-container">
+  <div class="sp-header">
+    <div class="container-5 w-container">
+      <div class="event-header-info-text">
+        <div class="breadcrumb-text">
+          <%= link_to "Home", root_path %> / <%= link_to "Progetti d'Impatto", cultural_projects_path %> /
+        </div>
+        <h1 class="event-header-title"><%= @cultural_project.title %></h1>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="page-postheader" id="main-content">
+  <main class="sp-content-container container-5 w-container">
+    <article class="blog">
+        <div class="social_share_container">
+          <div class="social_share_group sticky">
+            <a id="facebook" href="#">
+              <%= image_tag "icon_facebook.svg", alt: "alttext" %>
+            </a>
+            <a id="twitter" href="#">
+              <%= image_tag "icon_twitter.svg", alt: "alttext" %>
+            </a>
+            <a id="whatsapp" href="#">
+              <%= image_tag "icon_whatsapp.svg", alt: "alttext" %>
+            </a>
+            <a id="clipboard" href="#">
+              <%= image_tag "icon_link.svg", alt: "alttext" %>
+            </a>
+          </div>
+        </div>
+
+        <div class="project_content event-article-content big-content">
+            <% case @cultural_project.intro_media_select 
+               when 0
+            %>
+            <div></div>
+            <% when 1 %>
+              <% if @cultural_project.intro_image.present? %>
+                <%= cl_image_tag @cultural_project.intro_image, alt: @cultural_project.title, class: "full-w-img m-bottom-50" %>
+              <% end %>
+            <% when 2 %>
+              <% unless !@cultural_project.intro_video || @cultural_project.intro_video.empty? %>
+                <div style="padding:56.25% 0 0 0;position:relative;" class="m-bottom-50"><iframe src="<%=@cultural_project.intro_video%>" class="video-full-w" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+              <% end %>
+            <% end %>
+            <% unless !@cultural_project.content || @cultural_project.content.empty? %>
+              <div>
+                <%=raw @cultural_project.content %>
+              </div>
+            <% end %>
+            <% if @cultural_project.link_url && !@cultural_project.link_url.empty? %>
+              <%= link_to @cultural_project.link_url, target: "_blank", class: "btn btn-link-arrow m-bottom-0 btn-active-yellow" do %>
+                <div class="text-block-3">Scopri di più</div>
+                <div class="arrow-right">
+                  <div class="arrow-point-right">
+                    <div class="div-block-8"></div>
+                    <div class="div-block-3"></div>
+                    <div class="div-block-3 arrow-point-lower"></div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+
+            <div class="m-bottom-50"></div>
+        
+        </div>
+
+      </article >
+  </main>
+</div>

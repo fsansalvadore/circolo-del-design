@@ -23,7 +23,7 @@
       </div>
       <div data-w-id="" class="link-menu-container link-a-2">
         <div class="menu-main-link">
-          <h2>WHAT’S ON</h2>
+          <h2>PROGRAMMA CULTURALE</h2>
           <div class="menu-toggle-icon-contianer">
             <div class="div-block-27 menu-toggle-line"></div>
             <div class="menu-icon-line-anim"></div>
@@ -31,10 +31,14 @@
         </div>
         <div class="menu-sub-links-container" style="display: none;">
           <%= link_to whats_on_programma_path, class: "menu-sub-link w-inline-block", alt: "Scopri tutti gli eventi del Circolo del Design." do %>
-          <div>PROGRAMMA</div>
+          <div>CALENDARIO</div>
           <% end %>
-          <%= link_to whats_on_i_volti_2019_path, class: "menu-sub-link w-inline-block", alt: "Alcuni dei protagonisti che hanno portato la loro esperienza e i loro racconti al Circolo del Design." do %>
-          <div>I VOLTI DEL 2019</div>
+          <% unless CulturalProject.where("published = true").empty? %>
+            <% CulturalProject.where("published = true").limit(5).order(start_date: :desc).each do |cultural_project| %>
+              <%= link_to cultural_project_path(cultural_project), class: "menu-sub-link w-inline-block", alt: cultural_project.title do %>
+                <div><%= cultural_project.title %></div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -114,16 +118,22 @@
             <div class="menu-social-link">Facebook</div>
           </div>
         </a>
+        <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937835" href="https://www.instagram.com/circolodeldesign/" target="_blank" class="link-social-container w-inline-block">
+          <div class="word-slider">
+            <div class="menu-social-link">Instagram</div>
+            <div class="menu-social-link">Instagram</div>
+          </div>
+        </a>
         <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937832" href="https://www.linkedin.com/company/circolo-del-design/" target="_blank" class="link-social-container w-inline-block">
           <div class="word-slider">
             <div class="menu-social-link">Linkedin</div>
             <div class="menu-social-link">Linkedin</div>
           </div>
         </a>
-        <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937835" href="https://www.instagram.com/circolodeldesign/" target="_blank" class="link-social-container last-link-social w-inline-block">
+        <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937835" href="https://www.youtube.com/channel/UCBYouoahfNG1qy-g4GIBQYg" target="_blank" class="link-social-container last-link-social w-inline-block">
           <div class="word-slider">
-            <div class="menu-social-link">Instagram</div>
-            <div class="menu-social-link">Instagram</div>
+            <div class="menu-social-link">YouYube</div>
+            <div class="menu-social-link">YouYube</div>
           </div>
         </a>
       </div>
