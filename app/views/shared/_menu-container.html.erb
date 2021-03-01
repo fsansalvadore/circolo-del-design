@@ -33,6 +33,9 @@
           <%= link_to whats_on_programma_path, class: "menu-sub-link w-inline-block", alt: "Scopri tutti gli eventi del Circolo del Design." do %>
           <div>CALENDARIO</div>
           <% end %>
+          <%= link_to cultural_projects_path, class: "menu-sub-link w-inline-block", alt: "Scopri tutti gli eventi del Circolo del Design." do %>
+          <div>Tutti i Progetti Culturali</div>
+          <% end %>
           <% unless CulturalProject.where("published = true").empty? %>
             <% CulturalProject.where("published = true").limit(5).order(start_date: :desc).each do |cultural_project| %>
               <%= link_to cultural_project_path(cultural_project), class: "menu-sub-link w-inline-block", alt: cultural_project.title do %>
