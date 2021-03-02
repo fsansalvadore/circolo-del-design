@@ -2603,11 +2603,14 @@ h2 {
 }
 
 .link-social-container {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
   overflow: hidden;
-  width: 33%;
+  // width: 33%;
+  flex: 1;
   height: 32px;
-  margin-right: 60px;
+  // margin-right: 60px;
   margin-bottom: 0px;
   color: #000;
   text-decoration: none;
@@ -2644,7 +2647,7 @@ h2 {
   display: block;
   margin-right: 0px;
   color: #000;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 32px;
   font-weight: 700;
 }
@@ -5236,6 +5239,10 @@ figcaption {
   }
   .link-social-container {
     margin-right: 3%;
+    flex-direction: column;
+    flex: none;
+    justify-content: flex-start;
+    width: 100%;
   }
   .menu-main-link {
     font-size: 21px;
