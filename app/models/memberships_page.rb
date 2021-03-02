@@ -1,0 +1,2 @@
+class MembershipsPage < ApplicationRecord
+end

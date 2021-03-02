@@ -1,5 +1,5 @@
 ActiveAdmin.register TeamMember do
-  menu parent: "Pagine", label: 'About Us - Team'
+  menu parent: "Pagine", label: 'About Us - Team', priority: 2
   include ActiveAdmin::SortableTable # creates the controller action which handles the sorting
   config.sort_order = 'position_asc'
 

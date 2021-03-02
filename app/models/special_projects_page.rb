@@ -1,0 +1,2 @@
+class SpecialProjectsPage < ApplicationRecord
+end

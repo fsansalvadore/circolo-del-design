@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_072321) do
+ActiveRecord::Schema.define(version: 2021_03_02_205257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_pages", force: :cascade do |t|
+    t.string "page_label"
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "heading"
+    t.text "subheading"
+    t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -190,6 +203,26 @@ ActiveRecord::Schema.define(version: 2021_03_02_072321) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "contacts_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.string "form_title"
+    t.text "form_subtitle"
+    t.text "address_left"
+    t.string "address_title"
+    t.string "address_subtitle"
+    t.string "map_image"
+    t.text "map_box_text"
+    t.string "cover_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cultural_projects", force: :cascade do |t|
     t.string "title"
     t.integer "intro_media_type"
@@ -213,6 +246,19 @@ ActiveRecord::Schema.define(version: 2021_03_02_072321) do
     t.boolean "show_in_nav"
     t.boolean "featured"
     t.index ["slug"], name: "index_cultural_projects_on_slug", unique: true
+  end
+
+  create_table "cultural_projects_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "event_categories", force: :cascade do |t|
@@ -372,6 +418,19 @@ ActiveRecord::Schema.define(version: 2021_03_02_072321) do
     t.boolean "target"
   end
 
+  create_table "memberships_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "page_homes", force: :cascade do |t|
     t.string "meta_title"
     t.string "meta_description"
@@ -454,6 +513,19 @@ ActiveRecord::Schema.define(version: 2021_03_02_072321) do
     t.index ["blog_post_section_id"], name: "index_post_text_shorts_on_blog_post_section_id"
   end
 
+  create_table "services_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "special_projects", force: :cascade do |t|
     t.string "title"
     t.boolean "intro_media_type"
@@ -475,6 +547,19 @@ ActiveRecord::Schema.define(version: 2021_03_02_072321) do
     t.integer "intro_media_select"
     t.boolean "show_in_nav"
     t.boolean "featured"
+  end
+
+  create_table "special_projects_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
