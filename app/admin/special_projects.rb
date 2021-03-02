@@ -1,6 +1,7 @@
 ActiveAdmin.register SpecialProject do
   permit_params :title,
                 :published,
+                :show_in_nav,
                 :cover,
                 :content,
                 :slug,
@@ -113,6 +114,7 @@ ActiveAdmin.register SpecialProject do
       tab :progetto do
         f.inputs 'Progetto Speciale' do
           f.input :published
+          f.input :show_in_nav, label: "Mostra nella navigazione", hint: "Questa selezione permette di posizionare questo elemento negli elementi di navigazione, sotto a Progetti d'impatto."
           f.input :title, placeholder: 'Titolo', label: "Titolo progetto", hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
           f.input :year, as: :date_time_picker, label: "Anno", hint: "Inserire una qualsiasi data nell'anno desiderato."
           f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio"

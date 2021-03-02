@@ -36,8 +36,8 @@
           <%= link_to cultural_projects_path, class: "menu-sub-link w-inline-block", alt: "Scopri tutti gli eventi del Circolo del Design." do %>
           <div>Tutti i Progetti Culturali</div>
           <% end %>
-          <% unless CulturalProject.where("published = true").empty? %>
-            <% CulturalProject.where("published = true").limit(5).order(start_date: :desc).each do |cultural_project| %>
+          <% unless CulturalProject.where("published = true AND show_in_nav = true").empty? %>
+            <% CulturalProject.where("published = true AND show_in_nav = true").limit(5).order(start_date: :desc).each do |cultural_project| %>
               <%= link_to cultural_project_path(cultural_project), class: "menu-sub-link w-inline-block", alt: cultural_project.title do %>
                 <div><%= cultural_project.title %></div>
               <% end %>
@@ -57,8 +57,8 @@
           <%= link_to progetti_speciali_path, class: "menu-sub-link w-inline-block", alt: "Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti Speciali con l’ambizione di incidere concretamente su ambiti specifici." do %>
           <div>Tutti i progetti</div>
           <% end %>
-          <% unless SpecialProject.where("published = true").empty? %>
-            <% SpecialProject.where("published = true").limit(5).order(year: :desc).each do |special_project| %>
+          <% unless SpecialProject.where("published = true AND show_in_nav = true").empty? %>
+            <% SpecialProject.where("published = true AND show_in_nav = true").limit(5).order(year: :desc).each do |special_project| %>
               <%= link_to special_project_path(special_project), class: "menu-sub-link w-inline-block", alt: special_project.title do %>
                 <div><%= special_project.title.upcase %></div>
               <% end %>

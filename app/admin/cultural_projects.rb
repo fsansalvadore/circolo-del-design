@@ -1,6 +1,7 @@
 ActiveAdmin.register CulturalProject do
   permit_params :title,
                 :published,
+                :show_in_nav,
                 :cover,
                 :content,
                 :slug,
@@ -115,6 +116,7 @@ ActiveAdmin.register CulturalProject do
       tab :progetto do
         f.inputs 'Progetto Speciale' do
           f.input :published
+          f.input :show_in_nav, label: "Mostra nella navigazione", hint: "Questa selezione permette di posizionare questo elemento negli elementi di navigazione, sotto a Progetti Culturali."
           f.input :title, placeholder: 'Titolo', label: "Titolo progetto", hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
           f.input :start_date, as: :date_time_picker, label: "Data d'inizio"
           f.input :end_date, as: :date_time_picker, label: "Data di fine"
