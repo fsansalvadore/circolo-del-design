@@ -118,7 +118,7 @@
     </aside>
     <article class="event-article-content line">
       <div>
-        <%=raw @event.descrizione %>
+        <%=raw @event.descrizione unless @event.descrizione.blank? %>
       </div>
     </article>
   </main>

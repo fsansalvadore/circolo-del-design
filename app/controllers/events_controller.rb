@@ -13,7 +13,7 @@ class EventsController < ApplicationController
       "
       @events = @events.where(sql_query, query: "%#{params[:query]}%")
     elsif params[:i].present?
-      @events = Event.where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i]).where(published: true).order(:data_inizio)
+      @events = Event.where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i]).where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', Time.new.year, Time.new.year).where(published: true).order(:data_inizio)
       @monthSelect = params[:i]
     elsif params[:categoria].present?
       @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ?", true, Date.today) : @events.where("categoria = ?", params[:categoria].gsub("+", " ")).order(:data_inizio)
