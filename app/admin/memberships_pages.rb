@@ -1,5 +1,5 @@
 ActiveAdmin.register MembershipsPage do
-    menu parent: 'Pagine', label: "Progetti d'Impatto", priority: 3
+    menu parent: 'Pagine', label: "Membership", priority: 3
   
     permit_params :page_label,
                   :meta_title,
