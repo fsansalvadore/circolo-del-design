@@ -10,4 +10,12 @@ ActiveAdmin.register AboutPage do
                 :subheading,
                 :bg_color
 
+  config.comments = false
+  actions :all, :except => [:destroy]
+  
+  controller do
+    def index
+      redirect_to admin_about_page_path(AboutPage.all.first)
+    end
+  end
 end
