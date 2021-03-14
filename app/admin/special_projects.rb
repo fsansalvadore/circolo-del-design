@@ -1,4 +1,6 @@
 ActiveAdmin.register SpecialProject do
+  menu label: "Progetti Speciali"
+
   permit_params :title,
                 :published,
                 :show_in_nav,

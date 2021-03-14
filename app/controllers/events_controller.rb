@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event_blocks = EventBlock.where("visible = true AND event_id = ?", @event.id).order(:position)
   end
 
   def new

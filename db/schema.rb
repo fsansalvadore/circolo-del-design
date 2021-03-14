@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_205257) do
+ActiveRecord::Schema.define(version: 2021_03_14_083401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -257,6 +257,24 @@ ActiveRecord::Schema.define(version: 2021_03_02_205257) do
     t.string "heading"
     t.text "subheading"
     t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_blocks", force: :cascade do |t|
+    t.string "title"
+    t.boolean "visible", default: true
+    t.text "rich_text"
+    t.string "image_url"
+    t.string "image_description"
+    t.integer "image_width"
+    t.integer "video_provider", default: 0
+    t.string "video_link"
+    t.string "video_description"
+    t.string "instagram_link"
+    t.string "twitter_link"
+    t.string "soundcloud_link"
+    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

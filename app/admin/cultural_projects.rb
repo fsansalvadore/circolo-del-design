@@ -1,4 +1,6 @@
 ActiveAdmin.register CulturalProject do
+  menu label: "Progetti Culturali"
+
   permit_params :title,
                 :published,
                 :show_in_nav,
