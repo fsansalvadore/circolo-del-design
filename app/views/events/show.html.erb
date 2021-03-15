@@ -122,8 +122,8 @@
       </div>
 
       <!-- Loop through blocks -->
-      <% unless @event_blockss.empty? %>
-        <% @event_blockss.each do |block| %>
+      <% unless @event_blocks.empty? %>
+        <% @event_blocks.each do |block| %>
 
           <!-- Rich text -->
           <% unless block.rich_text.empty? || block.rich_text == "<p><br></p>" %>
@@ -134,24 +134,34 @@
           <% end %>
 
           <!-- Video -->
-          <% unless block.vimeo_link.empty? %>
-            <div class="blog_post_videos_container">
-              <div style="padding:56.25% 0 0 0;position:relative;" class="blog_post_video">
-                <iframe src="https://player.vimeo.com/video/<%= block.vimeo_link %>?title=0&byline=0&portrait=0" class="video-full-w" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-                </iframe>
-              </div>
-              <p class="post_video-description"><%= block.vimeo_description unless block.vimeo_description.empty? %></p>
-              <script src="https://player.vimeo.com/api/player.js"></script>
-            </div>
+          <% if block.video_provider == 1 || block.video_provider == 2 %>
+            <section class="blog_post_videos_container">
+              <% case block.video_provider
+                when 1
+               %>
+                <div style="padding:56.25% 0 0 0;position:relative;" class="post_video">
+                  <iframe src="https://player.vimeo.com/video/<%= block.video_link %>?title=0&byline=0&portrait=0" class="video-full-w" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                  </iframe>
+                </div>
+                <p class="post_video-description"><%= block.video_description unless block.video_description.empty? %></p>
+              <% when 2 %>
+                <div class="post_video yt">
+                  <iframe class="yt_video" width="560" height="315" src="https://www.youtube.com/embed/<%= block.video_link %>" frameborder="0" allowfullscreen>
+                  </iframe>
+                </div>
+                <p class="post_video-description"><%= block.video_description unless block.video_description.empty? %></p>
+              <% end %>
+            </section>
           <% end %>
 
           <!-- Image -->
           <% unless block.image_url.blank? %>
-            <figure class="blog_img <%= block.image_width unless block.image_width.empty? %>">
-              <%= cl_image_tag(block.image_url) %>
-              <figcaption><%= block.image_description unless block.image_description.empty? %></figcaption>
-            </figure>
-          <!-- <div class="m-bottom-50"></div> -->
+            <section>
+                <figure class="mb-50">
+                  <%= cl_image_tag(block.image_url, :alt=> "#{block.image_description.empty? ? '' : block.image_description}") %>
+                  <figcaption><%= block.image_description unless block.image_description.empty? %></figcaption>
+                </figure>
+            </section>
           <% end %>
 
           <!-- Instagram -->

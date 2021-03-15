@@ -20,7 +20,7 @@ ActiveAdmin.register SpecialProject do
 
   config.comments = false
 
-  config.sort_order = 'created_at_asc'
+  config.sort_order = 'created_at_desc'
 
   controller do
     defaults :finder => :find_by_slug
