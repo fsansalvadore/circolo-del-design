@@ -1,6 +1,6 @@
 <% content_for :meta_title, "Circolo Del Design — #{@cultural_project.title}" %>
 <% content_for :meta_description, @cultural_project.meta_description %>
-<%# content_for :meta_image, cl_image_path(@cultural_project.cover) %>
+<% content_for :meta_image, cl_image_path(@cultural_project.cover) unless @cultural_project.cover.blank? %>
 <% content_for :meta_keywords, @cultural_project.meta_keywords if @cultural_project.meta_keywords %>
 
 <%= link_to cultural_projects_path, class: "sp-back-container bg-orange" do %>
