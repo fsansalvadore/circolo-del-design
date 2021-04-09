@@ -1,6 +1,6 @@
 <% content_for :meta_title, "Circolo Del Design — #{@special_project.title}" %>
 <% content_for :meta_description, @special_project.meta_description %>
-<%# content_for :meta_image, cl_image_path(@special_project.cover) %>
+<% content_for :meta_image, cl_image_path(@special_project.cover) unless @special_project.cover.blank? %>
 <% content_for :meta_keywords, @special_project.meta_keywords if @special_project.meta_keywords %>
 
 <%= link_to progetti_speciali_path, class: "sp-back-container bg-blue" do %>
