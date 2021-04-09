@@ -117,9 +117,9 @@
       </ul>
     </aside>
     <article class="event-article-content line">
-      <div>
-        <%=raw @event.descrizione unless @event.descrizione.blank? %>
-      </div>
+      <% unless @event.descrizione.blank? || @event.descrizione == "<p><br></p>" %>
+        <%=raw @event.descrizione %>
+      <% end %>
 
       <!-- Loop through blocks -->
       <% unless @event_blocks.empty? %>
