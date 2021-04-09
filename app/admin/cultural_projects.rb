@@ -28,13 +28,13 @@ ActiveAdmin.register CulturalProject do
   end
 
   member_action :publish_cultural_project, method: :put do
-    cultural_project = SpecialProject.friendly.find_by_slug(params[:id])
+    cultural_project = CulturalProject.friendly.find_by_slug(params[:id])
     cultural_project.update(published: true)
     redirect_to admin_cultural_project_path(cultural_project)
   end
 
   member_action :unpublish_cultural_project, method: :put do
-    cultural_project = SpecialProject.friendly.find_by_slug(params[:id])
+    cultural_project = CulturalProject.friendly.find_by_slug(params[:id])
     cultural_project.update(published: false)
     redirect_to admin_cultural_project_path(cultural_project)
   end
@@ -52,13 +52,13 @@ ActiveAdmin.register CulturalProject do
   end
 
   member_action :publish, method: :put do
-    cultural_project = SpecialProject.friendly.find_by_slug(params[:id])
+    cultural_project = CulturalProject.friendly.find_by_slug(params[:id])
     cultural_project.update(published: true)
     redirect_to admin_cultural_projects_path
   end
 
   member_action :unpublish, method: :put do
-    cultural_project = SpecialProject.friendly.find_by_slug(params[:id])
+    cultural_project = CulturalProject.friendly.find_by_slug(params[:id])
     cultural_project.update(published: false)
     redirect_to admin_cultural_projects_path
   end
