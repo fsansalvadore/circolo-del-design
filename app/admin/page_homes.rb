@@ -152,6 +152,20 @@ ActiveAdmin.register PageHome do
           end
           row (:splash_title) { |home| raw(home.splash_title) }
         end
+        attributes_table :title => "Banner" do
+          row :banner_presence
+          row :banner_link
+          row :banner_img_desktop do |home|
+            if home.banner_img_desktop && !home.banner_img_desktop.file.nil?
+              image_tag(cl_image_path(home.banner_img_desktop), class: "image-preview")
+            end
+          end
+          row :banner_img_mobile do |home|
+            if home.banner_img_mobile && !home.banner_img_mobile.file.nil?
+              image_tag(cl_image_path(home.banner_img_mobile), class: "image-preview")
+            end
+          end
+        end
       end
     end
   end
@@ -200,6 +214,13 @@ ActiveAdmin.register PageHome do
       f.input :hero_color_mode, label: "Colore testo", as: :select, collection: [["Nero", 1], ["Bianco", 2]], prompt: "Seleziona la modalità colore del testo", hint: "Il testo può essere bianco o nero."
       f.input :hero_marquee_words, label: "Lista parole", hint: "Ogni parola deve essere separata da una virgola."
       f.input :hero_marquee_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner scorrevole"
+    end
+    f.inputs 'Banner' do
+      f.input :banner_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner"
+      f.input :banner_img_desktop, as: :file, label: "Immagine Banner Desktop", hint: "jpg, png, gif animata", :image_preview => true
+      f.input :banner_img_mobile, as: :file, label: "Immagine Banner Mobile", hint: "jpg, png, gif animata", :image_preview => true
+      f.input :banner_link, label: "Link", hint: "Inserire l'url completo di destinazione."
+      f.input :banner_target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
     end
     f.inputs "Link Principali" do
       f.has_many :home_page_links, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
