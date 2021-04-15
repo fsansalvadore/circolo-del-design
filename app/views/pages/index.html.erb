@@ -77,7 +77,18 @@
           <% end %>
         </div>
       </div>
-
+      <% if @page.banner_presence %>
+        <%= link_to @page.banner_link, class: "banner-link", target: @page.banner_target ? "_blank" : "" do %>
+          <% unless @page.banner_img_desktop.blank? %>
+            <div class="banner-homepage <%= 'desktop' unless @page.banner_img_mobile.file.nil? %>" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path @page.banner_img_desktop unless @page.banner_img_desktop.blank? %>')">
+            </div>
+          <% end %>
+          <% unless @page.banner_img_mobile.blank? %>
+            <div class="banner-homepage mobile" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path @page.banner_img_mobile unless @page.banner_img_mobile.blank? %>')">
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
       <div data-w-id="48c62a10-3150-46a2-f225-5d1c12e379e8" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="hp-grid">
         <div class="hp-cards-grid">
           <% unless @cards.empty? %>

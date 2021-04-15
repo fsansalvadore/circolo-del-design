@@ -217,8 +217,8 @@ ActiveAdmin.register PageHome do
     end
     f.inputs 'Banner' do
       f.input :banner_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner"
-      f.input :banner_img_desktop, as: :file, label: "Immagine Banner Desktop", hint: "jpg, png, gif animata", :image_preview => true
-      f.input :banner_img_mobile, as: :file, label: "Immagine Banner Mobile", hint: "jpg, png, gif animata", :image_preview => true
+      f.input :banner_img_desktop, as: :file, label: "Immagine Banner Desktop", hint: "Dimensione 1117x184px, formati: jpg, png, gif animata", :image_preview => true
+      f.input :banner_img_mobile, as: :file, label: "Immagine Banner Mobile", hint: "Dimensione 600x300px, formati: jpg, png, gif animata", :image_preview => true
       f.input :banner_link, label: "Link", hint: "Inserire l'url completo di destinazione."
       f.input :banner_target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
     end

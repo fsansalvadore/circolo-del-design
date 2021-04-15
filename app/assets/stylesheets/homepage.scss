@@ -52,6 +52,41 @@
     }
 }
 
+// banner
+
+.banner-link {
+    display: block;
+    margin-top: 50px;
+    box-sizing: content-box;
+}
+
+.banner-homepage {
+    display: block;
+    width: 100%;
+    padding-bottom: 16.47%;
+    background-color: grey;
+    background-position: center;
+    background-size: cover;
+
+    &.mobile {
+        display: none;
+        padding-bottom: 50%;
+    }
+    
+    &.desktop {
+        padding-bottom: 16.47%;
+    }
+
+    @media screen and (max-width: 768px) {
+        &.desktop {
+            display: none;
+        }
+        &.mobile {
+            display: block;
+        }
+    }
+}
+
 .hp-cards-grid {
     width: 100%;
     display: grid;
