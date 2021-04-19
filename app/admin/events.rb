@@ -23,6 +23,9 @@ ActiveAdmin.register Event do
                 :published,
                 :featured,
                 :priority,
+                :preview_link_presence,
+                :preview_link_url,
+                :preview_link_target,
                 event_blocks_attributes: [
                   :id,
                   :title,
@@ -150,27 +153,38 @@ ActiveAdmin.register Event do
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
-    f.inputs 'Event' do
-      f.input :titolo, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
-      f.input :sottotitolo, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
-      f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
-      f.input :data_inizio, as: :date_time_picker, hint: "Obbligatorio"
-      f.input :data_fine, as: :date_time_picker, hint: "Obbligatorio (Se uguale a 'Data inizio' verrà mostrato il singolo giorno)"
-      f.input :orario, placeholder: 'Orario', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
-      f.input :curator, placeholder: 'A cura di...', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
-      f.input :prezzo, placeholder: 'Inserisci prezzo', hint: "Default: Gratuito per i soci"
-      f.input :image, as: :file, :image_preview => true, hint: "Obbligatorio"
-      f.input :categoria, as: :select, collection: ['Design Insights', 'Mostra', 'Experience', 'Progetti Speciali', 'Talk', 'Workshop', 'Performance', 'Film'], prompt: "Seleziona una categoria"
-      f.input :sotto_categoria, placeholder: 'Inserisci una sotto categoria', hint: 'Opzionale: se inserito compare di fianco alla categoria principale.'
-      f.input :luogo, placeholder: 'Inserisci indirizzo', hint: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
-      f.input :durata, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
-      f.input :posti, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
-      f.input :target, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
-      f.input :link, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
-      f.input :featured, hint: "Gli eventi 'featured' compariranno nella colonna 'Mostre in evidenza' nella pagina Programma, durante le date effettive della mostra."
-      f.input :published
-      f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna Priorità", 5]], prompt: "Seleziona l'ordine in Home Page", hint: "Gli eventi in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per Data d'inizio nel caso di stessa priorità. Gli eventi con priorità 5 non compaiono in Home Page."
-    end
+    tabs do
+      tab :evento do
+        f.inputs "Evento" do
+          f.input :titolo, placeholder: 'Titolo', hint: "Verrà usato automaticamente come Meta Title e nell'indirizzo URL della pagina. (Obbligatorio — Preferibilmente max 40 caratteri)"
+          f.input :sottotitolo, placeholder: 'Sottotitolo', hint: "Verrà anche utilizzato come Meta Description della pagina. (Obbligatorio — Max 140 caratteri)"
+          f.input :keywords, placeholder: 'Inserisci parole chiave', hint: "Le keywords verranno usate nei meta-tag della pagina e devono essere separate da una virgola."
+          f.input :data_inizio, as: :date_time_picker, hint: "Obbligatorio"
+          f.input :data_fine, as: :date_time_picker, hint: "Obbligatorio (Se uguale a 'Data inizio' verrà mostrato il singolo giorno)"
+          f.input :orario, placeholder: 'Orario', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+          f.input :curator, placeholder: 'A cura di...', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+          f.input :prezzo, placeholder: 'Inserisci prezzo', hint: "Default: Gratuito per i soci"
+          f.input :image, as: :file, :image_preview => true, hint: "Obbligatorio"
+          f.input :categoria, as: :select, collection: ['Design Insights', 'Mostra', 'Experience', 'Progetti Speciali', 'Talk', 'Workshop', 'Performance', 'Film'], prompt: "Seleziona una categoria"
+          f.input :sotto_categoria, placeholder: 'Inserisci una sotto categoria', hint: 'Opzionale: se inserito compare di fianco alla categoria principale.'
+          f.input :luogo, placeholder: 'Inserisci indirizzo', hint: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
+          f.input :durata, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+          f.input :posti, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+          f.input :target, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+          f.input :link, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+          f.input :featured, hint: "Gli eventi 'featured' compariranno nella colonna 'Mostre in evidenza' nella pagina Programma, durante le date effettive della mostra."
+          f.input :published
+          f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna Priorità", 5]], prompt: "Seleziona l'ordine in Home Page", hint: "Gli eventi in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per Data d'inizio nel caso di stessa priorità. Gli eventi con priorità 5 non compaiono in Home Page."
+        end
+      end
+      tab :link_anteprima do
+        f.inputs 'Link Anteprima' do
+          f.input :preview_link_presence, label: "Presenza Link Personalizzato", hint: "Questa spunta rende attivo il link personalizzato sull'anteprima dell'evento."
+          f.input :preview_link_url, label: "Link di destinazione", placeholder: 'Link Url'
+          f.input :preview_link_target, label: "Apri in nuova tab", placeholder: 'Con il target _blank il link viene aperto in una nuova tab del browser'
+        end
+      end
+  end
     f.inputs "Blocchi — Ogni blocco corrisponde a una tipologia di contenuto diverso: Testo / Video / Immagine / Post Instagram / SoundCloud" do
       f.input :descrizione, as: :quill_editor, hint: "Usare questo campo se il contenuto è solo testuale."
       f.has_many :event_blocks, heading: "Blocchi di contenuti", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|

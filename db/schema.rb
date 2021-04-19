@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_152636) do
+ActiveRecord::Schema.define(version: 2021_04_19_154123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -503,16 +503,16 @@ ActiveRecord::Schema.define(version: 2021_04_19_152636) do
     t.boolean "info_section_address_presence"
     t.string "box_link_1_image"
     t.string "box_link_1_url"
-    t.string "box_link_1_target"
-    t.string "box_link_1_presence"
+    t.boolean "box_link_1_target"
+    t.boolean "box_link_1_presence"
     t.string "box_link_2_image"
     t.string "box_link_2_url"
-    t.string "box_link_2_target"
-    t.string "box_link_2_presence"
+    t.boolean "box_link_2_target"
+    t.boolean "box_link_2_presence"
     t.string "box_link_3_image"
     t.string "box_link_3_url"
-    t.string "box_link_3_target"
-    t.string "box_link_3_presence"
+    t.boolean "box_link_3_target"
+    t.boolean "box_link_3_presence"
   end
 
   create_table "post_instagrams", force: :cascade do |t|
