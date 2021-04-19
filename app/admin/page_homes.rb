@@ -40,6 +40,18 @@ ActiveAdmin.register PageHome do
                 :banner_img_mobile,
                 :banner_link,
                 :banner_target,
+                :box_link_1_image,
+                :box_link_1_presence,
+                :box_link_1_url,
+                :box_link_1_target,
+                :box_link_2_image,
+                :box_link_2_presence,
+                :box_link_2_url,
+                :box_link_2_target,
+                :box_link_3_image,
+                :box_link_3_presence,
+                :box_link_3_url,
+                :box_link_3_target,
                 :info_section_presence,
                 :info_section_schedule_presence,
                 :info_section_address_presence,
@@ -180,34 +192,34 @@ ActiveAdmin.register PageHome do
   form do |f|
     f.actions
     f.semantic_errors *f.object.errors.keys
-      tabs do
-        tab :heading do
-          f.inputs "Heading" do
-            f.input :title, label: "Titolo Pagina"
-            f.input :heading, label: "Heading 1", as: :quill_editor
-            f.input :subheading, label: "Sottotitolo", as: :quill_editor
-            f.input :carousel_presence, label: "Carosello"
-          end
+    tabs do
+      tab :heading do
+        f.inputs "Heading" do
+          f.input :title, label: "Titolo Pagina"
+          f.input :heading, label: "Heading 1", as: :quill_editor
+          f.input :subheading, label: "Sottotitolo", as: :quill_editor
+          f.input :carousel_presence, label: "Carosello"
         end
-        tab :meta do
-          f.inputs 'Meta Data' do
-            f.input :meta_title, label: "Meta Title", placeholder: 'Meta Title'
-            f.input :meta_description, label: "Meta Description", placeholder: 'Meta Description'
-            f.input :meta_keywords, label: "Meta Keywords", placeholder: 'Meta Keywords'
-            f.input :meta_image, as: :file, label: "Meta Image", :image_preview => true
-          end
+      end
+      tab :meta do
+        f.inputs 'Meta Data' do
+          f.input :meta_title, label: "Meta Title", placeholder: 'Meta Title'
+          f.input :meta_description, label: "Meta Description", placeholder: 'Meta Description'
+          f.input :meta_keywords, label: "Meta Keywords", placeholder: 'Meta Keywords'
+          f.input :meta_image, as: :file, label: "Meta Image", :image_preview => true
         end
-        tab :splash_page do
-          f.inputs 'Splash Page' do
-            f.input :splash_presence, label: "Mostra"
-            f.input :splash_content_img, as: :file, label: "Immagine in primo piano - Desktop", hint: "jpg, png, gif", :image_preview => true
-            f.input :splash_content_img_mobile, as: :file, label: "Immagine in primo piano - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px.", :image_preview => true
-            f.input :splash_bg_img, as: :file, label: "Immagine di sfondo - Desktop", hint: "jpg, png, gif", :image_preview => true
-            f.input :splash_bg_img_mobile, as: :file, label: "Immagine di sfondo - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px.", :image_preview => true
-            f.input :remove_splash_bg_img_mobile, as: :boolean, label: "Rimuovi Immagine di sfondo - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px."
-            f.input :splash_title, label: "Titolo / Testo", hint: "Da scegliere in alternativa all'immagine in primo piano.", as: :quill_editor
-          end
+      end
+      tab :splash_page do
+        f.inputs 'Splash Page' do
+          f.input :splash_presence, label: "Mostra"
+          f.input :splash_content_img, as: :file, label: "Immagine in primo piano - Desktop", hint: "jpg, png, gif", :image_preview => true
+          f.input :splash_content_img_mobile, as: :file, label: "Immagine in primo piano - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px.", :image_preview => true
+          f.input :splash_bg_img, as: :file, label: "Immagine di sfondo - Desktop", hint: "jpg, png, gif", :image_preview => true
+          f.input :splash_bg_img_mobile, as: :file, label: "Immagine di sfondo - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px.", :image_preview => true
+          f.input :remove_splash_bg_img_mobile, as: :boolean, label: "Rimuovi Immagine di sfondo - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px."
+          f.input :splash_title, label: "Titolo / Testo", hint: "Da scegliere in alternativa all'immagine in primo piano.", as: :quill_editor
         end
+      end
     end
     f.inputs 'Cover' do
       f.input :hero_image, as: :file, label: "Immagine di sfondo", hint: "jpg, png, gif animata", :image_preview => true
@@ -216,11 +228,39 @@ ActiveAdmin.register PageHome do
       f.input :hero_marquee_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner scorrevole"
     end
     f.inputs 'Banner' do
-      f.input :banner_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner"
+      f.input :banner_presence, label: "Visibilità banner"
       f.input :banner_img_desktop, as: :file, label: "Immagine Banner Desktop", hint: "Dimensione 1117x184px, formati: jpg, png, gif animata", :image_preview => true
       f.input :banner_img_mobile, as: :file, label: "Immagine Banner Mobile", hint: "Dimensione 600x300px, formati: jpg, png, gif animata", :image_preview => true
       f.input :banner_link, label: "Link", hint: "Inserire l'url completo di destinazione."
       f.input :banner_target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+    end
+    f.inputs 'Banner Grid' do
+      tabs do
+        tab :banner_1 do
+          f.inputs "Banner 1" do
+            f.input :box_link_1_presence, label: "Visibilità banner"
+            f.input :box_link_1_image, as: :file, label: "Immagine Banner", hint: "Dimensione 600x374px, formati: jpg, png, gif animata", :image_preview => true
+            f.input :box_link_1_url, label: "Link di destinazione", hint: "Inserire l'url completo di destinazione."
+            f.input :box_link_1_target, label: "Apri in nuovo tab", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+          end
+        end
+        tab :banner_2 do
+          f.inputs "Banner 2" do
+            f.input :box_link_2_presence, label: "Visibilità banner"
+            f.input :box_link_2_image, as: :file, label: "Immagine Banner", hint: "Dimensione 600x374px, formati: jpg, png, gif animata", :image_preview => true
+            f.input :box_link_2_url, label: "Link di destinazione", hint: "Inserire l'url completo di destinazione."
+            f.input :box_link_2_target, label: "Apri in nuovo tab", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+          end
+        end
+        tab :banner_3 do
+          f.inputs "Banner 3" do
+            f.input :box_link_3_presence, label: "Visibilità banner"
+            f.input :box_link_3_image, as: :file, label: "Immagine Banner", hint: "Dimensione 600x374px, formati: jpg, png, gif animata", :image_preview => true
+            f.input :box_link_3_url, label: "Link di destinazione", hint: "Inserire l'url completo di destinazione."
+            f.input :box_link_3_target, label: "Apri in nuovo tab", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
+          end
+        end
+      end
     end
     f.inputs "Link Principali" do
       f.has_many :home_page_links, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
