@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.where("published = ? AND data_fine >= ? AND is_not_in_calendar != ?", true, Date.today, true)
+    @events = Event.where("published = ? AND data_fine >= ?", true, Date.today).where.not(is_not_in_calendar: true)
     if params[:query].present?
       sql_query = " \
         events.titolo ILIKE :query \
@@ -13,10 +13,10 @@ class EventsController < ApplicationController
       "
       @events = @events.where(sql_query, query: "%#{params[:query]}%")
     elsif params[:i].present?
-      @events = Event.where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i]).where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', Time.new.year, Time.new.year).where("published = ? AND is_not_in_calendar != ?", true, true).order(:data_inizio)
+      @events = Event.where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i]).where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', Time.new.year, Time.new.year).where("published = ?", true).where.not(is_not_in_calendar: true).order(:data_inizio)
       @monthSelect = params[:i]
     elsif params[:categoria].present?
-      @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ? AND is_not_in_calendar != ?", true, Date.today, true) : Event.where("categoria = ? AND published = ? AND is_not_in_calendar != ?", params[:categoria].gsub("+", " "), true, true).where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', Time.new.year, Time.new.year).order(:data_inizio)
+      @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ?", true, Date.today).where.not(is_not_in_calendar: true).order(:data_inizio) : Event.where("categoria = ? AND published = ?", params[:categoria].gsub("+", " "), true, true).where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', Time.new.year, Time.new.year).where.not(is_not_in_calendar: true).order(:data_inizio)
       @categorySelect = params[:categoria]
     else
       @events = @events.order(:data_inizio)
