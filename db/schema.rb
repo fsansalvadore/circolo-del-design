@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_062009) do
+ActiveRecord::Schema.define(version: 2021_05_03_065355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -315,7 +315,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_062009) do
     t.string "preview_link_url"
     t.boolean "preview_link_presence"
     t.boolean "preview_link_target"
-    t.boolean "is_not_in_calendar"
+    t.boolean "is_not_in_calendar", default: false
     t.index ["slug"], name: "index_events_on_slug", unique: true
   end
 
