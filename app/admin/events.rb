@@ -26,6 +26,7 @@ ActiveAdmin.register Event do
                 :preview_link_presence,
                 :preview_link_url,
                 :preview_link_target,
+                :is_not_in_calendar,
                 event_blocks_attributes: [
                   :id,
                   :title,
@@ -174,6 +175,7 @@ ActiveAdmin.register Event do
           f.input :link, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
           f.input :featured, hint: "Gli eventi 'featured' compariranno nella colonna 'Mostre in evidenza' nella pagina Programma, durante le date effettive della mostra."
           f.input :published
+          f.input :is_not_in_calendar, label: "Nascondi dal calendario", hint: "Attivando questa spunta, l'evento non compare nel calendario ma può essere mostrato come 'featured'."
           f.input :priority, as: :select, collection: [["1 — In evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Nessuna Priorità", 5]], prompt: "Seleziona l'ordine in Home Page", hint: "Gli eventi in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per Data d'inizio nel caso di stessa priorità. Gli eventi con priorità 5 non compaiono in Home Page."
         end
       end
