@@ -6,8 +6,8 @@
             <%= image_tag "LOGO_CdD_white.svg", alt: "Circolo del Design logo", class: "logo-footer" %>
           <% end %>
           <div class="footer-cdd-info">© <%= Time.new.year %> Circolo Del Design Torino<br>All Rights Reserved</div>
-          <a href="mailto:info@circolodeldesign.it?subject=Email%20da%20sito" target="_blank" class="footer-info-mail">info@circolodeldesign.it</a>
-          <a href="tel:+393314321195" class="footer-info-mail">+39 331 432 1195</a>
+          <a href="mailto:<%= @global_settings.main_email.gsub(/\s+/, "") %>?subject=Email%20da%20sito" target="_blank" class="footer-info-mail"><%= @global_settings.main_email %></a>
+          <a href="tel:<%= @global_settings.main_tel.gsub(/\s+/, "") %>" target="_blank" class="footer-info-mail"><%= @global_settings.main_tel %></a>
           <a href="https://www.facebook.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social">Facebook</a>
           <a href="https://www.instagram.com/circolodeldesign/" target="_blank" class="footer-cdd-info-social">Instagram</a>
           <a href="https://www.linkedin.com/company/circolo-del-design/" target="_blank" class="footer-cdd-info-social">Linkedin</a>
