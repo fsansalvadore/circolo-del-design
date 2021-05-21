@@ -274,7 +274,7 @@ ActiveAdmin.register PageHome do
         n_f.input :title, label: "Titolo"
         n_f.input :content_category, label: "Categoria", as: :select, collection: [["Programma Culturale", 0], ["Progetti d'Impatto", 1], ["Servizi", 2]], prompt: "Seleziona una categoria"
         n_f.input :subtitle, label: "Sottotitolo"
-        n_f.input :eventy_type_category, label: "Tipologia", as: :select, collection: ["Nessuna", 'Design Insights', 'Mostra', 'Experience', "Progetto", 'Podcast', 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
+        n_f.input :eventy_type_category, label: "Tipologia", as: :select, collection: ["Nessuna", 'Design Insights', 'Mostra', 'Experience', 'Progetti Speciali', 'Talk', 'Workshop', 'Performance', 'Film'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
         n_f.input :image, label: "Immagine", as: :file, :image_preview => true
         n_f.input :image_alt, label: "Testo alternativo dell'immagine", hint: "Questo testo serve nel caso non venga caricata l'immagine o per gli screen readers."
         n_f.input :link, label: "Link di atterraggio", hint: "Inserire l'url completo"

@@ -83,7 +83,9 @@
     background-color: var(--cdd-orange);
   }
 
-  &.workshop {
+  &.workshop,
+  &.performance,
+  &.talk {
     // background-color: #2581c4;
     background-color: var(--cdd-orange);
   }
