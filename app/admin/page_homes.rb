@@ -272,7 +272,7 @@ ActiveAdmin.register PageHome do
     f.inputs "Griglia" do
       f.has_many :home_page_cards, heading: "Links", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
         n_f.input :title, label: "Titolo"
-        n_f.input :content_category, label: "Categoria", as: :select, collection: [["Programma Culturale", 0], ["Progetti d'Impatto", 1], ["Servizi", 2]], prompt: "Seleziona una categoria"
+        n_f.input :content_category, label: "Categoria", as: :select, collection: [["Programma Culturale", 0], ["Progetti Culturali", 3], ["Progetti d'Impatto", 1], ["Servizi", 2]], prompt: "Seleziona una categoria"
         n_f.input :subtitle, label: "Sottotitolo"
         n_f.input :eventy_type_category, label: "Tipologia", as: :select, collection: ["Nessuna", 'Conferenza', 'Design Insights', 'Experience', 'Film', 'Mostra', 'Performance', 'Progetti Speciali', 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
         n_f.input :image, label: "Immagine", as: :file, :image_preview => true
