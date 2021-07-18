@@ -56,6 +56,17 @@ ActiveAdmin.register_page "Dashboard" do
             h4 "Non ci sono membri del team pubblicati."
           end
         end
+        panel "Welcome Onboard: #{Collaborator.where(published: true) ? Collaborator.where(published: true).count : '0'}" do
+          if Collaborator.where(published: true).length > 0
+            table_for Collaborator.where(published: true).order(:order) do |member|
+              column "Nome" do |member_link|
+                link_to("#{member_link.nome} #{member_link.cognome}", admin_collaborator_path(member_link))
+              end
+            end
+          else
+            h4 "Non ci sono collaboratori di Welcome Onboard pubblicati."
+          end
+        end
       end
     end
   end # content

@@ -32,6 +32,9 @@ it:
       team_member:
         one: Membro del Team
         other: Membri del Team
+      collaborator:
+        one: Collaboratore di Welcome Onboard
+        other: Collaboratori di Welcome Onboard
     attributes:
       face:
         cognome: Cognome/Titolo
