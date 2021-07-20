@@ -58,7 +58,7 @@ ActiveAdmin.register_page "Dashboard" do
         end
         panel "Welcome on Board: #{Collaborator.where(published: true) ? Collaborator.where(published: true).count : '0'}" do
           if Collaborator.where(published: true).length > 0
-            table_for Collaborator.where(published: true).order(:order) do |member|
+            table_for Collaborator.where(published: true).order(:position) do |member|
               column "Nome" do |member_link|
                 link_to("#{member_link.nome} #{member_link.cognome}", admin_collaborator_path(member_link))
               end
