@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   # about
   get '/about-us/il-circolo'  => 'pages#about_circolo'
   get '/about-us/team'        => 'pages#about_team'
-  get '/about-us/welcome-on-board'        => 'pages#about_welcome_on_board'
+  get '/about-us/young-board'        => 'pages#about_young_board'
   get '/about-us/sostenitori' => 'pages#about_sostenitori'
 
   # servizi

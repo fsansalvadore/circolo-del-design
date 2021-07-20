@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     :contacts,
     :about_circolo,
     :about_team,
-    :about_welcome_on_board,
+    :about_young_board,
     :about_sostenitori,
     :servizi_spazi,
     :servizi_biblioteca,
@@ -39,7 +39,7 @@ class PagesController < ApplicationController
     @members = TeamMember.where(published: true).order(:position)
   end
   
-  def about_welcome_on_board
+  def about_young_board
     @collaborators = Collaborator.where(published: true).order(:position)
   end
 
