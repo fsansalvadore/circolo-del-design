@@ -1,5 +1,5 @@
 ActiveAdmin.register Collaborator do
-  menu parent: "Pagine", label: 'About Us - Young Board', priority: 2
+  menu parent: "Pagine", label: 'About Us - Young Board 2021', priority: 2
   include ActiveAdmin::SortableTable # creates the controller action which handles the sorting
   config.sort_order = 'position_asc'
   config.comments = false

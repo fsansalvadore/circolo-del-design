@@ -56,7 +56,7 @@ ActiveAdmin.register_page "Dashboard" do
             h4 "Non ci sono membri del team pubblicati."
           end
         end
-        panel "Young Board: #{Collaborator.where(published: true) ? Collaborator.where(published: true).count : '0'}" do
+        panel "Young Board 2021: #{Collaborator.where(published: true) ? Collaborator.where(published: true).count : '0'}" do
           if Collaborator.where(published: true).length > 0
             table_for Collaborator.where(published: true).order(:position) do |member|
               column "Nome" do |member_link|
