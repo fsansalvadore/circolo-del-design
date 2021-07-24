@@ -1882,7 +1882,7 @@ h2 {
   .socials {
     display: flex;
     justify-content: space-between;
-    width: 210px;
+    width: 240px;
 
     a {
       width: 45px;
@@ -1954,6 +1954,7 @@ h2 {
 
 .btn-active-yellow {
   background-color: #ffed00;
+  margin-top: 0;
 
   &.wpac {
     background-color: $wpac-dark;
