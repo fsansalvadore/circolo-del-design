@@ -78,11 +78,11 @@ ActiveAdmin.register CulturalProject do
       end
     end
     actions defaults: true do |cultural_project|
-      link_to 'Duplica', clone_admin_cultural_project_path(cultural_project)
+      link_to 'Duplica', clone_cp_admin_cultural_project_path(cultural_project)
     end
   end
 
-  member_action :clone, method: :get do
+  member_action :clone_cp, method: :get do
     @cultural_project = resource.dup
     @cultural_project.save!
     redirect_to admin_cultural_projects_path

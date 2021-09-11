@@ -1,5 +1,5 @@
 ActiveAdmin.register SpecialProject do
-  menu label: "Progetti Speciali"
+  menu label: "Progetti d'Impatto"
 
   permit_params :title,
                 :published,
@@ -16,10 +16,27 @@ ActiveAdmin.register SpecialProject do
                 :intro_media_select,
                 :link_cta,
                 :link_url,
-                :year
+                :year,
+                special_project_blocks_attributes: [
+                  :id,
+                  :title,
+                  :visible,
+                  :rich_text,
+                  :image_url,
+                  :image_description,
+                  :image_width,
+                  # :image_set,
+                  :video_provider,
+                  :video_link,
+                  :video_description,
+                  :instagram_link,
+                  # :audio_provider,
+                  :soundcloud_link,
+                  :position,
+                  :_destroy
+                ]
 
   config.comments = false
-
   config.sort_order = 'created_at_desc'
 
   controller do
@@ -77,11 +94,11 @@ ActiveAdmin.register SpecialProject do
       end
     end
     actions defaults: true do |special_project|
-      link_to 'Duplica', clone_admin_special_project_path(special_project)
+      link_to 'Duplica', clone_special_project_admin_special_project_path(special_project)
     end
   end
 
-  member_action :clone, method: :get do
+  member_action :clone_special_project, method: :get do
     @special_project = resource.dup
     @special_project.save!
     redirect_to admin_special_projects_path
@@ -111,6 +128,7 @@ ActiveAdmin.register SpecialProject do
   filter :published
 
   form do |f|
+    f.actions
     f.semantic_errors *f.object.errors.keys
     tabs do
       tab :progetto do
@@ -137,6 +155,25 @@ ActiveAdmin.register SpecialProject do
       f.input :content, as: :quill_editor, hint: "Obbligatorio"
       f.input :link_url, placeholder: '"Scopri di più"', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       # f.input :link_cta, placeholder: '"Scopri di più"', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
+    end
+    f.inputs "Sezioni — Ogni sezione corrisponde a una tipologia di contenuto diverso: Testo / Video / Immagine / Post Instagram / SoundCloud" do
+      f.has_many :special_project_blocks, heading: "Sezioni del contenuto", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
+        n_f.input :title, label: "Titolo Sezione", hint: "Facoltativo: Dare un titolo alla sezione può servire ad identificarla più facilmente."
+        n_f.input :visible, label: "Visibilità Sezione", hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
+
+        n_f.input :rich_text, label: "Testo Lungo", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
+        # n_f.input :rich_text_small, label: "Testo Breve", as: :quill_editor, hint: "Inserisci qui un blocco di testo breve. Verrà visualizzato con un corpo testo e interlinea minori."
+        n_f.input :video_provider, label: "Sorgente Video", as: :select, collection: [["Nessuno", 0], ["Vimeo", 1], ["YouTube", 2]], prompt: "Seleziona sorgente video", hint: "Indica se il video proviene da YouTube o da Vimeo."
+        n_f.input :video_link, label: "Codice Video", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789 | https://www.youtube.com/watch?v=123456789 -> 123456789"
+        n_f.input :video_description, label: "Caption Video", hint: "Inserisci qui una descrizione di accompagnamento al video."
+        n_f.input :image_url, label: "Immagine", as: :file, :image_preview => true
+        n_f.input :image_description, label: "Caption Immagine", hint: "Inserisci qui una descrizione di accompagnamento al video."
+        n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["20% - 1/5", "one_fifth"],["25% - 1/4", "one_fourth"],["33% - 1/3", "one_third"],["50% - 1/2", "half"],["66% - 2/3", "two_thirds"], ["75% - 3/4", "three_fourths"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
+        # n_f.input :image_set, label: "Nome gruppo di immagini", as: :select, collection: [["Nessuno", " "], ["Gruppo 1", "c1"],["Gruppo 2", "c2"]], prompt: "Seleziona gruppo di appartenenza", hint: "Associa le immagini in gruppi per includerle nello stesso carosello."
+        n_f.input :instagram_link, label: "Codice Post — Instagram", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
+        # n_f.input :audio_provider, label: "Sorgente Audio", as: :select, collection: [["Nessuno", 0], ["SoundCloud", 1], ["MixCloud", 2], ["Spotify", 3]], prompt: "Seleziona sorgente audio", hint: "Indica se il video proviene da SoundCloud, MixCloud o Spotify."
+        n_f.input :soundcloud_link, label: "Codice Audio", hint: "Inserire il codice URI identificativo della traccia. Solitamente si trova sotto Share > Embed"
+      end
     end
     f.actions
   end  

@@ -107,11 +107,11 @@ ActiveAdmin.register Event do
       end
     end
     actions defaults: true do |event|
-      link_to 'Duplica', clone_admin_event_path(event)
+      link_to 'Duplica', clone_event_admin_event_path(event)
     end
   end
 
-  member_action :clone, method: :get do
+  member_action :clone_event, method: :get do
     @event = resource.dup
     @event.save!
     redirect_to admin_events_path

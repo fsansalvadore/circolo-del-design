@@ -133,11 +133,11 @@ ActiveAdmin.register BlogPost do
       end
     end
     actions defaults: true do |blog_post|
-      link_to 'Duplica', clone_admin_blog_post_path(blog_post)
+      link_to 'Duplica', clone_block_post_admin_blog_post_path(blog_post)
     end
   end
 
-  member_action :clone, method: :get do
+  member_action :clone_block_post, method: :get do
     @blog_sections = BlogPostSection.where(blog_post_id: resource.id)
     @blog_post = resource.dup
     @blog_post.save!
