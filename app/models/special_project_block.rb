@@ -1,6 +1,6 @@
 class SpecialProjectBlock < ApplicationRecord
-  belongs_to :speciale_project
+  belongs_to :special_project
 
-  mount_uploader :image, SpecialProjectImageUploader
+  mount_uploader :image_url, SpecialProjectImageUploader
   acts_as_list
 end

@@ -25,6 +25,7 @@ class SpecialProjectsController < ApplicationController
     end
 
     def show
+        @special_project_blocks = SpecialProjectBlock.where("visible = true AND special_project_id = ?", @special_project.id).order(:position)
     end
 
     def new

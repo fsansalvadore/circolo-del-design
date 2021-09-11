@@ -578,7 +578,7 @@ ActiveRecord::Schema.define(version: 2021_09_11_135439) do
     t.text "rich_text"
     t.string "image_url"
     t.string "image_description"
-    t.integer "image_width"
+    t.string "image_width"
     t.integer "video_provider", default: 0
     t.string "video_link"
     t.string "video_description"
