@@ -102,11 +102,11 @@ ActiveAdmin.register Article do
     end
     toggle_bool_column "Pubblicato", :published
     actions defaults: true do |article|
-      link_to 'Duplica', clone_admin_article_path(article)
+      link_to 'Duplica', clone_article_admin_article_path(article)
     end
   end
 
-  member_action :clone, method: :get do
+  member_action :clone_article, method: :get do
     @article_sections = ArticleSection.where(article_id: resource.id)
     @article = resource.dup
     @article.save!
@@ -173,39 +173,39 @@ ActiveAdmin.register Article do
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.actions
     f.semantic_errors *f.object.errors.keys
-      tabs do
-        tab :article do
-          f.inputs "Informazioni dell'Articolo" do
-            f.input :published, label: "Pubblicato"
-            f.input :publish_date, as: :date_time_picker, label: "Data di Pubblicazione"
-            f.input :tag_list, label: "Temi", as: :check_boxes, collection: ArticleTheme.where(published: true).map {|theme| theme.nome}
-            f.input :media_type, label: "Tipologia di Media", as: :select, collection: [["Interviste", "Interviste"], ["Audio", "Audio"], ["Progetti", "Progetti"], ["Libri", "Libri"], ["Video", "Video"]], prompt: "Seleziona una tipologia"
-            f.input :priority, label: "Priorità", as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
+    tabs do
+      tab :article do
+        f.inputs "Informazioni dell'Articolo" do
+          f.input :published, label: "Pubblicato"
+          f.input :publish_date, as: :date_time_picker, label: "Data di Pubblicazione"
+          f.input :tag_list, label: "Temi", as: :check_boxes, collection: ArticleTheme.where(published: true).map {|theme| theme.nome}
+          f.input :media_type, label: "Tipologia di Media", as: :select, collection: [["Interviste", "Interviste"], ["Audio", "Audio"], ["Progetti", "Progetti"], ["Libri", "Libri"], ["Video", "Video"]], prompt: "Seleziona una tipologia"
+          f.input :priority, label: "Priorità", as: :select, collection: [["1 — In Evidenza", 1], ["2 — Secondo", 2], ["3 — Terzo", 3], ["4 — Quarto", 4], ["5 — Non mostrare in Home Page", 5],["Non mostrare nel blog", 6]], prompt: "Seleziona l'ordine in Home Page", hint: "I post in Home Page vengono mostrati in ordine di Priorirà (da 1 a 4) o per data di creazione. I post con priorità 5 non compaiono in Home Page, quelli con 6 non compaiono nel blog."
 
-            f.input :title, label: "Titolo", placeholder: 'Titolo', hint: "Obbligatorio."
-            f.input :subtitle, label: "Sottotitolo", as: :quill_editor, placeholder: 'Sottotitolo', hint: "Obbligatorio — Max 140 caratteri"
-            f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio."
-          end
+          f.input :title, label: "Titolo", placeholder: 'Titolo', hint: "Obbligatorio."
+          f.input :subtitle, label: "Sottotitolo", as: :quill_editor, placeholder: 'Sottotitolo', hint: "Obbligatorio — Max 140 caratteri"
+          f.input :cover, as: :file, :image_preview => true, hint: "Obbligatorio."
         end
-        tab :progetto do
-          f.inputs 'Dettagli progetto' do
-            f.input :project_studio, label: "Nome Studio", placeholder: 'Nome dello studio', hint: "Compare soltanto nei progetti."
-            f.input :project_title, label: "Titolo Progetto", as: :quill_editor, placeholder: 'Titolo del progetto', hint: "Compare soltanto nei progetti e sarà visibile sull'immagine di anteprima dell'articolo."
-          end
+      end
+      tab :progetto do
+        f.inputs 'Dettagli progetto' do
+          f.input :project_studio, label: "Nome Studio", placeholder: 'Nome dello studio', hint: "Compare soltanto nei progetti."
+          f.input :project_title, label: "Titolo Progetto", as: :quill_editor, placeholder: 'Titolo del progetto', hint: "Compare soltanto nei progetti e sarà visibile sull'immagine di anteprima dell'articolo."
         end
-        tab :meta do
-          f.inputs 'Meta Data' do
-            f.input :meta_title, label: "Meta Title", placeholder: 'Meta Title', hint: "Aggiungi un meta title al post."
-            f.input :meta_description, label: "Meta Description", placeholder: 'Meta Description', hint: "Aggiungi una meta description al post."
-            f.input :meta_keywords, label: "Meta Keywords", placeholder: 'Inserisci parole chiave', hint: "Le keywords devono essere separate da una virgola."
-          end
+      end
+      tab :meta do
+        f.inputs 'Meta Data' do
+          f.input :meta_title, label: "Meta Title", placeholder: 'Meta Title', hint: "Aggiungi un meta title al post."
+          f.input :meta_description, label: "Meta Description", placeholder: 'Meta Description', hint: "Aggiungi una meta description al post."
+          f.input :meta_keywords, label: "Meta Keywords", placeholder: 'Inserisci parole chiave', hint: "Le keywords devono essere separate da una virgola."
         end
-        tab :lingua do
-          f.inputs 'Impostazioni Lingua' do
-            f.input :lang, label: "Lingua Post", as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
-            f.input :translation_link, label: "Link alla traduzione", as: :select, collection: Article.all.map {|article| ["#{article.title} - #{article.lang == 1 ? "ITA" : "ENG"}", wpac_article_path(article)]}, prompt: "Seleziona la traduzione corrispondente.", hint: "Seleziona dalla lista la traduzione corrispondente a questo post."
-          end
+      end
+      tab :lingua do
+        f.inputs 'Impostazioni Lingua' do
+          f.input :lang, label: "Lingua Post", as: :select, collection: [["Italiano", 1], ["Inglese", 2]], prompt: "Seleziona lingua", hint: "Seleziona la lingua del post"
+          f.input :translation_link, label: "Link alla traduzione", as: :select, collection: Article.all.map {|article| ["#{article.title} - #{article.lang == 1 ? "ITA" : "ENG"}", wpac_article_path(article)]}, prompt: "Seleziona la traduzione corrispondente.", hint: "Seleziona dalla lista la traduzione corrispondente a questo post."
         end
+      end
       f.inputs "Sezioni — Ogni sezione corrisponde a una tipologia di contenuto diverso: Testo / Video / Immagine / Post Instagram / SoundCloud" do
         f.has_many :article_sections, heading: "Sezioni dell'articolo", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
           n_f.input :title, label: "Titolo Sezione", hint: "Facoltativo: Dare un titolo alla sezione può servire ad identificarla più facilmente."
@@ -224,9 +224,7 @@ ActiveAdmin.register Article do
           n_f.input :audio_provider, label: "Sorgente Audio", as: :select, collection: [["Nessuno", 0], ["SoundCloud", 1], ["MixCloud", 2], ["Spotify", 3]], prompt: "Seleziona sorgente audio", hint: "Indica se il video proviene da SoundCloud, MixCloud o Spotify."
           n_f.input :soundcloud_link, label: "Codice Audio", hint: "Inserire il codice URI identificativo della traccia. Solitamente si trova sotto Share > Embed"
         end
-
       end
-
     end
     f.actions
   end

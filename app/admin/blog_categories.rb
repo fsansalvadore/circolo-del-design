@@ -54,11 +54,11 @@ ActiveAdmin.register BlogCategory do
       end
     end
     actions defaults: true do |blog_category|
-      link_to 'Duplica', clone_admin_blog_category_path(blog_category)
+      link_to 'Duplica', clone_blog_category_admin_blog_category_path(blog_category)
     end
   end
 
-  member_action :clone, method: :get do
+  member_action :clone_blog_category, method: :get do
     @blog_category = resource.dup
     @blog_category.save!
     redirect_to admin_blog_categoriess_path

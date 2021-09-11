@@ -39,11 +39,11 @@ ActiveAdmin.register ArticleTheme do
     end
     toggle_bool_column :published
     actions defaults: true do |article_theme|
-      link_to 'Duplica', clone_admin_article_theme_path(article_theme)
+      link_to 'Duplica', clone_article_theme_admin_article_theme_path(article_theme)
     end
   end
 
-  member_action :clone, method: :get do
+  member_action :clone_article_theme, method: :get do
     @article_theme = resource.dup
     @article_theme.save!
     redirect_to admin_article_themes_path

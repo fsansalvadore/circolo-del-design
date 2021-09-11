@@ -56,11 +56,11 @@ ActiveAdmin.register Face do
       end
     end
     actions defaults: true do |face|
-      link_to 'Duplica', clone_admin_face_path(face)
+      link_to 'Duplica', clone_face_admin_face_path(face)
     end
   end
 
-  member_action :clone, method: :get do
+  member_action :clone_face, method: :get do
     @face = resource.dup
     @face.save!
     redirect_to admin_faces_path

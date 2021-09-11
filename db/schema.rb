@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_18_150512) do
+ActiveRecord::Schema.define(version: 2021_09_11_135439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -572,6 +572,26 @@ ActiveRecord::Schema.define(version: 2021_07_18_150512) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "special_project_blocks", force: :cascade do |t|
+    t.string "title"
+    t.boolean "visible", default: true
+    t.text "rich_text"
+    t.string "image_url"
+    t.string "image_description"
+    t.integer "image_width"
+    t.integer "video_provider", default: 0
+    t.string "video_link"
+    t.string "video_description"
+    t.string "instagram_link"
+    t.string "twitter_link"
+    t.string "soundcloud_link"
+    t.integer "position"
+    t.bigint "special_project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["special_project_id"], name: "index_special_project_blocks_on_special_project_id"
+  end
+
   create_table "special_projects", force: :cascade do |t|
     t.string "title"
     t.boolean "intro_media_type"
@@ -706,5 +726,6 @@ ActiveRecord::Schema.define(version: 2021_07_18_150512) do
   add_foreign_key "post_text_longs", "blog_posts"
   add_foreign_key "post_text_shorts", "blog_post_sections"
   add_foreign_key "post_text_shorts", "blog_posts"
+  add_foreign_key "special_project_blocks", "special_projects"
   add_foreign_key "taggings", "tags"
 end
