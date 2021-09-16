@@ -105,7 +105,7 @@
                     <figcaption><%= block.image_description unless block.image_description.empty? %></figcaption>
                   </figure>
                 <% else %>
-                  <%= link_to block.link_url, target: "_blank" do %>
+                  <%= link_to block.link_url, target: "_blank", class: "image-link" do %>
                     <figure class="blog_img <%= block.image_width unless block.image_width.nil? %>">
                       <%= cl_image_tag(block.image_url) %>
                       <figcaption><%= block.image_description unless block.image_description.empty? %></figcaption>
