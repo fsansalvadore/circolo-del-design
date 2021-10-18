@@ -4,7 +4,7 @@ ActiveAdmin.register Collaborator do
   config.sort_order = 'position_asc'
   config.comments = false
 
-  permit_params :nome, :cognome, :image, :published
+  permit_params :nome, :cognome, :image, :description, :published
 
   member_action :publish_collaborator, method: :put do
     collaborator = Collaborator.find(params[:id])
@@ -59,8 +59,11 @@ ActiveAdmin.register Collaborator do
       row :nome
       row :cognome
       row :position
+      row :description
       row :image do |i|
-        image_tag(cl_image_path(collaborator.image), class: "image-preview")
+        unless !collaborator.image.present?
+          image_tag(cl_image_path(collaborator.image), class: "image-preview")
+        end
       end
       row :published
     end
@@ -76,6 +79,7 @@ ActiveAdmin.register Collaborator do
       f.input :nome, placeholder: 'Nome', hint: "Obbligatorio"
       f.input :cognome, placeholder: 'Cognome', hint: "Obbligatorio"
       f.input :image, as: :file, :image_preview => true, hint: "Obbligatoria"
+      f.input :description, label: "Descrizione", as: :quill_editor
       f.input :published
     end
     f.actions

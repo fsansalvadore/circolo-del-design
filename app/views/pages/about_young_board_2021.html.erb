@@ -28,6 +28,9 @@
               <%= cl_image_tag member.image, alt: "#{member.nome} #{member.cognome}", class: "team-member-img" %>
               <figcaption>
                 <h3><%= member.nome %> <%= member.cognome %></h3>
+                <% if member.description.present? %>
+                  <p><%=raw member.description %></p>
+                <% end %>
               </figcaption>
             </figure>
           <% end %>
