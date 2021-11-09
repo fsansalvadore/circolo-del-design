@@ -37,10 +37,12 @@
   </div>
   <div id="event-focus-bar" class="event-header-focus-bar">
     <div class="event-header-focus-bar-content w-container large">
-      <%= image_tag "calendar-icon.svg", alt: "calendar", class: "image-3"%>
-      <div class="event-focus-bar-date"><%= tag.time l(inizio, format: :medium), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :medium), datetime: fine) : "" %></div>
-      <div class="div-block-43"></div>
-      <div class="event-focus-bar-price"><%= @event.prezzo %></div>
+      <div class="event-header-focus-bar-content event-focus-bar-content">
+        <%= image_tag "calendar-icon.svg", alt: "calendar", class: "image-3"%>
+        <div class="event-focus-bar-date"><%= tag.time l(inizio, format: :medium), datetime: inizio %><%= dash %><%= @event.data_inizio != @event.data_fine ? (tag.time l(fine, format: :medium), datetime: fine) : "" %></div>
+        <div class="div-block-43"></div>
+        <div class="event-focus-bar-price"><%= @event.prezzo %></div>
+      </div>
     </div>
   </div>
 </header>

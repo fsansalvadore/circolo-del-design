@@ -136,7 +136,7 @@ ActiveAdmin.register CulturalProject do
     f.inputs 'Contenuto' do
       f.input :intro_media_select, label: "Tipologia intro", as: :select, collection: [["Nessuno", 0], ["Immagine", 1], ["Video", 2]], prompt: "Seleziona intro", hint: "Seleziona la tipologia di intro."
       f.input :intro_image, as: :file, :image_preview => true, hint: "Compare come intro se selezionato in 'Tipologia intro'"
-      f.input :intro_video, placeholder: 'Url Vimeo', hint: "Inserire l'intero indirizzo url del video. Compare come intro se selezionato in 'Tipologia intro'"
+      f.input :intro_video, placeholder: 'Url Vimeo', hint: "Inserire l'url di embed di Youtube tramite Condividi -> Incorpora -> iframe -> src. Compare come intro se selezionato in 'Tipologia intro'"
       f.input :content, as: :quill_editor, hint: "Obbligatorio"
       f.input :link_url, placeholder: '"Scopri di più"', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
       # f.input :link_cta, placeholder: '"Scopri di più"', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."

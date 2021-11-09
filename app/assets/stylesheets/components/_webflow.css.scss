@@ -4805,10 +4805,18 @@ div,
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.event-focus-bar-content {
+  width: 50%;
+  padding-right: 20px;
+  justify-content: flex-start;
 }
 
 .event-focus-bar-date {
   margin-left: 10px;
+  flex-shrink: 0;
 }
 
 .div-block-43 {
@@ -4821,6 +4829,7 @@ div,
 
 .event-focus-bar-price {
   font-weight: 700;
+  flex: auto;
 }
 
 .event-article-container {
@@ -5346,6 +5355,11 @@ figcaption {
     padding-right: 12px;
     padding-left: 12px;
   }
+
+  .event-focus-bar-content {
+    width: 100%;
+  }
+
   .footer-sitemap-grid {
     width: 100%;
   }
