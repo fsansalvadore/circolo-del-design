@@ -59,6 +59,7 @@ ActiveAdmin.register PageHome do
                   :id,
                   :title,
                   :subtitle,
+                  :is_draft,
                   :image,
                   :image_alt,
                   :start_date,
@@ -278,6 +279,7 @@ ActiveAdmin.register PageHome do
         n_f.input :image, label: "Immagine", as: :file, :image_preview => true
         n_f.input :image_alt, label: "Testo alternativo dell'immagine", hint: "Questo testo serve nel caso non venga caricata l'immagine o per gli screen readers."
         n_f.input :link, label: "Link di atterraggio", hint: "Inserire l'url completo"
+        n_f.input :is_draft, label: "Nascondi", hint: "Gli elementi nascosti non vengono mostrati nella home page."
         n_f.input :link_target, label: "Target _blank", hint: "Con il target _blank il link viene aperto in una nuova tab del browser"
       end
     end

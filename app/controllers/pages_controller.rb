@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     @special_projects = SpecialProject.where("published = true").limit(5).order(year: :desc)
     @wpac = WpacSection.all.first
     @page = PageHome.all.first
-    @cards = HomePageCard.where(page_home_id: @page.id).order(:position)
+    @cards = HomePageCard.where(page_home_id: @page.id, is_draft: false).order(:position)
     @col_1_links = HomePageColumnOneLink.where(page_home_id: @page.id).order(:position)
     @col_2_links = HomePageColumnTwoLink.where(page_home_id: @page.id).order(:position)
     @col_3_links = HomePageColumnThreeLink.where(page_home_id: @page.id).order(:position)

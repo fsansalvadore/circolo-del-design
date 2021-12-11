@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_104444) do
+ActiveRecord::Schema.define(version: 2021_12_11_111947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -392,6 +392,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_104444) do
     t.integer "content_category", default: 0
     t.string "eventy_type_category"
     t.boolean "link_target"
+    t.boolean "is_draft", default: false
     t.index ["page_home_id"], name: "index_home_page_cards_on_page_home_id"
   end
 
