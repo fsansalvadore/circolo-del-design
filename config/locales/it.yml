@@ -6,6 +6,10 @@ it:
         events_programma_new: 'Aggiungi Evento' # new action item
         edit_event: 'Aggiorna Evento' # edit action item
         delete_event: 'Elimina Evento' # delete action item
+      page: # Registered resource
+        events_programma_new: 'Aggiungi Pagina' # new action item
+        edit_event: 'Aggiorna Pagina' # edit action item
+        delete_event: 'Elimina Pagina' # delete action item
   activerecord:
     models:
       article_section:
@@ -29,6 +33,9 @@ it:
       event:
         one: Evento
         other: Eventi
+      Pagina:
+        one: Pagina
+        other: Pagine
       team_member:
         one: Membro del Team
         other: Membri del Team

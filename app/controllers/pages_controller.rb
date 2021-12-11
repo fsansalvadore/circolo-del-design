@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     :about_team,
     :about_young_board_2021,
     :about_sostenitori,
+    :about_newsletter,
     :servizi_spazi,
     :servizi_biblioteca,
     :servizi_store,
@@ -44,6 +45,11 @@ class PagesController < ApplicationController
   end
 
   def about_sostenitori
+  end
+  
+  def about_newsletter
+    @page = Page.find_by title: "Newsletter"
+    redirect_to root_path if !@page
   end
 
   def servizi_spazi

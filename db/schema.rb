@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_11_111947) do
+ActiveRecord::Schema.define(version: 2021_12_11_142259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -232,6 +232,33 @@ ActiveRecord::Schema.define(version: 2021_12_11_111947) do
     t.string "cover_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "content_blocks", force: :cascade do |t|
+    t.string "contentable_type", null: false
+    t.bigint "contentable_id", null: false
+    t.string "title"
+    t.integer "kind"
+    t.text "rich_text"
+    t.string "image"
+    t.string "image_description"
+    t.string "image_width"
+    t.integer "video_provider"
+    t.string "video_link"
+    t.string "video_description"
+    t.string "instagram_link"
+    t.string "twitter_link"
+    t.integer "audio_provider"
+    t.string "soundcloud_link"
+    t.string "link_url"
+    t.string "link_label"
+    t.string "link_target"
+    t.integer "link_style"
+    t.boolean "is_visible"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contentable_type", "contentable_id"], name: "index_content_blocks_on_contentable_type_and_contentable_id"
   end
 
   create_table "cultural_projects", force: :cascade do |t|
@@ -467,6 +494,14 @@ ActiveRecord::Schema.define(version: 2021_12_11_111947) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "newsletter_pages", force: :cascade do |t|
+    t.string "heading"
+    t.text "subheading"
+    t.string "form_action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "page_homes", force: :cascade do |t|
     t.string "meta_title"
     t.string "meta_description"
@@ -526,6 +561,34 @@ ActiveRecord::Schema.define(version: 2021_12_11_111947) do
     t.string "box_link_3_url"
     t.boolean "box_link_3_target"
     t.boolean "box_link_3_presence"
+  end
+
+  create_table "page_meta_data", force: :cascade do |t|
+    t.string "metadatable_type", null: false
+    t.bigint "metadatable_id", null: false
+    t.string "meta_title"
+    t.string "meta_keywords"
+    t.text "meta_description"
+    t.string "meta_image"
+    t.string "favicon"
+    t.boolean "isPublished"
+    t.datetime "publishedAt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["metadatable_type", "metadatable_id"], name: "index_page_meta_data_on_metadatable_type_and_metadatable_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "abstract"
+    t.string "slug"
+    t.integer "lang", default: 0
+    t.string "cover"
+    t.integer "priority", default: 5
+    t.datetime "published_at"
+    t.boolean "is_published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "post_instagrams", force: :cascade do |t|

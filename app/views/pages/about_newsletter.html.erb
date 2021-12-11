@@ -11,8 +11,8 @@
           {title: "Il Circolo", path: about_us_il_circolo_path, active: ""},
           {title: "Team", path: about_us_team_path, active: ""},
           {title: "Young Board 2021", path: about_us_young_board_2021_path, active: ""},
-          {title: "Sostenitori", path: about_us_sostenitori_path, active: "btn-active-yellow"},
-          {title: "Newsletter", path: about_us_newsletter_path, active: ""}
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
+          {title: "Newsletter", path: about_us_newsletter_path, active: "btn-active-yellow"}
         ]
           %>
         <% subMenu.each do |s| %>
@@ -21,6 +21,7 @@
       </div>
     </aside>
     <article class="event-article-content line big-content">
+      <h2 class="listheading"><%= @page.title %></h2>
       <h2 class="listheading">2020</h2>
       <div class="logo-grid-container grid-2x">
         <div>

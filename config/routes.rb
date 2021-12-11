@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get '/about-us/team'        => 'pages#about_team'
   get '/about-us/young-board-2021'        => 'pages#about_young_board_2021'
   get '/about-us/sostenitori' => 'pages#about_sostenitori'
+  get '/about-us/newsletter' => 'pages#about_newsletter'
 
   # servizi
   get '/servizi/spazi'      => 'pages#servizi_spazi'
