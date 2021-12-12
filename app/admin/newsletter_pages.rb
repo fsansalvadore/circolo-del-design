@@ -58,17 +58,7 @@ ActiveAdmin.register NewsletterPage do
           n_f.input :meta_keywords, label: "Meta Keywords", placeholder: 'Meta Keywords'
           n_f.input :meta_image, as: :file, label: "Meta Image", :image_preview => true
         end
-        # f.inputs 'Meta Data' do
-        #   f.input :meta_title, label: "Meta Title", placeholder: 'Meta Title'
-        #   f.input :meta_description, label: "Meta Description", placeholder: 'Meta Description'
-        #   f.input :meta_keywords, label: "Meta Keywords", placeholder: 'Meta Keywords'
-        #   f.input :meta_image, as: :file, label: "Meta Image", :image_preview => true
-        # end
       end
-    end
-    f.inputs 'Contenuto' do
-      f.input :heading, label: "Titolo pagina"
-      f.input :subheading, label: "Sottotitolo", as: :quill_editor
     end
     f.inputs 'Newsletter' do
       f.input :form_action, label: "Codice mailchimp"

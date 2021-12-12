@@ -1,0 +1,6 @@
+<% unless block.rich_text.empty? || block.rich_text == "<p><br></p>" %>
+  <div class="rich_text_container">
+    <%=raw block.rich_text %>
+  </div>
+  <div class="m-bottom-50"></div>
+<% end %>

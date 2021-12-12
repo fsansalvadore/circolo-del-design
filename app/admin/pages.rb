@@ -10,6 +10,7 @@ ActiveAdmin.register Page do
                 :published_at,
                 content_blocks_attributes: [
                   :id,
+                  :kind,
                   :title,
                   :is_visible,
                   :rich_text,
@@ -21,6 +22,7 @@ ActiveAdmin.register Page do
                   :video_description,
                   :instagram_link,
                   :soundcloud_link,
+                  :form_action,
                   :position,
                   :_destroy
                 ]
@@ -131,7 +133,7 @@ ActiveAdmin.register Page do
     f.inputs 'Contenuto' do
       f.has_many :content_blocks, heading: "Blocchi", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
         n_f.input :title, label: "Titolo Sezione", hint: "Facoltativo: Dare un titolo alla sezione può servire ad identificarla più facilmente."
-        n_f.input :kind, label: "Blocco", as: :select, collection: [["Testo", 0], ["Immagine", 1], ["Video", 2], ["Instagram", 3], ["Audio", 4], ["Link", 5]], prompt: "Seleziona sorgente video", hint: "Definisce quale tipologia di blocco viene visualizzata."
+        n_f.input :kind, label: "Blocco", as: :select, collection: [["Testo", "testo"], ["Immagine", 'immagine'], ["Video", 'video'], ["Instagram", 'instagram'], ["Audio", 'audio'], ["Link", 'link'], ["Mailchimp", 'mailchimp']], prompt: "Seleziona sorgente video", hint: "Definisce quale tipologia di blocco viene visualizzata."
         n_f.input :rich_text, label: "Testo Lungo", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
         n_f.input :video_provider, label: "Sorgente Video", as: :select, collection: [["Nessuno", 0], ["Vimeo", 1], ["YouTube", 2]], prompt: "Seleziona sorgente video", hint: "Indica se il video proviene da YouTube o da Vimeo."
         n_f.input :video_link, label: "Codice Video", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789 | https://www.youtube.com/watch?v=123456789 -> 123456789"
@@ -142,6 +144,7 @@ ActiveAdmin.register Page do
         n_f.input :instagram_link, label: "Codice Post — Instagram", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://www.instagram.com/p/123456789 -> 123456789"
         n_f.input :audio_provider, label: "Sorgente Audio", as: :select, collection: [["Nessuno", 0], ["SoundCloud", 1], ["MixCloud", 2], ["Spotify", 3]], prompt: "Seleziona sorgente audio", hint: "Indica se il video proviene da SoundCloud, MixCloud o Spotify."
         n_f.input :soundcloud_link, label: "Codice Audio", hint: "Inserire il codice URI identificativo della traccia. Solitamente si trova sotto Share > Embed"
+        n_f.input :form_action, label: "Codice form Mailchimp"
         n_f.input :link_url, label: "Destinazione Link"
         n_f.input :link_label, label: "Testo link"
         n_f.input :link_target, label: "Link target"

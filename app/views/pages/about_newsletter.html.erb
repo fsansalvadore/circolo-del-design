@@ -21,36 +21,11 @@
       </div>
     </aside>
     <article class="event-article-content line big-content">
-      <h2 class="listheading"><%= @page.title %></h2>
-      <h2 class="listheading">2020</h2>
-      <div class="logo-grid-container grid-2x">
-        <div>
-          <h4>Main partner</h4>
-          <hr>
-          <div class="mt-50 mb-50">
-            <%= image_tag "partner/1_Copagnia-san-paolo-logo-cdd.png", alt: "Compagnia San Paolo", class: "grid-logo" %>
-          </div>
-        </div>
-        <div>
-          <h4>Partner</h4>
-          <hr>
-          <div class="mt-50 mb-50">
-            <%= image_tag "partner/2_camera-di-commercio-torino-logo-cdd.png", alt: "Camera di Commercio Torino", class: "grid-logo" %>
-          </div>
-        </div>
-      </div>
-      <h4>Con il contributo di</h4>
-      <hr>
-      <div class="logo-grid-container grid-3x">
-        <%= image_tag "partner/5_CittaDiTorino-black.png", alt: "Città di Torino", class: "grid-logo" %>
-        <%= image_tag "partner/CNA_logo-black.png", alt: "Confederazione Nazionale dell'Artigianato e della Piccola e Media Impresa", class: "grid-logo" %>
-        <%= image_tag "partner/UnioneIndustriale-CdD-black.png", alt: "Unione Industriale Torino", class: "grid-logo" %>
-      </div>
-      <h4>Sponsor</h4>
-      <hr>
-      <div class="logo-grid-container grid-2x">
-        <%= image_tag "partner/iren_nero.png", alt: "Iren", class: "grid-logo" %>
-      </div>
+      <% unless @page.content_blocks.empty? %>
+        <% @page.content_blocks.each do |block| %>
+          <%= render partial: "shared/content/#{block.kind}", locals: {block: block} %>
+        <% end %>
+      <% end %>
     </article>
   </main>
 </div>

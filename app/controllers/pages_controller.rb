@@ -13,6 +13,7 @@ class PagesController < ApplicationController
     :servizi_store,
     :membership
   ]
+  before_action :set_page, only: [:about_newsletter]
 
   def index
     @events = Event.where('data_fine >= ? OR data_inizio >= ?', DateTime.now, DateTime.now + 20).where("published = true").limit(5).sort_by{ |e| [e.priority, e.data_inizio] }
@@ -48,7 +49,7 @@ class PagesController < ApplicationController
   end
   
   def about_newsletter
-    @page = Page.find_by title: "Newsletter"
+    @page = Page.friendly.find_by_slug('newsletter')
     redirect_to root_path if !@page
   end
 
@@ -62,5 +63,11 @@ class PagesController < ApplicationController
   end
 
   def membership
+  end
+
+  private
+
+  def set_page
+    @page = Page.friendly.find_by_slug(params[:slug])
   end
 end

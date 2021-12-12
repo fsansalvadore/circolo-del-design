@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_11_142259) do
+ActiveRecord::Schema.define(version: 2021_12_12_095742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -238,7 +238,7 @@ ActiveRecord::Schema.define(version: 2021_12_11_142259) do
     t.string "contentable_type", null: false
     t.bigint "contentable_id", null: false
     t.string "title"
-    t.integer "kind"
+    t.integer "kind", default: 0
     t.text "rich_text"
     t.string "image"
     t.string "image_description"
@@ -258,6 +258,7 @@ ActiveRecord::Schema.define(version: 2021_12_11_142259) do
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "form_action"
     t.index ["contentable_type", "contentable_id"], name: "index_content_blocks_on_contentable_type_and_contentable_id"
   end
 
