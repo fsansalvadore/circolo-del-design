@@ -53,6 +53,9 @@ class PagesController < ApplicationController
     redirect_to root_path if !@page
   end
 
+  def servizi_affitto_spazi
+  end
+
   def servizi_spazi
   end
 

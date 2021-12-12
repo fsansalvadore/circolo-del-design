@@ -54,8 +54,9 @@ Rails.application.routes.draw do
   get '/about-us/newsletter' => 'pages#about_newsletter'
 
   # servizi
-  get '/servizi/spazi'      => 'pages#servizi_spazi'
-  get '/servizi/biblioteca' => 'pages#servizi_biblioteca'
+  get '/servizi/affitto-spazi'    => 'pages#servizi_affitto_spazi'
+  get '/servizi/spazi'            => 'pages#servizi_spazi'
+  get '/servizi/biblioteca'       => 'pages#servizi_biblioteca'
   #get '/servizi/store' => 'pages#servizi_store'
 
   # progetti speciali

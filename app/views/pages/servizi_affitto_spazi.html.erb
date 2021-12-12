@@ -1,0 +1,61 @@
+<% content_for :meta_title, "Spazi — Servizi — Circolo del Design" %>
+<% content_for :meta_description, "Il Circolo del Design dà la possibilità di affittare alcuni dei suoi spazi per eventi." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, spazi, studiare, lavorare, co-working, tavoli, affittare" %>
+
+<%= render 'shared/servizi-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Spazi", path: servizi_spazi_path, active: "btn-active-yellow"},
+          {title: "Biblioteca", path: servizi_biblioteca_path, active: ""}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <script src="//widget.simplybook.it/v2/widget/widget.js"></script>
+      <script>
+        var widget = new SimplybookWidget({
+          "widget_type": "iframe",
+          "url": "https:\/\/fsansalvadore.simplybook.it",
+          "theme": "creative",
+          "theme_settings": {
+            "timeline_show_end_time": 1,
+            "timeline_modern_display": "as_slots",
+            "timeline_hide_unavailable": 1,
+            "only_unavailable": 1,
+            "index_page_content_grid": "[{\"template\":\"col_100\",\"items\":[\"timetable\"]}]",
+            "hide_past_days": 0,
+            "sb_base_color": "#000000",
+            "display_item_mode": "list",
+            "booking_nav_bg_color": "#ffed00",
+            "body_bg_color": "#fdfdfd",
+            "sb_review_image": "",
+            "dark_font_color": "#494949",
+            "light_font_color": "#ffffff",
+            "btn_color_1": "#ffed00",
+            "hide_img_mode": 0,
+            "show_sidebar": 0,
+            "sb_busy": "#dad2ce",
+            "sb_available": "#ffed00"
+          },
+          "timeline": "modern_week",
+          // "datepicker": "top_calendar",
+          "datepicker": "inline_datepicker",
+          "is_rtl": false,
+          "app_config": {
+            "allow_switch_to_ada": 0,
+            "predefined": []
+          }
+        });
+      </script>
+    </article>
+  </main>
+</div>
+
