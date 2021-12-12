@@ -1,0 +1,8 @@
+<% unless block.image_url.blank? %>
+  <section>
+      <figure class="mb-50">
+        <%= cl_image_tag(block.image_url, :alt=> "#{block.image_description.empty? ? '' : block.image_description}") %>
+        <figcaption><%= block.image_description unless block.image_description.empty? %></figcaption>
+      </figure>
+  </section>
+<% end %>

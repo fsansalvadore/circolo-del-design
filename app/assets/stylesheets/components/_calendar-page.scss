@@ -3,6 +3,9 @@
   padding-top: 80px;
   flex-wrap: wrap;
 }
+.special-projects-container {
+  width: 100%;
+}
 .calendar-content-left {
   width: 72%;
   margin-right: 1%;
@@ -48,7 +51,10 @@
 .events-search-form {
   display: inline-flex;
   margin-right: 10px;
-  // width: 300px;
+  
+  &.sp-search-form {
+    width: 300px;
+  }
 }
 
 .category-search-form {
@@ -260,7 +266,7 @@
     flex-direction: column;
   }
 
-  .events-search-form {
+  .events-search-form, .events-search-form.sp-search-form {
     width: 100%;
   }
   .event-form-control {

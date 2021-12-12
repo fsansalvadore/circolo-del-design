@@ -3,12 +3,17 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "4.2.2",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.0",
     "popper.js": "^1.16.0",
     "react-router-dom": "^5.2.0",
     "simple-parallax-js": "^5.2.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.10.1"
+    "@babel/cli": "^7.12.16",
+    "@babel/core": "^7.12.16",
+    "@babel/helper-compilation-targets": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "webpack-dev-server": "^3.11.2"
   }
 }

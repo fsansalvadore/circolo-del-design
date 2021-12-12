@@ -1,0 +1,32 @@
+<% content_for :meta_title, "Sostenitori — About — Circolo del Design" %>
+<% content_for :meta_description, "La mission del Circolo del Design è la diffusione della cultura del progetto e viene perseguita attraverso la produzione di attività culturali e di formazione." %>
+
+<%= render 'shared/about-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Il Circolo", path: about_us_il_circolo_path, active: ""},
+          {title: "Team", path: about_us_team_path, active: ""},
+          {title: "Young Board 2021", path: about_us_young_board_2021_path, active: ""},
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
+          {title: "Newsletter", path: about_us_newsletter_path, active: "btn-active-yellow"}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content">
+      <% unless @page.content_blocks.empty? %>
+        <% @page.content_blocks.each do |block| %>
+          <%= render partial: "shared/content/#{block.kind}", locals: {block: block} %>
+        <% end %>
+      <% end %>
+    </article>
+  </main>
+</div>
+

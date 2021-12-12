@@ -5,20 +5,25 @@ class PagesController < ApplicationController
     :contacts,
     :about_circolo,
     :about_team,
+    :about_young_board_2021,
     :about_sostenitori,
+    :about_newsletter,
     :servizi_spazi,
     :servizi_biblioteca,
     :servizi_store,
     :membership
   ]
+  before_action :set_page, only: [:about_newsletter]
 
   def index
     @events = Event.where('data_fine >= ? OR data_inizio >= ?', DateTime.now, DateTime.now + 20).where("published = true").limit(5).sort_by{ |e| [e.priority, e.data_inizio] }
-    # @blog_posts = BlogPost.where("published = true AND priority BETWEEN 1 AND 4").limit(5).sort_by{ |e| [e.priority, e.created_at] }
-    # @articles = Article.where("published = true AND priority BETWEEN 1 AND 4").limit(5).sort_by{ |e| [e.priority, e.created_at] }
-    # @slider_cover = Article.where("priority = 6 AND published = true").first
+    @special_projects = SpecialProject.where("published = true").limit(5).order(year: :desc)
     @wpac = WpacSection.all.first
-    # @slider_cover = BlogPost.where("priority = 6 AND published = true").first
+    @page = PageHome.all.first
+    @cards = HomePageCard.where(page_home_id: @page.id, is_draft: false).order(:position)
+    @col_1_links = HomePageColumnOneLink.where(page_home_id: @page.id).order(:position)
+    @col_2_links = HomePageColumnTwoLink.where(page_home_id: @page.id).order(:position)
+    @col_3_links = HomePageColumnThreeLink.where(page_home_id: @page.id).order(:position)
     render :layout => 'home'
   end
 
@@ -35,8 +40,17 @@ class PagesController < ApplicationController
   def about_team
     @members = TeamMember.where(published: true).order(:position)
   end
+  
+  def about_young_board_2021
+    @collaborators = Collaborator.where(published: true).order(:position)
+  end
 
   def about_sostenitori
+  end
+  
+  def about_newsletter
+    @page = Page.friendly.find_by_slug('newsletter')
+    redirect_to root_path if !@page
   end
 
   def servizi_spazi
@@ -49,5 +63,11 @@ class PagesController < ApplicationController
   end
 
   def membership
+  end
+
+  private
+
+  def set_page
+    @page = Page.friendly.find_by_slug(params[:slug])
   end
 end

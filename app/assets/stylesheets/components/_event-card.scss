@@ -5,10 +5,13 @@
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
   border-radius: 1px;
   color: #000;
-  display: inline-table;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   will-change: box-shadow, transform;
   text-decoration: none;
+
+  &.special-projects-card {
+    width: 23%;
+  }
 
   &:hover {
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
@@ -42,7 +45,7 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  background-color: teal;
+  background-color: #e1354b;
 }
 
 .cart_img_container {
@@ -58,9 +61,9 @@
     bottom: auto;
   }
 
-  .event-card-content-container {
-    color: #fff !important;
-  }
+  // .event-card-content-container {
+  //   color: #fff !important;
+  // }
 }
 
 .event-card-category-label {
@@ -70,24 +73,17 @@
   font-weight: bold;
   color: #fff;
 
-  &.mostra {
-    background-color: #F49FC6;
-  }
-
-  &.talk {
-    background-color: #81539c;
-  }
-
-  &.workshop {
-    background-color: #2581c4;
+  &.evento,
+  &.mostra,
+  &.talk,
+  &.workshop,
+  &.performance,
+  &.film {
+    background-color: var(--cdd-orange);
   }
 
   &.progetti {
-    background-color: #e1354b;
-  }
-
-  &.evento {
-    background-color: #000;
+    background-color: var(--cdd-blue);
   }
 }
 
@@ -120,9 +116,11 @@
 }
 
 .section-label-container {
+  font-family: heimat-sans, sans-serif;
   padding: 6px 2px;
   border-bottom: 1px solid #000;
   font-weight: bold;
+  font-size: 1.5rem;
 
   &.pink {
     background-color: #F49FC6;
@@ -130,13 +128,13 @@
 }
 
 @media screen and (max-width: 991px) {
-  .event-card-container {
+  .event-card-container, .event-card-container.special-projects-card {
     width: 47.5%;
   }
 }
 
 @media screen and (max-width: 479px) {
-  .event-card-container {
+  .event-card-container, .event-card-container.special-projects-card {
     width: 100%;
     margin: 10px 0;
   }

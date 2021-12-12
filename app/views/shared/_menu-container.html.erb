@@ -10,57 +10,65 @@
           </div>
         </div>
         <div class="menu-sub-links-container" style="display: none;">
-          <%= link_to about_us_il_circolo_path, class: "menu-sub-link w-inline-block", alt: "Il Circolo del Design alimenta e diffonde la cultura del progetto." do %>
+          <%= link_to about_us_il_circolo_path, class: "menu-sub-link w-inline-block" do %>
             <div>IL CIRCOLO</div>
           <% end %>
-          <%= link_to about_us_team_path, class: "menu-sub-link w-inline-block", alt: "Il team del Circolo del Design." do %>
+          <%= link_to about_us_team_path, class: "menu-sub-link w-inline-block" do %>
             <div>TEAM</div>
           <% end %>
-          <%= link_to about_us_sostenitori_path, class: "menu-sub-link w-inline-block", alt: "Scopri chi ci sostiene." do %>
+          <%= link_to about_us_young_board_2021_path, class: "menu-sub-link w-inline-block" do %>
+            <div>Young Board 2021</div>
+          <% end %>
+          <%= link_to about_us_sostenitori_path, class: "menu-sub-link w-inline-block" do %>
             <div>SOSTENITORI</div>
+          <% end %>
+          <%= link_to about_us_newsletter_path, class: "menu-sub-link w-inline-block" do %>
+            <div>NEWSLETTER</div>
           <% end %>
         </div>
       </div>
       <div data-w-id="" class="link-menu-container link-a-2">
         <div class="menu-main-link">
-          <h2>WHAT’S ON</h2>
+          <h2>PROGRAMMA CULTURALE</h2>
           <div class="menu-toggle-icon-contianer">
             <div class="div-block-27 menu-toggle-line"></div>
             <div class="menu-icon-line-anim"></div>
           </div>
         </div>
         <div class="menu-sub-links-container" style="display: none;">
-          <%= link_to wpac_path, class: "menu-sub-link w-inline-block", alt: "Interviste, video, rubriche e approfondimenti legati alla cultura del progetto." do %>
-            <div>Welcome to the Post-Analog Condition*</div>
-          <% end %>
           <%= link_to whats_on_programma_path, class: "menu-sub-link w-inline-block", alt: "Scopri tutti gli eventi del Circolo del Design." do %>
-            <div>PROGRAMMA</div>
+          <div>CALENDARIO</div>
           <% end %>
-          <%= link_to whats_on_i_volti_2019_path, class: "menu-sub-link w-inline-block", alt: "Alcuni dei protagonisti che hanno portato la loro esperienza e i loro racconti al Circolo del Design." do %>
-            <div>I VOLTI DEL 2019</div>
+          <%= link_to cultural_projects_path, class: "menu-sub-link w-inline-block", alt: "Scopri tutti gli eventi del Circolo del Design." do %>
+          <div>Tutti i Progetti Culturali</div>
+          <% end %>
+          <% unless CulturalProject.where("published = true AND show_in_nav = true").empty? %>
+            <% CulturalProject.where("published = true AND show_in_nav = true").limit(5).order(start_date: :desc).each do |cultural_project| %>
+              <%= link_to cultural_project_path(cultural_project), class: "menu-sub-link w-inline-block", alt: cultural_project.title do %>
+                <div><%= cultural_project.title %></div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
       <div data-w-id="" class="link-menu-container link-a-4">
         <div class="menu-main-link">
-          <h2>Progetti Speciali</h2>
+          <h2>Progetti d'impatto</h2>
           <div class="menu-toggle-icon-contianer">
             <div class="div-block-27 menu-toggle-line"></div>
             <div class="menu-icon-line-anim"></div>
           </div>
         </div>
         <div class="menu-sub-links-container" style="display: none;">
-          <%= link_to progetti_speciali_introduzione_path, class: "menu-sub-link w-inline-block", alt: "Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti Speciali con l’ambizione di incidere concretamente su ambiti specifici." do %>
-            <div>Introduzione</div>
+          <%= link_to progetti_speciali_path, class: "menu-sub-link w-inline-block", alt: "Al fianco della programmazione, il Circolo del Design lavora per lo sviluppo di Progetti Speciali con l’ambizione di incidere concretamente su ambiti specifici." do %>
+          <div>Tutti i progetti</div>
           <% end %>
-          <%= link_to progetti_speciali_ask_to_design_path, class: "menu-sub-link w-inline-block", alt: "Ask to Design vuole alimentare la cultura del progetto nel mondo della produzione e promuovere l’incontro tra le realtà aziendali e i progettisti." do %>
-            <div>ASK TO DESIGN</div>
-          <% end %>
-          <%= link_to progetti_speciali_video_torino_creative_city_unesco_path, class: "menu-sub-link w-inline-block", alt: "Il video Torino Creative City, prodotto dal Circolo del Design, è stato presentato in anteprima a Fabriano in occasione dell’Assemblea mondiale delle città creative Unesco." do %>
-            <div>Video Torino Creative City Unesco</div>
-          <% end %>
-          <%= link_to progetti_speciali_interaction_20_path, class: "menu-sub-link w-inline-block", alt: "La Camera di commercio di Torino e il Circolo del Design realizzano due pacchetti di tour all’interno della programmazione di Interaction 20, il congresso biennale organizzato dall’Interaction Design Association che approda per la prima volta in Italia." do %>
-            <div>Interaction 20</div>
+          <% unless SpecialProject.where("published = true AND show_in_nav = true").empty? %>
+            <% SpecialProject.where("published = true AND show_in_nav = true").limit(5).order(year: :desc).each do |special_project| %>
+              <%= link_to special_project_path(special_project), class: "menu-sub-link w-inline-block", alt: special_project.title do %>
+                <div><%= special_project.title.upcase %></div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -119,16 +127,28 @@
             <div class="menu-social-link">Facebook</div>
           </div>
         </a>
+        <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937835" href="https://www.instagram.com/circolodeldesign/" target="_blank" class="link-social-container w-inline-block">
+          <div class="word-slider">
+            <div class="menu-social-link">Instagram</div>
+            <div class="menu-social-link">Instagram</div>
+          </div>
+        </a>
         <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937832" href="https://www.linkedin.com/company/circolo-del-design/" target="_blank" class="link-social-container w-inline-block">
           <div class="word-slider">
             <div class="menu-social-link">Linkedin</div>
             <div class="menu-social-link">Linkedin</div>
           </div>
         </a>
-        <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937835" href="https://www.instagram.com/circolodeldesign/" target="_blank" class="link-social-container last-link-social w-inline-block">
+        <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937835" href="https://www.youtube.com/channel/UCBYouoahfNG1qy-g4GIBQYg" target="_blank" class="link-social-container last-link-social w-inline-block">
           <div class="word-slider">
-            <div class="menu-social-link">Instagram</div>
-            <div class="menu-social-link">Instagram</div>
+            <div class="menu-social-link">YouTube</div>
+            <div class="menu-social-link">YouTube</div>
+          </div>
+        </a>
+        <a data-w-id="e1ce827e-4e2b-205f-0506-831e04937835" href="https://open.spotify.com/show/6YrSVNM0bfnRyRNEhOzwuI?si=M7xnyPzMTVqgZIUwP1z8jA&dl_branch=1" target="_blank" class="link-social-container last-link-social w-inline-block">
+          <div class="word-slider">
+            <div class="menu-social-link">Spotify</div>
+            <div class="menu-social-link">Spotify</div>
           </div>
         </a>
       </div>

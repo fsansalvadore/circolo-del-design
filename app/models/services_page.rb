@@ -1,0 +1,2 @@
+class ServicesPage < ApplicationRecord
+end

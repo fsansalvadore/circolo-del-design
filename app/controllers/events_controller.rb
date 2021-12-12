@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.where("published = ? AND data_fine >= ?", true, Date.today)
+    @events = Event.where("published = ? AND data_fine >= ?", true, Date.today).where.not(is_not_in_calendar: true)
     if params[:query].present?
       sql_query = " \
         events.titolo ILIKE :query \
@@ -13,10 +13,10 @@ class EventsController < ApplicationController
       "
       @events = @events.where(sql_query, query: "%#{params[:query]}%")
     elsif params[:i].present?
-      @events = Event.where("extract(month from data_inizio) = ? OR extract(month from data_fine) = ?", params[:i], params[:i]).where(published: true).order(:data_inizio)
+      @events = Event.where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', Time.new.year, Time.new.year).where("extract(month from data_inizio) <= ? AND extract(month from data_fine) >= ?", params[:i], params[:i]).where("published = ?", true).where.not(is_not_in_calendar: true).order(:data_inizio)
       @monthSelect = params[:i]
     elsif params[:categoria].present?
-      @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ?", true, Date.today) : @events.where("categoria = ?", params[:categoria].gsub("+", " ")).order(:data_inizio)
+      @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ?", true, Date.today).where.not(is_not_in_calendar: true).order(:data_inizio) : Event.where("categoria = ? AND published = ?", params[:categoria].gsub("+", " "), true).where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', Time.new.year, Time.new.year).where.not(is_not_in_calendar: true).order(:data_inizio)
       @categorySelect = params[:categoria]
     else
       @events = @events.order(:data_inizio)
@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event_blocks = EventBlock.where("visible = true AND event_id = ?", @event.id).order(:position)
   end
 
   def new

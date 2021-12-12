@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meta_title: MyString
+  meta_description: MyString
+  meta_keywords: MyString
+  meta_image: MyString
+  page_label: MyString
+  heading: MyString
+  subheading: MyText
+  form_title: MyString
+  form_subtitle: MyText
+  address_left: MyText
+  address_title: MyString
+  address_subtitle: MyString
+  map_image: MyString
+  map_box_text: MyText
+  cover_image: MyString
+
+two:
+  meta_title: MyString
+  meta_description: MyString
+  meta_keywords: MyString
+  meta_image: MyString
+  page_label: MyString
+  heading: MyString
+  subheading: MyText
+  form_title: MyString
+  form_subtitle: MyText
+  address_left: MyText
+  address_title: MyString
+  address_subtitle: MyString
+  map_image: MyString
+  map_box_text: MyText
+  cover_image: MyString

@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  intro_media_type: 1
+  intro_image: MyString
+  intro_video: MyString
+  intro_video_provider: MyString
+  content: MyText
+  link_cta: MyString
+  link_url: MyString
+  start_date: 2021-03-01
+  end_date: MyString
+  cover: MyString
+  meta_title: MyString
+  meta_keywords: MyString
+  meta_description: MyString
+  intro_media_select: 1
+  slug: MyString
+  published: false
+
+two:
+  title: MyString
+  intro_media_type: 1
+  intro_image: MyString
+  intro_video: MyString
+  intro_video_provider: MyString
+  content: MyText
+  link_cta: MyString
+  link_url: MyString
+  start_date: 2021-03-01
+  end_date: MyString
+  cover: MyString
+  meta_title: MyString
+  meta_keywords: MyString
+  meta_description: MyString
+  intro_media_select: 1
+  slug: MyString
+  published: false

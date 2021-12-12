@@ -1,3 +1,37 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.rich_text_container * {
+    background: transparent !important;
+}
+
+article.membership {
+    position: relative;
+
+    .cognito .c-forms-heading .c-forms-form-title {
+        padding-top: 0 !important;
+    }
+
+    
+    .cognito {
+        .c-forms-form .c-forms-description, p {
+            font-size: 14px;
+            line-height: 1.4rem;
+        }
+    
+        
+        .c-forms-form {
+            background: #fbfbfb;
+        }
+    }
+    #loading {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: -99;
+    }
+}

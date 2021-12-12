@@ -24,6 +24,20 @@
 }
 .grid-3x {
   grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 30px;
+}
+
+.mt-10 {
+  margin-top: 10px !important;
+}
+.mt-50 {
+  margin-top: 50px !important;
+}
+.mb-50 {
+  margin-bottom: 50px !important;
+}
+.mb-30 {
+  margin-bottom: 30px !important;
 }
 
 .grid-img {
@@ -35,7 +49,8 @@
   max-height: 100px;
   height: auto;
   width: auto;
-  max-width: 300px;
+  max-width: 200px;
+  max-height: 70px;
   margin-left: auto;
   margin-right: auto;
 }

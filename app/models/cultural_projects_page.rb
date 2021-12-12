@@ -1,0 +1,2 @@
+class CulturalProjectsPage < ApplicationRecord
+end

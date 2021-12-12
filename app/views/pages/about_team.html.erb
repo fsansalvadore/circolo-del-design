@@ -11,7 +11,9 @@
         <% subMenu = [
           {title: "Il Circolo", path: about_us_il_circolo_path, active: ""},
           {title: "Team", path: about_us_team_path, active: "btn-active-yellow"},
-          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""}
+          {title: "Young Board 2021", path: about_us_young_board_2021_path, active: ""},
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
+          {title: "Newsletter", path: about_us_newsletter_path, active: ""}
         ]
           %>
         <% subMenu.each do |s| %>
@@ -20,7 +22,7 @@
       </div>
     </aside>
     <article class="event-article-content line big-content team">
-      <div class="grid-container">
+      <div class="grid-container m-bottom-50">
         <% if @members && !@members.empty? %>
           <% @members.each do |member| %>
             <figure class="team-member-container">
@@ -33,26 +35,25 @@
           <% end %>
         <% end %>
       </div>
-      <div class="grid-container banner">
-        <%= link_to "https://www.linkedin.com/in/maurizio-bazzano-376257/", target:"_blank", class:"team-member-container" do %>
-          <figcaption>
-            <h3>Maurizio Bazzano</h3>
-            <p>Presidente</p>
-          </figcaption>
-        <% end %>
-      </div>
+      <hr class="m-bottom-50">
       <h2>Collaborano con noi</h2>
       <div class="grid-container">
-        <%= link_to "https://www.saglietti.it/", target: "_blank", class: "team-member-container" do %>
+        <%= link_to "http://fionda.eu/", target: "_blank", class: "team-member-container" do %>
           <figcaption>
-            <h3>Saglietti</h3>
-            <p>Comunicazione</p>
+            <h3>Fionda</h3>
+            <p>Visual Communication</p>
           </figcaption>
         <% end %>
         <%= link_to "https://www.spin-to.it/", target: "_blank", class: "team-member-container" do %>
           <figcaption>
             <h3>Spin-To</h3>
             <p>Ufficio stampa</p>
+          </figcaption>
+        <% end %>
+        <%= link_to "https://www.fsansalvadore.com/", target: "_blank", class: "team-member-container" do %>
+          <figcaption>
+            <h3>Francesco Sansalvadore</h3>
+            <p>Sviluppo Web</p>
           </figcaption>
         <% end %>
       </div>

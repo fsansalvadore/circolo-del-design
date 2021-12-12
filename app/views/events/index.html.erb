@@ -1,11 +1,11 @@
-<% content_for :meta_title, "Programma — What's On — Circolo del Design" %>
+<% content_for :meta_title, "Calendario - Programma Culturale — Circolo del Design" %>
 <% content_for :meta_description, "I prossimi appuntamenti al Circolo del Design." %>
 <% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, eventi, mostre, workshop, progetti, partner, programma, appuntamenti, mostre in corso" %>
 
 <header id="top" class="page-header-container">
   <div class="w-container large">
-    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / What's On /</div>
-    <h1 class="page-header-title">Programma</h1>
+    <div class="breadcrumb-text"><%= link_to "Home", root_path %> / Programma Culturale /</div>
+    <h1 class="page-header-title">Calendario</h1>
     <div class="page-header-subtitle">I prossimi appuntamenti al Circolo del Design.</div>
   </div>
 </header>
@@ -69,7 +69,7 @@
         <% if !@events.empty? %>
         <p class="result-message"><%= @events.all.count %> risultat<%= @events.all.count == 1 ? "o" : "i" %></p>
         <% @events.each do |event| %>
-          <%= link_to event_path(event), class: "event-card-container" do %>
+          <%= link_to event.preview_link_presence ? event.preview_link_url : event_path(event), class: "event-card-container", target: event.preview_link_target ? "_blank" : "" do %>
             <% separator = event.sotto_categoria && !event.sotto_categoria.empty? ? " / " : ""  %>
             <div class="event-card-category-label <%= event.categoria.downcase %>"><%= event.categoria.upcase %><%= separator %><%= event.sotto_categoria.upcase if event.sotto_categoria %></div>
             <div class="event-card-img-container" style="background-image: url('<%= cl_image_path event.image %>');">
@@ -95,10 +95,10 @@
     </div>
     <aside class="calendar-aside-container">
       <div class="sticky">
-        <h2 class="section-label-container pink">Mostre in corso</h2>
+        <h2 class="section-label-container bg-orange text-center">Mostre in corso</h2>
         <% if !@featured.empty? %>
           <% @featured.each do |featured| %>
-            <%= link_to event_path(featured), class: "event-card-container featured-card" do %>
+            <%= link_to featured.preview_link_presence ? featured.preview_link_url : event_path(featured), class: "event-card-container featured-card", target: featured.preview_link_target ? "_blank" : "" do %>
               <div class="event-card-category-label <%= featured.categoria.downcase %>"><%= featured.categoria.upcase %></div>
               <div class="event-card-img-container" style="background-image: url('<%= cl_image_path featured.image %>');">
               </div>

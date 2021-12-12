@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_090212) do
+ActiveRecord::Schema.define(version: 2021_12_12_095742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_pages", force: :cascade do |t|
+    t.string "page_label"
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "heading"
+    t.text "subheading"
+    t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -182,6 +195,137 @@ ActiveRecord::Schema.define(version: 2020_05_07_090212) do
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 
+  create_table "card_categories", force: :cascade do |t|
+    t.string "title"
+    t.string "primary_color"
+    t.string "secondary_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "collaborators", force: :cascade do |t|
+    t.string "nome"
+    t.string "cognome"
+    t.string "image"
+    t.integer "position"
+    t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+  end
+
+  create_table "contacts_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.string "form_title"
+    t.text "form_subtitle"
+    t.text "address_left"
+    t.string "address_title"
+    t.string "address_subtitle"
+    t.string "map_image"
+    t.text "map_box_text"
+    t.string "cover_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "content_blocks", force: :cascade do |t|
+    t.string "contentable_type", null: false
+    t.bigint "contentable_id", null: false
+    t.string "title"
+    t.integer "kind", default: 0
+    t.text "rich_text"
+    t.string "image"
+    t.string "image_description"
+    t.string "image_width"
+    t.integer "video_provider"
+    t.string "video_link"
+    t.string "video_description"
+    t.string "instagram_link"
+    t.string "twitter_link"
+    t.integer "audio_provider"
+    t.string "soundcloud_link"
+    t.string "link_url"
+    t.string "link_label"
+    t.string "link_target"
+    t.integer "link_style"
+    t.boolean "is_visible"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "form_action"
+    t.index ["contentable_type", "contentable_id"], name: "index_content_blocks_on_contentable_type_and_contentable_id"
+  end
+
+  create_table "cultural_projects", force: :cascade do |t|
+    t.string "title"
+    t.integer "intro_media_type"
+    t.string "intro_image"
+    t.string "intro_video"
+    t.string "intro_video_provider"
+    t.text "content"
+    t.string "link_cta"
+    t.string "link_url"
+    t.date "start_date"
+    t.string "end_date"
+    t.string "cover"
+    t.string "meta_title"
+    t.string "meta_keywords"
+    t.string "meta_description"
+    t.integer "intro_media_select"
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.boolean "show_in_nav"
+    t.boolean "featured"
+    t.index ["slug"], name: "index_cultural_projects_on_slug", unique: true
+  end
+
+  create_table "cultural_projects_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_blocks", force: :cascade do |t|
+    t.string "title"
+    t.boolean "visible", default: true
+    t.text "rich_text"
+    t.string "image_url"
+    t.string "image_description"
+    t.integer "image_width"
+    t.integer "video_provider", default: 0
+    t.string "video_link"
+    t.string "video_description"
+    t.string "instagram_link"
+    t.string "twitter_link"
+    t.string "soundcloud_link"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_event_blocks_on_event_id"
+  end
+
+  create_table "event_categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "titolo"
     t.string "sottotitolo"
@@ -207,6 +351,10 @@ ActiveRecord::Schema.define(version: 2020_05_07_090212) do
     t.string "sotto_categoria"
     t.string "curator"
     t.string "keywords"
+    t.string "preview_link_url"
+    t.boolean "preview_link_presence"
+    t.boolean "preview_link_target"
+    t.boolean "is_not_in_calendar", default: false
     t.index ["slug"], name: "index_events_on_slug", unique: true
   end
 
@@ -235,6 +383,213 @@ ActiveRecord::Schema.define(version: 2020_05_07_090212) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "global_settings", force: :cascade do |t|
+    t.string "site_title"
+    t.string "favicon"
+    t.string "facebook_url"
+    t.string "youtube_url"
+    t.string "instagram_url"
+    t.string "linkedin_url"
+    t.string "meta_image"
+    t.string "meta_description"
+    t.string "main_email"
+    t.string "main_tel"
+    t.string "opening_hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "title"
+    t.string "meta_title"
+    t.string "meta_keywords"
+  end
+
+  create_table "home_page_cards", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.string "image"
+    t.string "image_alt"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "link"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.integer "content_category", default: 0
+    t.string "eventy_type_category"
+    t.boolean "link_target"
+    t.boolean "is_draft", default: false
+    t.index ["page_home_id"], name: "index_home_page_cards_on_page_home_id"
+  end
+
+  create_table "home_page_column_one_links", force: :cascade do |t|
+    t.string "link"
+    t.string "label"
+    t.boolean "target"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.index ["page_home_id"], name: "index_home_page_column_one_links_on_page_home_id"
+  end
+
+  create_table "home_page_column_three_links", force: :cascade do |t|
+    t.string "link"
+    t.string "label"
+    t.boolean "target"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.index ["page_home_id"], name: "index_home_page_column_three_links_on_page_home_id"
+  end
+
+  create_table "home_page_column_two_links", force: :cascade do |t|
+    t.string "link"
+    t.string "label"
+    t.boolean "target"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.index ["page_home_id"], name: "index_home_page_column_two_links_on_page_home_id"
+  end
+
+  create_table "home_page_links", force: :cascade do |t|
+    t.string "url"
+    t.string "label"
+    t.boolean "target"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "page_home_id"
+    t.index ["page_home_id"], name: "index_home_page_links_on_page_home_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "link"
+    t.string "label"
+    t.integer "link_style"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "target"
+  end
+
+  create_table "memberships_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "newsletter_pages", force: :cascade do |t|
+    t.string "heading"
+    t.text "subheading"
+    t.string "form_action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "page_homes", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.boolean "splash_presence"
+    t.integer "splash_delay"
+    t.integer "splash_duration"
+    t.string "splash_title"
+    t.string "splash_bg_img"
+    t.string "title"
+    t.text "subtitle"
+    t.boolean "carousel_presence"
+    t.text "paragraph_1"
+    t.boolean "arrow_presence"
+    t.string "arrow_icon"
+    t.boolean "cta_section_presence"
+    t.string "cta_section_link_text"
+    t.string "cta_section_link_url"
+    t.boolean "newsletter_box_presence"
+    t.text "newsletter_box_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "paragraph_2"
+    t.string "cta_section_title"
+    t.string "heading"
+    t.text "subheading"
+    t.string "content_img"
+    t.string "splash_content_img"
+    t.string "hero_image"
+    t.integer "hero_color_mode"
+    t.string "hero_marquee_words"
+    t.boolean "hero_marquee_presence"
+    t.boolean "social_presence"
+    t.boolean "banner_presence"
+    t.string "banner_img_desktop"
+    t.string "banner_img_mobile"
+    t.string "banner_link"
+    t.boolean "banner_target"
+    t.string "splash_content_img_mobile"
+    t.string "splash_bg_img_mobile"
+    t.string "column_1_title"
+    t.string "column_2_title"
+    t.string "column_3_title"
+    t.boolean "info_section_presence"
+    t.boolean "info_section_schedule_presence"
+    t.boolean "info_section_address_presence"
+    t.string "box_link_1_image"
+    t.string "box_link_1_url"
+    t.boolean "box_link_1_target"
+    t.boolean "box_link_1_presence"
+    t.string "box_link_2_image"
+    t.string "box_link_2_url"
+    t.boolean "box_link_2_target"
+    t.boolean "box_link_2_presence"
+    t.string "box_link_3_image"
+    t.string "box_link_3_url"
+    t.boolean "box_link_3_target"
+    t.boolean "box_link_3_presence"
+  end
+
+  create_table "page_meta_data", force: :cascade do |t|
+    t.string "metadatable_type", null: false
+    t.bigint "metadatable_id", null: false
+    t.string "meta_title"
+    t.string "meta_keywords"
+    t.text "meta_description"
+    t.string "meta_image"
+    t.string "favicon"
+    t.boolean "isPublished"
+    t.datetime "publishedAt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["metadatable_type", "metadatable_id"], name: "index_page_meta_data_on_metadatable_type_and_metadatable_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "abstract"
+    t.string "slug"
+    t.integer "lang", default: 0
+    t.string "cover"
+    t.integer "priority", default: 5
+    t.datetime "published_at"
+    t.boolean "is_published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "post_instagrams", force: :cascade do |t|
@@ -268,6 +623,76 @@ ActiveRecord::Schema.define(version: 2020_05_07_090212) do
     t.bigint "blog_post_id"
     t.index ["blog_post_id"], name: "index_post_text_shorts_on_blog_post_id"
     t.index ["blog_post_section_id"], name: "index_post_text_shorts_on_blog_post_section_id"
+  end
+
+  create_table "services_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "special_project_blocks", force: :cascade do |t|
+    t.string "title"
+    t.boolean "visible", default: true
+    t.text "rich_text"
+    t.string "image_url"
+    t.string "image_description"
+    t.string "image_width"
+    t.integer "video_provider", default: 0
+    t.string "video_link"
+    t.string "video_description"
+    t.string "instagram_link"
+    t.string "twitter_link"
+    t.string "soundcloud_link"
+    t.integer "position"
+    t.bigint "special_project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "link_url"
+    t.index ["special_project_id"], name: "index_special_project_blocks_on_special_project_id"
+  end
+
+  create_table "special_projects", force: :cascade do |t|
+    t.string "title"
+    t.boolean "intro_media_type"
+    t.string "intro_image"
+    t.string "intro_video"
+    t.string "intro_video_provider"
+    t.text "content"
+    t.string "link_cta"
+    t.string "link_url"
+    t.date "year"
+    t.string "cover"
+    t.string "meta_keywords"
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "published"
+    t.integer "intro_media_select"
+    t.boolean "show_in_nav"
+    t.boolean "featured"
+  end
+
+  create_table "special_projects_pages", force: :cascade do |t|
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.string "meta_image"
+    t.string "page_label"
+    t.string "heading"
+    t.text "subheading"
+    t.string "bg_color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -356,11 +781,18 @@ ActiveRecord::Schema.define(version: 2020_05_07_090212) do
   add_foreign_key "blog_post_sections", "blog_posts"
   add_foreign_key "blog_post_videos", "blog_post_sections"
   add_foreign_key "blog_post_videos", "blog_posts"
+  add_foreign_key "event_blocks", "events"
+  add_foreign_key "home_page_cards", "page_homes"
+  add_foreign_key "home_page_column_one_links", "page_homes"
+  add_foreign_key "home_page_column_three_links", "page_homes"
+  add_foreign_key "home_page_column_two_links", "page_homes"
+  add_foreign_key "home_page_links", "page_homes"
   add_foreign_key "post_instagrams", "blog_post_sections"
   add_foreign_key "post_instagrams", "blog_posts"
   add_foreign_key "post_text_longs", "blog_post_sections"
   add_foreign_key "post_text_longs", "blog_posts"
   add_foreign_key "post_text_shorts", "blog_post_sections"
   add_foreign_key "post_text_shorts", "blog_posts"
+  add_foreign_key "special_project_blocks", "special_projects"
   add_foreign_key "taggings", "tags"
 end

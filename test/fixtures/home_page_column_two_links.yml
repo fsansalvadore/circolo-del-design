@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link: MyString
+  label: MyString
+  target: false
+  link_style: 1
+  position: 1
+
+two:
+  link: MyString
+  label: MyString
+  target: false
+  link_style: 1
+  position: 1

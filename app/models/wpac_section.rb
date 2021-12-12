@@ -6,5 +6,6 @@ class WpacSection < ApplicationRecord
     :only_integer => true
 
   mount_uploader :cover_image, WpacSectionImageUploader
+  # has_one_attached :cover_image
   mount_uploader :preview_img, WpacSectionImageUploader
 end

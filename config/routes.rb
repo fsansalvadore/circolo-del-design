@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   # get 'events/show'
   # get 'events/new'
   # get 'events/edit'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
+
+  get    'home-page-staging',      to: 'pages#home_page_staging'
+
   # resources :contacts, only: [:index, :new, :create]
   get    'contatti',      to: 'contacts#index'
   post   'contatti',      to: 'contacts#create'
@@ -45,7 +49,9 @@ Rails.application.routes.draw do
   # about
   get '/about-us/il-circolo'  => 'pages#about_circolo'
   get '/about-us/team'        => 'pages#about_team'
+  get '/about-us/young-board-2021'        => 'pages#about_young_board_2021'
   get '/about-us/sostenitori' => 'pages#about_sostenitori'
+  get '/about-us/newsletter' => 'pages#about_newsletter'
 
   # servizi
   get '/servizi/spazi'      => 'pages#servizi_spazi'
@@ -53,12 +59,22 @@ Rails.application.routes.draw do
   #get '/servizi/store' => 'pages#servizi_store'
 
   # progetti speciali
-  get '/progetti-speciali/introduzione'                       => 'projects#index'
-  get '/progetti-speciali/ask-to-design'                      => 'projects#ask_to_design'
-  get '/progetti-speciali/video-torino-creative-city_unesco'  => 'projects#video_torino_creative_city_unesco'
-  get '/progetti-speciali/interaction-20'                     => 'projects#interaction_20'
+  # get '/progetti-speciali/introduzione'                       => 'projects#index'
+  # get '/progetti-speciali/ask-to-design'                      => 'projects#ask_to_design'
+  # get '/progetti-speciali/video-torino-creative-city_unesco'  => 'projects#video_torino_creative_city_unesco'
+  # get '/progetti-speciali/interaction-20'                     => 'projects#interaction_20'
+  
+  get '/progetti-di-impatto'                                    => 'special_projects#index', as: :progetti_speciali
+  get '/progetti-di-impatto/:slug'                              => 'special_projects#show',  as: :special_project
+  
+  get '/progetti-culturali'                                    => 'cultural_projects#index', as: :cultural_projects
+  get '/progetti-culturali/:slug'                              => 'cultural_projects#show',  as: :cultural_project
 
-  # membership
+  # Redirect from old "Progetti Speciali" to "Progetti d'impatto"
+  get '/progetti-speciali',           to: redirect('/progetti-di-impatto', status: 302)
+  get '/progetti-speciali/:slug',     to: redirect('/progetti-di-impatto/%{slug}', status: 302)
+  
+  # Membership
   get '/membership' => 'pages#membership'
 
   get '/sitemap'    => 'sitemaps#index'

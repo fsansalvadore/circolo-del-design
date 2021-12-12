@@ -3,6 +3,7 @@ import { webflowJS } from '../packs/webflow';
 import { Menu } from '../packs/menu';
 import { Popup } from '../packs/event-popup';
 import { Toggle } from '../packs/toggle';
+import { Splash } from '../packs/splash';
 import { flashFade } from '../packs/flash-fade';
 import { SimpleParallax } from '../packs/simple-parallax';
 import { FacesFadeIn } from '../packs/faces';
@@ -25,4 +26,4 @@ BlogNav();
 Noise();
 mgGlitch();
 GlitchJs();
-
+Splash();

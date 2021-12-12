@@ -1,0 +1,43 @@
+<% content_for :meta_title, "Young Board 2021 — About — Circolo del Design" %>
+<% content_for :meta_description, "La mission del Circolo del Design è la diffusione della cultura del progetto e viene perseguita attraverso la produzione di attività culturali e di formazione." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, welcome onboard, chi siamo, persone" %>
+
+<%= render 'shared/about-header' %>
+<div class="page-postheader" id="main-content">
+  <main class="event-article-container w-container large">
+    <aside id="w-node-d2e76c0777b8-1ccbd48a" class="event-article-details">
+      <div class="sticky">
+        <div class="event-aside-line"></div>
+        <% subMenu = [
+          {title: "Il Circolo", path: about_us_il_circolo_path, active: ""},
+          {title: "Team", path: about_us_team_path, active: ""},
+          {title: "Young Board 2021", path: about_us_young_board_2021_path, active: "btn-active-yellow"},
+          {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
+          {title: "Newsletter", path: about_us_newsletter_path, active: ""}
+        ]
+          %>
+        <% subMenu.each do |s| %>
+          <%= render partial: 'shared/sub-link', locals: {item: s} %>
+        <% end %>
+      </div>
+    </aside>
+    <article class="event-article-content line big-content team">
+      <div class="grid-container m-bottom-50">
+        <% if @collaborators && !@collaborators.empty? %>
+          <% @collaborators.each do |member| %>
+            <figure class="team-member-container">
+              <%= cl_image_tag member.image, alt: "#{member.nome} #{member.cognome}", class: "team-member-img" %>
+              <figcaption>
+                <h3><%= member.nome %> <%= member.cognome %></h3>
+                <% if member.description.present? %>
+                  <p><%=raw member.description %></p>
+                <% end %>
+              </figcaption>
+            </figure>
+          <% end %>
+        <% end %>
+      </div>
+    </article>
+  </main>
+</div>
+

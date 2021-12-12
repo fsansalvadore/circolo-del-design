@@ -1,25 +1,15 @@
-# README
+# Circolo Del Design
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The club is a pillar of the Italian design scene. This website lets them communicate with the public and promote their cultural offer.
 
-Things you may want to cover:
+[Live Preview](https://www.circolodeldesign.it/)
 
-* Ruby version
+![Circolo del Design Preview](https://www.fsansalvadore.com/assets/CircoloDelDesign-Website-Preview.gif)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# circolo-del-design
+## Technologies
+- Ruby on Rails
+- PostgreSQL
+- HTML5
+- SCSS
+- Heroku
+- Cloudinary
