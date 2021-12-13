@@ -8,6 +8,14 @@ ActiveAdmin.register Page do
                 :lang,
                 :priority,
                 :published_at,
+                page_meta_datum_attributes: [
+                  :id,
+                  :meta_title,
+                  :meta_description,
+                  :meta_keywords,
+                  :meta_image,
+                  :_destroy
+                ],
                 content_blocks_attributes: [
                   :id,
                   :kind,
@@ -77,6 +85,7 @@ ActiveAdmin.register Page do
         link_to "Metti offline", unpublish_admin_page_path(page), method: :put
       end
     end
+    actions
     # actions defaults: true do |page|
     #   link_to 'Duplica', clone_page_admin_page_path(page)
     # end
