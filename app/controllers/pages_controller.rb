@@ -54,7 +54,7 @@ class PagesController < ApplicationController
     @page_blocks = @page.content_blocks.order(position: :asc)
   end
 
-  def servizi_affitto_spazi
+  def servizi_aula_studio
   end
 
   def servizi_spazi

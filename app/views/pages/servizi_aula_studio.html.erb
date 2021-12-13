@@ -1,5 +1,5 @@
-<% content_for :meta_title, "Affitto Spazi — Circolo del Design" %>
-<% content_for :meta_description, "Il Circolo del Design dà la possibilità di affittare alcuni dei suoi spazi per eventi." %>
+<% content_for :meta_title, "Aula Studio - Servizi — Circolo del Design" %>
+<% content_for :meta_description, "Il Circolo del Design dà la possibilità di prenotare l'aula studio quando non è occupata." %>
 <% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, spazi, studiare, lavorare, co-working, tavoli, affittare" %>
 
 <%= render 'shared/servizi-header' %>
@@ -9,10 +9,9 @@
       <div class="sticky">
         <div class="event-aside-line"></div>
         <% subMenu = [
-          {title: "Spazi", path: servizi_spazi_path, active: "btn-active-yellow"},
-          {title: "Biblioteca", path: servizi_biblioteca_path, active: ""}
-        ]
-          %>
+          {title: "Biblioteca", path: servizi_biblioteca_path, active: ""},
+          {title: "Aula Studio", path: servizi_aula_studio_path, active: "btn-active-yellow"}
+        ] %>
         <% subMenu.each do |s| %>
           <%= render partial: 'shared/sub-link', locals: {item: s} %>
         <% end %>
