@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_095742) do
+ActiveRecord::Schema.define(version: 2021_12_13_151227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -253,12 +253,13 @@ ActiveRecord::Schema.define(version: 2021_12_12_095742) do
     t.string "link_url"
     t.string "link_label"
     t.string "link_target"
-    t.integer "link_style"
-    t.boolean "is_visible"
+    t.integer "link_style", default: 0
+    t.boolean "is_visible", default: true
     t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "form_action"
+    t.text "richtext_secondary"
     t.index ["contentable_type", "contentable_id"], name: "index_content_blocks_on_contentable_type_and_contentable_id"
   end
 

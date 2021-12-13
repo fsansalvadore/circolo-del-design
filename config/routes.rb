@@ -47,15 +47,16 @@ Rails.application.routes.draw do
   get    'whats-on/WPAC/tema/:tag',         to: 'articles#tag',   as: :articles_tag
 
   # about
-  get '/about-us/il-circolo'  => 'pages#about_circolo'
-  get '/about-us/team'        => 'pages#about_team'
-  get '/about-us/young-board-2021'        => 'pages#about_young_board_2021'
-  get '/about-us/sostenitori' => 'pages#about_sostenitori'
-  get '/about-us/newsletter' => 'pages#about_newsletter'
+  get '/about-us/il-circolo'          => 'pages#about_circolo'
+  get '/about-us/team'                => 'pages#about_team'
+  get '/about-us/young-board-2021'    => 'pages#about_young_board_2021'
+  get '/about-us/sostenitori'         => 'pages#about_sostenitori'
+  get '/about-us/newsletter'          => 'pages#about_newsletter'
 
   # servizi
   get '/servizi/affitto-spazi'    => 'pages#servizi_affitto_spazi'
   get '/servizi/spazi'            => 'pages#servizi_spazi'
+  get '/servizi/spazi-new'        => 'pages#servizi_spazi_new'
   get '/servizi/biblioteca'       => 'pages#servizi_biblioteca'
   #get '/servizi/store' => 'pages#servizi_store'
 

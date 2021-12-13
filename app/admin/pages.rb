@@ -14,6 +14,7 @@ ActiveAdmin.register Page do
                   :title,
                   :is_visible,
                   :rich_text,
+                  :richtext_secondary,
                   :image,
                   :image_description,
                   :image_width,
@@ -22,6 +23,10 @@ ActiveAdmin.register Page do
                   :video_description,
                   :instagram_link,
                   :soundcloud_link,
+                  :link_url,
+                  :link_label,
+                  :link_target,
+                  :link_style,
                   :form_action,
                   :position,
                   :_destroy
@@ -133,8 +138,9 @@ ActiveAdmin.register Page do
     f.inputs 'Contenuto' do
       f.has_many :content_blocks, heading: "Blocchi", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
         n_f.input :title, label: "Titolo Sezione", hint: "Facoltativo: Dare un titolo alla sezione può servire ad identificarla più facilmente."
-        n_f.input :kind, label: "Blocco", as: :select, collection: [["Testo", "testo"], ["Immagine", 'immagine'], ["Video", 'video'], ["Instagram", 'instagram'], ["Audio", 'audio'], ["Link", 'link'], ["Mailchimp", 'mailchimp']], prompt: "Seleziona sorgente video", hint: "Definisce quale tipologia di blocco viene visualizzata."
-        n_f.input :rich_text, label: "Testo Lungo", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
+        n_f.input :kind, label: "Blocco", as: :select, collection: [["Testo", "testo"], ["Titolo sezione", 'sectionTitle'], ["Immagine", 'immagine'], ["Video", 'video'], ["Instagram", 'instagram'], ["Audio", 'audio'], ["Link", 'link'], ["Mailchimp", 'mailchimp'], ["Sezione dettagli mutlicolonna", 'multicolumnSection']], prompt: "Seleziona sorgente video", hint: "Definisce quale tipologia di blocco viene visualizzata."
+        n_f.input :rich_text, label: "Testo principale", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
+        n_f.input :richtext_secondary, label: "Testo secondario", as: :quill_editor, hint: "Compare come ultima colonna nelle sezioni degli spazi affittabili."
         n_f.input :video_provider, label: "Sorgente Video", as: :select, collection: [["Nessuno", 0], ["Vimeo", 1], ["YouTube", 2]], prompt: "Seleziona sorgente video", hint: "Indica se il video proviene da YouTube o da Vimeo."
         n_f.input :video_link, label: "Codice Video", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789 | https://www.youtube.com/watch?v=123456789 -> 123456789"
         n_f.input :video_description, label: "Caption Video", hint: "Inserisci qui una descrizione di accompagnamento al video."
@@ -147,8 +153,8 @@ ActiveAdmin.register Page do
         n_f.input :form_action, label: "Codice form Mailchimp"
         n_f.input :link_url, label: "Destinazione Link"
         n_f.input :link_label, label: "Testo link"
-        n_f.input :link_target, label: "Link target"
-        n_f.input :link_style, label: "Stile link", collection: [["Testo", 0], ["Bottone", 1]], prompt: "Seleziona tipologia link"
+        n_f.input :link_target, label: "Link target", as: :select, collection: [["Default (_self)", "_self"], ["Apri in nuova scheda", '_blank']], prompt: "Seleziona target"
+        n_f.input :link_style, label: "Stile link", as: :select, collection: [["Bottone", "button"], ["Testo", "text"]], prompt: "Seleziona tipologia link"
         n_f.input :is_visible, label: "Visibilità Sezione", hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
       end
     end

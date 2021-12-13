@@ -1,0 +1,41 @@
+---
+glob: "**/*.{html,text,js}{+*,}.erb"
+exclude:
+  - "**/vendor/**/*"
+  - "**/node_modules/**/*"
+---
+linters:
+  ExtraNewline:
+    enabled: true
+
+  FinalNewline:
+    enabled: true
+
+  SpaceAroundErbTag:
+    enabled: true
+
+  AllowedScriptType:
+    enabled: true
+    allowed_types:
+      - text/javascript
+      - text/template
+
+  RightTrim:
+    enabled: true
+    enforced_style: '-'
+  
+  SpaceAroundErbTag:
+    enabled: true
+
+  Rubocop:
+    enabled: true
+
+    rubocop_config:
+      AllCops:
+        DisabledByDefault: true
+
+      Style/StringLiterals:
+        EnforcedStyle: double_quotes
+
+      Layout/SpaceInsideHashLiteralBraces:
+        Enabled: true

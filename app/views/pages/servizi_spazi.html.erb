@@ -1,4 +1,4 @@
-<% content_for :meta_title, "Spazi — Servizi — Circolo del Design" %>
+<% content_for :meta_title, "Spazi — Servizi — Circolo del Design" %>
 <% content_for :meta_description, "Il Circolo del Design dà la possibilità di affittare alcuni dei suoi spazi per eventi." %>
 <% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, spazi, studiare, lavorare, co-working, tavoli, affittare" %>
 
@@ -11,8 +11,7 @@
         <% subMenu = [
           {title: "Spazi", path: servizi_spazi_path, active: "btn-active-yellow"},
           {title: "Biblioteca", path: servizi_biblioteca_path, active: ""}
-        ]
-          %>
+        ]%>
         <% subMenu.each do |s| %>
           <%= render partial: 'shared/sub-link', locals: {item: s} %>
         <% end %>
@@ -22,7 +21,7 @@
       <h2 class="listheading">UNO SPAZIO CONDIVISO PER TUTTI</h2>
       <p>
         Il Circolo del Design dà la possibilità di affittare alcuni dei suoi spazi per eventi dedicati ad un pubblico specifico ristretto (team building aziendali, formazione…), e per eventi aperti al pubblico (conferenza stampa, presentazione di progetti/prodotti…).
-        <br/>
+        <br />
       </p>
       <a href="mailto:giovanni.messina@circolodeldesign.it?subject=Spazi:%20Richiesta%20informazioni" target="_blank" class="btn btn-link-arrow btn-active-yellow">
         <div class="text-block-3">Contattaci per maggiori informazioni</div>
@@ -94,4 +93,3 @@
     </article>
   </main>
 </div>
-

@@ -13,7 +13,8 @@ class PagesController < ApplicationController
     :servizi_store,
     :membership
   ]
-  before_action :set_page, only: [:about_newsletter]
+  before_action :set_page, only: [:about_newsletter, :servizi_spazi_new]
+  after_action :redirect_to_root, only: [:about_newsletter, :servizi_spazi_new]
 
   def index
     @events = Event.where('data_fine >= ? OR data_inizio >= ?', DateTime.now, DateTime.now + 20).where("published = true").limit(5).sort_by{ |e| [e.priority, e.data_inizio] }
@@ -50,13 +51,16 @@ class PagesController < ApplicationController
   
   def about_newsletter
     @page = Page.friendly.find_by_slug('newsletter')
-    redirect_to root_path if !@page
   end
 
   def servizi_affitto_spazi
   end
 
   def servizi_spazi
+  end
+  
+  def servizi_spazi_new
+    @page = Page.friendly.find_by_slug('spazi')
   end
 
   def servizi_biblioteca
@@ -72,5 +76,9 @@ class PagesController < ApplicationController
 
   def set_page
     @page = Page.friendly.find_by_slug(params[:slug])
+  end
+  
+  def redirect_to_root
+    redirect_to root_path unless @page.present?
   end
 end

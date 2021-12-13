@@ -105,16 +105,16 @@
     width: 2px;
     height: 14px;
     background-color: #000;
-    transform: rotate(45deg)
+    transform: rotate(45deg);
   }
   &::before {
     position: absolute;
     content: "";
     width: 2px;
-    right:-6px;
+    right: -6px;
     height: 14px;
     background-color: #000;
-    transform: rotate(-45deg)
+    transform: rotate(-45deg);
   }
 
   &.toggle-open {
@@ -137,7 +137,11 @@
   padding: 50px;
 
   &.progetti-intro {
-    background-image: linear-gradient(rgba(225, 53, 75, 0.8), rgba(225, 53, 75, 0.8)), asset-url('circolo-del-design_progetti-speciali_tjaarda.jpg');
+    background-image: linear-gradient(
+        rgba(225, 53, 75, 0.8),
+        rgba(225, 53, 75, 0.8)
+      ),
+      asset-url("circolo-del-design_progetti-speciali_tjaarda.jpg");
   }
   strong {
     font-size: 40px;
@@ -211,7 +215,6 @@
   }
 }
 
-
 // Progetti Speciali
 
 .sp-back-container {
@@ -224,7 +227,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  
+
   span {
     transition: all 0.15s ease;
     position: relative;
