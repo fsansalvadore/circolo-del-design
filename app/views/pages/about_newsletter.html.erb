@@ -20,8 +20,8 @@
       </div>
     </aside>
     <article class="event-article-content line big-content">
-      <% unless @page.content_blocks.empty? %>
-        <% @page.content_blocks.each do |block| %>
+      <% unless @page_blocks.empty? %>
+        <% @page_blocks.each do |block| %>
           <%= render partial: "shared/content/#{block.kind}", locals: {block: block} unless !block.is_visible %>
         <% end %>
       <% end %>

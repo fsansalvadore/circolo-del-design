@@ -51,6 +51,7 @@ class PagesController < ApplicationController
   
   def about_newsletter
     @page = Page.friendly.find_by_slug('newsletter')
+    @page_blocks = @page.content_blocks.order(position: :asc)
   end
 
   def servizi_affitto_spazi
@@ -61,6 +62,7 @@ class PagesController < ApplicationController
   
   def servizi_spazi_new
     @page = Page.friendly.find_by_slug('spazi')
+    @page_blocks = @page.content_blocks.order(position: :asc)
   end
 
   def servizi_biblioteca
