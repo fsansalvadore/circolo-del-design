@@ -146,10 +146,10 @@ ActiveAdmin.register Page do
     end
     f.inputs 'Contenuto' do
       f.has_many :content_blocks, heading: "Blocchi", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
-        n_f.input :title, label: "Titolo Sezione", hint: "Facoltativo: Dare un titolo alla sezione può servire ad identificarla più facilmente."
+        n_f.input :title, label: "Titolo Sezione", hint: "Utilizzabile in: Titolo sezione, Sezione dettagli multicolonna."
         n_f.input :kind, label: "Blocco", as: :select, collection: [["Testo", "testo"], ["Titolo sezione", 'sectionTitle'], ["Immagine", 'immagine'], ["Video", 'video'], ["Instagram", 'instagram'], ["Audio", 'audio'], ["Link", 'link'], ["Mailchimp", 'mailchimp'], ["Sezione dettagli mutlicolonna", 'multicolumnSection']], prompt: "Seleziona sorgente video", hint: "Definisce quale tipologia di blocco viene visualizzata."
-        n_f.input :rich_text, label: "Testo principale", as: :quill_editor, hint: "Inserisci qui un blocco di testo lungo."
-        n_f.input :richtext_secondary, label: "Testo secondario", as: :quill_editor, hint: "Compare come ultima colonna nelle sezioni degli spazi affittabili."
+        n_f.input :rich_text, label: "Testo principale", as: :quill_editor, hint: "Utilizzabile in: Titolo sezione, Sezione dettagli multicolonna (seconda colonna), Mailchimp (testo nel box giallo)."
+        n_f.input :richtext_secondary, label: "Testo secondario", as: :quill_editor, hint: "Compare come ultima colonna nella Sezione dettagli multicolonna."
         n_f.input :video_provider, label: "Sorgente Video", as: :select, collection: [["Nessuno", 0], ["Vimeo", 1], ["YouTube", 2]], prompt: "Seleziona sorgente video", hint: "Indica se il video proviene da YouTube o da Vimeo."
         n_f.input :video_link, label: "Codice Video", hint: "Inserire soltanto il codice identificativo dell'url. Esempio: https://vimeo.com/123456789 -> 123456789 | https://www.youtube.com/watch?v=123456789 -> 123456789"
         n_f.input :video_description, label: "Caption Video", hint: "Inserisci qui una descrizione di accompagnamento al video."
