@@ -44,6 +44,7 @@ gem 'thor', '~> 0.19.1'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'activeadmin_quill_editor'
 gem 'responsive_active_admin'
+gem "actionview", ">= 5.2.4.1"
 gem 'acts_as_list'
 gem "activeadmin_sortable_table"
 gem 'activeadmin_addons'
