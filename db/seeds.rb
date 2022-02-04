@@ -42,8 +42,6 @@ home_page = {
 
 # Create or update Home Page
 PageHome.find_or_create_by(title: "Home Page").update(home_page)
-# PageHome.create_with(home_page).find_or_create_by(title: "Home Page")
-# PageHome.count == 0 ? PageHome.create(home_page) : PageHome.first.update(home_page)
 
 puts "\n==> Finished creating HomePage\n"
 puts "\n===========================\n"
