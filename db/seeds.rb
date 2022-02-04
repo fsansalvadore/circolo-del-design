@@ -64,8 +64,6 @@ global_settings = {
 
 # Create or update Home Page
 GlobalSetting.find_or_create_by(title: "Global Settings").update(global_settings)
-# PageHome.create_with(home_page).find_or_create_by(title: "Home Page")
-# PageHome.count == 0 ? PageHome.create(home_page) : PageHome.first.update(home_page)
 
 puts "\n==> Finished creating Global Settings\n"
 puts "\n===========================\n"
