@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users
-  # get 'events/index'
-  # get 'events/show'
-  # get 'events/new'
-  # get 'events/edit'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
@@ -55,16 +51,8 @@ Rails.application.routes.draw do
 
   # servizi
   get '/servizi/biblioteca'       => 'pages#servizi_biblioteca'
-  get '/servizi/biblioteca-new'   => 'pages#servizi_biblioteca_new'
   get '/servizi/aula-studio'      => 'pages#servizi_aula_studio'
   get '/servizi/spazi'            => 'pages#servizi_spazi'
-  #get '/servizi/store' => 'pages#servizi_store'
-
-  # progetti speciali
-  # get '/progetti-speciali/introduzione'                       => 'projects#index'
-  # get '/progetti-speciali/ask-to-design'                      => 'projects#ask_to_design'
-  # get '/progetti-speciali/video-torino-creative-city_unesco'  => 'projects#video_torino_creative_city_unesco'
-  # get '/progetti-speciali/interaction-20'                     => 'projects#interaction_20'
   
   get '/progetti-di-impatto'                                    => 'special_projects#index', as: :progetti_speciali
   get '/progetti-di-impatto/:slug'                              => 'special_projects#show',  as: :special_project

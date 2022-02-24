@@ -10,12 +10,11 @@ class PagesController < ApplicationController
     :about_newsletter,
     :servizi_spazi,
     :servizi_biblioteca,
-    :servizi_biblioteca_new,
     :servizi_store,
     :membership
   ]
-  before_action :set_page, only: [:about_newsletter, :servizi_spazi_new]
-  after_action :redirect_to_root, only: [:about_newsletter, :servizi_spazi_new]
+  before_action :set_page, only: [:about_newsletter]
+  after_action :redirect_to_root, only: [:about_newsletter]
 
   def index
     @events = Event.where('data_fine >= ? OR data_inizio >= ?', DateTime.now, DateTime.now + 20).where("published = true").limit(5).sort_by{ |e| [e.priority, e.data_inizio] }
@@ -62,9 +61,6 @@ class PagesController < ApplicationController
   end
   
   def servizi_biblioteca
-  end
-
-  def servizi_biblioteca_new
     set_page_with_blocks('biblioteca')
   end
 

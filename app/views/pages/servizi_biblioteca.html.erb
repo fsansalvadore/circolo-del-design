@@ -1,4 +1,4 @@
-<% content_for :meta_title, "Biblioteca — Servizi — Circolo del Design" %>
+<% content_for :meta_title, "Biblioteca del Design — Servizi — Circolo del Design" %>
 <% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, biblioteca, cataloghi, libri, archivio, contemporaneo, divulgare" %>
 
 <%= render 'shared/servizi-header' %>
@@ -18,32 +18,11 @@
       </div>
     </aside>
     <article class="event-article-content line big-content">
-      <p>
-        La Biblioteca sostiene la ricerca e la creatività di professionisti e studenti del settore e fornisce occasioni di approfondimento a curiosi e appassionati.
-        <br><br/>
-        Oltre 800 volumi tra <strong>libri</strong>, <strong>riviste</strong> di settore nazionali e internazionali, <strong>cataloghi di mostre e aziende</strong>.
-        <br><br/>
-        La collezione dei volumi, che mira a creare un archivio in continuo incremento e che spazia dalla tradizione ai temi del contemporaneo, è partita da una chiamata rivolta a potenziali Donors, enti o singoli individui che condividono la volontà di divulgare la cultura del progetto e che pertanto hanno deciso di mettere a disposizione del pubblico una parte, o anche un solo volume, della loro raccolta di libri a tema “design”.
-        <br><br/>
-      </p>
-      <figure class="article-image-container">
-        <div class="grid-container">
-          <%= image_tag "CdD-Biblioteca-del-design-logo.png", alt: "Circolo del Design - Biblioteca", class: "grid-img" %>
-        </div>
-      </figure>
-      <section class="m-top-80">
-        <h3>Vuoi donare i tuoi libri alla biblioteca del design?</h3>
-        <a href="mailto:marta.dangelo@circolodeldesign.it?subject=Biblioteca:%20Donazione%20libri" target="_blank" class="btn btn-link-arrow m-bottom-0 btn-active-yellow">
-          <div class="text-block-3">Scrivici</div>
-          <div class="arrow-right">
-            <div class="arrow-point-right">
-              <div class="div-block-8"></div>
-              <div class="div-block-3"></div>
-              <div class="div-block-3 arrow-point-lower"></div>
-            </div>
-          </div>
-        </a>
-      </section>
+      <% unless @page.nil? || @page.content_blocks.empty? %>
+        <% @page.content_blocks.order(:position).each do |block| %>
+          <%= render partial: "shared/content/#{block.kind}", locals: {block: block} unless !block.is_visible %>
+        <% end %>
+      <% end %>
     </article>
   </main>
 </div>
