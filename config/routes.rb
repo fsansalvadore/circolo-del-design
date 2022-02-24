@@ -50,6 +50,8 @@ Rails.application.routes.draw do
   get '/about-us/newsletter'          => 'pages#about_newsletter'
 
   # servizi
+  get '/servizi/affitto-spazi'    => 'pages#servizi_affitto_spazi'
+  get '/servizi/spazi'            => 'pages#servizi_spazi'
   get '/servizi/biblioteca'       => 'pages#servizi_biblioteca'
   get '/servizi/aula-studio'      => 'pages#servizi_aula_studio'
   get '/servizi/spazi'            => 'pages#servizi_spazi'

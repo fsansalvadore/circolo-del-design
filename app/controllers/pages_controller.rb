@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     :about_sostenitori,
     :about_newsletter,
     :servizi_spazi,
+    :servizi_spazi_new,
     :servizi_biblioteca,
     :servizi_store,
     :membership
