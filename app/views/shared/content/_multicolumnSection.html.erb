@@ -14,7 +14,7 @@
       </div>
     <% end %>
   </div>
-  <% unless block.image_url.blank? %>
+  <% unless block.nil? && block.image_url.empty? %>
     <%= cl_image_tag(block.image_url, :alt=> "#{block.image_description.empty? ? '' : block.image_description}", :class => "grid-img") %>
   <% end %>
 </section>

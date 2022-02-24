@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     :about_sostenitori,
     :about_newsletter,
     :servizi_spazi,
+    :servizi_spazi_new,
     :servizi_biblioteca,
     :servizi_store,
     :membership
@@ -56,11 +57,8 @@ class PagesController < ApplicationController
 
   def servizi_aula_studio
   end
-
-  def servizi_spazi
-  end
   
-  def servizi_spazi_new
+  def servizi_spazi
     @page = Page.friendly.find_by_slug('spazi')
     @page_blocks = @page.content_blocks.order(position: :asc)
   end
