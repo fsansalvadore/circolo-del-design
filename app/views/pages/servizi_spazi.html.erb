@@ -9,8 +9,8 @@
       <div class="sticky">
         <div class="event-aside-line"></div>
         <% subMenu = [
-          {title: "Spazi", path: servizi_spazi_path, active: "btn-active-yellow"},
-          {title: "Biblioteca", path: servizi_biblioteca_path, active: ""}
+          {title: "Affitta gli spazi", path: servizi_spazi_path, active: "btn-active-yellow"},
+          {title: "Biblioteca del Design", path: servizi_biblioteca_path, active: ""}
         ]%>
         <% subMenu.each do |s| %>
           <%= render partial: 'shared/sub-link', locals: {item: s} %>
@@ -18,78 +18,11 @@
       </div>
     </aside>
     <article class="event-article-content line big-content">
-      <h2 class="listheading">UNO SPAZIO CONDIVISO PER TUTTI</h2>
-      <p>
-        Il Circolo del Design dà la possibilità di affittare alcuni dei suoi spazi per eventi dedicati ad un pubblico specifico ristretto (team building aziendali, formazione…), e per eventi aperti al pubblico (conferenza stampa, presentazione di progetti/prodotti…).
-        <br />
-      </p>
-      <a href="mailto:giovanni.messina@circolodeldesign.it?subject=Spazi:%20Richiesta%20informazioni" target="_blank" class="btn btn-link-arrow btn-active-yellow">
-        <div class="text-block-3">Contattaci per maggiori informazioni</div>
-        <div class="arrow-right">
-          <div class="arrow-point-right">
-            <div class="div-block-8"></div>
-            <div class="div-block-3"></div>
-            <div class="div-block-3 arrow-point-lower"></div>
-          </div>
-        </div>
-      </a>
-      <section class="spazi-section">
-        <div class="spazio-info-container">
-          <h2>SCUDERIE</h2>
-          <ul class="spazio-info-details">
-            <li>Sala di 90 mq</li>
-            <li>Sedute n.80</li>
-          </ul>
-          <div class="spazio-attrezzatura-tecnica">
-            <h4>Attrezzatura Tecnica</h4>
-            <ul>
-              <li>Sistema di proiezione Full HD 1920×1080</li>
-              <li>1 monitor 4k da 65” (su prenotazione)</li>
-              <li>Impianto e mixer audio con microfoni: fisso e a gelato</li>
-              <li>Presenter e puntatore laser per la gestione   delle presentazioni</li>
-              <li>80 sedie</li>
-            </ul>
-          </div>
-        </div>
-        <%= image_tag "spazi/cdd-sala-grande.jpg", alt: "Circolo del Design - Spazi — Scuderie", class: "grid-img" %>
-      </section>
-      <section class="spazi-section">
-        <div class="spazio-info-container">
-          <h2>BOTTEGA</h2>
-          <ul class="spazio-info-details">
-            <li>Sala di 30 mq</li>
-            <li>Sedute n.25 max</li>
-          </ul>
-          <div class="spazio-attrezzatura-tecnica">
-            <h4>Attrezzatura Tecnica</h4>
-            <ul>
-              <li>1 monitor 4k da 65” (su prenotazione)</li>
-              <li>tavolo 90x190cm</li>
-              <li>25 sedie</li>
-            </ul>
-          </div>
-        </div>
-        <%= image_tag "spazi/cdd-laboratorio.jpg", alt: "Circolo del Design - Spazi — Bottega", class: "grid-img" %>
-      </section>
-      <section class="spazi-section">
-        <div class="spazio-info-container">
-          <h2>SALA RIUNIONI</h2>
-          <ul class="spazio-info-details">
-            <li>Sala di 18 mq</li>
-            <li>Sedute n.12</li>
-            <li>Possibilità di ingresso autonomo</li>
-          </ul>
-          <div class="spazio-attrezzatura-tecnica">
-            <h4>Attrezzatura Tecnica</h4>
-            <ul>
-              <li>1 monitor 4k da 65” (su prenotazione)</li>
-              <li>tavolo riunioni 130x260cm</li>
-              <li>12 sedie</li>
-            </ul>
-          </div>
-        </div>
-        <%= image_tag "spazi/cdd-sala-riunione.jpg", alt: "Circolo del Design - Spazi — Sala Riunioni", class: "grid-img" %>
-      </section>
+      <% unless @page.content_blocks.empty? %>
+        <% @page.content_blocks.order(:position).each do |block| %>
+          <%= render partial: "shared/content/#{block.kind}", locals: {block: block} unless !block.is_visible %>
+        <% end %>
+      <% end %>
     </article>
   </main>
 </div>

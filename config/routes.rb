@@ -56,7 +56,6 @@ Rails.application.routes.draw do
   # servizi
   get '/servizi/affitto-spazi'    => 'pages#servizi_affitto_spazi'
   get '/servizi/spazi'            => 'pages#servizi_spazi'
-  get '/servizi/spazi-new'        => 'pages#servizi_spazi_new'
   get '/servizi/biblioteca'       => 'pages#servizi_biblioteca'
   #get '/servizi/store' => 'pages#servizi_store'
 
