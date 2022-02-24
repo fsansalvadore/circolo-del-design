@@ -9,8 +9,8 @@ class PagesController < ApplicationController
     :about_sostenitori,
     :about_newsletter,
     :servizi_spazi,
-    :servizi_spazi_new,
     :servizi_biblioteca,
+    :servizi_biblioteca_new,
     :servizi_store,
     :membership
   ]
@@ -51,19 +51,21 @@ class PagesController < ApplicationController
   end
   
   def about_newsletter
-    @page = Page.friendly.find_by_slug('newsletter')
-    @page_blocks = @page.content_blocks.order(position: :asc)
+    set_page_with_blocks('newsletter')
   end
 
   def servizi_aula_studio
   end
   
   def servizi_spazi
-    @page = Page.friendly.find_by_slug('spazi')
-    @page_blocks = @page.content_blocks.order(position: :asc)
+    set_page_with_blocks('spazi')
+  end
+  
+  def servizi_biblioteca
   end
 
-  def servizi_biblioteca
+  def servizi_biblioteca_new
+    set_page_with_blocks('biblioteca')
   end
 
   def servizi_store
@@ -71,7 +73,12 @@ class PagesController < ApplicationController
 
   def membership
   end
-
+  
+  def set_page_with_blocks(slug)
+    @page = Page.friendly.find_by_slug(slug)
+    @page_blocks = @page.content_blocks.order(position: :asc) unless @page.nil?
+  end
+  
   private
 
   def set_page
@@ -79,6 +86,6 @@ class PagesController < ApplicationController
   end
   
   def redirect_to_root
-    redirect_to root_path unless @page.present?
+    redirect_to root_path unless @page.nil? || @page.present?
   end
 end
