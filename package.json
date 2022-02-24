@@ -15,5 +15,8 @@
     "@babel/helper-compilation-targets": "^7.12.16",
     "@babel/preset-env": "^7.12.16",
     "webpack-dev-server": "^3.11.2"
+  },
+  "engines": {
+    "node": ">=0.10.3 <15"
   }
 }
