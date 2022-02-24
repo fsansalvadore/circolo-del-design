@@ -419,7 +419,7 @@ ActiveRecord::Schema.define(version: 2021_12_13_151227) do
     t.datetime "updated_at", null: false
     t.bigint "page_home_id"
     t.integer "content_category", default: 0
-    t.string "eventy_type_category", default: "Nessuna"
+    t.string "eventy_type_category"
     t.boolean "link_target"
     t.boolean "is_draft", default: false
     t.index ["page_home_id"], name: "index_home_page_cards_on_page_home_id"
@@ -534,7 +534,7 @@ ActiveRecord::Schema.define(version: 2021_12_13_151227) do
     t.string "content_img"
     t.string "splash_content_img"
     t.string "hero_image"
-    t.integer "hero_color_mode", default: 1
+    t.integer "hero_color_mode"
     t.string "hero_marquee_words"
     t.boolean "hero_marquee_presence"
     t.boolean "social_presence"
@@ -573,6 +573,8 @@ ActiveRecord::Schema.define(version: 2021_12_13_151227) do
     t.text "meta_description"
     t.string "meta_image"
     t.string "favicon"
+    t.boolean "isPublished"
+    t.datetime "publishedAt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["metadatable_type", "metadatable_id"], name: "index_page_meta_data_on_metadatable_type_and_metadatable_id"
