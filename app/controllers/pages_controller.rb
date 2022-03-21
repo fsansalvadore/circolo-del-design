@@ -64,6 +64,10 @@ class PagesController < ApplicationController
   def servizi_biblioteca
     set_page_with_blocks('biblioteca')
   end
+  
+  def servizi_biblioteca_test
+    set_page_with_blocks('biblioteca-test')
+  end
 
   def servizi_store
   end
