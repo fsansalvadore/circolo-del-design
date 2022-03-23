@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   # servizi
   get '/servizi/affitto-spazi'    => 'pages#servizi_affitto_spazi'
   get '/servizi/spazi'            => 'pages#servizi_spazi'
-  get '/servizi/biblioteca'       => 'pages#servizi_biblioteca'
+  get '/servizi/biblioteca-del-design'       => 'pages#servizi_biblioteca'
   get '/servizi/biblioteca-test'       => 'pages#servizi_biblioteca_test'
   get '/servizi/aula-studio'      => 'pages#servizi_aula_studio'
   get '/servizi/spazi'            => 'pages#servizi_spazi'
