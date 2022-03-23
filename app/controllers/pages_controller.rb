@@ -62,7 +62,7 @@ class PagesController < ApplicationController
   end
   
   def servizi_biblioteca
-    set_page_with_blocks('biblioteca')
+    set_page_with_blocks('biblioteca-del-design')
   end
   
   def servizi_biblioteca_test
