@@ -297,6 +297,8 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    responsive_active_admin (0.0.6)
+      activeadmin
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -431,6 +433,7 @@ DEPENDENCIES
   rack-rewrite (~> 1.5.0)
   rails (~> 6.1.4)
   rails-i18n (~> 7.0, >= 7.0.3)
+  responsive_active_admin (~> 0.0.6)
   sass-rails (~> 5.0)
   selenium-webdriver
   sendgrid-ruby
