@@ -55,6 +55,9 @@ ActiveAdmin.register PageHome do
                 :info_section_presence,
                 :info_section_schedule_presence,
                 :info_section_address_presence,
+                :modal_presence,
+                :modal_link,
+                :modal_image,
                 home_page_cards_attributes: [
                   :id,
                   :title,
@@ -219,6 +222,13 @@ ActiveAdmin.register PageHome do
           f.input :splash_bg_img_mobile, as: :file, label: "Immagine di sfondo - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px.", :image_preview => true
           f.input :remove_splash_bg_img_mobile, as: :boolean, label: "Rimuovi Immagine di sfondo - Mobile", hint: "jpg, png, gif - Compare solo sugli schermi con larghezza inferiore a 768px."
           f.input :splash_title, label: "Titolo / Testo", hint: "Da scegliere in alternativa all'immagine in primo piano.", as: :quill_editor
+        end
+      end
+      tab :modale do
+        f.inputs 'Modale' do
+          f.input :modal_presence, label: "Mostra"
+          f.input :modal_image, as: :file, label: "Immagine", hint: "jpg, png, gif", :image_preview => true
+          f.input :modal_link, label: "Link"
         end
       end
     end
