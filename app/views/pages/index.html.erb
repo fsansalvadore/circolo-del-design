@@ -2,6 +2,9 @@
 <% content_for :meta_description, @page.meta_description unless @page.meta_description.empty? %>
 <% content_for :meta_keywords,!@page.meta_keywords.empty? ? @page.meta_keywords : "Circolo Del Design, Circolo, Torino, Design, eventi, mostre, workshop, progetti, partner, programma, aziende, studenti" %>
 
+<% if @page.modal_presence? %>
+  <%= render partial: 'shared/homepage-modal', locals: {page: @page} %>
+<% end %>
 <% if @page.splash_presence %>
   <div id="splash" class="splash-container">
     <div class="splash-content">

@@ -13,8 +13,9 @@ users = [
   }
 ]
 
-admin = users.map do |user|
-  User.create_with(user).find_or_create_by(email: user["email"])
+# admins
+users.map do |user|
+  User.create_with(password: user['password'], admin: true).find_or_create_by(email: user["email"])
 end
 
 puts "\n==> Finished creating Users\n"

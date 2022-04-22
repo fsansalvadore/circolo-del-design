@@ -1,9 +1,13 @@
-
 header.navbar-inner-page.wpac {
   background-color: $wpac-light;
-  background-image: linear-gradient(rgba(242, 159, 197, $bg-noise-transparency)), asset-url('pink_noise.gif');
+  background-image: linear-gradient(rgba(242, 159, 197, $bg-noise-transparency)),
+    asset-url("pink_noise.gif");
   background-size: $bg-noise-size;
   overflow: visible;
+}
+
+.noscroll {
+  overflow: hidden;
 }
 
 .back_arrow {
@@ -54,11 +58,13 @@ header.navbar-inner-page.wpac {
 }
 
 div.wpac_base {
-
   header.page-header-container.wpac {
     border-bottom: 2px solid $wpac-dark;
     background-color: $wpac-light;
-    background-image: linear-gradient(rgba(242, 159, 197, $bg-noise-transparency)), asset-url('pink_noise.gif');
+    background-image: linear-gradient(
+        rgba(242, 159, 197, $bg-noise-transparency)
+      ),
+      asset-url("pink_noise.gif");
     background-size: $bg-noise-size;
     div.w-container {
       text-align: center;
@@ -91,7 +97,10 @@ div.wpac_base {
   }
   // Home Page
   div.wpac_home {
-    background-image: linear-gradient(rgba(242, 159, 197, $bg-noise-transparency)), asset-url('pink_noise.gif');
+    background-image: linear-gradient(
+        rgba(242, 159, 197, $bg-noise-transparency)
+      ),
+      asset-url("pink_noise.gif");
     background-size: $bg-noise-size;
     width: 100%;
     background-color: $wpac-light;
@@ -100,7 +109,7 @@ div.wpac_base {
       font-size: 1rem;
       background-color: $wpac-dark;
       width: auto;
-      display: inline-block;;
+      display: inline-block;
       padding: 6px 10px;
       color: $white;
 
@@ -111,7 +120,10 @@ div.wpac_base {
         padding: 20px;
         font-size: 1rem;
         text-align: center;
-        background-image: linear-gradient(rgba(224, 53, 76, $bg-noise-transparency)), asset-url('wpac_noise_dark.gif');
+        background-image: linear-gradient(
+            rgba(224, 53, 76, $bg-noise-transparency)
+          ),
+          asset-url("wpac_noise_dark.gif");
 
         @include md-lg {
           margin-top: 110px;
@@ -222,7 +234,10 @@ div.wpac_base {
             border-left: 2px solid $wpac-dark;
             border-right: 2px solid $wpac-dark;
             background: $wpac-light;
-            background-image: linear-gradient(rgba(242, 159, 197, $bg-noise-transparency)), asset-url('pink_noise.gif');
+            background-image: linear-gradient(
+                rgba(242, 159, 197, $bg-noise-transparency)
+              ),
+              asset-url("pink_noise.gif");
             background-size: $bg-noise-size;
 
             @include lg {
@@ -260,7 +275,10 @@ div.wpac_base {
           z-index: 10;
           height: 100%;
           width: 100%;
-          background-image: linear-gradient(rgba(242, 159, 197, $bg-noise-transparency)), asset-url('pink_noise.gif');
+          background-image: linear-gradient(
+              rgba(242, 159, 197, $bg-noise-transparency)
+            ),
+            asset-url("pink_noise.gif");
           background-size: $bg-noise-size;
 
           .wpac_circle.y {
@@ -436,16 +454,16 @@ div.wpac_base {
     }
 
     div.wpac_abstract_container {
-        width: 100%;
-        padding: 20px 0;
+      width: 100%;
+      padding: 20px 0;
 
-        &.bt_red {
-          border-top: 2px solid $wpac-dark;
-        }
+      &.bt_red {
+        border-top: 2px solid $wpac-dark;
+      }
 
-        @include lg {
-          padding: 60px 0;
-        }
+      @include lg {
+        padding: 60px 0;
+      }
       div.abstract {
         // column-count: 2;
         padding: 14px;
@@ -453,10 +471,10 @@ div.wpac_base {
         font-size: 18px;
         line-height: 1.6;
         @include lg {
-                padding: 14px 40px;
-                margin-left: 40%;
-                margin-right: 10%;
-              }
+          padding: 14px 40px;
+          margin-left: 40%;
+          margin-right: 10%;
+        }
 
         .ab_column {
           * {
@@ -609,10 +627,9 @@ div.wpac_base {
   .wpac_support_banner {
     width: 100%;
     padding: 40px 14px;
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.75)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75)),
       linear-gradient(rgba(242, 159, 197, 0.5)),
-      asset-url('CircoloDelDesign_contacts.jpg');
+      asset-url("CircoloDelDesign_contacts.jpg");
     background-size: cover;
     background-position: center;
 
@@ -816,121 +833,121 @@ div.wpac_base {
 }
 
 .articles-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 20px;
+  padding: 30px 14px;
+
+  @include md-sm {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include lg {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  a:-webkit-any-link {
+    text-decoration: none;
+  }
+  a.article_thumb_link {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    grid-gap: 20px;
-    padding: 30px 14px;
+    margin: 20px 0;
+    position: relative;
 
-    @include md-sm {
-      grid-template-columns: 1fr 1fr 1fr;
+    .soundcloud_logo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
 
-    @include lg {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    }
-    a:-webkit-any-link {
-      text-decoration: none;
-    }
-    a.article_thumb_link {
-      width: 100%;
-      margin: 20px 0;
+    div.article_thumb_box {
       position: relative;
+      background-color: #222;
+      background-position: center;
+      background-size: cover;
 
-      .soundcloud_logo {
+      &::before {
+        // for apsect ratio
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+      .article_thumb_media {
         position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        right: 10px;
+        bottom: 10px;
+        z-index: 10;
+        width: 35px;
+        height: 35px;
+        background: $wpac-dark;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+
+        img.thumb_icon {
+          max-width: 23px;
+          max-height: 23px;
+        }
       }
 
-      div.article_thumb_box {
-        position: relative;
-        background-color: #222;
-        background-position: center;
-        background-size: cover;
-
-        &::before {
-          // for apsect ratio
-          content: "";
-          display: block;
-          padding-bottom: 100%;
-        }
-        .article_thumb_media {
-          position: absolute;
-          right: 10px;
-          bottom: 10px;
-          z-index: 10;
-          width: 35px;
-          height: 35px;
-          background: $wpac-dark;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-
-          img.thumb_icon {
-            max-width: 23px;
-            max-height: 23px;
-          }
-        }
-
-        &:hover {
-          .article_thumb_overlay {
-            opacity: 0.95;
-
-            .overlay_arrow {
-              transform: translateY(0);
-            }
-          }
-        }
+      &:hover {
         .article_thumb_overlay {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          will-change: opacity;
-          opacity: 0;
-          width: 100%;
-          height: 100%;
-          transition: opacity 0.2s ease;
-          background: $wpac-light;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          line-height: 1.2;
-
-          &.studio {
-            padding: 20px;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
-
-            .project_title_overlay {
-              font-weight: bold;
-
-              * {
-                margin: 0;
-                background-color: transparent !important;
-              }
-            }
-          }
+          opacity: 0.95;
 
           .overlay_arrow {
-            will-change: transform;
-            transition: transform 0.5s ease;
-            transform: translateY(10px);
+            transform: translateY(0);
           }
         }
       }
+      .article_thumb_overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        will-change: opacity;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.2s ease;
+        background: $wpac-light;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2;
 
-      h3 {
-        color: $wpac-dark;
-        font-size: 18px;
-        line-height: 120%;
-        margin: 10px 0 0 0;
-        text-decoration: none;
+        &.studio {
+          padding: 20px;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+
+          .project_title_overlay {
+            font-weight: bold;
+
+            * {
+              margin: 0;
+              background-color: transparent !important;
+            }
+          }
+        }
+
+        .overlay_arrow {
+          will-change: transform;
+          transition: transform 0.5s ease;
+          transform: translateY(10px);
+        }
       }
     }
+
+    h3 {
+      color: $wpac-dark;
+      font-size: 18px;
+      line-height: 120%;
+      margin: 10px 0 0 0;
+      text-decoration: none;
+    }
   }
+}

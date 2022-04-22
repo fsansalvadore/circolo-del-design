@@ -1,0 +1,14 @@
+<div id="hp-modal" class="modal-wrapper">
+  <div class="modal-content">
+    <button class="modal-close-btn">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 13L13 1M1 1L13 13" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <%= link_to page.modal_link, class: "modal-link" do %>
+      <% unless page.modal_image.file.nil? %>
+        <%= cl_image_tag page.modal_image, alt: "Circolo del Design", class: "modal-image" %>
+      <% end %>  
+    <% end %>
+  </div>
+</div>

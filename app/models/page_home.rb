@@ -21,4 +21,5 @@ class PageHome < ApplicationRecord
     mount_uploader :box_link_1_image, ImageUploader
     mount_uploader :box_link_2_image, ImageUploader
     mount_uploader :box_link_3_image, ImageUploader
+    mount_uploader :modal_image, ImageUploader
 end
