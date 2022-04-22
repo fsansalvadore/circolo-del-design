@@ -5,7 +5,7 @@ ActiveAdmin.register CardCategory do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :title, :primary_color, :secondary_color
+  permit_params :title, :primary_color, :secondary_color
   #
   # or
   #

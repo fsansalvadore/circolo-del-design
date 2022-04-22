@@ -405,6 +405,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionview (~> 6.1)
   activeadmin (~> 2.11, >= 2.11.2)
   activeadmin_addons (~> 1.9)
   activeadmin_quill_editor (~> 1.0)
