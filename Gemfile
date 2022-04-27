@@ -5,7 +5,7 @@ ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
-gem 'rails', '~> 6.1.4'
+gem 'rails', '~> 7.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.3', '>= 1.3.5'
 # Use Puma as the app server
@@ -49,7 +49,7 @@ gem 'activeadmin_quill_editor', '~> 1.0'
 gem 'inherited_resources', '~> 1.13', '>= 1.13.1'
 gem 'responsive_active_admin', '~> 0.0.6'
 # gem 'actionview', '>= 5.2.4.1'
-gem 'actionview', '~> 6.1'
+gem 'actionview', '~> 7.0'
 gem 'acts_as_list', '~> 1.0', '>= 1.0.4'
 gem 'activeadmin_sortable_table', '~> 1.3'
 gem 'activeadmin_addons', '~> 1.9'
