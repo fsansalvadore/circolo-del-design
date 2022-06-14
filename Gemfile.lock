@@ -419,6 +419,7 @@ DEPENDENCIES
   acts_as_list (~> 1.0, >= 1.0.4)
   autoprefixer-rails
   bootsnap (>= 1.1.0)
+  bundler (~> 2.1, >= 2.1.4)
   byebug
   capybara (>= 2.15)
   carrierwave (~> 2.2, >= 2.2.2)
