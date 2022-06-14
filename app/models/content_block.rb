@@ -10,6 +10,7 @@ class ContentBlock < ApplicationRecord
     mailchimp: 6,
     sectionTitle: 7,
     multicolumnSection: 8,
+    carousel: 9,
   }
   
   enum link_style: {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_22_152323) do
+ActiveRecord::Schema.define(version: 2022_06_14_074516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -203,6 +203,17 @@ ActiveRecord::Schema.define(version: 2022_04_22_152323) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "carousels", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "position"
+    t.boolean "published"
+    t.boolean "is_published"
+    t.date "published_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "collaborators", force: :cascade do |t|
     t.string "nome"
     t.string "cognome"
@@ -260,6 +271,7 @@ ActiveRecord::Schema.define(version: 2022_04_22_152323) do
     t.datetime "updated_at", null: false
     t.string "form_action"
     t.text "richtext_secondary"
+    t.string "carousel_id"
     t.index ["contentable_type", "contentable_id"], name: "index_content_blocks_on_contentable_type_and_contentable_id"
   end
 
@@ -471,6 +483,19 @@ ActiveRecord::Schema.define(version: 2022_04_22_152323) do
     t.datetime "updated_at", null: false
     t.bigint "page_home_id"
     t.index ["page_home_id"], name: "index_home_page_links_on_page_home_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "imageable_type", null: false
+    t.bigint "imageable_id", null: false
+    t.string "src"
+    t.string "alt"
+    t.text "label"
+    t.integer "position"
+    t.json "preferences"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable"
   end
 
   create_table "links", force: :cascade do |t|
