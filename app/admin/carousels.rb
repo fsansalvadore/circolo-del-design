@@ -73,7 +73,7 @@ ActiveAdmin.register Carousel do
   member_action :delete_image, method: :delete do
     @img = Cloudinary::CarrierWave.find(params[:id])
     @img.purge_later
-    redirect_back(fallback_location: edit_admin_workshop_path)
+    redirect_back(fallback_location: edit_admin_carousel_path(params[:id]))
   end
   
   form do |f|
@@ -87,7 +87,7 @@ ActiveAdmin.register Carousel do
       f.has_many :images, heading: "Immagini", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
         n_f.input :src, label: "Immagine", label: "Immagine", as: :file, :image_preview => true
         n_f.input :alt, label: "Alt_text", hint: "Testo descrittivo dell'immagine per fini di accessibilità. Viene letto da non vedenti e compare nel caso l'immagine non venga caricata."
-        n_f.input :label, label: "Testo", hint: "Testo di accompagnamento all'immagine, se presente."
+        # n_f.input :label, label: "Testo", hint: "Testo di accompagnamento all'immagine, se presente."
       end
     end
     f.actions

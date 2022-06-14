@@ -13,7 +13,7 @@ import { Noise } from "../packs/noise";
 import { mgGlitch } from "../packs/mgGlitch.min";
 import { GlitchJs } from "../packs/glitch";
 import { Modal } from "../packs/modal";
-import { SlickSlider } from "../packs/slickSlider";
+import { CustomSwiper } from "../packs/customSwiper";
 
 cookies();
 webflowJS();
@@ -30,4 +30,4 @@ mgGlitch();
 GlitchJs();
 Splash();
 Modal();
-SlickSlider();
+CustomSwiper();

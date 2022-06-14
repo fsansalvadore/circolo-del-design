@@ -1,21 +1,20 @@
-<% unless block.carousel_id.blank? %>
-  <% carousel = Carousel.find_by(name: block.carousel_id) %>
-  <section>
-    <!-- Swiper -->
-    <div class="slick-carousel">
+<% carousel = @carousels.find {|c| c&.name == block&.carousel_id} %>
+
+<% unless carousel.nil? %>
+  <section class="relative">
+    <div class="swiper swiper-carousel">
       <div class="swiper-wrapper">
-        <%= carousel.images.each do |image| %>
-        <div class="swiper-slide">
-          <%= cl_image_tag(image.src, alt: image.alt) %>
-        </div>
+        <% carousel.images.each do |image| %>
+          <div class="swiper-slide">
+            <%= cl_image_tag(image.src, alt: image.alt) %>
+          </div>
         <% end %>
       </div>
 
-      <div class="swiper-button-next swiper-button-black"></div>
-      <div class="swiper-button-prev swiper-button-black"></div>
-      <!-- Add Pagination -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
       <div class="swiper-pagination"></div>
     </div>
-  </div>
   </section>
 <% end %>

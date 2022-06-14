@@ -1,6 +1,7 @@
 const Modal = () => {
   const modal = document.querySelector("#hp-modal");
-  const closeBtn = modal.querySelector(".modal-close-btn");
+  if (!modal) return;
+  const closeBtn = modal?.querySelector(".modal-close-btn");
 
   window.addEventListener("load", () => {
     setTimeout(() => {
@@ -10,7 +11,7 @@ const Modal = () => {
     }, 1000);
   });
 
-  closeBtn.addEventListener("click", () => {
+  closeBtn?.addEventListener("click", () => {
     modal.remove();
     document.body.classList.remove("noscroll");
   });

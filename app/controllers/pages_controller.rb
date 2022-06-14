@@ -78,6 +78,9 @@ class PagesController < ApplicationController
   def set_page_with_blocks(slug)
     @page = Page.friendly.find_by_slug(slug)
     @page_blocks = @page.content_blocks.order(position: :asc) unless @page.nil?
+    @carousels = @page_blocks.map do |block|
+      Carousel.find_by(name: block.carousel_id) unless block.kind != "carousel"
+    end
   end
   
   private
