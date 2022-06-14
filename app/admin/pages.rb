@@ -35,6 +35,7 @@ ActiveAdmin.register Page do
                   :link_label,
                   :link_target,
                   :link_style,
+                  :carousel_id,
                   :form_action,
                   :position,
                   :_destroy
@@ -147,7 +148,7 @@ ActiveAdmin.register Page do
     f.inputs 'Contenuto' do
       f.has_many :content_blocks, heading: "Blocchi", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
         n_f.input :title, label: "Titolo Sezione", hint: "Utilizzabile in: Titolo sezione, Sezione dettagli multicolonna."
-        n_f.input :kind, label: "Blocco", as: :select, collection: [["Testo", "testo"], ["Titolo sezione", 'sectionTitle'], ["Immagine", 'immagine'], ["Video", 'video'], ["Instagram", 'instagram'], ["Audio", 'audio'], ["Link", 'link'], ["Mailchimp", 'mailchimp'], ["Sezione dettagli mutlicolonna", 'multicolumnSection']], prompt: "Seleziona sorgente video", hint: "Definisce quale tipologia di blocco viene visualizzata."
+        n_f.input :kind, label: "Blocco", as: :select, collection: [["Testo", "testo"], ["Titolo sezione", 'sectionTitle'], ["Immagine", 'immagine'], ["Video", 'video'], ["Instagram", 'instagram'], ["Audio", 'audio'], ["Link", 'link'], ["Mailchimp", 'mailchimp'], ["Sezione dettagli mutlicolonna", 'multicolumnSection'], ["Carosello", 'carousel']], prompt: "Seleziona tipologia blocco", hint: "Definisce quale tipologia di blocco viene visualizzata."
         n_f.input :rich_text, label: "Testo principale", as: :quill_editor, hint: "Utilizzabile in: Titolo sezione, Sezione dettagli multicolonna (seconda colonna), Mailchimp (testo nel box giallo)."
         n_f.input :richtext_secondary, label: "Testo secondario", as: :quill_editor, hint: "Compare come ultima colonna nella Sezione dettagli multicolonna."
         n_f.input :video_provider, label: "Sorgente Video", as: :select, collection: [["Nessuno", 0], ["Vimeo", 1], ["YouTube", 2]], prompt: "Seleziona sorgente video", hint: "Indica se il video proviene da YouTube o da Vimeo."
@@ -164,6 +165,7 @@ ActiveAdmin.register Page do
         n_f.input :link_label, label: "Testo link"
         n_f.input :link_target, label: "Link target", as: :select, collection: [["Default (_self)", "_self"], ["Apri in nuova scheda", '_blank']], prompt: "Seleziona target"
         n_f.input :link_style, label: "Stile link", as: :select, collection: [["Bottone", "button"], ["Testo", "text"]], prompt: "Seleziona tipologia link"
+        n_f.input :carousel_id, label: "Carosello", as: :select, :collection => Carousel.where(is_published: true).map{|c| c.name}, prompt: "Seleziona un carosello"
         n_f.input :is_visible, label: "Visibilità Sezione", hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
       end
     end

@@ -1,0 +1,20 @@
+<% carousel = @carousels.find {|c| c&.name == block&.carousel_id} %>
+
+<% unless carousel.nil? %>
+  <section class="relative">
+    <div class="swiper swiper-carousel">
+      <div class="swiper-wrapper">
+        <% carousel.images.each do |image| %>
+          <div class="swiper-slide">
+            <%= cl_image_tag(image.src, alt: image.alt) %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+<% end %>
