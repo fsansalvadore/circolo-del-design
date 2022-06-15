@@ -165,7 +165,7 @@ ActiveAdmin.register Page do
         n_f.input :link_label, label: "Testo link"
         n_f.input :link_target, label: "Link target", as: :select, collection: [["Default (_self)", "_self"], ["Apri in nuova scheda", '_blank']], prompt: "Seleziona target"
         n_f.input :link_style, label: "Stile link", as: :select, collection: [["Bottone", "button"], ["Testo", "text"]], prompt: "Seleziona tipologia link"
-        n_f.input :carousel_id, label: "Carosello", as: :select, :collection => Carousel.where(is_published: true).map{|c| c.name}, prompt: "Seleziona un carosello"
+        n_f.input :carousel_id, label: "Carosello", as: :select, :collection => Carousel.where(is_published: true).map{|c| [c.name, c.id]}, prompt: "Seleziona un carosello"
         n_f.input :is_visible, label: "Visibilità Sezione", hint: "Togli la spunta 'visibile' se vuoi omettere momentaneamente questa sezione."
       end
     end

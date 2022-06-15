@@ -1,4 +1,4 @@
-<% carousel = @carousels.find {|c| c&.name == block&.carousel_id} %>
+<% carousel = Carousel.find(block&.carousel_id) %>
 
 <% unless carousel.nil? %>
   <section class="relative">
