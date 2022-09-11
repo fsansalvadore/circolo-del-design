@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_17_063917) do
+ActiveRecord::Schema.define(version: 2022_09_11_091424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -330,6 +330,10 @@ ActiveRecord::Schema.define(version: 2022_06_17_063917) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "event_id"
+    t.integer "link_style", default: 0
+    t.string "link_url"
+    t.string "link_label"
+    t.string "link_target", default: "_self"
     t.index ["event_id"], name: "index_event_blocks_on_event_id"
   end
 

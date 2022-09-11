@@ -40,6 +40,10 @@ ActiveAdmin.register Event do
                   :video_description,
                   :instagram_link,
                   :soundcloud_link,
+                  :link_url,
+                  :link_label,
+                  :link_target,
+                  :link_style,
                   :position,
                   :_destroy
                 ]
@@ -154,6 +158,7 @@ ActiveAdmin.register Event do
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
+    f.actions
     tabs do
       tab :evento do
         f.inputs "Evento" do
@@ -201,6 +206,10 @@ ActiveAdmin.register Event do
         n_f.input :image_description, label: "Caption Immagine", hint: "Inserisci qui una descrizione di accompagnamento al video."
         n_f.input :image_width, label: "Larghezza Immagine", as: :select, collection: [["20% - 1/5", "one_fifth"],["25% - 1/4", "one_fourth"],["33% - 1/3", "one_third"],["50% - 1/2", "half"],["66% - 2/3", "two_thirds"], ["75% - 3/4", "three_fourths"], ["100%", "full"]], prompt: "Seleziona layout", hint: "Di default le immagini vengono visualizzate al 100% della larghezza."
         n_f.input :soundcloud_link, label: "Codice Audio", hint: "Inserire il codice URI identificativo della traccia. Solitamente si trova sotto Share > Embed"
+        n_f.input :link_url, label: "Url Link"
+        n_f.input :link_label, label: "Testo link"
+        n_f.input :link_target, label: "Link target", as: :select, collection: [["Default (_self)", "_self"], ["Apri in nuova scheda", '_blank']], prompt: "Seleziona target"
+        n_f.input :link_style, label: "Stile link", as: :select, collection: [["Bottone", "button"], ["Testo", "text"]], prompt: "Seleziona tipologia link"
       end
     end
     f.actions

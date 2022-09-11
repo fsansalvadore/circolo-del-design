@@ -26,8 +26,13 @@
   padding: 30px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #000 !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000 !important;
 }
 
 table.index_table td.admin_tag {
@@ -80,7 +85,7 @@ table.index_table td.admin_tag {
 #title_bar #titlebar_left {
   box-sizing: content-box;
   flex: 1;
-  }
+}
 #title_bar #titlebar_right {
   width: auto;
   display: inline-flex;
@@ -93,7 +98,7 @@ table.index_table td.admin_tag {
 }
 
 body.active_admin form .quill-editor .ql-editor {
-    max-height: 200px;
+  max-height: 200px;
 }
 
 body.active_admin form .quill-editor .ql-editor p {
@@ -103,11 +108,11 @@ body.active_admin form .quill-editor .ql-editor p {
 form fieldset > ol > li fieldset.inputs ol,
 #article > fieldset > ol,
 div#post fieldset ol {
-    float: left;
-    width: 100%;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  float: left;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 #article > fieldset > ol > li:nth-of-type(1) label {
@@ -118,32 +123,110 @@ form fieldset > ol > li p.inline-hints {
   margin: 0.5em 0 0 0;
 }
 
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(2) p.inline-hints,
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(3) p.inline-hints,
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(4) p.inline-hints,
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(5) p.inline-hints,
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(6) p.inline-hints,
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(7) p.inline-hints,
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(9) p.inline-hints,
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(10) p.inline-hints
- {
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(2)
+  p.inline-hints,
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(3)
+  p.inline-hints,
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(4)
+  p.inline-hints,
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(5)
+  p.inline-hints,
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(6)
+  p.inline-hints,
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(7)
+  p.inline-hints,
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(9)
+  p.inline-hints,
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(10)
+  p.inline-hints {
   margin: 0.5em 0 0 0;
 }
 
-form fieldset.inputs ol > li.has_many_container .has_many_fields ol li.input label {
+form
+  fieldset.inputs
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input
+  label {
   width: 100%;
 }
 
-#article fieldset ol > li input[type=text],
+#article fieldset ol > li input[type="text"],
 #article fieldset ol > li div.quill-editor {
   width: calc(100% - 140px);
 }
 
-body.active_admin form fieldset ol > li.has_many_container .has_many_fields ol .quill-editor {
+body.active_admin
+  form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  .quill-editor {
   width: 100%;
 }
 
-body.active_admin form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(3) .quill-editor .ql-editor {
+body.active_admin
+  form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(3)
+  .quill-editor
+  .ql-editor {
   min-height: 174px;
 }
 
@@ -163,54 +246,177 @@ div#post fieldset ol li.input:nth-of-type(6) {
   grid-column-start: span 6;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(1) {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(1) {
   grid-column-start: span 4;
   background-color: #ffed00;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(2) {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(2) {
   grid-column-start: span 2;
   background-color: #ffed00;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(2) p.inline-hints {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(2)
+  p.inline-hints {
   margin: 25px 0 0 0;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input.has_many_delete {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input.has_many_delete {
   grid-column-start: span 5;
   background-color: #f1e5e6;
   border: none !important;
   box-shadow: inset -4px 0px 10px -10px #000;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(11),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(14) {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(11),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(14) {
   grid-column-start: span 6;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(3) {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(3) {
   grid-column-start: span 4;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(5),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(6),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(4),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(7),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(8),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(9),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(10),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(15),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(16) {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(5),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(6),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(4),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(7),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(8),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(9),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(10),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(12),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(13),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(16) {
   grid-column-start: span 2;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(12),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(13) {
+/* {
   grid-column-start: span 3;
-}
+} */
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(17) {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(14),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(15),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(17) {
   grid-column-start: span 1;
 }
 
@@ -231,17 +437,64 @@ form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-typ
   grid-column-start: span 3;
 }
 
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(2),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(4),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(7),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(10),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(11),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(13),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(14),
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(18) {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(2),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(4),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(7),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(10),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(11),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(15),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(18) {
   box-shadow: inset -4px 0px 10px -10px #000;
 }
-form fieldset ol > li.has_many_container .has_many_fields ol li.input:nth-of-type(3) {
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(3) {
   border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
 
@@ -280,12 +533,17 @@ form .has_many_container .handle {
   right: 20px;
   width: auto !important;
   background-color: rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(to top, rgba(150, 137, 60, 0.1) 0%, rgba(150, 137, 60, 0) 50%, rgba(150, 137, 60, 0.1) 100%);
+  background-image: linear-gradient(
+    to top,
+    rgba(150, 137, 60, 0.1) 0%,
+    rgba(150, 137, 60, 0) 50%,
+    rgba(150, 137, 60, 0.1) 100%
+  );
 }
 
 form .has_many_container .handle::before,
 form .has_many_container .handle::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 5px;
   width: 5px;
