@@ -65,7 +65,7 @@ gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
 gem 'lightbox2-rails'
 gem 'rack-rewrite', '~> 1.5.0'
 gem 'jquery-slick-rails', '~> 1.9'
-gem 'net-smtp', '~> 0.2.1'
+gem 'net-smtp', '~> 0.2.1', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
