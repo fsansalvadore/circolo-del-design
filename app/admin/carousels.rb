@@ -10,7 +10,7 @@ ActiveAdmin.register Carousel do
                   :id,
                   :src,
                   :alt,
-                  :label,
+                  # :label,
                   :preferences,
                   :position,
                   :_destroy
