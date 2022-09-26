@@ -374,21 +374,7 @@ form
   > li.has_many_container
   .has_many_fields
   ol
-  li.input:nth-of-type(12),
-form
-  fieldset
-  ol
-  > li.has_many_container
-  .has_many_fields
-  ol
-  li.input:nth-of-type(13),
-form
-  fieldset
-  ol
-  > li.has_many_container
-  .has_many_fields
-  ol
-  li.input:nth-of-type(16) {
+  li.input:nth-of-type(12) {
   grid-column-start: span 2;
 }
 
@@ -396,6 +382,13 @@ form
   grid-column-start: span 3;
 } */
 
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(13),
 form
   fieldset
   ol
@@ -410,6 +403,13 @@ form
   .has_many_fields
   ol
   li.input:nth-of-type(15),
+form
+  fieldset
+  ol
+  > li.has_many_container
+  .has_many_fields
+  ol
+  li.input:nth-of-type(16),
 form
   fieldset
   ol
@@ -478,7 +478,7 @@ form
   > li.has_many_container
   .has_many_fields
   ol
-  li.input:nth-of-type(15),
+  li.input:nth-of-type(16),
 form
   fieldset
   ol

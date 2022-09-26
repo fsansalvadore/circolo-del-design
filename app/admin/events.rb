@@ -44,6 +44,7 @@ ActiveAdmin.register Event do
                   :link_label,
                   :link_target,
                   :link_style,
+                  :link_color,
                   :position,
                   :_destroy
                 ]
@@ -210,6 +211,7 @@ ActiveAdmin.register Event do
         n_f.input :link_label, label: "Testo link"
         n_f.input :link_target, label: "Link target", as: :select, collection: [["Default (_self)", "_self"], ["Apri in nuova scheda", '_blank']], prompt: "Seleziona target"
         n_f.input :link_style, label: "Stile link", as: :select, collection: [["Bottone", "button"], ["Testo", "text"]], prompt: "Seleziona tipologia link"
+        n_f.input :link_color, label: "Colore link", as: :string, hint: "Inserire un valore esadecimale. Es: #000000"
       end
     end
     f.actions

@@ -222,7 +222,7 @@
           <% unless block.link_url.empty? && block.link_label.empty? %>
             <!-- Link -->
             <% if block.link_style == "button" %>
-              <a href=<%= block.link_url %> target=<%= block.link_target %> class="btn btn-link-arrow btn-active-yellow">
+              <a href=<%= block.link_url %> target=<%= block.link_target %> style="<%= block.link_color.nil? ? "" : "background-color: ##{block.link_color.gsub("#", "")} !important" %>" class="btn btn-link-arrow btn-active-yellow">
                 <div class="text-block-3"><%= block.link_label unless block.link_label.nil? %></div>
                 <div class="arrow-right">
                   <div class="arrow-point-right">
@@ -233,7 +233,7 @@
                 </div>
               </a>
             <% elsif %>
-              <a href=<%= block.link_url %> target=<%= block.link_target %> class="btn">
+              <a href=<%= block.link_url %> target=<%= block.link_target %> class="btn" style="<%= block.link_color.nil? ? "" : "color: ##{block.link_color.gsub("#", "")} !important" %>">
                 <div class="text-block-3"><%= block.link_label unless block.link_label.nil? %></div>
               </a>
             <% end %>
