@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
@@ -65,6 +65,7 @@ gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
 gem 'lightbox2-rails'
 gem 'rack-rewrite', '~> 1.5.0'
 gem 'jquery-slick-rails', '~> 1.9'
+gem 'net-smtp', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
