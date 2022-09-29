@@ -123,16 +123,14 @@
         <%=raw @event.descrizione %>
       <% end %>
 
-      <!-- Loop through blocks -->
       <% unless @event_blocks.empty? %>
         <% @event_blocks.each do |block| %>
 
           <% unless block.rich_text.empty? || block.rich_text == "<p><br></p>" %>
-            <!-- Rich text -->
             <div class="rich_text_container">
               <%=raw block.rich_text %>
             </div>
-            <div class="m-bottom-50"></div>
+            <div class="m-bottom-30"></div>
           <% end %>
 
           <% if block.video_provider == 1 || block.video_provider == 2 %>
@@ -158,7 +156,7 @@
 
           <% unless block.image_url.blank? %>
             <!-- Image -->
-            <figure class="mb-50 blog_img <%= block.image_width %>">
+            <figure class="mb-10 blog_img <%= block.image_width %>">
               <%= cl_image_tag(block.image_url, :alt=> "#{block.image_description.empty? ? '' : block.image_description}") %>
               <figcaption><%= block.image_description unless block.image_description.empty? %></figcaption>
             </figure>
@@ -238,7 +236,6 @@
               </a>
             <% end %>
           <% end %>
-          <!-- End block loop -->
         <% end %>
       <% end %>
     </article>
