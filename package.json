@@ -2,9 +2,10 @@
   "name": "circolo-del-design",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "4.2.2",
+    "@rails/webpacker": "5.3.0",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
+    "node-sass": "^7.0.3",
     "popper.js": "^1.16.0",
     "react-router-dom": "^5.2.0",
     "simple-parallax-js": "^5.2.0",
