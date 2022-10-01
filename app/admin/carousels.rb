@@ -85,7 +85,7 @@ ActiveAdmin.register Carousel do
     end
     f.inputs 'Slides' do
       f.has_many :images, heading: "Immagini", allow_destroy: true, sortable: :position, sortable_start: 1 do |n_f|
-        n_f.input :src, label: "Immagine", hint: "Immagine", as: :file, :image_preview => true
+        n_f.input :src, label: "Immagine", as: :file, :image_preview => true
         n_f.input :alt, label: "Alt_text", hint: "Testo descrittivo dell'immagine per fini di accessibilità. Viene letto da non vedenti e compare nel caso l'immagine non venga caricata."
         # n_f.input :label, label: "Testo", hint: "Testo di accompagnamento all'immagine, se presente."
       end
