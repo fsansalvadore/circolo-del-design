@@ -8,7 +8,6 @@
     "import",
     "babel",
     "you-dont-need-lodash-underscore",
-    "react-hooks",
     "formatjs",
     "prettier"
   ],
@@ -30,17 +29,13 @@
         "required": "id"
       }
     ],
-    "react/jsx-props-no-spreading": 1,
-    "react/jsx-wrap-multilines": "off",
     "react/jsx-filename-extension": [
       2,
       {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ],
-    "prettier/prettier": "error",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "prettier/prettier": "error"
   },
   "env": {
     "browser": true,
