@@ -68,9 +68,6 @@ gem 'jquery-slick-rails', '~> 1.9'
 gem 'net-smtp', require: false
 gem 'net-imap', require: false
 gem 'net-pop', require: false
-gem 'nokogiri', '~> 1.13', '>= 1.13.8'
-gem 'rack', '~> 2.2.4'
-gem 'rspec', '~> 3.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
