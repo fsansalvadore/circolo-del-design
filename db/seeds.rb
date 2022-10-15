@@ -67,4 +67,4 @@ global_settings = {
 GlobalSetting.find_or_create_by(title: "Global Settings").update(global_settings)
 
 puts "\n==> Finished creating Global Settings\n"
-puts "\n===========================\n"
+puts "\n======================================\n"
