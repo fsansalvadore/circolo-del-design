@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [
     :index,
     :privacy_cookie_policy,
+    :operazione_trasparenza,
     :contacts,
     :about_circolo,
     :about_team,
@@ -14,22 +15,29 @@ class PagesController < ApplicationController
     :servizi_store,
     :membership
   ]
+
   before_action :set_page, only: [:about_newsletter]
-  after_action :redirect_to_root, only: [:about_newsletter]
+  after_action :redirect_to_root, only: [:about_newsletter, :operazione_trasparenza]
 
   def index
     @events = Event.where('data_fine >= ? OR data_inizio >= ?', DateTime.now, DateTime.now + 20).where("published = true").limit(5).sort_by{ |e| [e.priority, e.data_inizio] }
     @special_projects = SpecialProject.where("published = true").limit(5).order(year: :desc)
     @wpac = WpacSection.all.first
     @page = PageHome.all.first
-    @cards = HomePageCard.where(page_home_id: @page.id, is_draft: false).order(:position)
-    @col_1_links = HomePageColumnOneLink.where(page_home_id: @page.id).order(:position)
-    @col_2_links = HomePageColumnTwoLink.where(page_home_id: @page.id).order(:position)
-    @col_3_links = HomePageColumnThreeLink.where(page_home_id: @page.id).order(:position)
+    if @page.present?
+      @cards = HomePageCard.where(page_home_id: @page.id, is_draft: false).order(:position)
+      @col_1_links = HomePageColumnOneLink.where(page_home_id: @page.id).order(:position)
+      @col_2_links = HomePageColumnTwoLink.where(page_home_id: @page.id).order(:position)
+      @col_3_links = HomePageColumnThreeLink.where(page_home_id: @page.id).order(:position)
+    end
     render :layout => 'home'
   end
 
   def privacy_cookie_policy
+  end
+  
+  def operazione_trasparenza
+    set_page_with_blocks('operazione-trasparenza')
   end
 
   def contacts
@@ -75,18 +83,19 @@ class PagesController < ApplicationController
   def membership
   end
   
-  def set_page_with_blocks(slug)
-    @page = Page.friendly.find_by_slug(slug)
-    @page_blocks = @page.content_blocks.order(position: :asc) unless @page.nil?
-    # @carousels = @page_blocks.map do |block|
-    #   Carousel.find(block.carousel_id) unless block.kind != "carousel"
-    # end
-  end
-  
   private
-
+  
   def set_page
     @page = Page.friendly.find_by_slug(params[:slug])
+    @meta_data = @page.page_meta_datum
+  end
+  
+  def set_page_with_blocks(slug)
+    @page = Page.friendly.find_by_slug(slug)
+    unless @page.nil?
+      @page_blocks = @page.content_blocks.order(position: :asc) unless @page.nil?
+      @meta_data = @page.page_meta_datum
+    end
   end
   
   def redirect_to_root
