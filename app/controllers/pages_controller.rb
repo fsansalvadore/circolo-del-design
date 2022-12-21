@@ -16,7 +16,6 @@ class PagesController < ApplicationController
     :membership
   ]
 
-  before_action :set_page, only: [:about_newsletter]
   after_action :redirect_to_root, only: [:about_newsletter, :operazione_trasparenza]
 
   def index
@@ -84,11 +83,6 @@ class PagesController < ApplicationController
   end
   
   private
-  
-  def set_page
-    @page = Page.friendly.find_by_slug(params[:slug])
-    @meta_data = @page.page_meta_datum
-  end
   
   def set_page_with_blocks(slug)
     @page = Page.friendly.find_by_slug(slug)
