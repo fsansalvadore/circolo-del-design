@@ -33,6 +33,9 @@
 <div id="hero" class="hero-container" style="<%= _coverStyle %>" >
   <div class="heading-container">
     <h1 class="h1-a"><%= raw @page.heading unless @page.heading.empty? %></h1>
+    <p class="subheading">
+      <%= raw @page.subheading unless @page.subheading.empty? %>
+    </p>
   </div>
   <% if @page.hero_marquee_presence %>
     <div class="marquee-container">

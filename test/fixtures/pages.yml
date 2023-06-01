@@ -5,7 +5,7 @@ one:
   abstract: MyString
   slug: MyString
   lang: 1
-  cover: 
+  cover:
   priority: 1
   published_at: 2021-12-11 15:19:09
 
@@ -14,6 +14,6 @@ two:
   abstract: MyString
   slug: MyString
   lang: 1
-  cover: 
+  cover:
   priority: 1
   published_at: 2021-12-11 15:19:09

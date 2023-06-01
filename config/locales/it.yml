@@ -3,13 +3,13 @@ it:
   active_admin:
     resources:
       event: # Registered resource
-        events_programma_new: 'Aggiungi Evento' # new action item
-        edit_event: 'Aggiorna Evento' # edit action item
-        delete_event: 'Elimina Evento' # delete action item
+        events_programma_new: "Aggiungi Evento" # new action item
+        edit_event: "Aggiorna Evento" # edit action item
+        delete_event: "Elimina Evento" # delete action item
       page: # Registered resource
-        events_programma_new: 'Aggiungi Pagina' # new action item
-        edit_event: 'Aggiorna Pagina' # edit action item
-        delete_event: 'Elimina Pagina' # delete action item
+        events_programma_new: "Aggiungi Pagina" # new action item
+        edit_event: "Aggiorna Pagina" # edit action item
+        delete_event: "Elimina Pagina" # delete action item
   activerecord:
     models:
       article_section:
@@ -47,43 +47,45 @@ it:
         cognome: Cognome/Titolo
     errors:
       messages:
-        record_invalid: 'Validazione fallita: %{errors}'
+        record_invalid: "Validazione fallita: %{errors}"
         restrict_dependent_destroy:
-          has_one: Il record non può essere cancellato perchè esiste un %{record}
+          has_one:
+            Il record non può essere cancellato perchè esiste un %{record}
             dipendente
-          has_many: Il record non può essere cancellato perchè esistono %{record}
+          has_many:
+            Il record non può essere cancellato perchè esistono %{record}
             dipendenti
   date:
     abbr_day_names:
-    - dom
-    - lun
-    - mar
-    - mer
-    - gio
-    - ven
-    - sab
+      - dom
+      - lun
+      - mar
+      - mer
+      - gio
+      - ven
+      - sab
     abbr_month_names:
-    -
-    - Gen
-    - Feb
-    - Mar
-    - Apr
-    - Mag
-    - Giu
-    - Lug
-    - Ago
-    - Set
-    - Ott
-    - Nov
-    - Dic
+      -
+      - Gen
+      - Feb
+      - Mar
+      - Apr
+      - Mag
+      - Giu
+      - Lug
+      - Ago
+      - Set
+      - Ott
+      - Nov
+      - Dic
     day_names:
-    - Domenica
-    - Lunedì
-    - Martedì
-    - Mercoledì
-    - Giovedì
-    - Venerdì
-    - Sabato
+      - Domenica
+      - Lunedì
+      - Martedì
+      - Mercoledì
+      - Giovedì
+      - Venerdì
+      - Sabato
     formats:
       default: "%d/%m/%Y"
       long: "%A %e %B %Y"
@@ -91,23 +93,23 @@ it:
       medium2: "%e %B"
       short: "%d %b"
     month_names:
-    -
-    - Gennaio
-    - Febbraio
-    - Marzo
-    - Aprile
-    - Maggio
-    - Giugno
-    - Luglio
-    - Agosto
-    - Settembre
-    - Ottobre
-    - Novembre
-    - Dicembre
+      -
+      - Gennaio
+      - Febbraio
+      - Marzo
+      - Aprile
+      - Maggio
+      - Giugno
+      - Luglio
+      - Agosto
+      - Settembre
+      - Ottobre
+      - Novembre
+      - Dicembre
     order:
-    - :day
-    - :month
-    - :year
+      - :day
+      - :month
+      - :year
   datetime:
     distance_in_words:
       about_x_hours:
@@ -187,10 +189,10 @@ it:
         one: è della lunghezza sbagliata (deve essere di 1 carattere)
         other: è della lunghezza sbagliata (deve essere di %{count} caratteri)
     template:
-      body: 'Ricontrolla i seguenti campi:'
+      body: "Ricontrolla i seguenti campi:"
       header:
-        one: 'Non posso salvare questo %{model}: 1 errore'
-        other: 'Non posso salvare questo %{model}: %{count} errori.'
+        one: "Non posso salvare questo %{model}: 1 errore"
+        other: "Non posso salvare questo %{model}: %{count} errori."
   helpers:
     select:
       prompt: Seleziona...
@@ -223,9 +225,9 @@ it:
           quadrillion: Biliardi
           thousand: Mila
           trillion: Bilioni
-          unit: ''
+          unit: ""
       format:
-        delimiter: ''
+        delimiter: ""
         precision: 3
         significant: true
         strip_insignificant_zeros: true
@@ -241,11 +243,11 @@ it:
           tb: TB
     percentage:
       format:
-        delimiter: ''
+        delimiter: ""
         format: "%n%"
     precision:
       format:
-        delimiter: ''
+        delimiter: ""
   support:
     array:
       last_word_connector: " e "
@@ -278,5 +280,5 @@ it:
       signed_out: "Disconnesso correttamente."
       already_signed_out: "Disconnesso correttamente."
     omniauth_callbacks:
-      failure: "Non è stato possibile autenticarti a %{kind} perché \"%{reason}\"."
+      failure: 'Non è stato possibile autenticarti a %{kind} perché "%{reason}".'
       success: "Autenticata con successo all'account %{kind}."

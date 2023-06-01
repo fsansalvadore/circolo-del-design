@@ -51,7 +51,7 @@
 .events-search-form {
   display: inline-flex;
   margin-right: 10px;
-  
+
   &.sp-search-form {
     width: 300px;
   }
@@ -75,11 +75,11 @@
   border: solid 2px currentColor;
   border-radius: 100%;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .search.icon:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 10px;
   left: 3px;
@@ -114,10 +114,10 @@
   margin: 0;
   border: 1px solid #000;
   border-radius: 2px;
-  background-image: asset-url('arrow-down-select.svg');
+  background-image: asset-url("arrow-down-select.svg");
   background-repeat: no-repeat, repeat;
-  background-position: right .7em top 50%, 0 0;
-  background-size: .65em auto, 100%;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -158,7 +158,6 @@
   transform: translate(0, -30px);
 }
 
-
 .form-reset-btn-contianer:hover .label-reveal {
   opacity: 1;
   transform: translate(-30%, -30px);
@@ -189,7 +188,6 @@
     width: 2px;
     transform: rotate(45deg);
     background-color: #fff;
-
   }
 }
 
@@ -209,7 +207,7 @@
     margin-bottom: 5px;
     margin-right: 5px;
 
-    input[type=checkbox] {
+    input[type="checkbox"] {
       position: absolute;
       opacity: 0;
       z-index: 300;
@@ -225,7 +223,7 @@
       }
     }
 
-    input[type=checkbox]:checked + .month-checkbox {
+    input[type="checkbox"]:checked + .month-checkbox {
       background-color: #fff;
       color: #000;
       opacity: 1;
@@ -256,7 +254,6 @@
   }
 }
 
-
 @media screen and (max-width: 991px) {
   .calendar-cards-container {
     margin-left: -6px;
@@ -266,7 +263,8 @@
     flex-direction: column;
   }
 
-  .events-search-form, .events-search-form.sp-search-form {
+  .events-search-form,
+  .events-search-form.sp-search-form {
     width: 100%;
   }
   .event-form-control {

@@ -1905,7 +1905,7 @@ h2 {
 }
 
 .h1-a {
-  font-size: 80px;
+  font-size: 80px !important;
   line-height: 100%;
   font-family: heimat-sans, sans-serif;
   font-weight: 700;
@@ -5444,7 +5444,7 @@ figcaption {
   }
   .h1-a {
     margin-top: 0px;
-    font-size: 62px;
+    font-size: 60px !important;
     line-height: 50px;
   }
   .text-block-2 {
@@ -5721,7 +5721,7 @@ figcaption {
   }
   .h1-a {
     margin-bottom: 0px;
-    font-size: 32px;
+    font-size: 32px !important;
     line-height: 37px;
   }
   .text-block-2 {

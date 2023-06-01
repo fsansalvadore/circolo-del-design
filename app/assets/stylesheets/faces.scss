@@ -99,7 +99,7 @@ div.faces .calendar-main-container {
 // }
 
 .faces-grid::before {
-  content: '';
+  content: "";
   width: 0;
   padding-bottom: 100%;
   grid-row: 1 / 1;
@@ -114,7 +114,7 @@ div.faces .calendar-main-container {
 /* Just to make the grid visible */
 
 .faces-grid > * {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   border: 1px white solid;
 }
 
@@ -210,7 +210,8 @@ div.faces .calendar-main-container {
     transform: none;
     transition: all 0.5s ease;
 
-    h4, p {
+    h4,
+    p {
       margin-bottom: 5px;
       text-decoration: none !important;
     }

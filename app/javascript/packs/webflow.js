@@ -157,7 +157,7 @@ const webflowJS = () => {
           r(typeof self == n && self) ||
           r(typeof t == n && t) ||
           Function("return this")();
-      }.call(this, n(33)));
+      }).call(this, n(33));
     },
     function (e, t, n) {
       var r = n(39),
@@ -4753,7 +4753,7 @@ const webflowJS = () => {
             o
           );
         })();
-      }.call(this, n(58)(e)));
+      }).call(this, n(58)(e));
     },
     function (e, t, n) {
       var r = n(17),
@@ -4964,7 +4964,7 @@ const webflowJS = () => {
           c = a && a.exports === i ? r.Buffer : void 0,
           u = (c ? c.isBuffer : void 0) || o;
         e.exports = u;
-      }.call(this, n(58)(e)));
+      }).call(this, n(58)(e));
     },
     function (e, t) {
       e.exports = function (e) {
@@ -5952,7 +5952,7 @@ const webflowJS = () => {
             } catch (e) {}
           })();
         e.exports = c;
-      }.call(this, n(58)(e)));
+      }).call(this, n(58)(e));
     },
     function (e, t) {
       var n = Object.prototype;
@@ -12815,7 +12815,7 @@ const webflowJS = () => {
       (function (t) {
         var n = "object" == typeof t && t && t.Object === Object && t;
         e.exports = n;
-      }.call(this, n(33)));
+      }).call(this, n(33));
     },
     function (e, t) {
       var n = Function.prototype.toString;
@@ -16970,7 +16970,7 @@ const webflowJS = () => {
           var e = r();
           return e._optimism_local || (e._optimism_local = Object.create(null));
         };
-      }.call(this, n(58)(e)));
+      }).call(this, n(58)(e));
     },
     function (e, t, n) {
       "use strict";
@@ -17143,7 +17143,7 @@ const webflowJS = () => {
             r = c ? c(n) : new e.constructor(n);
           return e.copy(r), r;
         };
-      }.call(this, n(58)(e)));
+      }).call(this, n(58)(e));
     },
     function (e, t, n) {
       var r = n(167);
@@ -42919,7 +42919,7 @@ const webflowJS = () => {
           "function" != typeof Map || t.env.TEST_PSEUDOMAP
             ? (e.exports = n(630))
             : (e.exports = Map);
-      }.call(this, n(71)));
+      }).call(this, n(71));
     },
     function (e, t) {
       var n = Object.prototype.hasOwnProperty;
@@ -43481,7 +43481,7 @@ const webflowJS = () => {
               n
             );
           });
-      }.call(this, n(71)));
+      }).call(this, n(71));
     },
     function (e, t) {
       e.exports = function (e) {
@@ -45698,7 +45698,7 @@ const webflowJS = () => {
             ("undefined" != typeof self && self.clearImmediate) ||
             (void 0 !== e && e.clearImmediate) ||
             (this && this.clearImmediate));
-      }.call(this, n(33)));
+      }).call(this, n(33));
     },
     function (e, t, n) {
       (function (e, t) {
@@ -45823,7 +45823,7 @@ const webflowJS = () => {
             }
           }
         })("undefined" == typeof self ? (void 0 === e ? this : e) : self);
-      }.call(this, n(33), n(71)));
+      }).call(this, n(33), n(71));
     },
     function (e, t, n) {
       window.fetch || (window.fetch = n(307).default || n(307));
