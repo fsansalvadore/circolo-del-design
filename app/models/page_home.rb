@@ -16,6 +16,7 @@ class PageHome < ApplicationRecord
     mount_uploader :splash_content_img, ImageUploader
     mount_uploader :splash_content_img_mobile, ImageUploader
     mount_uploader :hero_image, ImageUploader
+    mount_uploader :hero_image_mobile, ImageUploader
     mount_uploader :banner_img_desktop, ImageUploader
     mount_uploader :banner_img_mobile, ImageUploader
     mount_uploader :box_link_1_image, ImageUploader

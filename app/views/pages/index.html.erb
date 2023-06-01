@@ -29,8 +29,8 @@
 <div data-w-id="34e7298b-a2ba-bc6d-2dee-977128477157" style="opacity:1" class="loader-a-container">
   <%= image_tag "LOGO_CdD_anim_1sec.gif", alt: "Circolo Del Design loarder", class: "loader-a-gif" %>
 </div>
-<% _coverStyle = @page.hero_image.blank? ? "" : "background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('#{ cl_image_path @page.hero_image }')" %>
-<div id="hero" class="hero-container" style="<%= _coverStyle %>" >
+
+<%= link_to @page.hero_link.blank? ? root_path : @page.hero_link, id: "hero", class: "hero-container", target: @page.hero_link_target.blank? ? "_self" : @page.hero_link_target do %>
   <div class="heading-container">
     <h1 class="h1-a"><%= raw @page.heading unless @page.heading.empty? %></h1>
     <p class="subheading">
@@ -48,7 +48,15 @@
       </marquee>
     </div>
   <% end %>
-</div>
+  <% unless @page.hero_image.blank? %>
+    <div class="hero-bg-image <%= 'desktop' unless @page.banner_img_mobile.file.nil? %>" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path @page.hero_image unless @page.hero_image.blank? %>')">
+    </div>
+  <% end %>
+  <% unless @page.hero_image_mobile.blank? %>
+    <div class="hero-bg-image mobile" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path @page.hero_image_mobile unless @page.hero_image_mobile.blank? %>')">
+    </div>
+  <% end %>
+<% end %>
   <div id="top" class="content-container">
     <div class="container-2 w-container homepage-nav">
       <div data-w-id="d8e1098b-6db6-d8a3-7748-351c9f63a7ad" class="links-container">
