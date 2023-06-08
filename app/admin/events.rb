@@ -172,7 +172,7 @@ ActiveAdmin.register Event do
           f.input :curator, placeholder: 'A cura di...', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
           f.input :prezzo, placeholder: 'Inserisci prezzo', hint: "Default: Gratuito per i soci"
           f.input :image, as: :file, :image_preview => true, hint: "Obbligatorio"
-          f.input :categoria, as: :select, collection: ['Design Insights', 'Mostra', 'Experience', 'Progetti Speciali', 'Talk', 'Workshop', 'Performance', 'Film'], prompt: "Seleziona una categoria"
+          f.input :categoria, as: :select, collection: ['Design Insights', 'Experience', 'Festival', 'Film', 'Mostra', 'Performance', 'Progetti Speciali', 'Talk', 'Workshop'], prompt: "Seleziona una categoria"
           f.input :sotto_categoria, placeholder: 'Inserisci una sotto categoria', hint: 'Opzionale: se inserito compare di fianco alla categoria principale.'
           f.input :luogo, placeholder: 'Inserisci indirizzo', hint: 'Default: Via San Francesco da Paola 17 10123 Torino TO Italia'
           f.input :durata, placeholder: 'Opzionale', hint: "Opzionale: Se lasciato vuoto non compare nella pagina."
