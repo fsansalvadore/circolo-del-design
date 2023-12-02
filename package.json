@@ -1,6 +1,11 @@
 {
   "name": "circolo-del-design",
   "private": true,
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "singleQuote": true
+  },
   "dependencies": {
     "@rails/webpacker": "5.3.0",
     "bootstrap": "^4.6.0",
