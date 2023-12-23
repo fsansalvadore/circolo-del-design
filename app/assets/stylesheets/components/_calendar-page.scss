@@ -39,7 +39,7 @@
 .calendar-aside-container {
   // width: 27%;
   flex: 1;
-  margin-top: 122px;
+  margin-top: 44px;
 }
 
 .sticky {
@@ -57,7 +57,8 @@
   }
 }
 
-.category-search-form {
+.category-search-form,
+.anno-search-form {
   // width: 200px;
   cursor: pointer;
   margin-right: 10px;
@@ -79,7 +80,7 @@
 }
 
 .search.icon:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 10px;
   left: 3px;
@@ -98,7 +99,8 @@
   justify-content: center;
 }
 
-.category-select {
+.category-select,
+.anno-select {
   display: block;
   cursor: pointer;
   font-size: 13px;
@@ -114,7 +116,7 @@
   margin: 0;
   border: 1px solid #000;
   border-radius: 2px;
-  background-image: asset-url("arrow-down-select.svg");
+  background-image: asset-url('arrow-down-select.svg');
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
@@ -123,7 +125,7 @@
   appearance: none;
   background-color: #fff;
 
-  [value="Mostra"] {
+  [value='Mostra'] {
     background-color: #f49fc6 !important;
   }
 }
@@ -175,7 +177,7 @@
 
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     height: 10px;
     width: 2px;
     transform: rotate(-45deg);
@@ -183,7 +185,7 @@
   }
   &::before {
     position: absolute;
-    content: "";
+    content: '';
     height: 10px;
     width: 2px;
     transform: rotate(45deg);
@@ -207,7 +209,7 @@
     margin-bottom: 5px;
     margin-right: 5px;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       position: absolute;
       opacity: 0;
       z-index: 300;
@@ -223,7 +225,7 @@
       }
     }
 
-    input[type="checkbox"]:checked + .month-checkbox {
+    input[type='checkbox']:checked + .month-checkbox {
       background-color: #fff;
       color: #000;
       opacity: 1;

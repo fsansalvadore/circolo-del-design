@@ -18,6 +18,9 @@ class EventsController < ApplicationController
     elsif params[:categoria].present?
       @events = params[:categoria] == "all" ? Event.where("published = ? AND data_fine > ?", true, Date.today).where.not(is_not_in_calendar: true).order(:data_inizio) : Event.where("categoria = ? AND published = ?", params[:categoria].gsub("+", " "), true).where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', Time.new.year, Time.new.year).where.not(is_not_in_calendar: true).order(:data_inizio)
       @categorySelect = params[:categoria]
+    elsif params[:anno].present?
+      @events = Event.where('extract(year from data_inizio) = ? OR extract(year from data_fine) = ?', params[:anno], params[:anno]).where.not(is_not_in_calendar: true).order(:data_inizio)
+      @annoSelect = params[:anno]
     else
       @events = @events.order(:data_inizio)
     end
