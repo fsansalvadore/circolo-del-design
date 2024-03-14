@@ -1698,7 +1698,7 @@
 
 body {
   margin-top: 0px;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'cdd-repro', sans-serif;
   color: #000;
   font-size: 14px;
   line-height: 20px;
@@ -1710,6 +1710,7 @@ h2 {
   font-size: 30px;
   line-height: 32px;
   font-weight: 700;
+  font-family: cdd-repro, sans-serif;
 }
 
 .navbar-a {
@@ -1806,7 +1807,7 @@ h2 {
   z-index: 500;
   display: block;
   margin-top: 32px;
-  margin-right: 70px;
+  margin-right: 63px;
   clear: none;
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
@@ -2059,7 +2060,7 @@ h2 {
   font-size: 28px;
   line-height: 160%;
   text-align: center;
-  font-family: heimat-sans, sans-serif;
+  font-family: cdd-repro, sans-serif;
 
   strong {
     background: #000;
@@ -2169,7 +2170,7 @@ h2 {
     max-height: 90px;
     width: 100%;
     font-size: 23px;
-    font-family: heimat-sans, sans-serif;
+    font-family: cdd-repro, sans-serif;
   }
 
   .link-list {
@@ -2694,10 +2695,10 @@ h2 {
   top: 50px;
   right: 91px;
   z-index: 300;
-  width: 55px;
-  height: 55px;
-  border: 2px solid #000;
-  border-radius: 50%;
+  width: 80px;
+  height: 35px;
+  border: 2.5px solid #000;
+  border-radius: 30px;
   background-color: transparent;
   -webkit-transform: skew(0deg, 0deg) translate(50%, -50%) perspective(59px);
   transform: skew(0deg, 0deg) translate(50%, -50%) perspective(59px);
@@ -3682,6 +3683,7 @@ h2 {
   margin-top: 5px;
   margin-bottom: 5px;
   font-weight: 700;
+  font-size: 18px;
 }
 
 .navbar-b2 {
@@ -4330,11 +4332,11 @@ h1  {
 }
 
 .membership-link {
-  margin-top: 23px;
-  margin-right: 18px;
-  // padding: 20px;
-  padding: 16px;
-  border: 2px solid #000;
+  margin-top: 32px;
+  margin-right: 20px;
+  font-size: 18px;
+  padding: 5px 10px;
+  border: 2.5px solid #000;
   border-radius: 30px;
   float: right;
   color: #000;
@@ -5284,7 +5286,7 @@ figcaption {
 
 @media (max-width: 991px) {
   .nav-menu-a {
-    margin-right: 60px;
+    margin-right: 52px;
   }
   .section-a-1 {
     margin-bottom: 50px;
@@ -5516,7 +5518,7 @@ figcaption {
   }
   .nav-menu-a {
     margin-top: 27px;
-    margin-right: 40px;
+    margin-right: 32px;
   }
 
   .page-postheader {
@@ -5647,7 +5649,7 @@ figcaption {
     font-size: 35px;
   }
   .membership-link {
-    margin-top: 15px;
+    margin-top: 27px;
   }
   .menu-right-div {
     top: 110px;

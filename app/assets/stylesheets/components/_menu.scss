@@ -4,6 +4,16 @@
   line-height: 100%;
 }
 
+.cdd-logo-responsive {
+  display: none;
+}
+
+@media (min-width: 991px) {
+  .cdd-logo-responsive {
+    display: inline;
+  }
+}
+
 .menu-toggle-icon-contianer {
   transition: transform 0.1s ease;
 }

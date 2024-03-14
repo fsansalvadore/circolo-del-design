@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['heimat-sans', ...defaultTheme.fontFamily.sans],
+        sans: ['cdd-repro', ...defaultTheme.fontFamily.sans],
       },
     },
   },
