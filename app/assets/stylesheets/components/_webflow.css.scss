@@ -1905,9 +1905,9 @@ h2 {
 }
 
 .h1-a {
-  font-size: 80px !important;
+  font-size: 50px !important;
   line-height: 100%;
-  font-family: heimat-sans, sans-serif;
+  font-family: cdd-repro, sans-serif;
   font-weight: 700;
   font-style: normal;
 
@@ -4074,8 +4074,53 @@ h2 {
   //  url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-regular.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-regular.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-regularitalic.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-regularitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-medium.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-medium.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: medium;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-mediumitalic.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-mediumitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: medium;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-bold.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-bold.woff2') format('woff'); /* Pretty Modern Browsers */
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-bolditalic.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-bolditalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: bold;
+  font-style: italic;
+}
+
 h1  {
-  font-family: heimat-sans, sans-serif;
+  font-family: cdd-repro, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -5486,8 +5531,8 @@ figcaption {
   }
   .h1-a {
     margin-top: 0px;
-    font-size: 60px !important;
-    line-height: 50px;
+    font-size: 32px !important;
+    line-height: 36px;
   }
   .text-block-2 {
     margin-top: 23px;
@@ -5763,7 +5808,7 @@ figcaption {
   }
   .h1-a {
     margin-bottom: 0px;
-    font-size: 32px !important;
+    font-size: 24px !important;
     line-height: 37px;
   }
   .text-block-2 {

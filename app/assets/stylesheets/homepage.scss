@@ -2,7 +2,8 @@
   position: relative;
   margin-top: 111px;
   font-family: heimat-sans, sans-serif;
-  height: 466px;
+  height: auto;
+  min-height: 250px;
   text-decoration: none;
   width: 100vw;
   display: flex;
@@ -15,12 +16,13 @@
   color: var(--hero-text-color);
 
   @media (max-width: 768px) {
-    height: 380px;
+    height: 250px;
   }
 
   .heading-container {
     position: relative;
     width: 100%;
+    margin: auto;
     max-width: var(--max-width-container);
     display: flex;
     flex-direction: column;
@@ -32,7 +34,7 @@
 
     h1 {
       color: inherit;
-      font-family: heimat-sans, sans-serif;
+      font-family: cdd-repro, sans-serif;
     }
 
     .subheading * {
@@ -70,6 +72,7 @@
   }
 
   .marquee-container {
+    font-family: cdd-repro, sans-serif;
     position: relative;
     z-index: 10;
     height: 75px;
@@ -80,7 +83,7 @@
 
     marquee {
       text-transform: uppercase;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       height: 100%;
       display: flex;
       align-items: center;
