@@ -172,11 +172,14 @@
     display: inline !important;
     width: auto;
     margin-bottom: 0;
+    margin-right: 10px;
     line-height: 100%;
     font-weight: 400;
+    height: auto;
   }
 
   .form-checkbox-terms {
+    display: flex;
     margin-bottom: 15px;
   }
 }
