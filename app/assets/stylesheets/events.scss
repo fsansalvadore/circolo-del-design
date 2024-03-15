@@ -143,6 +143,7 @@ article.event-article-content {
   .rich_text_container {
     width: 100%;
     display: block;
+    margin-bottom: 8px;
 
     &.small {
       // margin-top: 30px;
@@ -474,6 +475,7 @@ article.event-article-content {
 article.event-article-content {
   align-items: flex-start;
   display: inline-block;
+  font-family: 'Work Sans', sans-serif;
 
   a.image-link,
   figcaption,

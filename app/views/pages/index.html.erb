@@ -26,9 +26,9 @@
     <% end %>
   </div>
 <% end %>
-<%# <div data-w-id="34e7298b-a2ba-bc6d-2dee-977128477157" style="opacity:1" class="loader-a-container"> %>
-  <%#= image_tag "LOGO_CdD_anim_1sec.gif", alt: "Circolo Del Design loarder", class: "loader-a-gif" %>
-<%# </div> %>
+<div data-w-id="34e7298b-a2ba-bc6d-2dee-977128477157" style="opacity:1" class="loader-a-container">
+  <%= image_tag "Logo-CDD-CircoloDelDesign.svg", alt: "Circolo Del Design loarder", class: "loader-a-gif" %>
+</div>
 
 <%= link_to @page.hero_link.blank? ? root_path : @page.hero_link, id: "hero", class: "hero-container", target: @page.hero_link_target.blank? ? "_self" : @page.hero_link_target do %>
   <div class="heading-container">
@@ -154,13 +154,13 @@
                 <%= link_to card.link, class: "hp-card-container", target: card.link_target ? "_blank" : "" do %>
                   <div class="card-img" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path card.image unless card.image.blank? %>')">
                     <div class="card-labels">
-                      <div class="primary-label" style="background: <%= _color %>;"><%= _category %></div>
+                      <div class="primary-label <%= _category.parameterize(separator: '_') %>" style="background: <%= _color %>;"><%= _category %></div>
                       <% unless card.eventy_type_category.blank? || card.eventy_type_category === "Nessuna" %>
                         <div class="secondary-label"><%= card.eventy_type_category %></div>
                       <% end %>
                     </div>
                   </div>
-                  <div class="info-box" style="background: <%= _color %>;">
+                  <div class="info-box <%= _category.parameterize(separator: '_') %>" style="background: <%= _color %>;">
                     <h3><%= card.title unless !card.title || card.title.empty? %></h3>
                     <p><%= card.subtitle unless !card.subtitle || card.subtitle.empty? %></p>
                   </div>
@@ -178,7 +178,7 @@
   <div class="section-a-3 round">
     <div class="container-3 w-container w-1000">
       <div id="w-node-d14ac47ef320-f805d136" data-w-id="e10972fb-b623-d4d9-87d9-d14ac47ef320" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-        <h2 class="listheading"><%= @page.column_1_title unless @page.column_1_title.blank? %></h2>
+        <h2 class="listheading bg-orange"><%= @page.column_1_title unless @page.column_1_title.blank? %></h2>
         <div class="link-list">
           <% unless @col_1_links.empty? %>
             <% @col_1_links.each do |link| %>
@@ -197,7 +197,7 @@
         </div>
       </div>
       <div id="w-node-ce1275bf203b-f805d136" data-w-id="33cbe8e8-7b19-dfec-b687-ce1275bf203b" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-        <h2 class="listheading"><%= @page.column_2_title unless @page.column_2_title.blank? %></h2>
+        <h2 class="listheading bg-black"><%= @page.column_2_title unless @page.column_2_title.blank? %></h2>
         <div class="link-list">
           <% unless @col_2_links.empty? %>
             <% @col_2_links.each do |link| %>

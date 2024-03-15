@@ -1806,7 +1806,7 @@ h2 {
   position: relative;
   z-index: 500;
   display: block;
-  margin-top: 32px;
+  margin-top: 35px;
   margin-right: 63px;
   clear: none;
   -webkit-align-self: auto;
@@ -2209,6 +2209,8 @@ h2 {
   background-color: #ffed00;
   color: #000;
   font-size: 30px;
+  line-height: 105%;
+  text-transform: uppercase;
 }
 
 .list {
@@ -2692,7 +2694,7 @@ h2 {
 .menu-circle-bg {
   position: absolute;
   will-change: width, heigth;
-  top: 50px;
+  top: 52px;
   right: 91px;
   z-index: 300;
   width: 80px;
@@ -2724,6 +2726,7 @@ h2 {
 
 .line-menu-a-2 {
   position: absolute;
+  top: 112px;
   left: 18%;
   width: 1px;
   height: 100%;
@@ -2810,6 +2813,8 @@ h2 {
   padding-left: 40px;
   border: 1px none #000;
   color: #000;
+  font-weight: bold;
+  line-height: 120%;
 }
 
 .div-block-34 {
@@ -3680,7 +3685,7 @@ h2 {
 }
 
 .menu-text-a {
-  margin-top: 5px;
+  margin-top: 3px;
   margin-bottom: 5px;
   font-weight: 700;
   font-size: 18px;
@@ -4332,7 +4337,7 @@ h1  {
 }
 
 .membership-link {
-  margin-top: 32px;
+  margin-top: 35px;
   margin-right: 20px;
   font-size: 18px;
   padding: 5px 10px;
@@ -5575,7 +5580,7 @@ figcaption {
     height: 60px;
   }
   .link-lang-container.active-lang {
-    width: 55px;
+    width: 80px;
     height: 55px;
   }
   .menu-social-box {

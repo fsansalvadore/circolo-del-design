@@ -55,7 +55,7 @@ main.special_project {
     float: left;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: 5;
       width: 100%;
@@ -176,6 +176,7 @@ article.special_project {
   .rich_text_container {
     width: 100%;
     display: block;
+    margin-bottom: 8px;
 
     &.small {
       // margin-top: 30px;
@@ -377,7 +378,7 @@ article.special_project {
 
   span::after,
   span::before {
-    content: "";
+    content: '';
     width: 30px;
     height: 2px;
     background: #000;

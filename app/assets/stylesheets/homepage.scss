@@ -265,6 +265,11 @@
         .primary-label {
           background-color: blue;
           color: #fff;
+
+          &.programma_culturale,
+          &.servizi {
+            color: #000;
+          }
         }
 
         .secondary-label {
@@ -279,6 +284,11 @@
       font-family: cdd-repro, sans-serif;
       height: 130px;
       max-height: 130px;
+
+      &.programma_culturale,
+      &.servizi {
+        color: #000;
+      }
 
       h3 {
         margin-top: 0;
