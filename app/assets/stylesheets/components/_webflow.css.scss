@@ -1698,7 +1698,7 @@
 
 body {
   margin-top: 0px;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'cdd-repro', sans-serif;
   color: #000;
   font-size: 14px;
   line-height: 20px;
@@ -1710,6 +1710,7 @@ h2 {
   font-size: 30px;
   line-height: 32px;
   font-weight: 700;
+  font-family: cdd-repro, sans-serif;
 }
 
 .navbar-a {
@@ -1805,8 +1806,8 @@ h2 {
   position: relative;
   z-index: 500;
   display: block;
-  margin-top: 32px;
-  margin-right: 70px;
+  margin-top: 35px;
+  margin-right: 63px;
   clear: none;
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
@@ -1864,6 +1865,10 @@ h2 {
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
+  .menu-text-a {
+    margin-top: 6px !important;
+  }
 }
 
 .links-container {
@@ -1905,9 +1910,9 @@ h2 {
 }
 
 .h1-a {
-  font-size: 80px !important;
+  font-size: 50px !important;
   line-height: 100%;
-  font-family: heimat-sans, sans-serif;
+  font-family: cdd-repro, sans-serif;
   font-weight: 700;
   font-style: normal;
 
@@ -2059,7 +2064,7 @@ h2 {
   font-size: 28px;
   line-height: 160%;
   text-align: center;
-  font-family: heimat-sans, sans-serif;
+  font-family: cdd-repro, sans-serif;
 
   strong {
     background: #000;
@@ -2169,7 +2174,7 @@ h2 {
     max-height: 90px;
     width: 100%;
     font-size: 23px;
-    font-family: heimat-sans, sans-serif;
+    font-family: cdd-repro, sans-serif;
   }
 
   .link-list {
@@ -2208,6 +2213,8 @@ h2 {
   background-color: #ffed00;
   color: #000;
   font-size: 30px;
+  line-height: 105%;
+  text-transform: uppercase;
 }
 
 .list {
@@ -2691,13 +2698,13 @@ h2 {
 .menu-circle-bg {
   position: absolute;
   will-change: width, heigth;
-  top: 50px;
+  top: 52px;
   right: 91px;
   z-index: 300;
-  width: 55px;
-  height: 55px;
-  border: 2px solid #000;
-  border-radius: 50%;
+  width: 80px;
+  height: 35px;
+  border: 2.5px solid #000;
+  border-radius: 30px;
   background-color: transparent;
   -webkit-transform: skew(0deg, 0deg) translate(50%, -50%) perspective(59px);
   transform: skew(0deg, 0deg) translate(50%, -50%) perspective(59px);
@@ -2723,6 +2730,7 @@ h2 {
 
 .line-menu-a-2 {
   position: absolute;
+  top: 112px;
   left: 18%;
   width: 1px;
   height: 100%;
@@ -2809,6 +2817,8 @@ h2 {
   padding-left: 40px;
   border: 1px none #000;
   color: #000;
+  font-weight: bold;
+  line-height: 120%;
 }
 
 .div-block-34 {
@@ -3679,9 +3689,10 @@ h2 {
 }
 
 .menu-text-a {
-  margin-top: 5px;
+  margin-top: 3px;
   margin-bottom: 5px;
   font-weight: 700;
+  font-size: 18px;
 }
 
 .navbar-b2 {
@@ -4074,8 +4085,53 @@ h2 {
   //  url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-regular.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-regular.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-regularitalic.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-regularitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-medium.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-medium.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: medium;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-mediumitalic.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-mediumitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: medium;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-bold.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-bold.woff2') format('woff'); /* Pretty Modern Browsers */
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: url('/fonts/cddrepro-bolditalic.woff') format('woff'); /* Pretty Modern Browsers */
+  // src: url('/fonts/cddrepro-bolditalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: bold;
+  font-style: italic;
+}
+
 h1  {
-  font-family: heimat-sans, sans-serif;
+  font-family: cdd-repro, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -4285,11 +4341,11 @@ h1  {
 }
 
 .membership-link {
-  margin-top: 23px;
-  margin-right: 18px;
-  // padding: 20px;
-  padding: 16px;
-  border: 2px solid #000;
+  margin-top: 35px;
+  margin-right: 20px;
+  font-size: 18px;
+  padding: 5px 10px;
+  border: 2.5px solid #000;
   border-radius: 30px;
   float: right;
   color: #000;
@@ -5239,7 +5295,7 @@ figcaption {
 
 @media (max-width: 991px) {
   .nav-menu-a {
-    margin-right: 60px;
+    margin-right: 52px;
   }
   .section-a-1 {
     margin-bottom: 50px;
@@ -5305,8 +5361,8 @@ figcaption {
     left: 0%;
     width: 50%;
     padding-top: 51px;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
   .link-social-container {
     margin-right: 3%;
@@ -5465,13 +5521,14 @@ figcaption {
   }
   .brand {
     padding-left: 0px;
+    margin-top: 12px;
   }
   .brand.w--current {
     margin-top: 12px;
   }
   .nav-menu-a {
     margin-top: 27px;
-    margin-right: 40px;
+    margin-right: 32px;
   }
 
   .page-postheader {
@@ -5486,8 +5543,8 @@ figcaption {
   }
   .h1-a {
     margin-top: 0px;
-    font-size: 60px !important;
-    line-height: 50px;
+    font-size: 32px !important;
+    line-height: 36px;
   }
   .text-block-2 {
     margin-top: 23px;
@@ -5528,7 +5585,7 @@ figcaption {
     height: 60px;
   }
   .link-lang-container.active-lang {
-    width: 55px;
+    width: 80px;
     height: 55px;
   }
   .menu-social-box {
@@ -5547,7 +5604,7 @@ figcaption {
     line-height: 16px;
   }
   .menu-circle-bg {
-    top: 45px;
+    top: 47px;
     right: 61px;
     z-index: 300;
   }
@@ -5567,8 +5624,8 @@ figcaption {
     height: 100%;
   }
   .menu-member-content {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
   .div-block-34 {
     right: 60px;
@@ -5602,7 +5659,7 @@ figcaption {
     font-size: 35px;
   }
   .membership-link {
-    margin-top: 15px;
+    margin-top: 29px;
   }
   .menu-right-div {
     top: 110px;
@@ -5763,7 +5820,7 @@ figcaption {
   }
   .h1-a {
     margin-bottom: 0px;
-    font-size: 32px !important;
+    font-size: 24px !important;
     line-height: 37px;
   }
   .text-block-2 {

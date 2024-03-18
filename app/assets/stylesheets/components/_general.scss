@@ -103,7 +103,7 @@
 
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     left: -6px;
     width: 2px;
     height: 14px;
@@ -112,7 +112,7 @@
   }
   &::before {
     position: absolute;
-    content: "";
+    content: '';
     width: 2px;
     right: -6px;
     height: 14px;
@@ -144,7 +144,7 @@
         rgba(225, 53, 75, 0.8),
         rgba(225, 53, 75, 0.8)
       ),
-      asset-url("circolo-del-design_progetti-speciali_tjaarda.jpg");
+      asset-url('circolo-del-design_progetti-speciali_tjaarda.jpg');
   }
   strong {
     font-size: 40px;
@@ -167,16 +167,19 @@
 }
 
 .contact-form {
-  input[type="checkbox"],
+  input[type='checkbox'],
   .privacy-label {
     display: inline !important;
     width: auto;
     margin-bottom: 0;
+    margin-right: 10px;
     line-height: 100%;
     font-weight: 400;
+    height: auto;
   }
 
   .form-checkbox-terms {
+    display: flex;
     margin-bottom: 15px;
   }
 }
@@ -225,7 +228,7 @@
   margin-top: 111px;
   width: 100%;
   padding: 1rem;
-  color: #fff;
+  // color: #000;
   background: #e1354b;
   display: flex;
   align-items: center;
