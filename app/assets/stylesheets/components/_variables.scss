@@ -2,20 +2,20 @@
   --max-width-container: 1100px;
   --hero-text-color: #000;
   --cdd-yellow: #ffed00;
-  --cdd-blue: #000;
+  --cdd-progetti-impatto: #000;
   --cdd-black: #000;
   --cdd-orange: #fffbcc;
   --cdd-green: #ffed00;
   --cdd-aqua: #ffed00;
-  --cdd-purple: #ffed00;
+  --cdd-purple: #fffbcc;
 }
 
 .bg-orange {
   background-color: var(--cdd-orange) !important;
   color: #000;
 }
-.bg-blue {
-  background-color: var(--cdd-blue) !important;
+.bg-progetti-impatto {
+  background-color: var(--cdd-progetti-impatto) !important;
   color: white;
 }
 .bg-green {

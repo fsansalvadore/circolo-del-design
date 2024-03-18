@@ -266,6 +266,7 @@
           background-color: blue;
           color: #fff;
 
+          &.progetti_culturali,
           &.programma_culturale,
           &.servizi {
             color: #000;
@@ -285,6 +286,7 @@
       height: 130px;
       max-height: 130px;
 
+      &.progetti_culturali,
       &.programma_culturale,
       &.servizi {
         color: #000;
