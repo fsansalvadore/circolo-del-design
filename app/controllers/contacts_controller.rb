@@ -7,11 +7,11 @@ class ContactsController < ApplicationController
   ]
 
   def index
-    @contact = Contact.new(params[:contact])
+    @contact = Contact.new
   end
 
   def create
-    @contact = Contact.new(params[:contact])
+    @contact = Contact.new(contact_params)
     @contact.request = request
     if @contact.deliver
       flash[:success] = 'Messaggio inviato con successo'
@@ -21,5 +21,11 @@ class ContactsController < ApplicationController
       flash.now[:error] = 'Impossibile inviare il messaggio al momento.'
       render :index
     end
+  end
+
+  private
+
+  def contact_params
+    params.require(:contact).permit(:nome, :email, :messaggio, :nickname)
   end
 end
