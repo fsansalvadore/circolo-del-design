@@ -16,10 +16,10 @@ class ContactsController < ApplicationController
     if @contact.deliver
       flash[:success] = 'Messaggio inviato con successo'
       flash.now[:error] = nil
-      redirect_to contatti_path
+      # redirect_to contatti_path
     else
       flash.now[:error] = 'Impossibile inviare il messaggio al momento.'
-      render :index
+      # render :index
     end
   end
 end
