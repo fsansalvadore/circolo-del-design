@@ -4053,45 +4053,45 @@ h2 {
 // woff
 @font-face {
   font-family: 'cdd-repro';
-  src: font-url('/fonts/cddrepro-regular.woff') format('woff'),
-    font-url('/fonts/cddrepro-regular.woff2') format('woff2'); /* Pretty Modern Browsers */
+  src: url('/fonts/cddrepro-regular.woff') format('woff'),
+    url('/fonts/cddrepro-regular.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'cdd-repro';
-  src: font-url('/fonts/cddrepro-regularitalic.woff') format('woff'),
-    font-url('/fonts/cddrepro-regularitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  src: url('/fonts/cddrepro-regularitalic.woff') format('woff'),
+    url('/fonts/cddrepro-regularitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'cdd-repro';
-  src: font-url('/fonts/cddrepro-medium.woff') format('woff'),
-    font-url('/fonts/cddrepro-medium.woff2') format('woff2'); /* Pretty Modern Browsers */
+  src: url('/fonts/cddrepro-medium.woff') format('woff'),
+    url('/fonts/cddrepro-medium.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: medium;
   font-style: normal;
 }
 @font-face {
   font-family: 'cdd-repro';
-  src: font-url('/fonts/cddrepro-mediumitalic.woff') format('woff'),
-    font-url('/fonts/cddrepro-mediumitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  src: url('/fonts/cddrepro-mediumitalic.woff') format('woff'),
+    url('/fonts/cddrepro-mediumitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: medium;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'cdd-repro';
-  src: font-url('/fonts/cddrepro-bold.woff') format('woff'),
-    font-url('/fonts/cddrepro-bold.woff2') format('woff2'); /* Pretty Modern Browsers */
+  src: url('/fonts/cddrepro-bold.woff') format('woff'),
+    url('/fonts/cddrepro-bold.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'cdd-repro';
-  src: font-url('/fonts/cddrepro-bolditalic.woff') format('woff'),
-    font-url('/fonts/cddrepro-bolditalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  src: url('/fonts/cddrepro-bolditalic.woff') format('woff'),
+    url('/fonts/cddrepro-bolditalic.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: bold;
   font-style: italic;
 }
