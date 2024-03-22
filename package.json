@@ -7,12 +7,11 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@rails/webpacker": "5.3.0",
+    "@rails/webpacker": "^5.4.4",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "node-sass": "^7.0.3",
     "popper.js": "^1.16.0",
-    "prettier": "2.8.8",
     "simple-parallax-js": "^5.2.0",
     "swiper": "^8.2.4"
   },
@@ -21,7 +20,8 @@
     "@babel/core": "^7.12.16",
     "@babel/helper-compilation-targets": "^7.12.16",
     "@babel/preset-env": "^7.12.16",
-    "webpack-dev-server": "^3.11.2"
+    "prettier": "^3.2.5",
+    "webpack-dev-server": "^5.0.4"
   },
   "engines": {
     "node": ">=0.10.3 <15"
