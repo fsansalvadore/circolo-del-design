@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_26_145223) do
+ActiveRecord::Schema.define(version: 2023_06_01_151316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -596,6 +596,9 @@ ActiveRecord::Schema.define(version: 2022_09_26_145223) do
     t.boolean "modal_presence", default: false
     t.string "modal_image"
     t.string "modal_link"
+    t.string "hero_image_mobile"
+    t.string "hero_link"
+    t.string "hero_link_target"
   end
 
   create_table "page_meta_data", force: :cascade do |t|

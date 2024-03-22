@@ -4,6 +4,16 @@
   line-height: 100%;
 }
 
+.cdd-logo-responsive {
+  display: none;
+}
+
+@media (min-width: 991px) {
+  .cdd-logo-responsive {
+    display: inline;
+  }
+}
+
 .menu-toggle-icon-contianer {
   transition: transform 0.1s ease;
 }
@@ -20,7 +30,7 @@
   max-height: 0;
   will-change: transform, opacity, max-height;
   transform: translate3d(0px, -20px, 0px);
-  transition: all 0.3s cubic-bezier(.292, .003, .175, 1);
+  transition: all 0.3s cubic-bezier(0.292, 0.003, 0.175, 1);
 }
 
 .submenu-open {

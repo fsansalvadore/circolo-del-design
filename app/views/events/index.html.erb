@@ -11,8 +11,7 @@
 </header>
 <main class="page-postheader">
   <div class="calendar-main-container w-container large">
-    <div class="calendar-content-left">
-      <div class="calendar-filters-container">
+  <div class="calendar-filters-container">
         <%= form_tag whats_on_programma_path, method: :get, class: "events-search-form m-bottom-30" do %>
           <%= text_field_tag :query,
             params[:query],
@@ -30,6 +29,16 @@
             class: "category-select",
             onclick: "$('.category-select').change(function() {
                         $('form.category-search-form').submit();
+                      });",
+            ) %>
+        <% end %>
+        <!-- Year select -->
+        <%= form_tag whats_on_programma_path, method: :get, class: "anno-search-form m-bottom-30" do %>
+          <%= select_tag("anno", options_for_select([["2020", "2020"],["2021", "2021"],["2022", "2022"],["2023", "2023"], ["2024", "2024"]], @annoSelect),
+            prompt: Time.new.year,
+            class: "anno-select",
+            onclick: "$('.anno-select').change(function() {
+                        $('form.anno-search-form').submit();
                       });",
             ) %>
         <% end %>
@@ -65,6 +74,7 @@
           <div class="form-reset-btn"></div>
         <% end %>
       </div>
+    <div class="calendar-content-left">
       <div class="calendar-cards-container">
         <% if !@events.empty? %>
         <p class="result-message"><%= @events.all.count %> risultat<%= @events.all.count == 1 ? "o" : "i" %></p>

@@ -1,23 +1,28 @@
 :root {
-    --max-width-container: 1110px;
-    --hero-text-color: #fff;
-    --cdd-yellow: #ffed00;
-    --cdd-blue: #0067D3;
-    --cdd-orange: #F0511C;
-    --cdd-green: #05BF42;
-    --cdd-aqua: #56F4D1;
-    --cdd-purple: #772ECE;
+  --max-width-container: 1100px;
+  --hero-text-color: #000;
+  --cdd-yellow: #ffed00;
+  --cdd-progetti-impatto: #000;
+  --cdd-black: #000;
+  --cdd-orange: #fffbcc;
+  --cdd-green: #ffed00;
+  --cdd-aqua: #ffed00;
+  --cdd-purple: #fffbcc;
 }
 
 .bg-orange {
-    background-color: var(--cdd-orange) !important;
-    color: white;
+  background-color: var(--cdd-orange) !important;
+  color: #000;
 }
-.bg-blue {
-    background-color: var(--cdd-blue) !important;
-    color: white;
+.bg-progetti-impatto {
+  background-color: var(--cdd-progetti-impatto) !important;
+  color: white;
 }
 .bg-green {
-    background-color: var(--cdd-green);
-    color: white;
+  background-color: var(--cdd-green);
+  color: #000;
+}
+.bg-black {
+  background-color: var(--cdd-black) !important;
+  color: #fff !important;
 }

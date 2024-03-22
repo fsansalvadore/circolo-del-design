@@ -7,31 +7,26 @@ class ContactsController < ApplicationController
   ]
 
   def index
-    @contact = Contact.new(params[:contact])
+    @contact = Contact.new
   end
 
   def create
-    @contact = Contact.new(params[:contact])
+    @contact = Contact.new(contact_params)
     @contact.request = request
+
     if @contact.deliver
-      flash[:success] = 'Messaggio inviato con successo'
       flash.now[:error] = nil
+      flash[:notice] = 'Messaggio inviato con successo'
       redirect_to contatti_path
     else
       flash.now[:error] = 'Impossibile inviare il messaggio al momento.'
       render :index
     end
+  end
 
-    #   respond_to do |format|
-    #     @contact = Contact.new
-    #     format.html { render 'index'}
-    #     format.js   { flash.now[:success] = @message = "Grazie per il messaggio! Cercheremo di rispondere in breve tempo." }
-    #   end
-    # else
-    #   respond_to do |format|
-    #     format.html { render 'index' }
-    #     format.js   { flash.now[:error] = @message = "Non è possibile inviare il messaggio al momento." }
-    #   end
-    # end
+  private
+
+  def contact_params
+    params.require(:contact).permit(:nome, :email, :messaggio, :nickname)
   end
 end

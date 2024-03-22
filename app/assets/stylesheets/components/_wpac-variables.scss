@@ -1,5 +1,5 @@
-$wpac-light: #F29FC5;
-$wpac-dark: #E0354C;
+$wpac-light: #f29fc5;
+$wpac-dark: #e0354c;
 $wpac-darker: #881524;
 $white: #fff;
 $black: #000;
@@ -16,35 +16,35 @@ $mobile: 479px;
 
 // Small devices
 @mixin sm {
-   @media (min-width: #{$mobile}) {
-       @content;
-   }
+  @media (min-width: #{$mobile}) {
+    @content;
+  }
 }
 
 // Medium-small devices
 @mixin md-sm {
-   @media (min-width: #{$tablet-portrait}) {
-       @content;
-   }
+  @media (min-width: #{$tablet-portrait}) {
+    @content;
+  }
 }
 
 // Medium-large devices
 @mixin md-lg {
-   @media (min-width: #{$tablet}) {
-       @content;
-   }
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
 }
 
 // Large devices
 @mixin lg {
-   @media (min-width: #{$desktop-sm}) {
-       @content;
-   }
+  @media (min-width: #{$desktop-sm}) {
+    @content;
+  }
 }
 
 // Extra large devices
 @mixin xl {
-   @media (min-width: #{$desktop}) {
-       @content;
-   }
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
 }

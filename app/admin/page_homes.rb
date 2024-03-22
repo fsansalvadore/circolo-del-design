@@ -28,6 +28,9 @@ ActiveAdmin.register PageHome do
                 :newsletter_box_presence,
                 :newsletter_box_text,
                 :hero_image,
+                :hero_link,
+                :hero_link_target,
+                :hero_image_mobile,
                 :hero_color_mode,
                 :hero_marquee_words,
                 :hero_marquee_presence,
@@ -126,6 +129,16 @@ ActiveAdmin.register PageHome do
         attributes_table do
           row (:heading) { |home| raw(home.heading) }
           row (:subheading) { |home| raw(home.subheading) }
+          row :hero_image do |home|
+            if home.hero_image && !home.hero_image.file.nil?
+              image_tag(cl_image_path(home.hero_image), class: "image-preview")
+            end
+          end
+          row :hero_image_mobile do |home|
+            if home.hero_image_mobile && !home.hero_image_mobile.file.nil?
+              image_tag(cl_image_path(home.hero_image_mobile), class: "image-preview")
+            end
+          end
           row (:paragraph_1) { |home| raw(home.paragraph_1) }
           row (:paragraph_2) { |home| raw(home.paragraph_2) }
         end
@@ -234,6 +247,9 @@ ActiveAdmin.register PageHome do
     end
     f.inputs 'Cover' do
       f.input :hero_image, as: :file, label: "Immagine di sfondo", hint: "jpg, png, gif animata", :image_preview => true
+      f.input :hero_image_mobile, as: :file, label: "Immagine di sfondo (mobile)", hint: "jpg, png, gif animata", :image_preview => true
+      f.input :hero_link, label: "Link", hint: "Inserire l'url completo di destinazione."
+      f.input :hero_link_target, label: "Target - Dove aprire il link", as: :select, collection: [["Default (_self)", "_self"], ["Apri in nuova scheda", '_blank']], prompt: "Seleziona target"
       f.input :hero_color_mode, label: "Colore testo", as: :select, collection: [["Nero", 1], ["Bianco", 2]], prompt: "Seleziona la modalità colore del testo", hint: "Il testo può essere bianco o nero."
       f.input :hero_marquee_words, label: "Lista parole", hint: "Ogni parola deve essere separata da una virgola."
       f.input :hero_marquee_presence, placeholder: 'Paragrafo 2', label: "Visibilità banner scorrevole"
@@ -285,7 +301,7 @@ ActiveAdmin.register PageHome do
         n_f.input :title, label: "Titolo"
         n_f.input :content_category, label: "Categoria", as: :select, collection: [["Programma Culturale", 0], ["Progetti Culturali", 3], ["Progetti d'Impatto", 1], ["Servizi", 2]], prompt: "Seleziona una categoria"
         n_f.input :subtitle, label: "Sottotitolo"
-        n_f.input :eventy_type_category, label: "Tipologia", as: :select, collection: ["Nessuna", 'Conferenza', 'Design Insights', 'Experience', 'Film', 'Mostra', 'Performance', 'Progetti Speciali', 'Talk', 'Workshop'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
+        n_f.input :eventy_type_category, label: "Tipologia", as: :select, collection: ["Nessuna", 'Conferenza', 'Design Insights', 'Experience', 'Film', 'Mostra', 'Performance', 'Progetti Speciali', 'Talk', 'Workshop', 'Festival'], plaheholder: "Nessuna", default: "Nessuna", prompt: "Seleziona una tipologia"
         n_f.input :image, label: "Immagine", as: :file, :image_preview => true
         n_f.input :image_alt, label: "Testo alternativo dell'immagine", hint: "Questo testo serve nel caso non venga caricata l'immagine o per gli screen readers."
         n_f.input :link, label: "Link di atterraggio", hint: "Inserire l'url completo"

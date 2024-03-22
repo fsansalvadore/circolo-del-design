@@ -3,7 +3,7 @@
       <div class="footer-top w-clearfix">
         <div class="footer-cdd-heading">
           <%= link_to root_path do  %>
-            <%= image_tag "LOGO_CdD_white.svg", alt: "Circolo del Design logo", class: "logo-footer" %>
+            <%= image_tag "Logo-CDD-CircoloDelDesign-white.svg", alt: "Circolo del Design logo", class: "logo-footer" %>
           <% end %>
           <div class="footer-cdd-info">© <%= Time.new.year %> Circolo Del Design Torino<br>All Rights Reserved</div>
           <a href="mailto:<%= @global_settings.main_email.gsub(/\s+/, "") %>?subject=Email%20da%20sito" target="_blank" class="footer-info-mail"><%= @global_settings.main_email %></a>
@@ -74,20 +74,68 @@
       <div class="footer-divider"></div>
       <div class="footer-sostenitori-container">
         <%= link_to "https://www.to.camcom.it/", target: "_blank", class: "w-inline-block" do %>
-          <p>Main Partner</p>
+          <p>Il circolo del design è sostenuto da</p>
           <%= image_tag "2_camera-di-commercio-torino-logo-cdd-white.png", alt: "Camera di Commercio Industria Artigianato e agricoltura di Torino", class: "footer-sostenitore-img" %>
         <% end %>
-        <%= link_to "https://www.compagniadisanpaolo.it/", target: "_blank", class: "w-inline-block" do %>
-          <%= image_tag "1_Copagnia-san-paolo-logo-cdd-white.png", alt: "Compagnia San Paolo", class: "footer-sostenitore-img" %>
-        <% end %>
-        <%= link_to "https://www.ui.torino.it/", target: "_blank", class: "w-inline-block" do %>
-          <p>Con il contributo di</p>
-          <%= image_tag "UnioneIndustriale-CdD-white.png", alt: "Unione Industriale Torino", class: "footer-sostenitore-img" %>
-        <% end %>
-        <%= link_to "https://www.cna.it/", target: "_blank", class: "w-inline-block" do %>
-        <p></p>
-        <%= image_tag "CNA-cdd-white.png", alt: "Confederazione Nazionale dell'Artigianato e della Piccola e Media Impresa", class: "footer-sostenitore-img" %>
-        <% end %>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-partners-container">
+        <p class="footer-label">Principali sostenitori dei progetti</p>
+        <div class="footer-partners-grid">
+          <%= link_to "https://www.compagniadisanpaolo.it/it/", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "1_Copagnia-san-paolo-logo-cdd-white.png", alt: "Fondazione Compagnia di San Paolo", class: "footer-sostenitore-img" %>
+          <% end %>
+          <%= link_to "https://www.beniculturali.it/", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "partner/WHITE/Ministero_della_Cultura.png", alt: "MIC, Ministero della Cultura", class: "footer-sostenitore-img" %>
+          <% end %>
+          <%= link_to "https://www.regione.piemonte.it/web/", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "partner/WHITE/3_regione-piemonte-logo-cdd-white.png", alt: "Regione Piemonte", class: "footer-sostenitore-img" %>
+          <% end %>
+          <%= link_to "https://www.fondazionecrt.it/", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "partner/WHITE/4_CRT-logo-cdd-white.png", alt: "Fondazione CRT", class: "footer-sostenitore-img" %>
+          <% end %>
+          <%= link_to "https://realefoundation.org/", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "partner/WHITE/reale_foundation.png", alt: "Reale Foundation", class: "footer-sostenitore-img" %>
+          <% end %>
+          <%= link_to "https://group.intesasanpaolo.com/it/sociale/fondo-di-beneficenza", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "partner/WHITE/intesa-sanpaolo-fondo-di-beneficienza.png", alt: "Reale Foundation", class: "footer-sostenitore-img" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-partners-container">
+        <p class="footer-label">Sponsor</p>
+        <div class="footer-partners-grid">
+          <%= link_to "https://www.cna-to.it/it/Home/", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "CNA-cdd-white.png", alt: "Confederazione Nazionale dell'Artigianato e della Piccola e Media Impresa", class: "footer-sostenitore-img" %>
+          <% end %>
+          <%= link_to "https://www.ui.torino.it/", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "partner/WHITE/unione-industriali-torino.png", alt: "Unione Industriali Torino", class: "footer-sostenitore-img" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-partners-container">
+        <p class="footer-label">Network</p>
+        <div class="footer-partners-grid">
+          <%= link_to "https://new-european-bauhaus.europa.eu/index_en", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "partner/WHITE/NEB.png", alt: "New European Bauhaus", class: "footer-sostenitore-img" %>
+          <% end %>
+          <%= link_to "https://cultureactioneurope.org/", target: "_blank", class: "w-inline-block" do %>
+            <p></p>
+            <%= image_tag "partner/WHITE/CEA.png", alt: "Culture Action Europe", class: "footer-sostenitore-img" %>
+          <% end %>
+        </div>
+
       </div>
       <div class="footer-divider"></div>
       <div class="footer-bottom">
@@ -95,7 +143,7 @@
           <a href="#top" class="footer-bottom-item">Back to top</a>
         </div>
         <div class="footer-bottom-right">
-          <%= link_to 'Operazione Trasparenza', "https://drive.google.com/drive/folders/1aaKT42EzeRQ3w5_-E42OlsmL1S_WlY6Q?usp=sharing", target: "_blank", class: "footer-bottom-item footer-link-spacing" %>
+          <%= link_to 'Operazione Trasparenza', operazione_trasparenza_path, class: "footer-bottom-item footer-link-spacing" %>
           <%= link_to 'Privacy & Cookie Policy', privacy_cookie_policy_path, class: "footer-bottom-item footer-link-spacing" %>
         </div>
       </div>

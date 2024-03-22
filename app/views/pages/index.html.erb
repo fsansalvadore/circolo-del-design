@@ -27,12 +27,15 @@
   </div>
 <% end %>
 <div data-w-id="34e7298b-a2ba-bc6d-2dee-977128477157" style="opacity:1" class="loader-a-container">
-  <%= image_tag "LOGO_CdD_anim_1sec.gif", alt: "Circolo Del Design loarder", class: "loader-a-gif" %>
+  <%= image_tag "Logo-CDD-CircoloDelDesign.svg", alt: "Circolo Del Design loarder", class: "loader-a-gif" %>
 </div>
-<% _coverStyle = @page.hero_image.blank? ? "" : "background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('#{ cl_image_path @page.hero_image }')" %>
-<div id="hero" class="hero-container" style="<%= _coverStyle %>" >
+
+<%= link_to @page.hero_link.blank? ? root_path : @page.hero_link, id: "hero", class: "hero-container", target: @page.hero_link_target.blank? ? "_self" : @page.hero_link_target do %>
   <div class="heading-container">
     <h1 class="h1-a"><%= raw @page.heading unless @page.heading.empty? %></h1>
+    <p class="subheading">
+      <%= raw @page.subheading unless @page.subheading.empty? %>
+    </p>
   </div>
   <% if @page.hero_marquee_presence %>
     <div class="marquee-container">
@@ -45,7 +48,15 @@
       </marquee>
     </div>
   <% end %>
-</div>
+  <% unless @page.hero_image.blank? %>
+    <div class="hero-bg-image <%= 'desktop' unless @page.banner_img_mobile.file.nil? %>" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path @page.hero_image unless @page.hero_image.blank? %>')">
+    </div>
+  <% end %>
+  <% unless @page.hero_image_mobile.blank? %>
+    <div class="hero-bg-image mobile" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path @page.hero_image_mobile unless @page.hero_image_mobile.blank? %>')">
+    </div>
+  <% end %>
+<% end %>
   <div id="top" class="content-container">
     <div class="container-2 w-container homepage-nav">
       <div data-w-id="d8e1098b-6db6-d8a3-7748-351c9f63a7ad" class="links-container">
@@ -119,7 +130,7 @@
                       when 0
                       "var(--cdd-orange)"
                       when 1
-                      "var(--cdd-blue)"
+                      "var(--cdd-progetti-impatto)"
                       when 2
                       "var(--cdd-green)"
                       when 3
@@ -143,13 +154,13 @@
                 <%= link_to card.link, class: "hp-card-container", target: card.link_target ? "_blank" : "" do %>
                   <div class="card-img" style="background-image: linear-gradient(180deg, transparent 25%, rgba(0, 0, 0, 0)), url('<%= cl_image_path card.image unless card.image.blank? %>')">
                     <div class="card-labels">
-                      <div class="primary-label" style="background: <%= _color %>;"><%= _category %></div>
+                      <div class="primary-label <%= _category.parameterize(separator: '_') %>" style="background: <%= _color %>;"><%= _category %></div>
                       <% unless card.eventy_type_category.blank? || card.eventy_type_category === "Nessuna" %>
                         <div class="secondary-label"><%= card.eventy_type_category %></div>
                       <% end %>
                     </div>
                   </div>
-                  <div class="info-box" style="background: <%= _color %>;">
+                  <div class="info-box <%= _category.parameterize(separator: '_') %>" style="background: <%= _color %>;">
                     <h3><%= card.title unless !card.title || card.title.empty? %></h3>
                     <p><%= card.subtitle unless !card.subtitle || card.subtitle.empty? %></p>
                   </div>
@@ -167,7 +178,7 @@
   <div class="section-a-3 round">
     <div class="container-3 w-container w-1000">
       <div id="w-node-d14ac47ef320-f805d136" data-w-id="e10972fb-b623-d4d9-87d9-d14ac47ef320" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-        <h2 class="listheading"><%= @page.column_1_title unless @page.column_1_title.blank? %></h2>
+        <h2 class="listheading bg-orange"><%= @page.column_1_title unless @page.column_1_title.blank? %></h2>
         <div class="link-list">
           <% unless @col_1_links.empty? %>
             <% @col_1_links.each do |link| %>
@@ -186,7 +197,7 @@
         </div>
       </div>
       <div id="w-node-ce1275bf203b-f805d136" data-w-id="33cbe8e8-7b19-dfec-b687-ce1275bf203b" style="opacity:0;-webkit-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 30PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
-        <h2 class="listheading"><%= @page.column_2_title unless @page.column_2_title.blank? %></h2>
+        <h2 class="listheading bg-black"><%= @page.column_2_title unless @page.column_2_title.blank? %></h2>
         <div class="link-list">
           <% unless @col_2_links.empty? %>
             <% @col_2_links.each do |link| %>
@@ -287,12 +298,13 @@
           <%= raw @page.newsletter_box_text unless @page.newsletter_box_text.empty? %>
         </div>
         <div class="form-block w-form">
-          <form action="https://circolodesign.us12.list-manage.com/subscribe/post?u=921774d7b58b28e02d4b2bf62&amp;id=2cbdda2499" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate>
+          <form action="https://circolodesign.us12.list-manage.com/subscribe/post?u=921774d7b58b28e02d4b2bf62&amp;id=e6e501ef77&amp;v_id=22&amp;f_id=00c1c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate>
           <form id="email-form" name="email-form" data-name="Email Form" class="form">
             <input type="email" value="" name="EMAIL" class="email text-field w-input" id="mce-EMAIL" placeholder="Email" required>
             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
             <div style="position: absolute; left: -5000px;" aria-hidden="true">
               <input type="text" name="b_921774d7b58b28e02d4b2bf62_392709ba11" tabindex="-1" value="">
+              <input type="hidden" name="tags" value="13670">
             </div>
             <div class="clear">
               <input type="submit" value="Iscriviti" name="subscribe" id="mc-embedded-subscribe" class="submit-button w-button">

@@ -1,0 +1,24 @@
+<% content_for :meta_title, @meta_data.nil? ? "Operazione Trasparenza" : @meta_data.meta_title %>
+<% content_for :meta_description, @meta_data.meta_description unless @meta_data.nil? || @meta_data.meta_description.empty? %>
+
+<header id="top" class="page-header-container">
+  <div class="w-container">
+    <div class="breadcrumb-text">
+      <%= link_to "Home", root_path %> /
+    </div>
+    <h1 class="page-header-title"><%= @page.title unless @page.title.empty? %></h1>
+    <div class="page-header-subtitle"><%= @page.abstract unless @page.abstract.empty? %></div>
+  </div>
+</header>
+<main class="page-postheader">
+  <main class="event-article-container w-container">
+    <aside id="w-node-2d81cc58f9ee-c78ffa68" class="event-article-details"></aside>
+    <article class="event-article-content line">
+      <% unless @page_blocks.empty? %>
+        <% @page_blocks.each do |block| %>
+          <%= render partial: "shared/content/#{block.kind}", locals: {block: block} unless !block.is_visible %>
+        <% end %>
+      <% end %>
+    </article>
+  </main>
+</main>

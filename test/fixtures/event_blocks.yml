@@ -6,13 +6,13 @@ one:
   rich_text: MyText
   image_url: MyString
   image_description: MyString
-  image_width: 
+  image_width:
   video_provider: 1
   video_link: MyString
   video_description: MyString
   instagram_link: MyString
   twitter_link: MyString
-  position: 
+  position:
 
 two:
   title: MyString
@@ -20,10 +20,10 @@ two:
   rich_text: MyText
   image_url: MyString
   image_description: MyString
-  image_width: 
+  image_width:
   video_provider: 1
   video_link: MyString
   video_description: MyString
   instagram_link: MyString
   twitter_link: MyString
-  position: 
+  position:

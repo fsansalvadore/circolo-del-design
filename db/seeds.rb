@@ -2,7 +2,7 @@ puts "\n==> Creating admin Users\n\n"
 
 users = [
   {
-    email: 'f.sansalavdore@gmail.com',
+    email: 'f.sansalvadore@gmail.com',
     password: '123123',
     admin: true
   },

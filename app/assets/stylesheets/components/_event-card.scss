@@ -78,12 +78,14 @@
   &.talk,
   &.workshop,
   &.performance,
+  &.festival,
   &.film {
     background-color: var(--cdd-orange);
+    color: black;
   }
 
   &.progetti {
-    background-color: var(--cdd-blue);
+    background-color: var(--cdd-progetti-impatto);
   }
 }
 
@@ -116,25 +118,27 @@
 }
 
 .section-label-container {
-  font-family: heimat-sans, sans-serif;
+  font-family: cdd-repro, sans-serif;
   padding: 6px 2px;
   border-bottom: 1px solid #000;
   font-weight: bold;
   font-size: 1.5rem;
 
   &.pink {
-    background-color: #F49FC6;
+    background-color: #f49fc6;
   }
 }
 
 @media screen and (max-width: 991px) {
-  .event-card-container, .event-card-container.special-projects-card {
+  .event-card-container,
+  .event-card-container.special-projects-card {
     width: 47.5%;
   }
 }
 
 @media screen and (max-width: 479px) {
-  .event-card-container, .event-card-container.special-projects-card {
+  .event-card-container,
+  .event-card-container.special-projects-card {
     width: 100%;
     margin: 10px 0;
   }

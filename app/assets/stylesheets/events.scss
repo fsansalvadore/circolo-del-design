@@ -25,7 +25,7 @@ main.event-article-container {
     float: left;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: 5;
       width: 100%;
@@ -143,6 +143,7 @@ article.event-article-content {
   .rich_text_container {
     width: 100%;
     display: block;
+    margin-bottom: 8px;
 
     &.small {
       // margin-top: 30px;
@@ -314,6 +315,13 @@ article.event-article-content {
       // text-transform: uppercase;
     }
   }
+  @media screen and (min-width: 991px) {
+    .w-container.lg-left {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
 }
 
 @keyframes blogNavOpen {
@@ -344,7 +352,7 @@ article.event-article-content {
 
   span::after,
   span::before {
-    content: "";
+    content: '';
     width: 30px;
     height: 2px;
     background: #000;

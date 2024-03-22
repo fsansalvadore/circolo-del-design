@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   get    'whats-on/i-volti-2019',       to: 'faces#index'
   get    'whats-on/i-volti-2019/:slug', to: 'faces#show',   as: :face
 
+  # standalone
   get '/privacy_cookie_policy' => 'pages#privacy_cookie_policy'
+  get '/operazione-trasparenza' => 'pages#operazione_trasparenza'
   get '/contatti' => 'pages#contacts'
 
   # blog

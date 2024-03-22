@@ -3,7 +3,7 @@
 <% content_for :meta_image, cl_image_path(@special_project.cover) unless @special_project.cover.blank? %>
 <% content_for :meta_keywords, @special_project.meta_keywords if @special_project.meta_keywords %>
 
-<%= link_to progetti_speciali_path, class: "sp-back-container bg-blue" do %>
+<%= link_to progetti_speciali_path, class: "sp-back-container bg-progetti-impatto text-white" do %>
   <p><span>&#8592;</span> Guarda tutti i Progetti d'Impatto</p>
 <% end %>
 <header id="top" class="event-header-container">

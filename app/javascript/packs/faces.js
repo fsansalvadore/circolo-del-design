@@ -5,9 +5,9 @@ const FacesFadeIn = () => {
     setTimeout(() => {
       face.classList.add("face-in");
       count++;
-    }, delay)
+    }, delay);
     delay = delay + 100;
-  })
-}
+  });
+};
 
 export { FacesFadeIn };

@@ -1,8 +1,10 @@
 #hero {
   position: relative;
   margin-top: 111px;
-  font-family: heimat-sans, sans-serif;
-  height: 466px;
+  font-family: cdd-repro, sans-serif;
+  height: auto;
+  min-height: 250px;
+  text-decoration: none;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -14,24 +16,65 @@
   color: var(--hero-text-color);
 
   @media (max-width: 768px) {
-    height: 380px;
+    height: 250px;
   }
 
   .heading-container {
+    position: relative;
     width: 100%;
-    max-width: var(--max-width-container);
+    margin: auto;
+    max-width: 800px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
     flex: 1;
     padding: 20px;
+    z-index: 10;
 
     h1 {
       color: inherit;
-      font-family: heimat-sans, sans-serif;
+      font-family: cdd-repro, sans-serif;
+    }
+
+    .subheading * {
+      font-size: 21px;
+    }
+
+    * {
+      background: transparent !important;
+    }
+  }
+
+  .hero-bg-image {
+    z-index: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    display: block;
+
+    &.mobile {
+      display: none;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+      &.desktop {
+        display: none;
+      }
+      &.mobile {
+        display: block;
+      }
     }
   }
 
   .marquee-container {
+    font-family: cdd-repro, sans-serif;
+    position: relative;
+    z-index: 10;
     height: 75px;
     width: 100%;
     display: flex;
@@ -40,7 +83,8 @@
 
     marquee {
       text-transform: uppercase;
-      font-size: 1.5rem;
+      font-size: 2rem;
+      font-weight: 400;
       height: 100%;
       display: flex;
       align-items: center;
@@ -221,6 +265,12 @@
         .primary-label {
           background-color: blue;
           color: #fff;
+
+          &.progetti_culturali,
+          &.programma_culturale,
+          &.servizi {
+            color: #000;
+          }
         }
 
         .secondary-label {
@@ -232,9 +282,15 @@
       padding: 10px;
       color: #fff;
       background: var(--cdd-yellow);
-      font-family: heimat-sans, sans-serif;
+      font-family: cdd-repro, sans-serif;
       height: 130px;
       max-height: 130px;
+
+      &.progetti_culturali,
+      &.programma_culturale,
+      &.servizi {
+        color: #000;
+      }
 
       h3 {
         margin-top: 0;

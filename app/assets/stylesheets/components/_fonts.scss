@@ -1,7 +1,53 @@
-@import url("https://use.typekit.net/lpz7exj.css");
+@import url('https://use.typekit.net/lpz7exj.css');
+
+// woff
+@font-face {
+  font-family: 'cdd-repro';
+  src: asset_url('/fonts/cddrepro-regular.woff') format('woff'),
+    asset_url('/fonts/cddrepro-regular.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: asset_url('/fonts/cddrepro-regularitalic.woff') format('woff'),
+    asset_url('/fonts/cddrepro-regularitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'cdd-repro';
+  src: asset_url('/fonts/cddrepro-medium.woff') format('woff'),
+    asset_url('/fonts/cddrepro-medium.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: medium;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: asset_url('/fonts/cddrepro-mediumitalic.woff') format('woff'),
+    asset_url('/fonts/cddrepro-mediumitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: medium;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'cdd-repro';
+  src: asset_url('/fonts/cddrepro-bold.woff') format('woff'),
+    asset_url('/fonts/cddrepro-bold.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'cdd-repro';
+  src: asset_url('/fonts/cddrepro-bolditalic.woff') format('woff'),
+    asset_url('/fonts/cddrepro-bolditalic.woff2') format('woff2'); /* Pretty Modern Browsers */
+  font-weight: bold;
+  font-style: italic;
+}
 
 h1 {
-    font-family: heimat-sans,sans-serif;
-    font-weight: 700;
-    font-style: normal;
+  font-family: cdd-repro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }

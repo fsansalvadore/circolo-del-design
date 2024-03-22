@@ -45,7 +45,7 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'thor', '~> 1.2', '>= 1.2.1'
-gem 'activeadmin', '~> 2.11', '>= 2.11.2'
+gem 'activeadmin', '~> 3.2'
 gem 'activeadmin_quill_editor', '~> 1.0'
 gem 'responsive_active_admin', '~> 0.0.6'
 # gem 'actionview', '>= 5.2.4.1'
@@ -55,7 +55,7 @@ gem 'activeadmin_sortable_table', '~> 1.3'
 gem 'activeadmin_addons', '~> 1.9'
 # gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'inherited_resources', '~> 1.13', '>= 1.13.1'
-gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+gem 'carrierwave', '~> 2.2'
 gem 'cloudinary'
 gem 'rails-i18n', '~> 7.0', '>= 7.0.3'
 gem 'mail_form', '~> 1.9'
@@ -96,3 +96,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6', groups: [:development, :test]
+
+gem "tailwindcss-rails", "~> 2.3"
