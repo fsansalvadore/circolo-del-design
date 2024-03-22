@@ -70,7 +70,7 @@ Rails.application.configure do
     :domain => 'www.circolodeldesign.it',
     :address => 'smtp.sendgrid.net',
     :port => 587,
-    :authentication => :login,
+    :authentication => :plain,
     :enable_starttls_auto => true
   }
 
