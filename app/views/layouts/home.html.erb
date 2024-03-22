@@ -23,8 +23,12 @@
   <body>
     <%= render 'shared/menu' %>
     <div class="notice-alert">
-      <p class="form-alert m-top-30 notice"><%= notice %></p>
-      <p class="form-alert m-top-30 alert"><%= alert %></p>
+      <% unless notice.nil? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% unless alert.nil? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
     </div>
     <%= yield %>
     <%= render 'shared/footer' %>
