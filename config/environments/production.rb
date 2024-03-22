@@ -99,24 +99,24 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # SENDGRID
-  # ActionMailer::Base.smtp_settings = {
-  #   :user_name => ENV['SENDGRID_USERNAME'],
-  #   :password => ENV['SENDGRID_PASSWORD'],
-  #   :domain => 'www.circolodeldesign.it',
-  #   :address => 'smtp.sendgrid.net',
-  #   :port => 587,
-  #   :authentication => :plain,
-  #   :enable_starttls_auto => true
-  # }
+  ActionMailer::Base.smtp_settings = {
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'www.circolodeldesign.it',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :login,
+    :enable_starttls_auto => true
+  }
 
   # MAILTRAP
-  ActionMailer::Base.smtp_settings = {
-    :user_name => 'api',
-    :password => ENV['MAILTRAP_PASSWORD'],
-    :domain => 'www.circolodeldesign.it',
-    :address => 'live.smtp.mailtrap.io',
-    :host => 'live.smtp.mailtrap.io',
-    :port => '587',
-    :authentication => :login
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   :user_name => 'api',
+  #   :password => ENV['MAILTRAP_PASSWORD'],
+  #   :domain => 'www.circolodeldesign.it',
+  #   :address => 'live.smtp.mailtrap.io',
+  #   :host => 'live.smtp.mailtrap.io',
+  #   :port => '587',
+  #   :authentication => :login
+  # }
 end
