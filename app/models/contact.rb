@@ -11,7 +11,7 @@ class Contact < MailForm::Base
       :subject => "Messaggio da form contatti",
       # :to => "info@circolodeldesign.it",
       :to => "hello@fsansalvadore.com",
-      :from => %("#{nome}" <#{email}>)
+      :from => "hello@fsansalvadore.com"
     }
   end
 end
