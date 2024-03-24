@@ -1746,13 +1746,13 @@ h2 {
   margin-top: 21px;
 }
 
-.brand.w--current {
+.brand {
   height: auto;
-  margin-top: 17px;
+  margin-top: 35px;
 }
 
 .image {
-  height: 70px;
+  height: 34px;
   margin-left: 4vw;
 }
 
@@ -3664,7 +3664,6 @@ h2 {
 .menu-text-a {
   margin-top: 4px;
   margin-bottom: 5px;
-  font-weight: 700;
   font-size: 18px;
 }
 
@@ -4317,7 +4316,6 @@ h1  {
   border-radius: 30px;
   float: right;
   color: #000;
-  font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -5067,6 +5065,7 @@ div,
   bottom: auto;
   display: block;
   width: 100%;
+  height: 111px;
   padding-bottom: 20px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -5076,7 +5075,7 @@ div,
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
-  justify-content: flex-start;
+  justify-content: space-between;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -5477,8 +5476,8 @@ figcaption {
     padding-left: 0px;
     margin-top: 12px;
   }
-  .brand.w--current {
-    margin-top: 12px;
+  .brand {
+    margin-top: 29px;
   }
   .nav-menu-a {
     margin-top: 27px;
