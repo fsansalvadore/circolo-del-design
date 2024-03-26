@@ -1860,6 +1860,12 @@ h2 {
   margin-bottom: 60px;
 }
 
+@media (max-width: 579px) {
+  .menu-text-a {
+    margin-top: 5px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .homepage-nav {
     margin-top: 30px;
@@ -2605,10 +2611,11 @@ h2 {
 }
 
 .menu-main-link {
-  display: inline-block;
+  display: inline;
+  margin-right: 6px;
+  line-height: 100%;
   margin-bottom: 0px;
-  font-size: 26px;
-  line-height: 32px;
+  font-size: 32px;
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
@@ -2990,7 +2997,9 @@ h2 {
       rgba(0, 0, 0, 0.5)
     ),
     url('../images/CDD_ingresso_2.jpg');
-  background-position: 0px 0px, 0px 0px;
+  background-position:
+    0px 0px,
+    0px 0px;
   background-size: auto, cover;
 }
 
@@ -3520,7 +3529,9 @@ h2 {
   -webkit-transition: -webkit-transform 100ms ease;
   transition: -webkit-transform 100ms ease;
   transition: transform 100ms ease;
-  transition: transform 100ms ease, -webkit-transform 100ms ease;
+  transition:
+    transform 100ms ease,
+    -webkit-transform 100ms ease;
 }
 
 .menu-info-box-2 {
@@ -3662,7 +3673,7 @@ h2 {
 }
 
 .menu-text-a {
-  margin-top: 4px;
+  margin-top: 3px;
   margin-bottom: 5px;
   font-size: 18px;
 }
@@ -4054,14 +4065,16 @@ h2 {
 // woff
 @font-face {
   font-family: 'cdd-repro';
-  src: url('/fonts/cddrepro-regular.woff') format('woff'),
+  src:
+    url('/fonts/cddrepro-regular.woff') format('woff'),
     url('/fonts/cddrepro-regular.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'cdd-repro';
-  src: url('/fonts/cddrepro-regularitalic.woff') format('woff'),
+  src:
+    url('/fonts/cddrepro-regularitalic.woff') format('woff'),
     url('/fonts/cddrepro-regularitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: normal;
   font-style: italic;
@@ -4069,14 +4082,16 @@ h2 {
 
 @font-face {
   font-family: 'cdd-repro';
-  src: url('/fonts/cddrepro-medium.woff') format('woff'),
+  src:
+    url('/fonts/cddrepro-medium.woff') format('woff'),
     url('/fonts/cddrepro-medium.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: medium;
   font-style: normal;
 }
 @font-face {
   font-family: 'cdd-repro';
-  src: url('/fonts/cddrepro-mediumitalic.woff') format('woff'),
+  src:
+    url('/fonts/cddrepro-mediumitalic.woff') format('woff'),
     url('/fonts/cddrepro-mediumitalic.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: medium;
   font-style: italic;
@@ -4084,14 +4099,16 @@ h2 {
 
 @font-face {
   font-family: 'cdd-repro';
-  src: url('/fonts/cddrepro-bold.woff') format('woff'),
+  src:
+    url('/fonts/cddrepro-bold.woff') format('woff'),
     url('/fonts/cddrepro-bold.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'cdd-repro';
-  src: url('/fonts/cddrepro-bolditalic.woff') format('woff'),
+  src:
+    url('/fonts/cddrepro-bolditalic.woff') format('woff'),
     url('/fonts/cddrepro-bolditalic.woff2') format('woff2'); /* Pretty Modern Browsers */
   font-weight: bold;
   font-style: italic;
@@ -4114,7 +4131,9 @@ h1  {
   -webkit-transition: -webkit-transform 300ms ease;
   transition: -webkit-transform 300ms ease;
   transition: transform 300ms ease;
-  transition: transform 300ms ease, -webkit-transform 300ms ease;
+  transition:
+    transform 300ms ease,
+    -webkit-transform 300ms ease;
 }
 
 .carousel-a-slide {
@@ -4170,7 +4189,9 @@ h1  {
   /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, transparent), to(#000)), url('https://d3e54v103j8qbb.cloudfront.net/img/example-bg.png');
   background-image: linear-gradient(180deg, transparent 25%, #000), url('https://d3e54v103j8qbb.cloudfront.net/img/example-bg.png');
  */
-  background-position: 0px 0px, 50% 50%;
+  background-position:
+    0px 0px,
+    50% 50%;
   background-size: auto, cover;
   filter: gray; /* IE5+ */
   -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
@@ -5000,7 +5021,9 @@ div,
   transition: -webkit-transform 0.3s ease;
   -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    -webkit-transform 0.3s ease;
 }
 
 .event-popup-title {
@@ -5329,7 +5352,7 @@ figcaption {
     width: 100%;
   }
   .menu-main-link {
-    font-size: 21px;
+    font-size: 26px;
   }
   .menu-circle-bg {
     right: 81px;
@@ -5846,8 +5869,8 @@ figcaption {
     padding-left: 12px;
   }
   .menu-circle-bg {
-    top: 42px;
-    right: 41px;
+    top: 44px;
+    right: 48px;
   }
   .line-menu-a-1 {
     top: 11%;
@@ -5899,7 +5922,7 @@ figcaption {
     display: none;
   }
   .menu-right-div {
-    top: 180px;
+    top: 100px;
   }
   .footer-sitemap-list-title {
     font-size: 16px;
@@ -6127,7 +6150,9 @@ figcaption {
     border-color: #fff transparent transparent;
     transition: -webkit-transform 0.1s ease;
     transition: transform 0.1s ease;
-    transition: transform 0.1s ease, -webkit-transform 0.1s ease;
+    transition:
+      transform 0.1s ease,
+      -webkit-transform 0.1s ease;
     -webkit-transform-origin: 50% 33%;
     transform-origin: 50% 33%;
     content: '';
