@@ -5088,7 +5088,7 @@ div,
   bottom: auto;
   display: block;
   width: 100%;
-  height: 111px;
+  // height: 111px;
   padding-bottom: 20px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -5104,6 +5104,10 @@ div,
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
+
+  @media screen and (min-width: 767px) {
+    height: 111px;
+  }
 }
 
 .text-link {
@@ -5790,7 +5794,7 @@ figcaption {
     margin-bottom: 30px;
   }
   .container-2 {
-    margin-top: 115px;
+    margin-top: 20px;
   }
   .h1-a {
     margin-bottom: 0px;

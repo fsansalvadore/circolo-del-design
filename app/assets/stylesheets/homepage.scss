@@ -16,7 +16,8 @@
   color: var(--hero-text-color);
 
   @media (max-width: 768px) {
-    height: 250px;
+    min-height: 250px;
+    margin-top: 93px;
   }
 
   .heading-container {
