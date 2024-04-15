@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     :about_circolo,
     :about_team,
     :about_young_board_2021,
+    :about_5x1000,
     :about_sostenitori,
     :about_newsletter,
     :servizi_spazi,
@@ -53,14 +54,18 @@ class PagesController < ApplicationController
   def about_young_board_2021
     @collaborators = Collaborator.where(published: true).order(:position)
   end
-
+  
   def about_sostenitori
   end
   
+  def about_5x1000
+    set_page_with_blocks('cinquepermille')
+  end
+
   def about_newsletter
     set_page_with_blocks('newsletter')
   end
-
+  
   def servizi_aula_studio
   end
   
@@ -86,8 +91,9 @@ class PagesController < ApplicationController
   
   def set_page_with_blocks(slug)
     @page = Page.friendly.find_by_slug(slug)
+
     unless @page.nil?
-      @page_blocks = @page.content_blocks.order(position: :asc) unless @page.nil?
+      @page_blocks = @page.content_blocks.order(position: :asc)
       @meta_data = @page.page_meta_datum
     end
   end

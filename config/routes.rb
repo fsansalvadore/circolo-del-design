@@ -48,16 +48,17 @@ Rails.application.routes.draw do
   get '/about-us/il-circolo'          => 'pages#about_circolo'
   get '/about-us/team'                => 'pages#about_team'
   get '/about-us/young-board-2021'    => 'pages#about_young_board_2021'
+  get '/about-us/5x1000'              => 'pages#about_5x1000'
   get '/about-us/sostenitori'         => 'pages#about_sostenitori'
   get '/about-us/newsletter'          => 'pages#about_newsletter'
 
   # servizi
-  get '/servizi/affitto-spazi'    => 'pages#servizi_affitto_spazi'
-  get '/servizi/spazi'            => 'pages#servizi_spazi'
-  get '/servizi/biblioteca'       => 'pages#servizi_biblioteca'
-  get '/servizi/biblioteca-test'       => 'pages#servizi_biblioteca_test'
-  get '/servizi/aula-studio'      => 'pages#servizi_aula_studio'
-  get '/servizi/spazi'            => 'pages#servizi_spazi'
+  get '/servizi/affitto-spazi'        => 'pages#servizi_affitto_spazi'
+  get '/servizi/spazi'                => 'pages#servizi_spazi'
+  get '/servizi/biblioteca'           => 'pages#servizi_biblioteca'
+  get '/servizi/biblioteca-test'      => 'pages#servizi_biblioteca_test'
+  get '/servizi/aula-studio'          => 'pages#servizi_aula_studio'
+  get '/servizi/spazi'                => 'pages#servizi_spazi'
   
   get '/progetti-di-impatto'                                    => 'special_projects#index', as: :progetti_speciali
   get '/progetti-di-impatto/:slug'                              => 'special_projects#show',  as: :special_project

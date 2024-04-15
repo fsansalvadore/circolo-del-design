@@ -1,5 +1,6 @@
-<% content_for :meta_title, "Newsletter — About — Circolo del Design" %>
+<% content_for :meta_title, "Young Board 2021 — About — Circolo del Design" %>
 <% content_for :meta_description, "La mission del Circolo del Design è la diffusione della cultura del progetto e viene perseguita attraverso la produzione di attività culturali e di formazione." %>
+<% content_for :meta_keywords, "Circolo Del Design, Circolo, Torino, Design, welcome onboard, chi siamo, persone" %>
 
 <%= render 'shared/about-header' %>
 <div class="page-postheader" id="main-content">
@@ -12,8 +13,9 @@
           {title: "Team", path: about_us_team_path, active: ""},
           {title: "Sostenitori", path: about_us_sostenitori_path, active: ""},
           {title: "5x1000", path: about_us_5x1000_path, active: "btn-active-yellow"},
-          {title: "Newsletter", path: about_us_newsletter_path, active: "btn-active-yellow"}
-        ] %>
+          {title: "Newsletter", path: about_us_newsletter_path, active: ""}
+        ]
+          %>
         <% subMenu.each do |s| %>
           <%= render partial: 'shared/sub-link', locals: {item: s} %>
         <% end %>
